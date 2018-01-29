@@ -1,4 +1,5 @@
 # shoppaholic
+-------------------------------------------------------------------------------
 
 ## DATOS DEL GRUPO
 ### Miembros del Grupo 14:
@@ -14,7 +15,7 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 
 ## DATOS DE LA APLICACIÓN WEB
 ### Entidades de bases de datos:
-- Usuario: Nombre, Apellido, ID, Correo, COntraseña, Direcciíin, Teléfono, Imagen
+- Usuario: Nombre, Apellido, ID, Correo, Contraseña, Dirección, Teléfono, Imagen
 - Producto: Precio, Nombre, Descripción, Imagen, Etiqueta, Fecha de Publicación, Stock
 - Pedido: Identificador, Lista de Productos, Precio Total, Estado, Usuario, Fecha
 - Comentario: Producto, Usuario, Contenido, Fecha
