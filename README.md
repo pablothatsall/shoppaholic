@@ -26,3 +26,6 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 - Exportar pedidos (factura o similar) a formato PDF
 
 ### Información a visualizar en Gráficos
+- Productos vendidos por categoría en tarta
+- Proporcion de productos vendidos en tarta
+- Top vendidos en barras
