@@ -24,7 +24,7 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 - Sistema de productos recomendados y relacionados
 
 ### Tecnología avanzada extra
-- Exportar pedidos (factura o similar) a formato PDF
+- Exportar pedidos (factura o similar) a formato PDF y envío por correo
 
 ### Información a visualizar en Gráficos
 - Productos vendidos por categoría en tarta
