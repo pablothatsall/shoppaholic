@@ -43,3 +43,14 @@ body {
     background-color: #1680F8; 
     
 }
+
+#profile{
+    text-align: center;
+
+}
+
+#userphoto{
+    width:200px;
+    height:200px;
+    border-radius:150px;
+}
