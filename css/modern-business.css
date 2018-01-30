@@ -47,7 +47,8 @@ body {
 #profile{
     text-align: center;
     background-color:darkgrey;
-
+    position: relative;
+   
 }
 
 #userphoto{
@@ -61,6 +62,11 @@ body {
     height:50px;
     margin-right: 10px;
     
+}
+
+.btn{
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 
