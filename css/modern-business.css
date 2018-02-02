@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
  */
 
-/* MODERN BUSINESS CSS */
+/******************** MODERN BUSINESS CSS ************************/
 
 body {
   padding-top: 54px;
@@ -31,7 +31,7 @@ body {
   margin-bottom: 30px;
 }
 
-/* END MODERN BUSINESS CSS */ 
+/******************** END MODERN BUSINESS CSS *************************/ 
 
 .navbar{
     background-color: #1C2C3C;
@@ -40,6 +40,7 @@ body {
 
 .navbar-brand{
     color:white;
+    
 }
 .nav-link{
     color: white;
@@ -66,10 +67,10 @@ body {
     margin-bottom: 30px;
 }
 #icon{
-    width:50px;
-    height:50px;
+    width:40px;
+    height:40px;
+    margin-left: 10px;
     margin-right: 10px;
-    
 }
 
 .btn{
@@ -77,9 +78,24 @@ body {
     margin-left: 5px;
     margin-bottom: 5px;
 }
-#searchform{
-    text-align:center ;
-}
+
+
+    /* SEARCH FORM */
+    #searchform{
+        text-align: center;
+        margin-left: 25px;
+    }
+    #search{
+        border-radius: 5px;
+    }
+
+    #searchterm{
+        border-radius: 5px;
+        width: 500px;
+    }
+
+
+
 #im{
     width: 60px;
     height: 60px;
@@ -95,10 +111,11 @@ body {
     width: 50px;
     height: 50px;
     margin-top: 30px;
-  }
+}
+
 #titulo{
     padding-top: 40px;
-  }
+}
 
 
 
