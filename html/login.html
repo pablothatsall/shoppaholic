@@ -8,15 +8,32 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-  	<title>login</title>
+  	<title>Shoppaholic</title>
 
  <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="../img/logo.png"/>
+    <link rel="icon" type="image/png" href="aaaa.png"/>
     <!-- Custom styles for this template -->
     <link href="../css/modern-business.css" rel="stylesheet">
 </head>
 
+<style type="text/css">
+
+	#letra {
+		margin-left: 90px;
+	}
+	#bot{
+		margin-left: 30px;
+	}
+	#im{
+		width: 60px;
+		height: 60px;
+		margin-top: 20px;
+	}
+	#titulo{
+		padding-top: 40px;
+	}
+</style>
 
 <body>
 
@@ -24,13 +41,18 @@
 	    <div class="row">
 	    	<div class="col-md-4 col-md-offset-4">
 	    		<div class="panel panel-default">
-				  	<div class="panel-heading">
-				    	<h3 class="panel-title">Sign In</h3>
+				  	<div class="form-row">
+				  		<div class="col-md-4">
+				  			<h3 id="titulo" class="panel-title">Log In</h3>
+				  		</div>
+				    	<div class="col-md-4">
+				    	<a href="../index.html"><img id="im" src="../img/logo.png""></a>
+				    	</div>
 				 	</div>
 				  	<div class="panel-body">
 				    	<form accept-charset="UTF-8" role="form">
 	                    <fieldset>
-	                    	<h6>Email</h6>
+	                    	<h6>E-mail</h6>
 				    	  	<div class="form-group">
 				    		    <input class="form-control" name="email" type="text">
 				    		</div>
@@ -43,10 +65,14 @@
 				    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
 				    	    	</label>
 				    	    </div>
-				    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Log In">
+				    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
 				    	</fieldset>
 				      	</form>
 	                      <hr/>
+	                    <div>
+	                    	<p id="letra">New to Shoppaholic?</p>
+	                    	<button id="bot" type="button" class="btn btn-primary">Create your Shoppaholic account</button>
+	                    </div>
 				    </div>
 				</div>
 			</div>
@@ -61,8 +87,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     
     </body>
 </html>
