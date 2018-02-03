@@ -7,115 +7,135 @@
 /******************** MODERN BUSINESS CSS ************************/
 
 body {
-  padding-top: 54px;
-  background-color: whitesmoke;
+    padding-top: 54px;
+    background-color: whitesmoke;
 }
 
 @media (min-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
+    body {
+        padding-top: 56px;
+    }
 }
 
 .carousel-item {
-  height: 65vh;
-  min-height: 300px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+
 
 .portfolio-item {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
-/******************** END MODERN BUSINESS CSS *************************/ 
+/******************** END MODERN BUSINESS CSS *************************/
 
-.navbar{
+.navbar {
     background-color: #1C2C3C;
     color: whitesmoke;
 }
 
-.navbar-brand{
-    color:white;
-    
+.navbar-brand {
+    color: white;
+
 }
-.nav-link{
+
+.nav-link {
     color: white;
 }
 
-.py-5{
-    background-color: #1C2C3C; 
-    
+.py-5 {
+    background-color: #1C2C3C;
+
 }
 
-#profile{
+#profile {
     text-align: center;
-   
+
     position: relative;
-    margin-bottom:-16px;
-   
+    margin-bottom: -16px;
+
 }
 
-#userphoto{
-    width:200px;
-    height:200px;
-    border-radius:150px;
-    margin-top:30px;
+#userphoto {
+    width: 200px;
+    height: 200px;
+    border-radius: 150px;
+    margin-top: 30px;
     margin-bottom: 30px;
 }
-#icon{
-    width:40px;
-    height:40px;
+
+#icon {
+    width: 40px;
+    height: 40px;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.btn{
+.btn {
     margin-right: 5px;
     margin-left: 5px;
     margin-bottom: 5px;
 }
 
 
-    /* SEARCH FORM */
-    #searchform{
-        text-align: center;
-        margin-left: 25px;
-    }
-    #search{
-        border-radius: 5px;
-    }
+/* SEARCH FORM */
 
-    #searchterm{
-        border-radius: 5px;
-        width: 500px;
-    }
+#searchform {
+    text-align: center;
+    margin-left: 25px;
+}
+
+#search {
+    border-radius: 5px;
+}
+
+#searchterm {
+    border-radius: 5px;
+    width: 500px;
+}
+
+#card-image{
+    padding: 0px;
+    object-fit: cover;
+    
+}
+
+#product-card{
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    
+}
+
+.card-text{
+    overflow: hidden;
+    text-overflow: ellipsis
+}
 
 
-
-#im{
+#im {
     width: 60px;
     height: 60px;
     padding-bottom: 5px;
-  }
+}
+
 #letra {
     margin-left: 90px;
-  }
-#bot{
+}
+
+#bot {
     margin-left: 30px;
-  }
-#img{
+}
+
+#img {
     width: 50px;
     height: 50px;
     margin-top: 30px;
 }
 
-#titulo{
+#titulo {
     padding-top: 40px;
 }
-
-
-
