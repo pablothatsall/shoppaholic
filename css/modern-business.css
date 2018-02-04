@@ -141,3 +141,29 @@ body {
 #titulo {
     padding-top: 40px;
 }
+
+.img-fluid{
+    max-width: 200px;
+    max-height: 200px;
+    vertical-align: middle;
+}
+
+#orderImage{
+    text-align: center;
+}
+
+#cartSummary{
+    background-color: whitesmoke;
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-width: 50px;
+}
+
+#cartSummary>.row{
+    margin-left: 5px;
+}
+
+.assets{
+    vertical-align: middle;
+}
