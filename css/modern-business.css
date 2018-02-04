@@ -104,15 +104,17 @@ body {
     object-fit: cover;
     
 }
+#product-list1{
+}
 
 #product-card{
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    
+    max-height: 360px;
 }
 
 .card-text{
     overflow: hidden;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
 }
 
 
