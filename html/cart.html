@@ -8,122 +8,214 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>1 Col Portfolio - Start Bootstrap Template</title>
+    <title>Shopaholic</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../img/logo.png" />
     <!-- Custom styles for this template -->
-    <link href="css/1-col-portfolio.css" rel="stylesheet">
+    <link href="../css/modern-business.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/open-iconic-bootstrap.css" rel="stylesheet">
 
   </head>
 
   <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../html/index.html"><img id="icon" src="../img/logo.png">SHOPPAHOLIC</a>
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><img id="icon" src="../img/menuicon.png"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="field" id="searchform">
+                    <input type="text" id="searchterm" placeholder="What are you searching for?" />
+                    <button type="button" id="search">Search</button>
+                </div>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/UserProfile.html">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">My Cart<img id="icon" src="../img/carrito.png"></a>
+                    </li>
+                </ul>
+
+            </div>
         </div>
-      </div>
     </nav>
 
     <!-- Page Content -->
     <div class="container">
 
       <!-- Page Heading -->
-      <h1 class="my-4">Page Heading
-        <small>Secondary Text</small>
+      <h1 class="my-4">Products in your cart:
+        <small> 4</small>
       </h1>
 
       <!-- Project One -->
-      <div class="row">
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
-          </a>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="orderProducts">
+                    <div class="row">
+                        <div class="col-md-3" id="orderImage">
+                            <a href="#">
+                                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/300x300" alt="">
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                          <h5>Name of the Product</h5>
+                            <p>Here goes the description of the product above. You can specify its use, measures, characteristics, etc. The owner of every product in the shop is Shoppaholic. </p>
+                            <div class="assets">
+                                <label><strong>Price: </strong>24.53€</label>
+                                <div class="btn-group float-md-right">
+                                    <a class="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"></span></a>
+                                    <select class="custom-select">
+                                        <option selected>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-3" id="orderImage">
+                            <a href="#">
+                                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/150x200" alt="">
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                          <h5>Name of the Product</h5>  
+                            <p>Here goes the description of the product above. You can specify its use, measures, characteristics, etc. The owner of every product in the shop is Shoppaholic.</p>
+                            <div class="assets">
+                                <label><strong>Price: </strong>24.53€</label>
+                                <div class="btn-group float-md-right">
+                                    <a class="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"></span></a>
+                                    <select class="custom-select">
+                                        <option selected>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" >
+                        <div class="col-md-3" id="orderImage">
+                            <a href="#">
+                                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/350x400" alt="">
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                            <div>
+                              <h5>Name of the Product</h5>
+                                <p>Here goes the description of the product above. You can specify its use, measures, characteristics, etc. The owner of every product in the shop is Shoppaholic.</p>
+                            </div>
+                            <div class="assets">
+                                <label><strong>Price: </strong>24.53€</label>
+                                <div class="btn-group float-md-right">
+                                    <a class="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"></span></a>
+                                    <select class="custom-select">
+                                        <option selected>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" >
+                        <div class="col-md-3 orderImage" id="orderImage">
+                            <a href="#">
+                                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/600x700" alt="">
+                            </a>
+                        </div>
+                        <div class="col-md-8">
+                          <h5>Name of the Product</h5>
+                            <p>Here goes the description of the product above. You can specify its use, measures, characteristics, etc. The owner of every product in the shop is Shoppaholic.</p>
+                                <div class="assets">
+                                    <label><strong>Price: </strong>24.53€</label>
+                                    <div class="btn-group float-md-right">
+                                        <a class="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"></span></a>
+                                        <select class="custom-select">
+                                            <option selected>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                        </select>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="orderPersonalisation">
+                    <h6>Fill the fields below in case they are the different to the ones that you registered with:</h6>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Shipping Address</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Telephone Number</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Number" aria-label="Number" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Email Address</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="E-mail" aria-label="Number" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 border border-primary" id="cartSummary">
+                <div class="row" id="cartSummaryTitle"><h4>Cart summary:</h4></div>
+                <div class="row"><p><strong>Number of products:</strong> 4</p></div>
+                <div class="row"><p><strong>Total Price:</strong> 45.78€</p></div>
+                <div class="row"><p><strong>Shipping Price:</strong> FREE</p></div>
+                <a class="btn btn-primary" href="payment.html">Proceed to pay</a>
+            </div>
         </div>
-        <div class="col-md-5">
-          <h3>Project One</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-          <a class="btn btn-primary" href="#">View Project</a>
-        </div>
-      </div>
-      <!-- /.row -->
-
-      <hr>
-
-      <!-- Project Two -->
-      <div class="row">
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h3>Project Two</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-          <a class="btn btn-primary" href="#">View Project</a>
-        </div>
-      </div>
-      <!-- /.row -->
-
-      <hr>
-
-      <!-- Project Three -->
-      <div class="row">
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h3>Project Three</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-          <a class="btn btn-primary" href="#">View Project</a>
-        </div>
-      </div>
-      <!-- /.row -->
-
-      <hr>
-
-      <!-- Project Four -->
-      <div class="row">
-
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h3>Project Four</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-          <a class="btn btn-primary" href="#">View Project</a>
-        </div>
-      </div>
-      <!-- /.row -->
-
-      <hr>
+    </div>
+        
 
       <!-- Pagination -->
       <ul class="pagination justify-content-center">
@@ -149,21 +241,19 @@
           </a>
         </li>
       </ul>
-
-    </div>
-    <!-- /.container -->
+      <br>
+      <br>
+      <br>
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-      </div>
+    <footer class="footer bg-dark fixed-bottom">
+        <p class="footerText text-center text-white">Copyright &copy; Your Website 2018</p>
       <!-- /.container -->
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 
