@@ -37,7 +37,7 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 
 ##### Index
 
-![alt text](https://github.com/pablothatsall/shoppaholic/to/capturas/index)
+![alt text](https://github.com/pablothatsall/shoppaholic/capturas/to/index)
 ![alt text](https://github.com/pablothatsall/shoppaholic/to/index2.png)
 
 - Pagina principal de la web, compuesta por un contenedor dinamico con varias imagenes principales, apartado de productos destacados, recomendaciones, productos mas vendidos del mes y categorias.
