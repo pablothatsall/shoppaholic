@@ -14,7 +14,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	List<Customer> findByDescription(String description);
     
-    List<Customer> findByDate(String pDate);
     
     List<Customer> finByImageUrl(String imageUrl);
 	

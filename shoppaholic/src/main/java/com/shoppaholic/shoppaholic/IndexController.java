@@ -8,14 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 	
-	@Autowired
-	private ProductRepository ProductRepository;
-	
-	@Autowired
-	private OrderRepository orderRepository;
-	
-	@Autowired
-	private CustomerRepository customerRepository;
+
 	
 	
 	@RequestMapping("/")
