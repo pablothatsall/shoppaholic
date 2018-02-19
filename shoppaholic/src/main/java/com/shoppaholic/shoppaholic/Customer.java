@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -27,12 +28,15 @@ public class Customer {
     private String address;
     private long telephone;
     private String imageUrl;
+	private ArrayList<Order> myOrders = new ArrayList<>();
+
+
 
 	protected Customer() {
 		// Used by SpringData
 	}
 
-	public Customer(String firstName, String lastName, String mail, String password, String address, long phone, String imageUrl) {
+	public Customer(String firstName, String lastName, String mail, String password, String address, long phone, String imageUrl,  ArrayList<Order> myOrders) {
 		this.firstName = firstName;
 		this.lastName = lastName;
         this.mail = mail;
@@ -40,6 +44,8 @@ public class Customer {
         this.address = address;
         this.telephone = phone;
         this.imageUrl = imageUrl;
+        this.telephone = phone;
+        this.myOrders = myOrders;
 	}
 
 	public String getFirstName() {
@@ -68,6 +74,14 @@ public class Customer {
 
 	public String getLastName() {
 		return lastName;
+	}
+	
+	public List<Order> getMyOrders() {
+		return myOrders;
+	}
+
+	public void setMyOrders(ArrayList<Order> myOrders) {
+		this.myOrders = myOrders;
 	}
 
 	@Override

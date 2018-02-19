@@ -1,10 +1,13 @@
 package com.shoppaholic.shoppaholic;
 
+import java.util.ArrayList;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -20,12 +23,24 @@ public class IndexController {
 	
 	@PostConstruct
 	public void init() {
-		productRepository.save(new Product("FIFA", 45, "Best football simulator","Videogames","18/10/2017","https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg"));
+		Product fifa= new Product("FIFA", 45, "Best football simulator","Videogames","18/10/2017","https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg");
+		productRepository.save(fifa);
 		productRepository.save(new Product("FARCRY Primal", 30, "Survive ","Videogames","2/12/2017","https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg"));
 		productRepository.save(new Product("NBA", 34.99, "Play basketball ","Videogames","5/12/2017","https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg"));
 		productRepository.save(new Product("Pioneer cdj-2000nxs2", 2290.99, "For DJing ","Music","8/12/2017","https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg"));
 		
-		customerRepository.save(new Customer("Ruben","Iglesias","chubi13ri@hotmail.com","Chubiholic","c/Aprobado",666666666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg"));
+		ArrayList<Product> products = new ArrayList<Product>();
+		Order o = new Order(products,"Pending","Chubi","12/7/2018",12);
+
+		ArrayList<Order> orders = new ArrayList<>();
+		
+		Customer c= new Customer("Ruben","Iglesias","chubi13ri@hotmail.com","Chubiholic","c/Aprobado",666666666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg",orders );
+		customerRepository.save(c);
+		
+		
+		
+		
+	
 		
 	}
 	
@@ -45,8 +60,10 @@ public class IndexController {
 	public String signupStart(Model model) {
 		return "signUp";
 	}
-	@RequestMapping("/product")
-	public String productStart(Model model) {
+	@RequestMapping("/product/{id}")
+	public String productStart(Model model, @PathVariable long id) {
+		Product p=productRepository.findOne(id);
+		model.addAttribute("product", productRepository.findById(id));
 		return "product";
 	}
 	@RequestMapping("/search")
@@ -63,7 +80,7 @@ public class IndexController {
 		model.addAttribute("orders", orderRepository.findAll());
 		return "orderlist";
 	}
-	@RequestMapping("/order")
+	@RequestMapping("/order/{id}")
 	public String orderStart(Model model) {
 		return "order";
 	}
