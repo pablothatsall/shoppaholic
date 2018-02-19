@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +29,7 @@ public class IndexController {
 		productRepository.save(new Product("FARCRY Primal", 30, "Survive ","Videogames","2/12/2017","https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg"));
 		productRepository.save(new Product("NBA", 34.99, "Play basketball ","Videogames","5/12/2017","https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg"));
 		productRepository.save(new Product("Pioneer cdj-2000nxs2", 2290.99, "For DJing ","Music","8/12/2017","https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg"));
+		productRepository.save(new Product("Medion S91 - Ordenador de sobremesa", 1071.18, "Intel Core i7-6700 | 8 GB RAM | 1 TB HDD","Electronic","11/12/2017","https://images-na.ssl-images-amazon.com/images/I/91jemD9L-OL._SL1500_.jpg"));
 		
 		ArrayList<Product> products = new ArrayList<Product>();
 		Order o = new Order(products,"Pending","Chubi","12/7/2018",12);
@@ -47,7 +49,7 @@ public class IndexController {
 	@RequestMapping("/")
 	public String mainStart(Model model) {
 		
-		model.addAttribute("products", productRepository.findAll());
+		model.addAttribute("products", productRepository.findAll(new PageRequest(0,4)));
 		return "index";
 	}
 	
@@ -78,7 +80,7 @@ public class IndexController {
 	
 	@RequestMapping("/search")
 	public String searchStart(Model model) {
-		model.addAttribute("products", productRepository.findAll());
+		model.addAttribute("products", productRepository.findAll(new PageRequest(0,8)));
 		return "search";
 	}
 	@RequestMapping("/payment")
