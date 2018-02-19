@@ -36,10 +36,10 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="userprofile.html">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                        <a class="nav-link" href="/userprofile">My Profile<img id="icon" src="../img/userIcon.png"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cart.html">My Cart<img id="icon" src="../img/carrito.png"></a>
+                        <a class="nav-link" href="/cart">My Cart<img id="icon" src="../img/carrito.png"></a>
                     </li>
                 </ul>
 
@@ -55,7 +55,9 @@
       <h1 class="my-4">Order Products: 
         <small>3</small>
       </h1>
-
+{{#order}}
+{{list}}
+{{/order}}
       <!-- Project One -->
       <div class="row" >
         <div class="col-md-3" id="orderImage">
