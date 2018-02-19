@@ -25,7 +25,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><img id="icon" src="../img/logo.png">SHOPPAHOLIC</a>
+            <a class="navbar-brand" href="/"><img id="icon" src="../img/logo.png">SHOPPAHOLIC</a>
 
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"><img id="icon" src="../img/menuicon.png"></span>
@@ -108,109 +108,41 @@
     <div class="container-fluid">
 
         <h3 class="my-4">Our products</h3>
+       
+     
         <!-- Marketing Icons Section -->
         <div id="product-list1" class="row">
+         {{#products}}
             <div class="col-lg-3 portfolio-item">
                 <div id="product-card" class="card h-100">
                     <div class="card-header">
-                        <img id="card-image" src="http://placehold.it/700x400" class="card-img-top">
+                    	<a href="/product/{{id}}">
+                        <img id="card-image" src={{imageUrl}} class="card-img-top">
+                        </a>
                     </div>
                     <div class="card-block">
-                        <h6 class="card-title" style="padding-top:12px">The devil will come</h6>
-                        <p class="card-text">New from the internationally bestselling thriller writer Glenn Cooper, whose books have sold more then 6 million copies worldwide, comes The Devil Will Come. 
-
-                        The stars move still, time runs, the clock will strike, 
-                        The Devil will come, and Faustus must be damned. </p>
+                        <h6 class="card-title" style="padding-top:12px">{{name}}</h6>
+                        <p class="card-text">{{description}}</p>
 
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <a href="product.html" class="btn btn-primary">Check it!</a>
+                                    <a href="/product/{{id}}" class="btn btn-primary">Check it!</a>
                                 </div>
                                 <div class="col-md-7">
-                                    <h2 id="card-price">$19'99</h2>
+                                    <h2 id="card-price">{{price}}€</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 portfolio-item">
-                <div id="product-card" class="card h-100">
-                    <div class="card-header">
-                        <img id="card-image" src="http://placehold.it/700x400" class="card-img-top">
-                    </div>
-                    <div class="card-block">
-                        <h6 class="card-title" style="padding-top:12px">The devil will come</h6>
-                        <p class="card-text">New from the internationally bestselling thriller writer Glenn Cooper, whose books have sold more then 6 million copies worldwide, comes The Devil Will Come. 
-
-                        The stars move still, time runs, the clock will strike, 
-                        The Devil will come, and Faustus must be damned. </p>
-
-
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <a href="product.html" class="btn btn-primary">Check it!</a>
-                                </div>
-                                <div class="col-md-7">
-                                    <h2 id="card-price">$19'99</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            {{/products}}  
             </div>
-            <div class="col-lg-3  portfolio-item">
-                <div id="product-card" class="card h-100">
-                    <div class="card-header">
-                        <img id="card-image" src="http://placehold.it/700x400" class="card-img-top">
-                    </div>
-                    <div class="card-block">
-                        <h6 class="card-title" style="padding-top:12px">The devil will come</h6>
-                        <p class="card-text">New from the internationally bestselling thriller writer Glenn Cooper, whose books have sold more then 6 million copies worldwide, comes The Devil Will Come. 
-
-                        The stars move still, time runs, the clock will strike, 
-                        The Devil will come, and Faustus must be damned. </p>
-
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <a href="product.html"  class="btn btn-primary">Check it!</a>
-                                </div>
-                                <div class="col-md-7">
-                                    <h2 id="card-price">$19'99</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3  portfolio-item">
-                <div id="product-card" class="card h-100">
-                    <div class="card-header">
-                        <img id="card-image" src="http://placehold.it/700x400" class="card-img-top">
-                    </div>
-                    <div class="card-block">
-                        <h6 class="card-title" style="padding-top:12px">The devil will come</h6>
-                        <p class="card-text">New from the internationally bestselling thriller writer Glenn Cooper, whose books have sold more then 6 million copies worldwide, comes The Devil Will Come. 
-
-                        The stars move still, time runs, the clock will strike, 
-                        The Devil will come, and Faustus must be damned. </p>
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <a href="product.html"  class="btn btn-primary">Check it!</a>
-                                </div>
-                                <div class="col-md-7">
-                                    <h2 id="card-price">$19'99</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            
+            
+           
+            
         </div>
         <!-- /.row -->
 
@@ -294,6 +226,7 @@
                 </div>
             </div>
 
+        </div>
         </div>
         <!-- /.row -->
 
