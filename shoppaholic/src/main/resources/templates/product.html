@@ -86,25 +86,26 @@
         <div class="col-lg-9">
 
           <div class="card mt-4">
-            <img class="card-img-top img-fluid" src="../img/camara.png" alt="">
+          {{#product}}
+            <img class="card-img-top img-fluid" src={{imageUrl}} alt="">
             <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="card-title">Sony A6000</h3>
+                    <h3 class="card-title">{{name}}</h3>
                 </div>
                 <div class="col-md-3">
-                    <h2 style="text-align: right">$598.00</h2>
+                    <h2 style="text-align: right">{{Price}}</h2>
                 </div>
                 <div class="col-md-1" style="text-align: right">
                     <a href="cart.html" class="btn btn-primary">Add to my cart</a>
                 </div>
             </div>
-              <p class="card-text">Mirrorless Digitial Camera 24.3MP SLR Camera with 3.0-Inch LCD (Black) w/ 16-50mm Power Zoom Lens</p>
+              <p class="card-text">{{description}}</p>
             </div>
             <div class="row">
                 <div class="col-md-6"></div>
                 
-              </div>
+              </div>{{/product}}
           </div>
           <!-- /.card -->
 
