@@ -28,7 +28,7 @@ public class IndexController {
 	@RequestMapping("/")
 	public String mainStart(Model model) {
 		
-		model.addAttribute("productos", productRepository.findAll());
+		model.addAttribute("products", productRepository.findAll());
 		return "index";
 	}
 	
@@ -47,7 +47,7 @@ public class IndexController {
 	}
 	@RequestMapping("/search")
 	public String searchStart(Model model) {
-		model.addAttribute("productos", productRepository.findAll());
+		model.addAttribute("products", productRepository.findAll());
 		return "search";
 	}
 	@RequestMapping("/payment")
@@ -56,6 +56,7 @@ public class IndexController {
 	}
 	@RequestMapping("/orderlist")
 	public String orderlistStart(Model model) {
+		model.addAttribute("orders", orderRepository.findAll());
 		return "orderlist";
 	}
 	@RequestMapping("/order")
