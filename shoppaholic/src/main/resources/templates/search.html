@@ -56,10 +56,11 @@
       <h1 class="my-4">Results by search: 
         <small>  Searched Text</small>
       </h1>
-	{{#productos}}
+	
 	
 	
       <div class="row">
+      {{#products}}
         <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://lorempixel.com/1900/1080" alt=""></a>
@@ -68,13 +69,14 @@
                 <a href="#">{{name}}</a>
               </h4>
               <p class="card-text">{{description}}</p>
+              <p class="card-text">{{price}}€</p>
             </div>
           </div>
         </div>
-     
+           {{/products}}
       </div>
       
-      {{/productos}}
+
       <!-- /.row -->
 
       <!-- Pagination -->
