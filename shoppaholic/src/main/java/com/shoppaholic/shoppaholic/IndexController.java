@@ -69,7 +69,7 @@ public class IndexController {
 	
 
 	// El siguiente request es para los casos sin id (solo para pruebas, este al final debería ser eliminado
-	@RequestMapping("/product/")
+	@RequestMapping("/product")
 	public String productStart(Model model) {
 
 		return "product";
