@@ -23,7 +23,7 @@ public class Product {
 		// Used by SpringData
 	}
 
-	public Product(String name, double price,  String description, String label, String pDate, String imageUrl) {
+	public Product(String name, double price, String description, String label, String pDate, String imageUrl) {
 		this.name = name;
 		this.price = price;
         this.description = description;
