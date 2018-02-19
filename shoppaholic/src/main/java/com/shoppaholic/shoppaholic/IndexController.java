@@ -31,7 +31,7 @@ public class IndexController {
 		
 		ArrayList<Product> products = new ArrayList<Product>();
 		Order o = new Order(products,"Pending","Chubi","12/7/2018",12);
-
+		
 		ArrayList<Order> orders = new ArrayList<>();
 		
 		Customer c= new Customer("Ruben","Iglesias","chubi13ri@hotmail.com","Chubiholic","c/Aprobado",666666666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg",orders );
@@ -77,11 +77,12 @@ public class IndexController {
 	}
 	@RequestMapping("/orderlist")
 	public String orderlistStart(Model model) {
-		model.addAttribute("orders", orderRepository.findAll());
+		
 		return "orderlist";
 	}
 	@RequestMapping("/order/{id}")
-	public String orderStart(Model model) {
+	public String orderStart(Model model, @PathVariable long id) {
+		model.addAttribute("orders", productRepository.findById(id));
 		return "order";
 	}
 	@RequestMapping("/login")

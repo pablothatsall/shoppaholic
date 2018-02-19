@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
 	
-	List<Customer> findByList(String list);
+	List<Customer> findById(Long id);
 	
 	List<Customer> findByTotalPrice(double totalPrice);
 	
