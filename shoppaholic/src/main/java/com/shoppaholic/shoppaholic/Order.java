@@ -1,5 +1,7 @@
 package com.shoppaholic.shoppaholic;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +14,7 @@ public class Order {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	private String list;
+	private ArrayList<Product> list;
 	private double totalPrice;
     private String status;
     private String user;
@@ -22,7 +24,7 @@ public class Order {
 		// Used by SpringData
 	}
 
-	public Order(String list, String status, String user, String date, double totalPrice) {
+	public Order(ArrayList<Product> list, String status, String user, String date, double totalPrice) {
 		this.list = list;
 		this.totalPrice = totalPrice;
         this.status = status;
@@ -30,7 +32,7 @@ public class Order {
         this.date = date;
 	}
 
-	public String getList() {
+	public ArrayList<Product> getList() {
 		return list;
 	}
 

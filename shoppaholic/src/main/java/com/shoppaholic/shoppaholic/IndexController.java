@@ -21,9 +21,11 @@ public class IndexController {
 	@PostConstruct
 	public void init() {
 		productRepository.save(new Product("FIFA", 45, "Best football simulator","Videogames","18/10/2017","https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg"));
-		productRepository.save(new Product("FARCRY Prima", 30, "Survive ","Videogames","2/12/2017","https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg"));
+		productRepository.save(new Product("FARCRY Primal", 30, "Survive ","Videogames","2/12/2017","https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg"));
 		productRepository.save(new Product("NBA", 34.99, "Play basketball ","Videogames","5/12/2017","https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg"));
 		productRepository.save(new Product("Pioneer cdj-2000nxs2", 2290.99, "For DJing ","Music","8/12/2017","https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg"));
+		
+		customerRepository.save(new Customer("Ruben","Iglesias","chubi13ri@hotmail.com","Chubiholic","c/Aprobado",666666666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg"));
 		
 	}
 	
