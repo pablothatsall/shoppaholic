@@ -32,11 +32,6 @@ public class IndexController {
 		return "index";
 	}
 	
-	@RequestMapping("/index")
-	public String indexStart(Model model) {
-		return "index";
-	}
-	
 	@RequestMapping("/userprofile")
 	public String userStart(Model model) {
 		return "userprofile";
@@ -52,6 +47,7 @@ public class IndexController {
 	}
 	@RequestMapping("/search")
 	public String searchStart(Model model) {
+		model.addAttribute("productos", productRepository.findAll());
 		return "search";
 	}
 	@RequestMapping("/payment")
