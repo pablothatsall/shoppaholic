@@ -20,12 +20,15 @@ public class IndexController {
 	
 	@PostConstruct
 	public void init() {
-		productRepository.save(new Product("FIFA", 45.0, "El mejor simulador de fútbol","Videojuegos","18/10/2017","https://images-eu.ssl-images-amazon.com/images/I/51D3CEXmKjL._SL500_AC_SS250_.jpg"));
-		 productRepository.save(new Product("PUBG", 30.0, "Sobrevive ","Vieojuegos","2/12/2017","https://images-na.ssl-images-amazon.com/images/I/51P14ZPWsoL._AC_UL160_.jpg"));
+		productRepository.save(new Product("FIFA", 45, "Best football simulator","Videogames","18/10/2017","https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg"));
+		productRepository.save(new Product("PUBG", 30, "Survive ","Videogames","2/12/2017","https://images-na.ssl-images-amazon.com/images/I/91XsDUSFTyL._SY500_.jpg"));
+		productRepository.save(new Product("NBA", 34.99, "Play basketball ","Videogames","5/12/2017","https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg"));
 	}
 	
 	@RequestMapping("/")
 	public String mainStart(Model model) {
+		
+		model.addAttribute("productos", productRepository.findAll());
 		return "index";
 	}
 	
