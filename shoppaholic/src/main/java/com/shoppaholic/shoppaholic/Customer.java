@@ -4,7 +4,9 @@ package com.shoppaholic.shoppaholic;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,6 +31,9 @@ public class Customer {
     private long telephone;
     private String imageUrl;
 	private ArrayList<Order> myOrders = new ArrayList<>();
+	
+	@ElementCollection(fetch = FetchType.EAGER) 
+	private List<String> roles = new ArrayList<>();;
 
 
 
@@ -36,7 +41,7 @@ public class Customer {
 		// Used by SpringData
 	}
 
-	public Customer(String firstName, String lastName, String mail, String password, String address, long phone, String imageUrl,  ArrayList<Order> myOrders) {
+	public Customer(String firstName, String lastName, String mail, String password, String address, long phone, String imageUrl,  ArrayList<Order> myOrders, String rol) {
 		this.firstName = firstName;
 		this.lastName = lastName;
         this.mail = mail;
@@ -46,6 +51,16 @@ public class Customer {
         this.imageUrl = imageUrl;
         this.telephone = phone;
         this.myOrders = myOrders;
+        this.roles.add(rol);
+	}
+
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -82,6 +97,15 @@ public class Customer {
 
 	public void setMyOrders(ArrayList<Order> myOrders) {
 		this.myOrders = myOrders;
+	}
+	
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 
 	@Override
