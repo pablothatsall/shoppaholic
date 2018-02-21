@@ -36,7 +36,7 @@ public class IndexController {
 		
 		ArrayList<Order> orders = new ArrayList<>();
 		
-		Customer c= new Customer("Ruben","Iglesias","chubi13ri@hotmail.com","Chubiholic","c/Aprobado",666666666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg",orders );
+		Customer c= new Customer("Ruben","Iglesias","chubi13ri@hotmail.com","Chubiholic","c/Aprobado",666666666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg",orders, "USER" );
 		customerRepository.save(c);
 		
 		
