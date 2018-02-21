@@ -4,6 +4,7 @@ package com.shoppaholic.shoppaholic;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,29 +19,41 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Customer {
-
+	public interface Basic {}
+	
+	public interface Orders{}
+	
+	public interface Products{}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-
+	@JsonView(Basic.class)
 	private String firstName;
+	@JsonView(Basic.class)
 	private String lastName;
+	@JsonView(Basic.class)
     private String mail;
+	@JsonView(Basic.class)
     private String password;
+	@JsonView(Basic.class)
     private String address;
+	@JsonView(Basic.class)
     private long telephone;
+	@JsonView(Basic.class)
     private String imageUrl;
-	private ArrayList<Order> myOrders = new ArrayList<>();
+	@JsonView(Orders.class)
+    @OneToMany(cascade = CascadeType.ALL)
+	private List<Order> myOrders = new ArrayList<>();
 	
-	@ElementCollection(fetch = FetchType.EAGER) 
-	private List<String> roles = new ArrayList<>();;
+
 
 
 	protected Customer() {
 		// Used by SpringData
 	}
 
-	public Customer(String firstName, String lastName, String mail, String password, String address, long phone, String imageUrl,  ArrayList<Order> myOrders, String rol) {
+	public Customer(String firstName, String lastName, String mail, String password, String address, long phone, String imageUrl, List<Order> myOrders, String rol) {
 		this.firstName = firstName;
 		this.lastName = lastName;
         this.mail = mail;
@@ -50,7 +63,7 @@ public class Customer {
         this.imageUrl = imageUrl;
         this.telephone = phone;
         this.myOrders = myOrders;
-        this.roles.add(rol);
+        
 	}
 	
 	public long getId() {
@@ -93,18 +106,12 @@ public class Customer {
 		return myOrders;
 	}
 
-	public void setMyOrders(ArrayList<Order> myOrders) {
+	public void setMyOrders(List<Order> myOrders) {
 		this.myOrders = myOrders;
 	}
 	
 
-	public List<String> getRoles() {
-		return roles;
-	}
 
-	public void setRoles(List<String> roles) {
-		this.roles = roles;
-	}
 
 	@Override
 	public String toString() {

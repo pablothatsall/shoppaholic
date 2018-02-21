@@ -1,39 +1,71 @@
 package com.shoppaholic.shoppaholic;
 
+
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonView;
+import com.shoppaholic.shoppaholic.Product.Basic;
+
+import java.util.List;
 
 @Entity
 public class Order {
-
+	public interface Basic {}
+	
+	public interface Customers{}
+	
+	public interface Products{}
+	
+	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-
-	private ArrayList<Product> list;
-	private double totalPrice;
-    private String status;
-    private String user;
-    private String date;
+		private long id;
+	@JsonView(Basic.class)
+		private double totalPrice;
+	@JsonView(Basic.class)
+    	private String status;
+	@JsonView(Basic.class)
+    	private String user;
+	@JsonView(Basic.class)
+    	private String date;
+	@JsonView(Products.class)
+    @OneToMany(cascade = CascadeType.ALL)
+		private List<Product> productsofOrder = new ArrayList<>();
 
 	protected Order() {
 		// Used by SpringData
 	}
 
-	public Order(ArrayList<Product> list, String status, String user, String date, double totalPrice) {
-		this.list = list;
+
+
+
+
+	public Order(double totalPrice, String status, String user, String date, List<Product> productsofOrder) {
+		super();
 		this.totalPrice = totalPrice;
-        this.status = status;
-        this.user = user;
-        this.date = date;
+		this.status = status;
+		this.user = user;
+		this.date = date;
+		this.productsofOrder = productsofOrder;
 	}
 
-	public ArrayList<Product> getList() {
-		return list;
+
+
+
+
+
+	public List<Product> getList() {
+		return productsofOrder;
 	}
 
     public String getStatus() {
@@ -48,10 +80,10 @@ public class Order {
         return date;
     }
     public void addProduct(Product product) {
-    	this.list.add(product);
+    	this.productsofOrder.add(product);
     }
 	@Override
 	public String toString() {
-		return String.format("Customer[id=%d, list='%s', totalPrice='%s', status='%s', user='%s', date='%s' ]",id, list, totalPrice, status, user, date);
+		return String.format("Customer[id=%d, list='%s', totalPrice='%s', status='%s', user='%s', date='%s' ]",id, productsofOrder , totalPrice, status, user, date);
 	}
 }

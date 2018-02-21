@@ -1,6 +1,7 @@
 package com.shoppaholic.shoppaholic;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
@@ -25,29 +26,19 @@ public class IndexController {
 
 	@PostConstruct
 	public void init() {
-		Product fifa = new Product("FIFA", 45, "Best football simulator", "Videogames", "18/10/2017",
-				"https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg");
+		Product fifa = new Product("FIFA", 45, "Best football simulator", "Videogames", "18/10/2017","https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg");
 		productRepository.save(fifa);
-		productRepository.save(new Product("FARCRY Primal", 30, "Survive ", "Videogames", "2/12/2017",
-				"https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg"));
-		productRepository.save(new Product("NBA", 34.99, "Play basketball ", "Videogames", "5/12/2017",
-				"https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg"));
-		productRepository.save(new Product("Pioneer cdj-2000nxs2", 2290.99, "For DJing ", "Music", "8/12/2017",
-				"https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg"));
-		productRepository.save(new Product("Medion S91 - Ordenador de sobremesa", 1071.18,
-				"Intel Core i7-6700 | 8 GB RAM | 1 TB HDD", "Electronic", "11/12/2017",
-				"https://images-na.ssl-images-amazon.com/images/I/91jemD9L-OL._SL1500_.jpg"));
+		productRepository.save(new Product("FARCRY Primal", 30, "Survive ", "Videogames", "2/12/2017","https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg"));
+		productRepository.save(new Product("NBA", 34.99, "Play basketball ", "Videogames", "5/12/2017","https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg"));
+		productRepository.save(new Product("Pioneer cdj-2000nxs2", 2290.99, "For DJing ", "Music", "8/12/2017","https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg"));
+		productRepository.save(new Product("Medion S91 - Ordenador de sobremesa", 1071.18,"Intel Core i7-6700 | 8 GB RAM | 1 TB HDD", "Electronic", "11/12/2017","https://images-na.ssl-images-amazon.com/images/I/91jemD9L-OL._SL1500_.jpg"));
 
-		ArrayList<Product> products = new ArrayList<Product>();
-		Order o = new Order(products, "Pending", "Chubi", "12/7/2018", 12);
-
-		ArrayList<Order> ordersc = new ArrayList<>();
-
-		Customer c = new Customer("Ruben", "Iglesias", "chubi13ri@hotmail.com", "Chubiholic", "c/Aprobado", 666666666,
-				"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc, "USER");
-
-		Customer c1 = new Customer("Ruben", "Iglesias", "chubi13ri@hotmail.com", "Chubiholic", "c/Aprobado", 666666666,
-				"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc, "USER");
+		List<Product> products = new ArrayList<Product>();
+		products.add(fifa);
+		Order ord = new Order(12, "Pending", "chubi", "12/7/2018", products);
+		//orderRepository.save(ord);
+		List<Order> ordersc = new ArrayList<>();
+		Customer c = new Customer("Ruben", "Iglesias", "chubi13ri@hotmail.com", "Chubiholic", "c/Aprobado", 666666666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc, "USER");
 		customerRepository.save(c);
 
 	}

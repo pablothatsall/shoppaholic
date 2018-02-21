@@ -1,24 +1,38 @@
 package com.shoppaholic.shoppaholic;
+import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Product{
-
+	public interface Basic {}
+	
+	public interface Customers{}
+	
+	public interface Orders{}
+	
+	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-
-	private String name;
-    private double price;
-	private String description;
-    private String imageUrl;
-    private String label;
-    private String pDate;
-
-	protected Product() {
+		private long id;
+	@JsonView(Basic.class)
+		private String name;
+	@JsonView(Basic.class)
+    	private double price;
+	@JsonView(Basic.class)
+		private String description;
+	@JsonView(Basic.class)
+		private String imageUrl;
+	@JsonView(Basic.class)
+		private String label;
+	@JsonView(Basic.class)
+    	private String pDate;
+	
+		protected Product() {
 		// Used by SpringData
 	}
 
