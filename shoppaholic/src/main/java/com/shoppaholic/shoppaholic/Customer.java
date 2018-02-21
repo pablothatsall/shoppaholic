@@ -36,7 +36,6 @@ public class Customer {
 	private List<String> roles = new ArrayList<>();;
 
 
-
 	protected Customer() {
 		// Used by SpringData
 	}
@@ -53,7 +52,6 @@ public class Customer {
         this.myOrders = myOrders;
         this.roles.add(rol);
 	}
-
 	
 	public long getId() {
 		return id;
@@ -107,8 +105,6 @@ public class Customer {
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
-	
-	
 
 	@Override
 	public String toString() {
