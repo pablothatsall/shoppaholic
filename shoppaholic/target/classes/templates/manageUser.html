@@ -16,6 +16,8 @@
 <link rel="icon" type="image/png" href="../img/logo.png" />
 <!-- Custom styles for this template -->
 <link href="../css/modern-business.css" rel="stylesheet">
+<link href="../vendor/bootstrap/css/open-iconic-bootstrap.css"
+	rel="stylesheet">
 
 </head>
 
@@ -24,7 +26,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="/"><img id="icon"
+			<a class="navbar-brand" href="../"><img id="icon"
 				src="../img/logo.png">SHOPPAHOLIC</a>
 
 			<button class="navbar-toggler navbar-toggler-right" type="button"
@@ -44,7 +46,7 @@
 				</div>
 
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" href="/userprofile">My
+					<li class="nav-item"><a class="nav-link" href="/userProfile">My
 							Profile<img id="icon" src="../img/userIcon.png">
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="/cart">My
@@ -57,43 +59,45 @@
 	</nav>
 
 
-	<div id="profile">
+
+	<form class="form-horizontal">
+
+
 		<div>
-			<img id="userphoto"
-				src="https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg ">
-		</div>
-		<div id="userinfo">
-
-			<p>
-				<b>Username:</b> <input id="editusername" type="text" />
-			</p>
-			<p>
-				<b>Mail: </b><input id="editmail" type="text" />
-			</p>
-			<p>
-				<b>Surname:</b> <input id="editsurname" type="text" />
-			</p>
-			<p>
-				<b>Address:</b> <input id="editaddress" type="text" />
-			</p>
-			<p>
-				<b>Phone:</b> <input id="editphone" type="text" />
-			</p>
-			<p>
-				<b>Mail: </b><input id="editmail" type="text" />
-			</p>
-			<p>
-				<b>Nationality: </b><input id="editnationality" type="text" />.
-			</p>
-			<p>
-				<a href="/userprofile" class="btn btn-primary">Back</a> <a
-					href="/userprofile" class="btn btn-primary">Change</a>
-			</p>
-
+			<h3 id="tit">Manage Users</h3>
 		</div>
 
+		<div class="container">
+			<div class="row">
+				<div class="col-sm"></div>
 
+				<div class="col-sm">
+
+					<div class="form-group">
+						<label class="control-label" id="lab" for="textinput">E-mail</label>
+						<input id="textinput" name="textinput" placeholder=""
+							class="form-control input-md" required="" type="text">
+					</div>
+
+
+					<!-- Button (Double) -->
+					<div class="form-group">
+						<label class="control-label" for="btnCancel"></label>
+						<div class="col-md-12">
+							<button id="btnCancel" name="btnCancel" class="btn btn-primary">Cancel</button>
+							<button id="btnSave" name="btnSave" class="btn btn-success">Remove
+								User</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm"></div>
+			</div>
+		</div>
+
+	</form>
 	</div>
+	</div>
+
 
 	<!-- Footer -->
 	<footer class="py-5">
@@ -102,7 +106,6 @@
 		</div>
 		<!-- /.container -->
 	</footer>
-
 	<!-- Bootstrap core JavaScript -->
 	<script src="../vendor/jquery/jquery.min.js"></script>
 	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

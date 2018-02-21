@@ -1,89 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 
- <head>
 
-  	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
 
 
-  	<title>Shoppaholic</title>
+<title>Shoppaholic</title>
 
- <!-- Bootstrap core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="aaaa.png"/>
-    <!-- Custom styles for this template -->
-    <link href="../css/modern-business.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="aaaa.png" />
+<!-- Custom styles for this template -->
+<link href="../css/modern-business.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.html"><img id="icon" src="../img/logo.png">SHOPPAHOLIC</a>
+	<nav class="navbar navbar-expand-lg fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="../html/index.html"><img id="icon"
+				src="../img/logo.png">SHOPPAHOLIC</a>
 
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"><img id="icon" src="../img/menuicon.png"></span>
-        </button>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"><img id="icon"
+					src="../img/menuicon.png"></span>
+			</button>
 
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <div class="field" id="searchform">
-                    <input type="text" id="searchterm" placeholder=" What are you searching for?" />
-                    <a href=search.html>  <button type="button" id="search">Search</button> </a>
-                </div>
-
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="userprofile.html">My Profile<img id="icon" src="../img/userIcon.png"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.html">My Cart<img id="icon" src="../img/carrito.png"></a>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
-    </nav>
-<br>
-	<div class="span3">
-		<div class="form-row">
-			<div class="form-row">
-				<div class="col-md-8">
-				  	<h3 class="panel-title">Sign Up</h3>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<div class="field" id="searchform">
+					<input type="text" id="searchterm"
+						placeholder=" What are you searching for?" /> <a href=search.html>
+						<button type="button" id="search">Search</button>
+					</a>
 				</div>
-				<div class="col-md-4">
-				    <a href="../index.html"><img id="im" src="../img/logo.png""></a>
-				</div>
+
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link"
+						href="UserProfile.html">My Profile<img id="icon"
+							src="../img/userIcon.png"></a></li>
+					<li class="nav-item"><a class="nav-link" href="cart.html">My
+							Cart<img id="icon" src="../img/carrito.png">
+					</a></li>
+				</ul>
+
 			</div>
-	    <form>
-                        <br><br>
-		    <label>First Name</label>
-		    <input type="text" name="firstname" class="span3"><br>
-		    <label>Last Name</label>
-		    <input type="text" name="lastname" class="span3"><br>
-		    <label>Email Address</label>
-		    <input type="email" name="email" class="span3"><br>
-		    <label>Username</label>
-		    <input type="text" name="username" class="span3"><br>
-		    <label>Password</label>
-		    <input type="password" name="password" class="span3"><br>
-		    <label><input type="checkbox" name="terms"> I agree with the <a href="#">Terms and Conditions</a>.</label>
-		    <input type="submit" value="Sign up" class="btn btn-primary pull-right">
-		    <div class="clearfix"></div>
-    	</form>
-</div>
-	
-	<footer class="py-5 fixed-bottom">
-	      <div class="container">
-	      <p class="m-0 text-center text-white">Shopaholic 2018</p>
-	      </div>
-      <!-- /.container -->
-    </footer>
+		</div>
+	</nav>
+	<form class="form-horizontal">
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    
-    </body>
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm"></div>
+
+				<div class="col-sm">
+					<div>
+						<h3 id="tit">Sign Up</h3>
+					</div>
+					<div class="form-group">
+						<label class="control-label" id="lab" for="textinput">
+							First Name</label> <input id="textinput" name="firstname" placeholder=""
+							class="form-control input-md" required="" type="text">
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="control-label" id="lab" for="textinput">Last
+							Name</label> <input id="textinput" name="lastname" placeholder=""
+							class="form-control input-md" required="" type="text">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" id="lab" for="textinput">Email
+							Address</label> <input id="textinput" name="email" placeholder=""
+							class="form-control input-md" required="" type="text">
+					</div>
+
+					<!-- Textarea -->
+					<div class="form-group">
+						<label class="control-label" id="lab" for="textarea">User
+							Name</label>
+						<textarea class="form-control" id="textarea" name="username"></textarea>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" id="lab" for="textarea">Password</label>
+						<textarea class="form-control" id="textarea" type="password"
+							name="password"></textarea>
+					</div>
+
+					<!-- Button (Double) -->
+					<div class="form-group">
+						<label class="control-label" for="btnCancel"></label>
+						<div class="col-md-12">
+							<label><input type="checkbox" name="terms">I
+								agree with the <a href="#">Terms and Conditions</a>.</label>
+							<button type="submit" value="Sign up" class="btn btn-primary">Sign
+								Up</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm"></div>
+			</div>
+		</div>
+	</form>
+
+	<footer class="py-5">
+		<div class="container">
+			<p class="m-0 text-center text-white">Shopaholic 2018</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="../vendor/jquery/jquery.min.js"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
