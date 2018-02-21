@@ -95,10 +95,10 @@ public class IndexController {
 
 		return "orderlist";
 	}
-
+ 
 	@RequestMapping("/order/{id}")
 	public String orderStart(Model model, @PathVariable long id) {
-		model.addAttribute("orders", productRepository.findById(id));
+		model.addAttribute("pedido", pedidoRepository.findById(id));
 		return "order";
 	}
 

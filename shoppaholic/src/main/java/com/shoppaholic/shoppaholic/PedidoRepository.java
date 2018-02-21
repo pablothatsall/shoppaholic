@@ -17,5 +17,5 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 	List<Customer> findByUser(String user);
 	
 	List<Customer> findByDate(String date);
-	
+	  
 }
