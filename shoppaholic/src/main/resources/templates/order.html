@@ -55,9 +55,9 @@
       <h1 class="my-4">Order Products: 
         <small>3</small>
       </h1>
-{{#order}}
-{{list}}
-{{/order}}
+{{#pedido}}
+
+
       <!-- Project One -->
       <div class="row" >
         <div class="col-md-3" id="orderImage">
@@ -66,14 +66,15 @@
             </a>
         </div>
         <div class="col-md-8">
-          <h5>Name of the Product</h5>
-            <p>Here goes the description of the product above. You can specify its use, measures, characteristics, etc. The owner of every product in the shop is Shoppaholic.</p>
+          <h5>orderID:{{id}}</h5>
+            <p>{{status}}</p>
             <div class="assets">
-                <label><strong>Price: </strong>24.53€</label>
+                <label><strong>Price: </strong>{{totalPrice}}€</label>
                 <a class="btn btn-outline-secondary float-md-right" href="/product">View</a>
             </div>
         </div>
     </div>
+    {{/pedido}}
     <br>
       <!-- /.row -->
 
