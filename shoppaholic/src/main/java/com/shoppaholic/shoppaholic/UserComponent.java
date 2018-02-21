@@ -1,4 +1,4 @@
-package com.shoppaholic.shoppaholic;
+/*package com.shoppaholic.shoppaholic;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -30,5 +30,5 @@ import org.springframework.web.context.WebApplicationContext;
 		}
 
 	}
-	 
+	 */
 
