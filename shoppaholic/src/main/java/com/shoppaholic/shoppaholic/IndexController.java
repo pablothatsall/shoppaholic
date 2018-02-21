@@ -123,8 +123,10 @@ public class IndexController {
 		return "list";
 	}
 
-	@RequestMapping("/editprofile")
-	public String editprofileStart(Model model) {
+	@RequestMapping("/editprofile/{id}")
+	public String editprofileStart(Model model, @PathVariable long id) {
+		Customer customer= customerRepository.findOne(id);
+		model.addAttribute("customer", customer);
 		return "editprofile";
 	}
  //Aqui tendremos de id la id del customer que tiene ese carrito
@@ -134,20 +136,25 @@ public class IndexController {
 		model.addAttribute("customer", customer);
 		Pedido carrito = customer.getMyCart();
 		model.addAttribute("carrito", carrito);
-		//List<Product> productos = carrito.getProductsofPedido(); 
-		//model.addAttribute("productos", productos);
-		
+		//List<Product> productsfromcart = carrito.getProductsofPedido(); 
+		//model.addAttribute("productsfromcart", productsfromcart);
+		 
 		return "cart";
 	}
 
 	@RequestMapping("/admin/addProduct")
 	public String addProduct(Model model) {
+		List<Product> products = productRepository.findAll();
+		model.addAttribute("products", products);
+		
 		return "addProduct";
 
 	}
 
 	@RequestMapping("/admin/manageUser")
 	public String manageUser(Model model) {
+		List<Customer> customers = customerRepository.findAll();
+		model.addAttribute("customers", customers);
 		return "manageUser";
 
 	}

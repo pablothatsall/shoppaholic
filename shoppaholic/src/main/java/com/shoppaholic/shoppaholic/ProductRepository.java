@@ -8,16 +8,16 @@ import org.springframework.stereotype.Component;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-	List<Customer> findByName(String name);
+	List<Product> findByName(String name);
 	
-	List<Customer> findById(Long id);
+	List<Product> findById(Long id);
 	
-	List<Customer> findByPrice(double price);
+	List<Product> findByPrice(double price);
 	
-	List<Customer> findByLabel(String label);
+	List<Product> findByLabel(String label);
 	
-	List<Customer> findByDescription(String description);
+	List<Product> findByDescription(String description);
     
-	List<Customer> findByImageUrl(String imageUrl);
+	List<Product> findByImageUrl(String imageUrl);
 	
 }
