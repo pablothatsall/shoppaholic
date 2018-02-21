@@ -54,8 +54,10 @@ public class IndexController {
 		return "index";
 	}
 
-	@RequestMapping("/userprofile")
-	public String userStart(Model model) {
+	@RequestMapping("/userprofile/{id}")
+	public String userStart(Model model ,@PathVariable long id) {
+		Customer user = customerRepository.findOne(id);
+		model.addAttribute("user", user);
 		return "userprofile";
 	}
 
@@ -67,7 +69,7 @@ public class IndexController {
 	@RequestMapping("/product/{id}")
 	public String productStart(Model model, @PathVariable long id) {
 		Product p = productRepository.findOne(id);
-		model.addAttribute("product", productRepository.findById(id));
+		model.addAttribute("product", p);
 		return "product";
 	}
 
@@ -132,8 +134,8 @@ public class IndexController {
 		model.addAttribute("customer", customer);
 		Pedido carrito = customer.getMyCart();
 		model.addAttribute("carrito", carrito);
-		List<Product> productoscarrito = carrito.getList();
-		model.addAttribute("productoscarrito", productoscarrito);
+		//List<Product> productos = carrito.getProductsofPedido(); 
+		//model.addAttribute("productos", productos);
 		
 		return "cart";
 	}
