@@ -31,7 +31,7 @@ public class Product{
 		private String label;
 	@JsonView(Basic.class)
     	private String pDate;
-	 
+	  
 		protected Product() {
 		// Used by SpringData
 	}

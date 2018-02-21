@@ -16,6 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
 		public Customer getLoggedUser() {
 			return customer;
 		}
+		
 
 		public void setLoggedUser(Customer customer) {
 			this.customer = customer;

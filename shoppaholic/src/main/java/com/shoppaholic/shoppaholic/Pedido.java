@@ -49,13 +49,13 @@ public class Pedido {
 
 
 
-	public Pedido(double totalPrice, String status, String user, String date, List<Product> productsofOrder) {
+	public Pedido(double totalPrice, String status, String user, String date, List<Product> productsofPedido) {
 		super();
 		this.totalPrice = totalPrice;
 		this.status = status;
 		this.user = user;
 		this.date = date;
-		this.productsofPedido = productsofOrder;
+		this.productsofPedido = productsofPedido;
 	}
 
 
@@ -81,6 +81,24 @@ public class Pedido {
     public void addProduct(Product product) {
     	this.productsofPedido.add(product);
     }
+    
+    
+    
+	public List<Product> getProductsofPedido() {
+		return productsofPedido;
+	}
+
+
+
+
+	public void setProductsofPedido(List<Product> productsofPedido) {
+		this.productsofPedido = productsofPedido;
+	}
+
+
+
+
+
 	@Override
 	public String toString() {
 		return String.format("Customer[id=%d, list='%s', totalPrice='%s', status='%s', user='%s', date='%s' ]",id, productsofPedido , totalPrice, status, user, date);

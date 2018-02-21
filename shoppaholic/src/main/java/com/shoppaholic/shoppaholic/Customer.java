@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -45,6 +46,8 @@ public class Customer {
 	@JsonView(Orders.class)
     @OneToMany
 	private List<Pedido> myOrders = new ArrayList<>();
+	@OneToOne
+	private Pedido myCart;
 	
 
 
@@ -66,6 +69,7 @@ public class Customer {
 		this.telephone = telephone;
 		this.imageUrl = imageUrl;
 		this.myOrders = myOrders;
+		this.myCart = null;
 	}
 
 
@@ -114,6 +118,18 @@ public class Customer {
 		this.myOrders = myOrders;
 	}
 	
+
+
+
+	public Pedido getMyCart() {
+		return myCart;
+	}
+
+
+
+	public void setMyCart(Pedido myCart) {
+		this.myCart = myCart;
+	}
 
 
 
