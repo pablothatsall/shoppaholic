@@ -47,7 +47,9 @@ public class Order {
     public String getDate() {
         return date;
     }
-
+    public void addProduct(Product product) {
+    	this.list.add(product);
+    }
 	@Override
 	public String toString() {
 		return String.format("Customer[id=%d, list='%s', totalPrice='%s', status='%s', user='%s', date='%s' ]",id, list, totalPrice, status, user, date);

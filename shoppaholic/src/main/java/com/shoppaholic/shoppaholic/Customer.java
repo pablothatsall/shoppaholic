@@ -107,6 +107,8 @@ public class Customer {
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
+	
+	
 
 	@Override
 	public String toString() {

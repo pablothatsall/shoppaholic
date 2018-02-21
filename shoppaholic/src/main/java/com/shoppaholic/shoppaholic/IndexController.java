@@ -34,10 +34,17 @@ public class IndexController {
 		ArrayList<Product> products = new ArrayList<Product>();
 		Order o = new Order(products,"Pending","Chubi","12/7/2018",12);
 		
-		ArrayList<Order> orders = new ArrayList<>();
+		ArrayList<Order> ordersc = new ArrayList<>();
 		
+		
+		Customer c= new Customer("Ruben","Iglesias","chubi13ri@hotmail.com","Chubiholic","c/Aprobado",666666666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg",ordersc, "USER" );
+		
+<<<<<<< HEAD
+=======
 		Customer c= new Customer("Ruben","Iglesias","chubi13ri@hotmail.com","Chubiholic","c/Aprobado",666666666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg",orders, "USER" );
+>>>>>>> 7312ed75eeebc9f990f41a0829c0db6f2ae2c11e
 		customerRepository.save(c);
+		
 		
 		
 		
@@ -114,4 +121,16 @@ public class IndexController {
 		return "cart";
 	}
 	
+	@RequestMapping("/admin/addProduct")
+		public String addProduct(Model model) {
+		return "addProduct";
+		
+	}
+	
+	@RequestMapping("/admin/manageUser")
+	public String manageUser (Model model) {
+	return "manageUser";
+	
+}
+
 }
