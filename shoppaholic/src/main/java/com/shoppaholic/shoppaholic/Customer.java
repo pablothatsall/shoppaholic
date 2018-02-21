@@ -43,8 +43,8 @@ public class Customer {
 	@JsonView(Basic.class)
     private String imageUrl;
 	@JsonView(Orders.class)
-    @OneToMany(cascade = CascadeType.ALL)
-	private List<Order> myOrders = new ArrayList<>();
+    @OneToMany
+	private List<Pedido> myOrders = new ArrayList<>();
 	
 
 
@@ -53,19 +53,23 @@ public class Customer {
 		// Used by SpringData
 	}
 
-	public Customer(String firstName, String lastName, String mail, String password, String address, long phone, String imageUrl, List<Order> myOrders, String rol) {
+
+	
+	public Customer(String firstName, String lastName, String mail, String password, String address, long telephone,
+			String imageUrl, List<Pedido> myOrders) {
+		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-        this.mail = mail;
-        this.password = password;
-        this.address = address;
-        this.telephone = phone;
-        this.imageUrl = imageUrl;
-        this.telephone = phone;
-        this.myOrders = myOrders;
-        
+		this.mail = mail;
+		this.password = password;
+		this.address = address;
+		this.telephone = telephone;
+		this.imageUrl = imageUrl;
+		this.myOrders = myOrders;
 	}
-	
+
+
+
 	public long getId() {
 		return id;
 	}
@@ -102,11 +106,11 @@ public class Customer {
 		return lastName;
 	}
 	
-	public List<Order> getMyOrders() {
+	public List<Pedido> getMyOrders() {
 		return myOrders;
 	}
 
-	public void setMyOrders(List<Order> myOrders) {
+	public void setMyOrders(List<Pedido> myOrders) {
 		this.myOrders = myOrders;
 	}
 	

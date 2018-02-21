@@ -19,7 +19,7 @@ public class IndexController {
 	private ProductRepository productRepository;
 
 	@Autowired
-	private OrderRepository orderRepository;
+	private PedidoRepository pedidoRepository;
 	
 	@Autowired
 	private CustomerRepository customerRepository;
@@ -27,18 +27,22 @@ public class IndexController {
 	@PostConstruct
 	public void init() {
 		Product fifa = new Product("FIFA", 45, "Best football simulator", "Videogames", "18/10/2017","https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg");
+		Product farcry = new Product("FARCRY Primal", 30, "Survive ", "Videogames", "2/12/2017","https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg");
 		productRepository.save(fifa);
-		productRepository.save(new Product("FARCRY Primal", 30, "Survive ", "Videogames", "2/12/2017","https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg"));
+		productRepository.save(farcry);
 		productRepository.save(new Product("NBA", 34.99, "Play basketball ", "Videogames", "5/12/2017","https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg"));
 		productRepository.save(new Product("Pioneer cdj-2000nxs2", 2290.99, "For DJing ", "Music", "8/12/2017","https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg"));
 		productRepository.save(new Product("Medion S91 - Ordenador de sobremesa", 1071.18,"Intel Core i7-6700 | 8 GB RAM | 1 TB HDD", "Electronic", "11/12/2017","https://images-na.ssl-images-amazon.com/images/I/91jemD9L-OL._SL1500_.jpg"));
 
 		List<Product> products = new ArrayList<Product>();
-		products.add(fifa);
-		Order ord = new Order(12, "Pending", "chubi", "12/7/2018", products);
-		//orderRepository.save(ord);
-		List<Order> ordersc = new ArrayList<>();
-		Customer c = new Customer("Ruben", "Iglesias", "chubi13ri@hotmail.com", "Chubiholic", "c/Aprobado", 666666666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc, "USER");
+		products.add(farcry);
+		Pedido pedido1 = new Pedido(12, "Pending", "Chubi", "12/7/2018", products);
+		pedidoRepository.save(pedido1);
+		
+		List<Pedido> ordersc = new ArrayList<>();
+		ordersc.add(pedido1);
+	
+		Customer c = new Customer("Ruben", "Iglesias", "chubi@hotmail.com", "chubi", "c/Aprobado", 6666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc);
 		customerRepository.save(c);
 
 	}
@@ -102,7 +106,7 @@ public class IndexController {
 	public String loginStart(Model model) {
 		return "login";
 	}
-
+ 
 	@RequestMapping("/list")
 	public String listStart(Model model) {
 		return "list";

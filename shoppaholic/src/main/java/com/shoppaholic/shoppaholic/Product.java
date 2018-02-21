@@ -13,7 +13,7 @@ public class Product{
 	
 	public interface Customers{}
 	
-	public interface Orders{}
+	public interface Pedidos{}
 	
 	@JsonView(Basic.class)
 	@Id
@@ -31,7 +31,7 @@ public class Product{
 		private String label;
 	@JsonView(Basic.class)
     	private String pDate;
-	
+	 
 		protected Product() {
 		// Used by SpringData
 	}
@@ -43,6 +43,43 @@ public class Product{
         this.label = label;
         this.pDate = pDate;
         this.imageUrl = imageUrl;
+	}
+
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getpDate() {
+		return pDate;
+	}
+
+	public void setpDate(String pDate) {
+		this.pDate = pDate;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
 	}
 
 	public String getName() {
