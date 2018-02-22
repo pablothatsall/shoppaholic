@@ -53,13 +53,19 @@ public class IndexController {
 		model.addAttribute("products", productRepository.findAll(new PageRequest(0, 4)));
 		return "index";
 	}
+	
+	@RequestMapping("/userprofile")
+	public String userStart(Model model) {
 
-	@RequestMapping("/userprofile/{id}")
+		return "userprofile";
+	}
+
+	/*@RequestMapping("/userprofile/{id}")
 	public String userStart(Model model ,@PathVariable long id) {
 		Customer user = customerRepository.findOne(id);
 		model.addAttribute("user", user);
 		return "userprofile";
-	}
+	}*/
 
 	@RequestMapping("/signUp")
 	public String signupStart(Model model) {
@@ -122,15 +128,30 @@ public class IndexController {
 	public String listStart(Model model) {
 		return "list";
 	}
-
-	@RequestMapping("/editprofile/{id}")
+	
+	
+	@RequestMapping("/editprofile")
+	public String editprofileStart(Model model) {
+		
+		return "editprofile";
+	}
+	//CON ID
+	/*@RequestMapping("/editprofile/{id}")
 	public String editprofileStart(Model model, @PathVariable long id) {
 		Customer customer= customerRepository.findOne(id);
 		model.addAttribute("customer", customer);
 		return "editprofile";
+	}*/
+
+	
+	
+	@RequestMapping("/cart")
+	public String cartStart(Model model) {
+		
+		return "cart";
 	}
  //Aqui tendremos de id la id del customer que tiene ese carrito
-	@RequestMapping("/cart/{id}")
+	/*@RequestMapping("/cart/{id}")
 	public String cartStart(Model model, @PathVariable long id) {
 		Customer customer= customerRepository.findOne(id);
 		model.addAttribute("customer", customer);
@@ -140,7 +161,7 @@ public class IndexController {
 		//model.addAttribute("productsfromcart", productsfromcart);
 		 
 		return "cart";
-	}
+	}*/
 
 	@RequestMapping("/admin/addProduct")
 	public String addProduct(Model model) {
