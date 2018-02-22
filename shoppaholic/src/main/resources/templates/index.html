@@ -32,10 +32,10 @@
         </button>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <div class="field" id="searchform">
-                    <input type="text" id="searchterm" placeholder=" What are you searching for?" />
-                    <a href=search.html>  <button type="button" id="search">Search</button> </a>
-                </div>
+                 <form class="field" action="search" id="searchform" method="post">
+                    <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?" />
+                    <button type="submit" id="search">Search</button>
+                </form>
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">

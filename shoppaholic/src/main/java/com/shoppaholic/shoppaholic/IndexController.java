@@ -11,6 +11,7 @@ import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class IndexController {
@@ -88,8 +89,8 @@ public class IndexController {
 	}
 
 	@RequestMapping("/search")
-	public String searchStart(Model model) {
-		model.addAttribute("products", productRepository.findAll(new PageRequest(0, 8)));
+	public String searchStart(Model model, @RequestParam(value = "searchtext", defaultValue = "") String searchtext) {
+		model.addAttribute("products", productRepository.findByName(searchtext));
 		return "search";
 	}
 

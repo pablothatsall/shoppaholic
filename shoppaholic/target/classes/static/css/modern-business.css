@@ -109,7 +109,8 @@ body {
 #card-image{
     padding: 0px;
     object-fit: cover;
-    
+    height: 100%;
+    width:100%;
 }
 #product-list1{
     padding-bottom: 5px;
@@ -131,6 +132,8 @@ body {
     text-align: right;
     text-overflow: clip;
 }
+
+
 
 .card-title{
     margin: 5px;
@@ -186,4 +189,7 @@ body {
 
 .assets{
     vertical-align: middle;
+}
+#tit{
+    padding-top: 20px;
 }
