@@ -1,4 +1,4 @@
-package com.shoppaholic.shoppaholic;
+/*package com.shoppaholic.shoppaholic;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,8 +25,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  http.authorizeRequests().antMatchers("/editprofile").permitAll();
  http.authorizeRequests().antMatchers("/cart").permitAll();
  http.authorizeRequests().antMatchers("/orderlist").permitAll();
- http.authorizeRequests().antMatchers("/admin/addProduct").permitAll();
- http.authorizeRequests().antMatchers("/admin/manageUser").permitAll();
+ http.authorizeRequests().antMatchers("/admin/addProduct").hasAnyRole("ADMIN");;
+ http.authorizeRequests().antMatchers("/admin/manageUser").hasAnyRole("ADMIN");;
  // Private pages (all other pages)
 
  http.authorizeRequests().anyRequest().authenticated();
@@ -43,4 +43,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  // Disable CSRF at the moment
  http.csrf().disable();
  }
-}
+}*/
