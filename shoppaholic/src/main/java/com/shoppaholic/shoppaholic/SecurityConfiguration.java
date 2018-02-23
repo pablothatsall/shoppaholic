@@ -26,13 +26,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  http.authorizeRequests().antMatchers("/orderlist").permitAll();
  http.authorizeRequests().antMatchers("/order/{id}").permitAll();
  http.authorizeRequests().antMatchers("/list").permitAll();
- http.authorizeRequests().antMatchers("/cart").permitAll();
+ http.authorizeRequests().antMatchers("/cart/{id}").permitAll();//Esto solo para pruebas, hay que hacerlo privado que solo acceda el registrado
+ 
 
  http.authorizeRequests().antMatchers("/orderlist").permitAll();
  
  // Private pages (all other pages)
+ http.authorizeRequests().antMatchers("/cart").hasAnyRole("USER");
  http.authorizeRequests().antMatchers("/editprofile").hasAnyRole("USER");
-
  http.authorizeRequests().antMatchers("/userprofile").hasAnyRole("USER");
  http.authorizeRequests().antMatchers("/admin/addProduct").hasAnyRole("ADMIN");
  http.authorizeRequests().antMatchers("/admin/manageUser").hasAnyRole("ADMIN");
