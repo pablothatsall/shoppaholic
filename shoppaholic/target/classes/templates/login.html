@@ -58,25 +58,23 @@
                             <div>
                                 <h3 id="tit">Log In</h3>
                             </div>
-                            <div class="form-group" >
+                        <div class="form-group">
                             <form action="/login" id="formulario" autocomplete="on" method="post">
                                 <label for="email" class="control-label" id="lab" for="textinput"> Email</label>  
                                 <input id="email" name="email" placeholder="" required="required" class="form-control input-md" type="text">
-                            </div>
-
+                            
                         <!-- Text input-->
-                            <div class="form-group">
+                            
                                 <label for ="password" class="control-label" id="lab" for="textinput">Password</label>  
                                <input id="password" name="password" required="required" type="password" class="form-control input-md" placeholder="************" />
-                               <input type="hidden" name="_csrf" value="{{token}}"/>
-                            </div>
-                            <div>
+
+                                       
+                           
                             	<label>
 				    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
 				    	    	</label>
-                            </div>
-                            <div>
-                            	<button type="submit" value="Login" class="btn btn-primary">Sign Up</button>
+                          
+                            	<button type="submit" value="Login" class="btn btn-primary">Sign Up                               <input type="hidden" name="_csrf" value="{{token}}"/></button>
                             	<input type="submit" value="Log In" />
                             	</form>
                             </div>
@@ -86,7 +84,7 @@
                         </div>
                 	</div>
             	</div>
-            </form>
+           
 	
 	<footer class="py-5">
       <div class="container">

@@ -57,9 +57,11 @@ public class IndexController {
 		ordersc.add(pedido1);
 	 
 		Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc,pedido1, "USER");
-		Customer p = new Customer("Pablo", "Moreno", "pablo@hotmail.com", "pablo", "c/Sprint", 666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg",null, null, "ROLE_USER");
+		Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"https://pbs.twimg.com/profile_images/916980080278102017/HfrABpSp_400x400.jpg",null, null, "ROLE_USER");
+		Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"https://pbs.twimg.com/profile_images/578500665565130752/xVoASGTj_400x400.jpeg",null, null, "ROLE_USER");
 		customerRepository.save(c);
 		customerRepository.save(p);
+		customerRepository.save(d);
  
 	}
 
