@@ -1,4 +1,4 @@
-/*package com.shoppaholic.shoppaholic;
+package com.shoppaholic.shoppaholic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,34 +22,36 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 	private CustomerRepository customerRepository;
 
 	@Autowired
-	private UserComponent userComponent;
+	private CustomerComponent customerComponent;
 	
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
+		
 
-		Customer user = customerRepository.findByMail(auth.getName());
+		String email= auth.getName();
+		Customer customer = customerRepository.findByMail(email);
 
-		if (user == null) {
+		if (customer == null) {
 			throw new BadCredentialsException("User not found");
 		}
 
 		String password = (String) auth.getCredentials();
-		if (!new BCryptPasswordEncoder().matches(password, user.getPassword())) {
+		if (!new BCryptPasswordEncoder().matches(password, customer.getPassword())) {
 			throw new BadCredentialsException("Wrong password");
 		}
 
-		userComponent.setLoggedUser(user);
+		customerComponent.setLoggedUser(customer);
 		
 		List<GrantedAuthority> roles = new ArrayList<>();
-		for (String role : user.getRoles()) {
+		for (String role : customer.getRoles()) {
 			roles.add(new SimpleGrantedAuthority(role));
 		}
 
-		return new UsernamePasswordAuthenticationToken(user.getMail(), password, roles);
+		return new UsernamePasswordAuthenticationToken(customer.getMail(), password, roles);
 	}
 
 	@Override
 	public boolean supports(Class<?> authenticationObject) {
 		return true;
 	}
-}*/
+}

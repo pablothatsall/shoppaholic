@@ -25,7 +25,7 @@ public class Pedido {
 	public interface Customers{}
 	
 	public interface Products{}
-	
+	 
 	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,7 +46,7 @@ public class Pedido {
 	}
 
 
-
+ 
 
 
 	public Pedido(double totalPrice, String status, String user, String date, List<Product> productsofPedido) {
@@ -94,7 +94,6 @@ public class Pedido {
 	public void setProductsofPedido(List<Product> productsofPedido) {
 		this.productsofPedido = productsofPedido;
 	}
-
 
 
 

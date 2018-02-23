@@ -2,6 +2,7 @@ package com.shoppaholic.shoppaholic;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -48,6 +49,11 @@ public class Customer {
 	private List<Pedido> myOrders = new ArrayList<>();
 	@OneToOne
 	private Pedido myCart;
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> roles;
+	
+
+	private boolean isIdLogged;
 	
 
 
@@ -59,7 +65,7 @@ public class Customer {
 
 	
 	public Customer(String firstName, String lastName, String mail, String password, String address, long telephone,
-			String imageUrl, List<Pedido> myOrders) {
+			String imageUrl, List<Pedido> myOrders,Pedido cart, String... roles) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -69,7 +75,8 @@ public class Customer {
 		this.telephone = telephone;
 		this.imageUrl = imageUrl;
 		this.myOrders = myOrders;
-		this.myCart = null;
+		this.myCart = cart;
+		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
 
@@ -129,6 +136,31 @@ public class Customer {
 
 	public void setMyCart(Pedido myCart) {
 		this.myCart = myCart;
+	}
+
+
+
+	public List<String> getRoles() {
+		return roles;
+	}
+
+
+
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
+	}
+
+	
+
+
+	public boolean isIdLogged() {
+		return isIdLogged;
+	}
+
+
+
+	public void setIdLogged(boolean isIdLogged) {
+		this.isIdLogged = isIdLogged;
 	}
 
 

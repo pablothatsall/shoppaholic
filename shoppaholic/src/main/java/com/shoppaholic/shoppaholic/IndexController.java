@@ -2,18 +2,26 @@ package com.shoppaholic.shoppaholic;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.WebApplicationContext;
 
 @Controller
+@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class IndexController {
 
 	@Autowired
@@ -24,6 +32,11 @@ public class IndexController {
 	
 	@Autowired
 	private CustomerRepository customerRepository;
+	
+	@Autowired
+	private CustomerComponent customerComponent;
+	
+	//final static Logger log = LoggerFactory.getLogger(IndexController.class); for login
 
 	@PostConstruct
 	public void init() {
@@ -38,14 +51,16 @@ public class IndexController {
 		List<Product> products = new ArrayList<Product>();
 		products.add(farcry);
 		Pedido pedido1 = new Pedido(12, "Pending", "Chubi", "12/7/2018", products);
-		pedidoRepository.save(pedido1);
+		pedidoRepository.save(pedido1); 
 		
 		List<Pedido> ordersc = new ArrayList<>();
 		ordersc.add(pedido1);
-	
-		Customer c = new Customer("Ruben", "Iglesias", "chubi@hotmail.com", "chubi", "c/Aprobado", 6666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc);
+	 
+		Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc,pedido1, "USER");
+		Customer p = new Customer("Pablo", "Moreno", "pablo@hotmail.com", "pablo", "c/Sprint", 666,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg",null, null, "ROLE_USER");
 		customerRepository.save(c);
-
+		customerRepository.save(p);
+ 
 	}
 
 	@RequestMapping("/")
@@ -121,7 +136,14 @@ public class IndexController {
 	}
 
 	@RequestMapping("/login")
-	public String loginStart(Model model) {
+	public  String loginStart(Model model) {
+		/*if (!customerComponent.isLoggedUser()) {
+			log.info("Not user logged");
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		} else {
+			User loggedUser = userComponent.getLoggedUser();
+			log.info("Logged as " + loggedUser.getName());
+		return new ResponseEntity<>(loggedUser, HttpStatus.OK); */
 		return "login";
 	}
  
@@ -152,17 +174,18 @@ public class IndexController {
 		return "cart";
 	}
  //Aqui tendremos de id la id del customer que tiene ese carrito
-	/*@RequestMapping("/cart/{id}")
+	@RequestMapping("/cart/{id}")
 	public String cartStart(Model model, @PathVariable long id) {
 		Customer customer= customerRepository.findOne(id);
 		model.addAttribute("customer", customer);
 		Pedido carrito = customer.getMyCart();
-		model.addAttribute("carrito", carrito);
-		//List<Product> productsfromcart = carrito.getProductsofPedido(); 
-		//model.addAttribute("productsfromcart", productsfromcart);
+		model.addAttribute("cartdetails", carrito);
+		
+		List<Product> productsfromcart = customer.getMyCart().getProductsofPedido(); 
+		model.addAttribute("products", productsfromcart);
 		 
 		return "cart";
-	}*/
+	}
 
 	@RequestMapping("/admin/addProduct")
 	public String addProduct(Model model) {

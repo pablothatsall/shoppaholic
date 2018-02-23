@@ -1,6 +1,7 @@
-/*package com.shoppaholic.shoppaholic;
+package com.shoppaholic.shoppaholic;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -8,39 +9,55 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  @Override
  protected void configure(HttpSecurity http) throws Exception {
-
+	 http.headers().frameOptions().disable();
+		
+	 
  // Public pages
+	 
+	 
  http.authorizeRequests().antMatchers("/").permitAll();
  http.authorizeRequests().antMatchers("/login").permitAll();
  http.authorizeRequests().antMatchers("/loginerror").permitAll();
  http.authorizeRequests().antMatchers("/logout").permitAll();
- http.authorizeRequests().antMatchers("/userprofile").permitAll();
  http.authorizeRequests().antMatchers("/signUp").permitAll();
  http.authorizeRequests().antMatchers("/product/{id}").permitAll();
- http.authorizeRequests().antMatchers("/search").permitAll();
+ http.authorizeRequests().antMatchers("/search/{searchtext}").permitAll();
  http.authorizeRequests().antMatchers("/payment").permitAll();
  http.authorizeRequests().antMatchers("/orderlist").permitAll();
  http.authorizeRequests().antMatchers("/order/{id}").permitAll();
  http.authorizeRequests().antMatchers("/list").permitAll();
- http.authorizeRequests().antMatchers("/editprofile").permitAll();
  http.authorizeRequests().antMatchers("/cart").permitAll();
- http.authorizeRequests().antMatchers("/orderlist").permitAll();
- http.authorizeRequests().antMatchers("/admin/addProduct").hasAnyRole("ADMIN");;
- http.authorizeRequests().antMatchers("/admin/manageUser").hasAnyRole("ADMIN");;
- // Private pages (all other pages)
 
- http.authorizeRequests().anyRequest().authenticated();
+ http.authorizeRequests().antMatchers("/orderlist").permitAll();
+ 
+ // Private pages (all other pages)
+ http.authorizeRequests().antMatchers("/editprofile").hasAnyRole("USER");
+
+ http.authorizeRequests().antMatchers("/userprofile").hasAnyRole("USER");
+ http.authorizeRequests().antMatchers("/admin/addProduct").hasAnyRole("ADMIN");
+ http.authorizeRequests().antMatchers("/admin/manageUser").hasAnyRole("ADMIN");
+
+
  // Login form
  http.formLogin().loginPage("/login");
  http.formLogin().usernameParameter("email");
  http.formLogin().passwordParameter("password");
- http.formLogin().defaultSuccessUrl("/");
+ http.formLogin().defaultSuccessUrl("/"); 
  http.formLogin().failureUrl("/loginerror");
  // Logout
  http.logout().logoutUrl("/logout");
  http.logout().logoutSuccessUrl("/");
-
+ 
  // Disable CSRF at the moment
- http.csrf().disable();
+ 
  }
-}*/
+ 
+ @Override
+ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+ // User
+ auth.inMemoryAuthentication()
+ .withUser("user").password("pass").roles("USER");
+ }
+
+}

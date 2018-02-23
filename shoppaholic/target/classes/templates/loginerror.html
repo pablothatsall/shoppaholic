@@ -34,10 +34,10 @@
                 </form>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/userprofile">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                        <a class="nav-link" href="UserProfile.html">My Profile<img id="icon" src="../img/userIcon.png"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/cart"">My Cart<img id="icon" src="../img/carrito.png"></a>
+                        <a class="nav-link" href="cart.html">My Cart<img id="icon" src="../img/carrito.png"></a>
                     </li>
                 </ul>
 
@@ -51,41 +51,26 @@
     
 				<div class="container">
                     <div class="row">
-                        <div class="col-sm">
-                        </div>
+                        
 
                         <div class="col-sm">
                             <div>
-                                <h3 id="tit">Log In</h3>
-                            </div>
-                            <div class="form-group" >
-                            <form action="/login" id="formulario" autocomplete="on" method="post">
-                                <label for="email" class="control-label" id="lab" for="textinput"> Email</label>  
-                                <input id="email" name="email" placeholder="" required="required" class="form-control input-md" type="text">
-                            </div>
-
-                        <!-- Text input-->
-                            <div class="form-group">
-                                <label for ="password" class="control-label" id="lab" for="textinput">Password</label>  
-                               <input id="password" name="password" required="required" type="password" class="form-control input-md" placeholder="************" />
-                               <input type="hidden" name="_csrf" value="{{token}}"/>
-                            </div>
+                                <h3 id="tit">Log In Error</h3>
+                
+                            
+                        
+                       
                             <div>
-                            	<label>
-				    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
-				    	    	</label>
+                                <a href ="/login"><button class="btn btn-primary" >Back</button></a>
+                            	
                             </div>
-                            <div>
-                            	<button type="submit" value="Login" class="btn btn-primary">Sign Up</button>
-                            	<input type="submit" value="Log In" />
-                            	</form>
                             </div>
-                        </div>
                         <div class="col-sm">
                           
                         </div>
                 	</div>
             	</div>
+            </div>
             </form>
 	
 	<footer class="py-5">

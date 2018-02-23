@@ -31,10 +31,11 @@
         </button>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <div class="field" id="searchform">
-                    <input type="text" id="searchterm" placeholder=" What are you searching for?" />
-                    <a href=/search> <button type="button" id="search">Search</button> </a>
-                </div>
+               				<form class="field" action="search" id="searchform" method="post">
+                    <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?" />
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    <button type="submit" id="search">Search</button>
+                </form>
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -54,28 +55,30 @@
     <div class="container">
 		{{#customer}}
 		<br>
-		<h1>{{firstName}}</h1>
+		<h1>This is your cart {{firstName}}</h1>
 		{{/customer}}
       <!-- Page Heading -->
       <h1 class="my-4">Products in your cart:
-        <small> 4</small>
+      {{#cartdetails}}
+        <small> {{productsofPedido.size}}</small>
+        {{/cartdetails}}
       </h1>
 
       <!-- Project One -->
         <div class="row">
             <div class="col-md-9">
-                <div class="orderProducts">
-                    <div class="row">
+                <div class="orderProducts"> 
+                    <div class="row">{{#products}}
                         <div class="col-md-3" id="orderImage">
-                            <a href="#">
-                                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/300x300" alt="">
+                            <a href="/products/{{id}}">
+                                <img class="img-fluid rounded mb-3 mb-md-0" src="{{imageUrl}}" alt="">
                             </a>
                         </div>
                         <div class="col-md-8">
-                          <h5>Name of the Product</h5>
-                            <p>Here goes the description of the product above. You can specify its use, measures, characteristics, etc. The owner of every product in the shop is Shoppaholic. </p>
+                          <h5>{{name}}</h5>
+                            <p>{{description}}</p>
                             <div class="assets">
-                                <label><strong>Price: </strong>24.53€</label>
+                                <label><strong>Price: </strong>{{price}}</label>
                                 <div class="btn-group float-md-right">
                                     <a class="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"><img id="miniicon" src="../img/trashicon.png"></span></a>
                                     <select class="custom-select">
@@ -92,100 +95,14 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div>{{/products}}
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-md-3" id="orderImage">
-                            <a href="#">
-                                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/150x200" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                          <h5>Name of the Product</h5>  
-                            <p>Here goes the description of the product above. You can specify its use, measures, characteristics, etc. The owner of every product in the shop is Shoppaholic.</p>
-                            <div class="assets">
-                                <label><strong>Price: </strong>24.53€</label>
-                                <div class="btn-group float-md-right">
-                                    <a class="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"><img id="miniicon" src="../img/trashicon.png"></span></a>
-                                    <select class="custom-select">
-                                        <option selected>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <br>
-                    <div class="row" >
-                        <div class="col-md-3" id="orderImage">
-                            <a href="#">
-                                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/350x400" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                            <div>
-                              <h5>Name of the Product</h5>
-                                <p>Here goes the description of the product above. You can specify its use, measures, characteristics, etc. The owner of every product in the shop is Shoppaholic.</p>
-                            </div>
-                            <div class="assets">
-                                <label><strong>Price: </strong>24.53€</label>
-                                <div class="btn-group float-md-right">
-                                    <a class="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"><img id="miniicon" src="../img/trashicon.png"></span></a>
-                                    <select class="custom-select">
-                                        <option selected>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <br>
-                    <div class="row" >
-                        <div class="col-md-3 orderImage" id="orderImage">
-                            <a href="#">
-                                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/600x700" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                          <h5>Name of the Product</h5>
-                            <p>Here goes the description of the product above. You can specify its use, measures, characteristics, etc. The owner of every product in the shop is Shoppaholic.</p>
-                                <div class="assets">
-                                    <label><strong>Price: </strong>24.53€</label>
-                                    <div class="btn-group float-md-right">
-                                        <a class="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"><img id="miniicon" src="../img/trashicon.png"></span></a>
-                                        <select class="custom-select">
-                                            <option selected>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                            <option>6</option>
-                                            <option>7</option>
-                                            <option>8</option>
-                                            <option>9</option>
-                                            <option>10</option>
-                                        </select>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
+
                 </div>
                 <br>
                 <div class="orderPersonalisation">
@@ -211,11 +128,14 @@
                 </div>
             </div>
             <div class="col-md-3 border border-primary" id="cartSummary">
+            {{#cartdetails}}
                 <div class="row" id="cartSummaryTitle"><h4>Cart summary:</h4></div>
-                <div class="row"><p><strong>Number of products:</strong> 4</p></div>
-                <div class="row"><p><strong>Total Price:</strong> 45.78€</p></div>
+                <div class="row"><p><strong>Number of products:</strong> {{productsofPedido.size}}</p></div>
+                <div class="row"><p><strong>Total Price:</strong> {{totalPrice}}€</p></div>
                 <div class="row"><p><strong>Shipping Price:</strong> FREE</p></div>
+                <div class="row"><p><strong>Status</strong> {{status}}</p></div>
                 <a class="btn btn-primary" href="/payment">Proceed to pay</a>
+            {{/cartdetails}}
             </div>
         </div>
     </div>
