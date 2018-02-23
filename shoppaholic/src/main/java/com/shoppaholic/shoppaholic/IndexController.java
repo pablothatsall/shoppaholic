@@ -76,12 +76,12 @@ public class IndexController {
 		return "userprofile";
 	}
 
-	/*@RequestMapping("/userprofile/{id}")
+	@RequestMapping("/userprofile/{id}")
 	public String userStart(Model model ,@PathVariable long id) {
 		Customer user = customerRepository.findOne(id);
 		model.addAttribute("user", user);
 		return "userprofile";
-	}*/
+	}
 
 	@RequestMapping("/signUp")
 	public String signupStart(Model model) {
