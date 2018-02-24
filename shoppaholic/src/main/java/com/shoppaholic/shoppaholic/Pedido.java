@@ -39,7 +39,7 @@ public class Pedido {
 	@JsonView(Basic.class)
     	private String date;
 	@JsonView(Products.class)
-	@ManyToMany
+	@OneToMany
 		private List<Product> productsofPedido = new ArrayList<>();
 	protected Pedido() {
 		// Used by SpringData

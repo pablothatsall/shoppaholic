@@ -1,6 +1,7 @@
 package com.shoppaholic.shoppaholic;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,8 +59,11 @@ public class IndexController {
 
 		List<Product> products = new ArrayList<Product>();
 		products.add(farcry);
+		
 		Pedido pedido1 = new Pedido(12, "Pending", "Chubi", "12/7/2018", products);
 		pedidoRepository.save(pedido1); 
+		Pedido pedido2 = new Pedido();
+		pedidoRepository.save(pedido2); 
 		
 		List<Pedido> ordersc = new ArrayList<>();
 		ordersc.add(pedido1);
@@ -71,7 +75,8 @@ public class IndexController {
 		customerRepository.save(p);
 		customerRepository.save(d);
 		
-		Comment c1 = new Comment(c,"Me gusta el fifa","24/2/2018",fifa);
+		java.util.Date fechaactual = new Date();
+		Comment c1 = new Comment(c,"Me gusta el fifa", fechaactual.toGMTString() ,fifa);
 		commentRepository.save(c1);
 		
 		
@@ -106,15 +111,25 @@ public class IndexController {
 
 	@RequestMapping("/product/{id}")
 	public String productStart(Model model, @PathVariable long id, 
-			@RequestParam(value = "addproduct", defaultValue = "") String addproduct) {
+			@RequestParam(value = "addproduct", defaultValue = "") String addproduct,
+			@RequestParam(value = "addcomment", defaultValue = "") String addcomment) {
 		Product p = productRepository.findOne(id);
 		model.addAttribute("product", p);
 		List<Comment> c = commentRepository.findByProduct(p);
 		model.addAttribute("comments", c);
-		Customer chubi = customerRepository.findByMail("chubi");
-		model.addAttribute("comments", c);
-		if(!addproduct.equals("")) {}
-
+		Customer chubi = customerRepository.findByMail("chubi"); //Esto una vez funcione login registro se cambia chubi por el customer que ha iniciado sesión
+		Pedido pedidotoadd = chubi.getMyCart();
+		
+		if(!addproduct.equals("")) {
+			pedidotoadd.addProduct(p);
+			customerRepository.save(chubi);
+		}
+		
+		if(!addcomment.equals("")) {
+			java.util.Date fecha = new Date(); 
+			commentRepository.save(new Comment(chubi,addcomment,fecha.toGMTString(),p));	
+			addproduct="";
+		} 
 		
 		return "product";
 	}
