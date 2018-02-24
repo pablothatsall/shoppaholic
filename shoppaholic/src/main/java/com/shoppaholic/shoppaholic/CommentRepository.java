@@ -10,7 +10,6 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 	
 	List<Comment> findByProduct(Product product);
 	
-	String findByComment(String comment);
 	 
 	
 	

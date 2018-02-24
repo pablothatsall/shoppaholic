@@ -2,7 +2,6 @@ package com.shoppaholic.shoppaholic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Basic;
@@ -40,6 +39,8 @@ public class Product{
     	private String pDate;
 	@OneToMany
 		private List<Comment> comments  = new ArrayList<>();
+	
+	private boolean idLogged;
 	
 		protected Product() {
 		// Used by SpringData
@@ -115,9 +116,15 @@ public class Product{
     public String getImageUrl() {
         return imageUrl;
     }
+    
+	public boolean isIdLogged() {
+		return idLogged;
+	}
 
-    
-    
+	public void setIdLogged(boolean idLogged) {
+		this.idLogged = idLogged;
+	}
+
 	public List<Comment> getComments() {
 		return comments;
 	}
@@ -125,8 +132,6 @@ public class Product{
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
-	
-
 
 	@Override
 	public String toString() {

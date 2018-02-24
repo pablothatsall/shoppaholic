@@ -17,7 +17,7 @@ import com.shoppaholic.shoppaholic.Customer.Basic;
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private long id;
-		@ManyToOne
+		@OneToOne
 		private Customer customer;
 		
 		private String comment;
@@ -25,8 +25,9 @@ import com.shoppaholic.shoppaholic.Customer.Basic;
 		private String date;
 		
 		@ManyToOne
-		private Product product; 
-
+		private Product product;
+		
+		private boolean idLogged;
 		
 		public Comment() {
 			super();

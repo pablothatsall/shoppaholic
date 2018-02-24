@@ -2,7 +2,6 @@ package com.shoppaholic.shoppaholic;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
@@ -18,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.shoppaholic.shoppaholic.Product.Basic;
 
 import java.util.List;
+import java.util.Date;
 
 @Entity
 public class Pedido {
@@ -40,8 +40,9 @@ public class Pedido {
 	@JsonView(Basic.class)
     	private String date;
 	@JsonView(Products.class)
-	@OneToMany
+	@ManyToMany
 		private List<Product> productsofPedido = new ArrayList<>();
+	
 	protected Pedido() {
 		// Used by SpringData
 		java.util.Date fecha = new Date();
@@ -83,10 +84,10 @@ public class Pedido {
     public void addProduct(Product product) {
     	this.productsofPedido.add(product);
     }
+    
     public void deleteProduct(Product product) {
     	this.productsofPedido.remove(product);
     }
-    
     
 	public List<Product> getProductsofPedido() {
 		return productsofPedido;

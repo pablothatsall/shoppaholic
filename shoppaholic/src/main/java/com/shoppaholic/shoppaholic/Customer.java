@@ -1,6 +1,5 @@
 package com.shoppaholic.shoppaholic;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,55 +16,53 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Customer {
-	public interface Basic {}
-	
-	public interface Orders{}
-	
-	public interface Products{}
-	
+	public interface Basic {
+	}
+
+	public interface Orders {
+	}
+
+	public interface Products {
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long id_customer;
 	@JsonView(Basic.class)
 	private String firstName;
 	@JsonView(Basic.class)
 	private String lastName;
 	@JsonView(Basic.class)
-    private String mail;
+	private String mail;
 	@JsonView(Basic.class)
-    private String password;
+	private String password;
 	@JsonView(Basic.class)
-    private String address;
+	private String address;
 	@JsonView(Basic.class)
-    private long telephone;
+	private long telephone;
 	@JsonView(Basic.class)
-    private String imageUrl;
+	private String imageUrl;
 	@JsonView(Orders.class)
-    @OneToMany
+	@OneToMany
 	private List<Pedido> myOrders = new ArrayList<>();
 	@OneToOne
 	private Pedido myCart;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
-	
 
-	private boolean isIdLogged;
-	
-
-
+	private boolean idLogged;
 
 	protected Customer() {
 		// Used by SpringData
 	}
 
-
-	
 	public Customer(String firstName, String lastName, String mail, String password, String address, long telephone,
-			String imageUrl, List<Pedido> myOrders,Pedido cart, String... roles) {
+			String imageUrl, List<Pedido> myOrders, Pedido cart, String... roles) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -79,44 +76,42 @@ public class Customer {
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
- 
-
-	public long getId() {
-		return id;
+	public long getIdCustomer() {
+		return id_customer;
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	} 
+	public void setIdCustomer(long id_customer) {
+		this.id_customer = id_customer;
+	}
 
 	public String getFirstName() {
 		return firstName;
 	}
 
-    public String getMail() {
-        return mail;
-    }
+	public String getMail() {
+		return mail;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public long getTelephone() {
-        return telephone;
-    }
+	public long getTelephone() {
+		return telephone;
+	}
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
+	public String getImageUrl() {
+		return imageUrl;
+	}
 
 	public String getLastName() {
 		return lastName;
 	}
-	
+
 	public List<Pedido> getMyOrders() {
 		return myOrders;
 	}
@@ -124,49 +119,35 @@ public class Customer {
 	public void setMyOrders(List<Pedido> myOrders) {
 		this.myOrders = myOrders;
 	}
-	
-
-
 
 	public Pedido getMyCart() {
 		return myCart;
 	}
 
-
-
 	public void setMyCart(Pedido myCart) {
 		this.myCart = myCart;
 	}
-
-
 
 	public List<String> getRoles() {
 		return roles;
 	}
 
-
-
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
 
-	
-
-
-	public boolean isIdLogged() {
-		return isIdLogged;
+	public boolean idLogged() {
+		return idLogged;
 	}
-
-
 
 	public void setIdLogged(boolean isIdLogged) {
-		this.isIdLogged = isIdLogged;
+		this.idLogged = isIdLogged;
 	}
-
-
 
 	@Override
 	public String toString() {
-		return String.format("Customer[id=%d, firstName='%s', lastName='%s', mail='%s', address='%s', telephone='%s' ]",id, firstName, lastName, mail, address, telephone);
+		return String.format(
+				"Customer[id_customer=%d, firstName='%s', lastName='%s', mail='%s', address='%s', telephone='%s' ]", id_customer,
+				firstName, lastName, mail, address, telephone);
 	}
 }

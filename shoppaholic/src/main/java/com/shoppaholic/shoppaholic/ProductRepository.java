@@ -6,9 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
+
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	List<Product> findByName(String name);
+	
+	List <Product> findFirst3ByOrderByNLikesDesc();
+	
+	List <Product> findFirst100ByOrderByDateDesc();
 	
 	Product findById(long id);
 	
