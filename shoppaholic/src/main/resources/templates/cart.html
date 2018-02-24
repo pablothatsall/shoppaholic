@@ -80,19 +80,15 @@
                             <div class="assets">
                                 <label><strong>Price: </strong>{{price}}</label>
                                 <div class="btn-group float-md-right">
-                                    <a class="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"><img id="miniicon" src="../img/trashicon.png"></span></a>
-                                    <select class="custom-select">
-                                        <option selected>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                    </select>
+                               
+                   <form action="" method="post">
+                  <input type="submit"  class="btn btn-danger" value="Delete">
+                    <input type="hidden" name="deletion"  placeholder="Delete" value="{{id}}" >
+                    		<input type="hidden" name="_csrf" value="{{token}}"/>
+                  
+
+                                   </form>
+                
                                 </div>
                             </div>
                         </div>{{/products}}

@@ -2,6 +2,7 @@ package com.shoppaholic.shoppaholic;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
@@ -43,6 +44,8 @@ public class Pedido {
 		private List<Product> productsofPedido = new ArrayList<>();
 	protected Pedido() {
 		// Used by SpringData
+		java.util.Date fecha = new Date();
+		this.date = fecha.toGMTString();
 	}
 
 
@@ -80,7 +83,9 @@ public class Pedido {
     public void addProduct(Product product) {
     	this.productsofPedido.add(product);
     }
-    
+    public void deleteProduct(Product product) {
+    	this.productsofPedido.remove(product);
+    }
     
     
 	public List<Product> getProductsofPedido() {

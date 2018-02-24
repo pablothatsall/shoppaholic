@@ -24,7 +24,7 @@ import com.shoppaholic.shoppaholic.Customer.Basic;
 		
 		private String date;
 		
-		@OneToOne
+		@ManyToOne
 		private Product product; 
 
 		

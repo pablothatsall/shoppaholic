@@ -59,8 +59,8 @@ public class IndexController {
 
 		List<Product> products = new ArrayList<Product>();
 		products.add(farcry);
-		
-		Pedido pedido1 = new Pedido(12, "Pending", "Chubi", "12/7/2018", products);
+		java.util.Date fecha = new Date(); 
+		Pedido pedido1 = new Pedido(12, "Pending", "Chubi", fecha.toGMTString(), products);
 		pedidoRepository.save(pedido1); 
 		Pedido pedido2 = new Pedido();
 		pedidoRepository.save(pedido2); 
@@ -120,15 +120,15 @@ public class IndexController {
 		Customer chubi = customerRepository.findByMail("chubi"); //Esto una vez funcione login registro se cambia chubi por el customer que ha iniciado sesión
 		Pedido pedidotoadd = chubi.getMyCart();
 		
-		if(!addproduct.equals("")) {
+		if(!addproduct.equals("") && addcomment.equals("")) {
 			pedidotoadd.addProduct(p);
 			customerRepository.save(chubi);
+			
 		}
 		
 		if(!addcomment.equals("")) {
 			java.util.Date fecha = new Date(); 
 			commentRepository.save(new Comment(chubi,addcomment,fecha.toGMTString(),p));	
-			addproduct="";
 		} 
 		
 		return "product";
@@ -208,14 +208,20 @@ public class IndexController {
 	}
  //Aqui tendremos de id la id del customer que tiene ese carrito
 	@RequestMapping("/cart/{id}")
-	public String cartStart(Model model, @PathVariable long id) {
+	public String cartStart(Model model, @PathVariable long id, @RequestParam(value = "deletion", defaultValue = "-1") long deletion) {
 		Customer customer= customerRepository.findOne(id);
 		model.addAttribute("customer", customer);
 		Pedido carrito = customer.getMyCart();
 		model.addAttribute("cartdetails", carrito);
-		
+		 
 		List<Product> productsfromcart = customer.getMyCart().getProductsofPedido(); 
 		model.addAttribute("products", productsfromcart);
+		
+		if(deletion!=-1) {
+			
+			pedidoRepository.findById(id).deleteProduct(productRepository.findById(deletion));;
+			pedidoRepository.save(carrito);
+		} 
 		 
 		return "cart";
 	}

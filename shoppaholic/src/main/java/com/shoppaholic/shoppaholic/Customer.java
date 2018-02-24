@@ -17,8 +17,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -72,7 +70,7 @@ public class Customer {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.mail = mail;
-		this.password = new BCryptPasswordEncoder().encode(password);;
+		this.password = password;
 		this.address = address;
 		this.telephone = telephone;
 		this.imageUrl = imageUrl;
@@ -81,7 +79,7 @@ public class Customer {
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
-
+ 
 
 	public long getId() {
 		return id;
@@ -89,7 +87,7 @@ public class Customer {
 
 	public void setId(long id) {
 		this.id = id;
-	}
+	} 
 
 	public String getFirstName() {
 		return firstName;
