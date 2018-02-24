@@ -9,16 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-/**
- * This class is used to provide REST endpoints to logIn and logOut to the
- * service. These endpoints are used by Angular 2 SPA client application.
- * 
- * NOTE: This class is not intended to be modified by app developer.
- */
+
 @RestController
 public class LoginController {
 
@@ -26,7 +22,7 @@ public class LoginController {
 
 	@Autowired
 	private CustomerComponent customerComponent;
-
+ 
 	@RequestMapping("/logIn")
 	public ResponseEntity<Customer> logIn() {
 
@@ -40,7 +36,7 @@ public class LoginController {
 		}
 	}
 
-	@RequestMapping("/logOut")
+	@RequestMapping("/logout")
 	public ResponseEntity<Boolean> logOut(HttpSession session) {
 
 		if (!customerComponent.isLoggedUser()) {

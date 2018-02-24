@@ -59,7 +59,7 @@
                                 <h3 id="tit">Log In</h3>
                             </div>
                         <div class="form-group">
-                            <form action="/login" id="formulario" autocomplete="on" method="post">
+                            <form action=/logIn id="formulario" autocomplete="on" method="post">
                                 <label for="email" class="control-label" id="lab" for="textinput"> Email</label>  
                                 <input id="email" name="email" placeholder="" required="required" class="form-control input-md" type="text">
                             
@@ -74,8 +74,9 @@
 				    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
 				    	    	</label>
                           
-                            	<button type="submit" value="Login" class="btn btn-primary">Sign Up                               <input type="hidden" name="_csrf" value="{{token}}"/></button>
-                            	<input type="submit" value="Log In" />
+                            	<button type="submit" value="Login" class="btn btn-primary">Sign Up                              
+                            	 <input type="hidden" name="_csrf" value="{{token}}"/></button>
+                            	
                             	</form>
                             </div>
                         </div>

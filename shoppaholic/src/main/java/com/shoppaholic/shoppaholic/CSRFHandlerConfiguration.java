@@ -30,3 +30,4 @@ class CSRFHandlerInterceptor extends HandlerInterceptorAdapter {
 		}
 	}
 }
+ 

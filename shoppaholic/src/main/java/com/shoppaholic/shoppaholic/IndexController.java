@@ -2,11 +2,12 @@ package com.shoppaholic.shoppaholic;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -63,7 +64,7 @@ public class IndexController {
 		List<Pedido> ordersc = new ArrayList<>();
 		ordersc.add(pedido1);
 	 
-		Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc,pedido1, "USER");
+		Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc,pedido1, "ROLE_USER");
 		Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"https://pbs.twimg.com/profile_images/916980080278102017/HfrABpSp_400x400.jpg",null, null, "ROLE_USER");
 		Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"https://pbs.twimg.com/profile_images/578500665565130752/xVoASGTj_400x400.jpeg",null, null, "ROLE_USER");
 		customerRepository.save(c);
@@ -78,15 +79,16 @@ public class IndexController {
 	}
 
 	@RequestMapping("/")
-	public String mainStart(Model model) {
-
+	public String mainStart(Model model, HttpServletRequest request) {
 		model.addAttribute("products", productRepository.findAll(new PageRequest(0, 4)));
 		return "index";
 	}
 	
-	@RequestMapping("/userprofile")
-	public String userStart(Model model) {
 
+	
+	@RequestMapping("/userprofile")
+	public String userStart(Model model, HttpServletRequest request ) {
+		model.addAttribute("USER", request.isUserInRole("USER"));
 		return "userprofile";
 	}
 
@@ -103,25 +105,25 @@ public class IndexController {
 	}
 
 	@RequestMapping("/product/{id}")
-	public String productStart(Model model, @PathVariable long id) {
+	public String productStart(Model model, @PathVariable long id, 
+			@RequestParam(value = "addproduct", defaultValue = "") String addproduct) {
 		Product p = productRepository.findOne(id);
 		model.addAttribute("product", p);
 		List<Comment> c = commentRepository.findByProduct(p);
 		model.addAttribute("comments", c);
+		Customer chubi = customerRepository.findByMail("chubi");
+		model.addAttribute("comments", c);
+		if(!addproduct.equals("")) {}
+
+		
 		return "product";
 	}
 
-	// El siguiente request es para los casos sin id (solo para pruebas, este al
-	// final debería ser eliminado
-	@RequestMapping("/product")
-	public String productStart(Model model) {
-
-		return "product";
-	}
 
 	@RequestMapping("/search")
 	public String searchStart(Model model, @RequestParam(value = "searchtext", defaultValue = "") String searchtext) {
 		model.addAttribute("products", productRepository.findByName(searchtext));
+		model.addAttribute("productslabel", productRepository.findByLabel(searchtext));
 		return "search";
 	}
 

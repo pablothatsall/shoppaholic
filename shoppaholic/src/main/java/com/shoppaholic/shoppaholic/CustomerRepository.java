@@ -8,7 +8,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	
 	List<Customer> findByLastName(String lastName);
 	
-	List<Customer> findByFirstName(String firstName);
+	Customer findByFirstName(String firstName);
 	
 	List<Customer> findByAddress(String address);
 	

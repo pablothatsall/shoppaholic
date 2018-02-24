@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 	
-	List<Customer> findById(Long id);
+	Pedido findById(Long id);
 	
-	List<Customer> findByTotalPrice(double totalPrice);
+	Pedido findByTotalPrice(double totalPrice);
 	
-	List<Customer> findByStatus(String status);
+	List<Pedido> findByStatus(String status);
 	
-	List<Customer> findByUser(String user);
+	Pedido findByUser(String user);
 	
 	List<Customer> findByDate(String date);
 	  

@@ -98,7 +98,11 @@
                     <h2 style="text-align: right">{{Price}}€</h2>
                 </div>
                 <div class="col-md-1" style="text-align: right">
-                    <a href="/cart" class="btn btn-primary">Add to my cart</a>
+                <form action="/product/{{id}}" method="post">
+                    
+                     <input type="hidden" name="addproduct" value="{{id}}" >
+                    		<input type="hidden" name="_csrf" value="{{token}}"/>
+                    <input type="submit"  class="btn btn-primary" value="Add to my cart"><img id="icon" src="../img/userIcon.png">
                 </div>
             </div>
               <p class="card-text">{{description}}</p>

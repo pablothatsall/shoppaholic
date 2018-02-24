@@ -26,6 +26,11 @@ import com.shoppaholic.shoppaholic.Customer.Basic;
 		@OneToOne
 		private Product product; 
 
+		
+		public Comment() {
+			super();
+		}
+
 		public Comment(Customer customer, String comment, String date, Product product) {
 			super();
 			this.customer = customer;
