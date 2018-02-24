@@ -48,7 +48,6 @@ public class Pedido {
 
  
 
-
 	public Pedido(double totalPrice, String status, String user, String date, List<Product> productsofPedido) {
 		super();
 		this.totalPrice = totalPrice;

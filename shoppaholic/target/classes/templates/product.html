@@ -111,20 +111,29 @@
           <!-- /.card -->
 
           <div class="card card-outline-secondary my-4">
+      
             <div class="card-header">
-                <h3>Product Info</h3>
+                <h3>Comments</h3>
             </div>
             <div class="card-body">
-              <h6>Features</h6>
-              <p>Test the limits of your creativity with the premium mirrorless DSLR that’s focused on speed. Every artistic shot you take—from fast-action to candid—benefits from 24.3MP detail and the world’s fastest auto focus6. For capturing crucial moments that go by in a blink, the a6000 can shoot 11 photos in one second. It’s compact and easy to use, too. Two quick-access dials let you change settings on the fly. Very intuitive</p>
-              <hr>
-              <p>The α6000 is a super compact Mirrorless camera that’s about half the size and weight of a typical DSLR, yet it has the same size APS-C image sensor as most DSLRs. The interchangeable lenses and E-mount system make the α6000 more versatile than almost any other camera on the market.</p>
-              <hr>
-              <p>Never miss the moment - the α6000 captures 11fps frames per second in continuous shooting mode with AF (Auto Focus) tracking by making the most of the wide-area 179-point phase-detection AF sensor. Even when dealing with fast action the α6000’s superb moving-subject tracking performance ensures you get a great shot during still or video capture.</p>
-              <hr>
+            
+              {{#comments}}
+              <h6>Comment by {{customer.firstName}}</h6>
+              <p>{{date}}</p>
+              <p>{{comment}}</p>
+
+              
+
+              
+              {{/comments}}
             </div>
           </div>
           <!-- /.card -->
+		<form action="/action_page.php" id="usrform">
+ Add your comment: <input type="text" name="usrname">
+  <input type="submit">
+</form>
+
 
         </div>
         <!-- /.col-lg-9 -->

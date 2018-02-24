@@ -8,6 +8,8 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 	
 	Customer findByCustomer(Customer customer);
 	
+	List<Comment> findByProduct(Product product);
+	
 	
 	
 	

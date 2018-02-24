@@ -35,18 +35,25 @@ public class IndexController {
 	
 	@Autowired
 	private CustomerComponent customerComponent;
+	@Autowired 
+	private CommentRepository commentRepository;
 	
 	//final static Logger log = LoggerFactory.getLogger(IndexController.class); for login
 
 	@PostConstruct
 	public void init() {
-		Product fifa = new Product("FIFA", 45, "Best football simulator", "Videogames", "18/10/2017","https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg");
-		Product farcry = new Product("FARCRY Primal", 30, "Survive ", "Videogames", "2/12/2017","https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg");
+		Product fifa = new Product("FIFA", 45, "Best football simulator", "Videogames", "18/10/2017","https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg",null);
+		Product farcry = new Product("FARCRY Primal", 30, "Survive ", "Videogames", "2/12/2017","https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",null);
+		Product nba = new Product("NBA", 34.99, "Play basketball ", "Videogames", "5/12/2017","https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg",null);
+		Product cdj = new Product("Pioneer cdj-2000nxs2", 2290.99, "For DJing ", "Music", "8/12/2017","https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg",null);
+		Product pc = new Product("Medion S91 - Ordenador de sobremesa", 1071.18,"Intel Core i7-6700 | 8 GB RAM | 1 TB HDD", "Electronic", "11/12/2017","https://images-na.ssl-images-amazon.com/images/I/91jemD9L-OL._SL1500_.jpg",null);
 		productRepository.save(fifa);
 		productRepository.save(farcry);
-		productRepository.save(new Product("NBA", 34.99, "Play basketball ", "Videogames", "5/12/2017","https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg"));
-		productRepository.save(new Product("Pioneer cdj-2000nxs2", 2290.99, "For DJing ", "Music", "8/12/2017","https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg"));
-		productRepository.save(new Product("Medion S91 - Ordenador de sobremesa", 1071.18,"Intel Core i7-6700 | 8 GB RAM | 1 TB HDD", "Electronic", "11/12/2017","https://images-na.ssl-images-amazon.com/images/I/91jemD9L-OL._SL1500_.jpg"));
+		productRepository.save(nba);
+		productRepository.save(cdj);
+		productRepository.save(pc);
+		
+		
 
 		List<Product> products = new ArrayList<Product>();
 		products.add(farcry);
@@ -62,6 +69,11 @@ public class IndexController {
 		customerRepository.save(c);
 		customerRepository.save(p);
 		customerRepository.save(d);
+		
+		Comment c1 = new Comment(c,"Me gusta el fifa","24/2/2018",fifa);
+		commentRepository.save(c1);
+		
+		
  
 	}
 
@@ -94,6 +106,8 @@ public class IndexController {
 	public String productStart(Model model, @PathVariable long id) {
 		Product p = productRepository.findOne(id);
 		model.addAttribute("product", p);
+		List<Comment> c = commentRepository.findByProduct(p);
+		model.addAttribute("comments", c);
 		return "product";
 	}
 

@@ -1,9 +1,15 @@
 package com.shoppaholic.shoppaholic;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -31,18 +37,21 @@ public class Product{
 		private String label;
 	@JsonView(Basic.class)
     	private String pDate;
-	  
+	@OneToMany
+		private List<Comment> comments  = new ArrayList<>();
+	
 		protected Product() {
 		// Used by SpringData
 	}
 
-	public Product(String name, double price, String description, String label, String pDate, String imageUrl) {
+	public Product(String name, double price, String description, String label, String pDate, String imageUrl, List<Comment> comments) {
 		this.name = name;
 		this.price = price;
         this.description = description;
         this.label = label;
         this.pDate = pDate;
         this.imageUrl = imageUrl;
+        this.comments = comments;
 	}
 
 	
@@ -105,6 +114,16 @@ public class Product{
     public String getImageUrl() {
         return imageUrl;
     }
+
+    
+    
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
 	@Override
 	public String toString() {
