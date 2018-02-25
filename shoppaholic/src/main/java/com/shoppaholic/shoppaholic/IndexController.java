@@ -56,6 +56,26 @@ public class IndexController {
 		Product harrypotter  = new Product("Harry Potter and the Chamber of Secrets",8.0,"Harry returns to Hogwarts, still famous and a hero, when strange thingsstart to happen", "Movies", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51JxWRcdnRL.jpg",null);
 		Product rocketleague = new Product("Rocket League", 20, "Football + cars", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51Rne6waRLL._SX215_.jpg",null);
 		Product callofduty = new Product("Call of Duty WWII", 45 , "Fight in world war II",  "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51Rne6waRLL._SX215_.jpg",null);
+		Product top = new Product("Romwe Women's Top Blouse", 14,99 , "95% Polyester, 5% Spandex",  "Clothing", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/41M0ZQ42IJL._AC_US0_.jpg",null);
+		Product dress = new Product("KISSMODA Dresses", 18,99, "This pencil dress is made of polyester+spendex.It is lightweight soft and comfortable against your skin. ", "Clothing", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/31tW-sXP46L._AC_UL500_SR385,500_QL65_.jpg",null);
+		Product galaxy8 = new Product("Samsung Galaxy S8 64GB", 626,28, "Infinity Display: a bezel-less, full-frontal, edge-to-edge screen.", "Smartphones", fecha.toGMTString(),"https://www.amazon.com/Samsung-Unlocked-Certified-Refurbished-Midnight/dp/B0764J52SG/ref=sr_1_3?s=wireless&ie=UTF8&qid=1519599211&sr=1-3&keywords=samsung+galaxy+s8",null);
+		Product rasp = new Product("Raspberry Pi 3", 38,00, "1.2GHz 64-bit quad-core ARMv8 CPU, 1 GB RAM ", "Electronic", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51Vt9f26ryL._AC_US436_QL65_.jpg",null);
+		Product grill = new Product("Char-Broil Performance 475", 193,03,"4-Burner, 36,000-BTU Cart-Style Gas Grill with 10,000-BTU Lidded Side Burner", "Garden", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/41ISNBS-kML._AC_US436_QL65_.jpg",null);
+		Product forniture = new Product("Devoko Patio Porch Furniture Set", 129,99,"High quality strong steel frame with waterproof PE rattan wicker Patio furniture set.", "Garden", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/411fPmSFixL._AC_US400_QL65_.jpg",null);
+		Product play4  = new Product("PlayStation 4 Slim 1TB",299,00,"Includes a new slim 1TB PlayStation®4 system, a matching DualShock 4 Wireless Controller.","Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/71xSJoog7OL._AC_.jpg",null);
+		Product boots  = new Product("adidas Performance Men's",157,24,"Responsive touch and optimum ball control out of the box with soft AGILITY MESH", "Sports", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/518XBaSv+lL._AC_US0_.jpg",null);
+		Product tshirt = new Product("Under Armour Men's Tech Short", 78,00, "UA Tech fabric is quick-drying, ultra-soft & has a more natural feel","Sports", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/61AWmuVtLkL._AC_US0_.jpg",null);
+		Product bars = new Product("HEALTH WARRIOR Chia Bars", 11,99 , "100 calorie superfood snack made from real ingredients like chia that help keep you full",  "Health", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51TaOrSD3UL._AC_US400_QL65_.jpg",null);
+		Product makeup = new Product("Maybelline 24 Hour Eyeshadow", 5,94, "24 hour wear without creasing or fading","Makeup", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/511GldPzSiL._AC_US400_QL65_.jpg",null);
+		Product hammer = new Product("Titan Tools 63125 5-Piece Hammer", 44,47, "(1) 16 oz. Ball Pein Hammer (63316),(1) 32 oz. Ball Pein Hammer (63024)","Tools", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/516Gwp3ZREL._AC_US400_QL65_.jpg",null);
+		Product multitool = new Product("IRWIN VISE-GRIP Multi-Tool", 13,90, "Wire cutter with induction hardened cutting edge stays sharp longer", "Tools", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/31uY1TVTmaL._AC_US400_QL65_.jpg",null);
+		Product sneakers = new Product("Bruno Marc Sneakers", 29,99,"Lightweige, soft and comfortable design", "Sneakers", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/41Wg70BSzjL._AC_US0_.jpg",null);
+		Product origin = new Product("Origin: A Novel", 17,96,"Robert Langdon, Harvard professor of symbology and religious iconology, arrives at the ultramodern Guggenheim Museum Bilbao to attend a major announcement...", "Books", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51OOD3HzgzL._AC_US436_QL65_.jpg",null);
+		Product gigants  = new Product("Fall of Giants",7,99,"A thirteen-year-old Welsh boy enters a man’s world in the mining pits. . . . An American law student rejected in love finds a surprising new career in Woodrow Wilson’s White House...", "Books", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51PtqimkXdL._AC_US436_QL65_.jpg",null);
+		Product harrypotter2  = new Product("Harry Potter And The Chamber Of Secrets",7,39,"The Dursleys were so mean that hideous that summer that all Harry Potter wanted was to get back to the Hogwarts School for Witchcraft and Wizardry.", "Books", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51jNORv6nQL._AC_US436_QL65_.jpg",null);
+		Product headset = new Product("HyperX Cloud II Gaming Headset", 91,82, "USB Audio Sound Card with 7.1 Virtual Surround Sound", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/514cV6xMKrL._AC_US436_QL65_.jpg",null);
+		Product camera = new Product("Sony Cyber-shot DSC-RX100M4 Pack", 898,72 , "World's first1 201 MP 1 Exmor RS stacked back illuminated CMOS", "Electronic", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51HppQk1mfL._AC_US436_QL65_.jpg",null);
+		Product soundbar = new Product("Samsung HW-M360/ZA 2.1",182,43 , "Enjoy a dynamic home Audio experience with 2.1 Channel surround sound.", "Electronic", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/212eg94cyEL._AC_US436_QL65_.jpg",null);
 		productRepository.save(fifa);
 		productRepository.save(farcry);
 		productRepository.save(nba);
@@ -66,6 +86,26 @@ public class IndexController {
 		productRepository.save(harrypotter);
 		productRepository.save(rocketleague);
 		productRepository.save(callofduty);
+		productRepository.save(top);
+		productRepository.save(dress);
+		productRepository.save(galaxy8);
+		productRepository.save(rasp);
+		productRepository.save(grill);
+		productRepository.save(forniture);
+		productRepository.save(play4);
+		productRepository.save(boots);
+		productRepository.save(tshirt);
+		productRepository.save(bars);
+		productRepository.save(makeup);
+		productRepository.save(hammer);
+		productRepository.save(multitool);
+		productRepository.save(sneakers);
+		productRepository.save(origin);
+		productRepository.save(gigants);
+		productRepository.save(harrypotter2);
+		productRepository.save(headset);
+		productRepository.save(camera);
+		productRepository.save(soundbar);
 		
 		 
 		
@@ -83,13 +123,21 @@ public class IndexController {
 		Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc,pedido1, "ROLE_USER");
 		Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"https://pbs.twimg.com/profile_images/916980080278102017/HfrABpSp_400x400.jpg",null, pedido2 , "ROLE_USER");
 		Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"https://pbs.twimg.com/profile_images/578500665565130752/xVoASGTj_400x400.jpeg",null, null, "ROLE_USER");
+		Customer s = new Customer("Sergio", "Sarria", "Porro", "sergio", "", ,"");
 		customerRepository.save(c);
 		customerRepository.save(p);
 		customerRepository.save(d);
+		customerRepository.save(s);
 		
 		java.util.Date fechaactual = new Date();
-		Comment c1 = new Comment(c,"Me gusta el fifa", fechaactual.toGMTString() ,fifa);
+		Comment c1 = new Comment(c,"I like Fifa", fechaactual.toGMTString() ,fifa);
 		commentRepository.save(c1);
+		Comment c2 = new Comment(s,"Great book", fechaactual.toGMTString() ,origin);
+		commentRepository.save(c2);
+		Comment c3 = new Comment(p,"Nice camera", fechaactual.toGMTString() ,camera);
+		commentRepository.save(c3);
+		Comment c4 = new Comment(d,"Very confortable", fechaactual.toGMTString() ,boots);
+		commentRepository.save(c4);
 		
 		
  
