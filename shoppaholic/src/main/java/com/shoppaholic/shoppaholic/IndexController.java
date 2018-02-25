@@ -310,8 +310,21 @@ public class IndexController {
 
 	}
 	
-	
-	
+	@RequestMapping("/admin/editproduct")
+	public String editProduct(Model model, @RequestParam(value = "productnameoriginal", defaultValue = "") String productnameoriginal,
+			@RequestParam(value = "productname", defaultValue = "") String productname	) {
+		List<Product> p = productRepository.findAll();
+		model.addAttribute("products", p);
+		
+		if (!productname.equals("")){
+			productRepository.findByName(productnameoriginal).setName(productname);
+			
+		
+		} 
+		
+		return "editProduct";
+		}
+
 	
 	@RequestMapping("/admin")
 	public String manageUser(Model model) {

@@ -23,4 +23,4 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	
 	List<Customer> findByImageUrl(String imageUrl);
 	
-}  
+}   
