@@ -109,6 +109,35 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 
 - Pagina que muestra los resultados de una busqueda. Se compone de pequeñas imagenes con sus descripciones.
 
+##### Administración
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/administration.png)
+
+- Pagina que permite administrar tanto productos como usuarios.
+
+##### Añadir Producto
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/add.png)
+
+- Pagina que permite añadir un nuevo producto.
+
+##### Editar o Eliminar
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/editOrDelete.png)
+
+- Pagina que permite editar o eliminar un producto.
+
+##### Editar
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/edit.png)
+
+- Pagina que permite editar un producto.
+
+##### Administración Usuarios
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/manage.png)
+
+- Pagina que permite la eliminación de un usuario.
 
 
 -------------------------------------------------------------------------------
