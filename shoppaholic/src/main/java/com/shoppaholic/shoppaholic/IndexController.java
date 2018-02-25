@@ -228,10 +228,17 @@ public class IndexController {
 	}
 
 	@RequestMapping("/admin/addProduct")
-	public String addProduct(Model model) {
-		List<Product> products = productRepository.findAll();
-		model.addAttribute("products", products);
+	public String addProduct(Model model, @RequestParam(value = "nameproduct", defaultValue = "") String nameproduct,
+			@RequestParam(value = "priceproduct", defaultValue = "0.0") double priceproduct,
+			@RequestParam(value = "labelsproduct", defaultValue = "") String labelsproduct,
+			@RequestParam(value = "descriptionproduct", defaultValue = "") String descriptionproduct,
+			@RequestParam(value = "imageproduct", defaultValue = "https://images-eu.ssl-images-amazon.com/images/I/318gIw2AsDL._SS500.jpg") String imageproduct){
 		
+		if(!nameproduct.equals("") && !descriptionproduct.equals("") ) {
+		java.util.Date fecha = new Date(); 
+		List<Comment> comments = new ArrayList<>();
+		Product newproduct = new Product(nameproduct,priceproduct,descriptionproduct,labelsproduct,fecha.toGMTString(),imageproduct,comments);
+		productRepository.save(newproduct);}
 		return "addProduct";
 
 	}
