@@ -52,9 +52,9 @@ public class Pedido {
 
  
 
-	public Pedido(double totalPrice, String status, String user, String date, List<Product> productsofPedido) {
+	public Pedido(String status, String user, String date, List<Product> productsofPedido) {
 		super();
-		this.totalPrice = totalPrice;
+		this.totalPrice = calculaprecio();
 		this.status = status;
 		this.user = user;
 		this.date = date;
@@ -62,7 +62,16 @@ public class Pedido {
 	}
 
 
-
+	public double calculaprecio() {
+        int suma=0;
+        int x=this.getProductsofPedido().size();
+        for (int i=0;i<x;i++){
+            suma+=this.getProductsofPedido().get(i).getPrice();
+        }
+		
+	return suma;
+	
+	}
 
 
 

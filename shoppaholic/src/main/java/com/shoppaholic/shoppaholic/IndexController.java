@@ -72,7 +72,7 @@ public class IndexController {
 
 		List<Product> products = new ArrayList<Product>();
 		products.add(farcry);
-		Pedido pedido1 = new Pedido(12, "Pending", "Chubi", fecha.toGMTString(), products);
+		Pedido pedido1 = new Pedido("Pending", "Chubi", fecha.toGMTString(), products);
 		pedidoRepository.save(pedido1); 
 		Pedido pedido2 = new Pedido();
 		pedidoRepository.save(pedido2); 
@@ -81,7 +81,7 @@ public class IndexController {
 		ordersc.add(pedido1);
 	 
 		Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", ordersc,pedido1, "ROLE_USER");
-		Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"https://pbs.twimg.com/profile_images/916980080278102017/HfrABpSp_400x400.jpg",null, null, "ROLE_USER");
+		Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"https://pbs.twimg.com/profile_images/916980080278102017/HfrABpSp_400x400.jpg",null, pedido2 , "ROLE_USER");
 		Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"https://pbs.twimg.com/profile_images/578500665565130752/xVoASGTj_400x400.jpeg",null, null, "ROLE_USER");
 		customerRepository.save(c);
 		customerRepository.save(p);
