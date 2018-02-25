@@ -21,7 +21,7 @@
   <body>
 
    <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/"><img id="icon" src="../img/logo.png">SHOPPAHOLIC</a>
 
@@ -30,11 +30,12 @@
         </button>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
-   				<form class="field" action="search" id="searchform" method="post">
+                 <form class="field" action="search" id="searchform" method="post">
                     <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?" />
                     <input type="hidden" name="_csrf" value="{{token}}"/>
                     <button type="submit" id="search">Search</button>
                 </form>
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/userprofile">My Profile<img id="icon" src="../img/userIcon.png"></a>

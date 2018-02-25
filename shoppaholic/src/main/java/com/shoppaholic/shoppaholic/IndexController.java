@@ -44,22 +44,34 @@ public class IndexController {
 
 	@PostConstruct
 	public void init() {
-		Product fifa = new Product("FIFA", 45, "Best football simulator", "Videogames", "18/10/2017","https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg",null);
-		Product farcry = new Product("FARCRY Primal", 30, "Survive ", "Videogames", "2/12/2017","https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",null);
-		Product nba = new Product("NBA", 34.99, "Play basketball ", "Videogames", "5/12/2017","https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg",null);
-		Product cdj = new Product("Pioneer cdj-2000nxs2", 2290.99, "For DJing ", "Music", "8/12/2017","https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg",null);
-		Product pc = new Product("Medion S91 - Ordenador de sobremesa", 1071.18,"Intel Core i7-6700 | 8 GB RAM | 1 TB HDD", "Electronic", "11/12/2017","https://images-na.ssl-images-amazon.com/images/I/91jemD9L-OL._SL1500_.jpg",null);
+		java.util.Date fecha = new Date(); 
+		Product fifa = new Product("FIFA", 45, "Best football simulator", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg",null);
+
+		Product farcry = new Product("FARCRY Primal", 30, "Survive ", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",null);
+		Product nba = new Product("NBA", 34.99, "Play basketball ", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/71r6RDosSDL._SL1000_.jpg",null);
+		Product cdj = new Product("Pioneer cdj-2000nxs2", 2290.99, "For DJing ", "Music", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg",null);
+		Product pc = new Product("Medion S91 - Ordenador de sobremesa", 1071.18,"Intel Core i7-6700 | 8 GB RAM | 1 TB HDD", "Electronic", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/91jemD9L-OL._SL1500_.jpg",null);
+		Product quidditch = new Product("Quidditch Through the Ages", 8.99,"If you have ever asked yourself where the Golden Snitch came from, how the Bludgers came into existence, or why the Wigtown Wanderers have pictures of meat cleavers on their robes, you need Quidditch Through the Ages.", "Books", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51ebk9M32HL._SX321_BO1,204,203,200_.jpg",null);
+		Product iphone  = new Product("Apple iPhone X 256 GB",1450.0,"If you wanted an apple drawing on your phone...", "Smartphones", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/81qcvkPSa9L._SL1500_.jpg",null);
+		Product harrypotter  = new Product("Harry Potter and the Chamber of Secrets",8.0,"Harry returns to Hogwarts, still famous and a hero, when strange thingsstart to happen", "Movies", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51JxWRcdnRL.jpg",null);
+		Product rocketleague = new Product("Rocket League", 20, "Football + cars", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51Rne6waRLL._SX215_.jpg",null);
+		Product callofduty = new Product("Call of Duty WWII", 45 , "Fight in world war II",  "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51Rne6waRLL._SX215_.jpg",null);
 		productRepository.save(fifa);
 		productRepository.save(farcry);
 		productRepository.save(nba);
 		productRepository.save(cdj);
 		productRepository.save(pc);
+		productRepository.save(quidditch);
+		productRepository.save(iphone);
+		productRepository.save(harrypotter);
+		productRepository.save(rocketleague);
+		productRepository.save(callofduty);
 		
+		 
 		
 
 		List<Product> products = new ArrayList<Product>();
 		products.add(farcry);
-		java.util.Date fecha = new Date(); 
 		Pedido pedido1 = new Pedido(12, "Pending", "Chubi", fecha.toGMTString(), products);
 		pedidoRepository.save(pedido1); 
 		Pedido pedido2 = new Pedido();
