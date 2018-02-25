@@ -47,26 +47,98 @@
             </div>
         </div>
     </nav>
+   
+    <form class="form-horizontal">
 
 
+        <div>
+            <h3 id="tit">Edit Profile</h3>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+            </div>
+            
+               {{#customer}}
+               <img id ="userphoto" src={{imageUrl}}>
+                  {{/customer}}
+
+            <div class="col-sm">
+
+            <div class="form-group"> 
+         {{#customer}}
+                <label class="control-label" id="lab" for="textinput">Name</label>  
+                <input id="textinput" name="userfirstname" placeholder="{{firstName}}" class="form-control input-md" type="text">
+             {{/customer}}    
+            </div>
+
+        <!-- Text input-->
+            <div class="form-group">
+             {{#customer}}
+                <label class="control-label" id="lab" for="textinput">Last Name</label>  
+                <input id="textinput" name="userlastname" placeholder="{{lastName}}" class="form-control input-md"  type="text">
+             {{/customer}} 
+            </div>
+
+            <div class="form-group">
+             {{#customer}}
+                <label class="control-label" id="lab" for="textinput">Mail</label>  
+                <input id="textinput" name="usermail" placeholder={{mail}} class="form-control input-md" type="text">
+             {{/customer}} 
+            </div>
+
+        <!-- Textarea -->
+            <div class="form-group">
+             {{#customer}}
+                <label class="control-label" id="lab" for="textarea">Address</label>
+                <textarea class="form-control"name="useraddress" id="textarea" placeholder="{{address}}" name="descriptionproduct"></textarea>
+             {{/customer}} 
+            </div>
+
+
+
+
+        <!-- Button (Double) -->
+            <div class="form-group">
+                <label class="control-label" for="btnCancel"></label>
+                <div class="col-md-8">
+                    <button id="btnCancel" name="btnCancel" class="btn btn-primary">Cancel</button>
+                    <button id="btnSave" name="btnSave" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm">
+              
+            </div>
+          </div>
+        </div>
+
+    </form>
+    
+<!--  
+{{#customer}}
       <div id="profile">
-          <div><img id ="userphoto" src="https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg "> </div>
+          <div><img id ="userphoto" src={{imageUrl}}> </div>
           <div id="userinfo">
+          
+             <form class="field" action="/editprofile/{{id}}" id="editprofile" method="post">
+              <p><b>Username:</b> <input  name="userfirstname" id="userfirstname" type="text" placeholder="{{firstName}}"/></p>
+              <p><b>Mail: </b><input name="usermail" id="usermail" type="text" placeholder="{{mail}}"/></p>
+              <p><b>Surname:</b> <input name="userlastname" id="userlastname" type="text"  placeholder="{{lastName}}"/> </p>
+              <p><b>Address:</b> <input name="useraddress" id="useraddress" type="text"  placeholder="{{address}}"/></p>
+             
               
-              <p><b>Username:</b> <input id="editusername" type="text"/></p>
-              <p><b>Mail: </b><input id="editmail" type="text"/></p>
-              <p><b>Surname:</b> <input id="editsurname" type="text"/> </p>
-              <p><b>Address:</b> <input id="editaddress" type="text"/></p>
-              <p><b>Phone:</b> <input id="editphone" type="text"/></p>
-              <p><b>Mail: </b><input id="editmail" type="text"/></p>
-              <p><b>Nationality: </b><input id="editnationality" type="text"/>.</p>
               <p><a href="/userprofile" class="btn btn-primary">Back</a>
-              <a href="/userprofile" class="btn btn-primary">Change</a></p>
-              
+                <button type="submit" id="editprofile" class="btn btn-success">Edit</button></p>
+                <input type="hidden" name="_csrf" value="{{token}}"/>
+             </form> 
           </div>
           
-      
+       
       </div>
+       
+{{/customer}}  -->    
       
      <!-- Footer -->
     <footer class="py-5">

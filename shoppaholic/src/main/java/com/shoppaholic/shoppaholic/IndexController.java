@@ -102,7 +102,7 @@ public class IndexController {
 	}
 	
 
-	
+	 
 	@RequestMapping("/userprofile")
 	public String userStart(Model model, HttpServletRequest request ) {
 		model.addAttribute("USER", request.isUserInRole("USER"));
@@ -210,17 +210,44 @@ public class IndexController {
 	
 	
 	@RequestMapping("/editprofile")
-	public String editprofileStart(Model model) {
+	public String editprofilesampleStart(Model model) {
 		
 		return "editprofile";
-	}
+	} 
 	//CON ID
-	/*@RequestMapping("/editprofile/{id}")
-	public String editprofileStart(Model model, @PathVariable long id) {
+	@RequestMapping("/editprofile/{id}")
+	public String editprofileStart(Model model, @PathVariable long id,
+					@RequestParam(value = "userfirstname", defaultValue = "") String userfirstname,
+					@RequestParam(value = "userlastname", defaultValue = "") String userlastname,
+					@RequestParam(value = "usermail", defaultValue = "") String usermail,
+					@RequestParam(value = "useraddress", defaultValue = "") String useraddress) {
 		Customer customer= customerRepository.findOne(id);
 		model.addAttribute("customer", customer);
+		
+		
+		if(!userfirstname.equals("")) {
+			customer.setFirstName(userfirstname);
+			customerRepository.save(customer); 
+		}
+		
+		if(!userlastname.equals("")) {
+			customer.setLastName(userlastname);
+			customerRepository.save(customer); 
+		}
+		if(!usermail.equals("")) {
+			customer.setMail(usermail); 
+			customerRepository.save(customer); 
+			
+		}
+		if(!useraddress.equals("")) {
+			customer.setAddress(useraddress);
+			customerRepository.save(customer);  
+			
+		}
+		
+
 		return "editprofile";
-	}*/
+	}
 
 	
 	
@@ -276,8 +303,19 @@ public class IndexController {
 		
 		} 
 		
+		if (deletion==null) {return "administration";}
+		
+		
 		return "manageUser";
 
 	}
+	
+	
+	
+	
+	@RequestMapping("/admin")
+	public String manageUser(Model model) {
+		return "administration";
+		}
 
 }

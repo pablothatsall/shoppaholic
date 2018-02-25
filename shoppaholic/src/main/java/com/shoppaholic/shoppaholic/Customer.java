@@ -56,7 +56,7 @@ public class Customer {
 	private List<String> roles;
 
 	private boolean idLogged;
-
+  
 	protected Customer() {
 		// Used by SpringData
 	}
@@ -142,6 +142,28 @@ public class Customer {
 
 	public void setIdLogged(boolean isIdLogged) {
 		this.idLogged = isIdLogged;
+	}
+	
+	
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setTelephone(long telephone) {
+		this.telephone = telephone;
 	}
 
 	@Override

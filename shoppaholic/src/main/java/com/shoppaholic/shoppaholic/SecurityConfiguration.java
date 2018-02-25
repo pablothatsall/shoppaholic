@@ -29,6 +29,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  http.authorizeRequests().antMatchers("/admin/manageUser").permitAll();
  http.authorizeRequests().antMatchers("/admin").permitAll(); 
  http.authorizeRequests().antMatchers("/admin/addproduct").permitAll();
+ http.authorizeRequests().antMatchers("/userprofile/{id}").permitAll();
+ 
  
  // Private pages (all other pages)
  
