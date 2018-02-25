@@ -67,17 +67,17 @@
 
     <div class="form-group">
         <label class="control-label" id="lab" for="textinput">E-mail</label>  
-        <input id="textinput" name="textinput" placeholder="" class="form-control input-md" required="" type="text">
+        <form class="field" action="" id="searchform" method="post">
+                    <input type="textinput" name="deletion" id="deletion" placeholder=" Mail of customer to delete" />
+
+                   <br>
+                    <a href="/admin"><button id="btnCancel" name="btnCancel" class="btn btn-primary">Cancel</button></a>
+                    <button type="submit" id="deletion" class="btn btn-success">Delete User</button>
+                  
+                </form>
     </div>
 
-
-<!-- Button (Double) -->
-    <div class="form-group">
-        <label class="control-label" for="btnCancel"></label>
-        <div class="col-md-12">
-            <button id="btnCancel" name="btnCancel" class="btn btn-primary">Cancel</button>
-            <button id="btnSave" name="btnSave" class="btn btn-success">Remove User</button>
-        </div>
+    
     </div>
 </div>
     <div class="col-sm">

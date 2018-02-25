@@ -68,8 +68,14 @@
                 <div class="carousel-item active" style="background-image: url(../img/librosSlider.png)">
                     <a href="">
                         <div class="carousel-caption d-none d-md-block">
-                            <h3>Don't just read</h3>
-                            <p>Best prices for best sellers</p>
+                            <form action="search" method="post">
+                    
+                     <input type="hidden" name="searchtext" value="Books" >
+                    <input type="submit"  class="btn btn-primary" value="Books">
+                     <input type="hidden" name="_csrf" value="{{token}}"/>
+                     <h3>Don't just read</h3>
+                     <p>Enjoy books</p>
+                    </form>
                         </div>
                     </a>
                 </div>
@@ -79,19 +85,32 @@
                 <div class="carousel-item" style="background-image: url(../img/smartphonesSlider.png)">
                     <a href="">
                         <div class="carousel-caption d-none d-md-block">
-                            <h3>Smartphone Revolution</h3>
-                            <p>Technology in your hands</p>
-                        </div>
-                    </a>
+                        <form action="search" method="post">
+                    
+                     <input type="hidden" name="searchtext" value="Smartphones" >
+                    <input type="submit"  class="btn btn-primary" value="Smartphones">
+                     <input type="hidden" name="_csrf" value="{{token}}"/>
+                     <h3>Smartphone Revolution</h3>
+                     <p>Technology in your hands</p>
+                    </form>
                 </div>
+                            
+                            
+                        </div>
+
                 <!-- Slide Three - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url(../img/moviesSlider.png)">
                     <a href="">
                         <div class="carousel-caption d-none d-md-block">
-                            <h3>Cinema at home</h3>
-                            <p>Best movies at best prices</p>
-                        </div>
-                    </a>
+                            <form action="search" method="post">
+                    
+                     <input type="hidden" name="searchtext" value="Movies" >
+                    <input type="submit"  class="btn btn-primary" value="Movies">
+                     <input type="hidden" name="_csrf" value="{{token}}"/>
+                     <h3>Cinema at home</h3>
+                     <p>Buy your favorite movies</p>
+                    </form>
+
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

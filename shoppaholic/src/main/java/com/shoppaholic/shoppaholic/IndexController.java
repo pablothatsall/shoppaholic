@@ -137,6 +137,7 @@ public class IndexController {
 
 	@RequestMapping("/search")
 	public String searchStart(Model model, @RequestParam(value = "searchtext", defaultValue = "") String searchtext) {
+		model.addAttribute("searchtext",searchtext);
 		model.addAttribute("products", productRepository.findByName(searchtext));
 		model.addAttribute("productslabel", productRepository.findByLabel(searchtext));
 		return "search";
@@ -236,9 +237,16 @@ public class IndexController {
 	}
 
 	@RequestMapping("/admin/manageUser")
-	public String manageUser(Model model) {
+	public String manageUser(Model model, @RequestParam(value = "deletion", defaultValue = "-1") String deletion) {
+		
 		List<Customer> customers = customerRepository.findAll();
 		model.addAttribute("customers", customers);
+		Customer toDelete = customerRepository.findByMail(deletion);
+		if(toDelete  != null) {
+			customerRepository.delete(toDelete);
+		
+		} 
+		
 		return "manageUser";
 
 	}
