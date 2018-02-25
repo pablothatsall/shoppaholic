@@ -32,7 +32,7 @@ public class Customer {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id_customer;
+	private long id;
 	@JsonView(Basic.class)
 	private String firstName;
 	@JsonView(Basic.class)
@@ -77,11 +77,11 @@ public class Customer {
 	}
 
 	public long getIdCustomer() {
-		return id_customer;
+		return id;
 	}
 
 	public void setIdCustomer(long id_customer) {
-		this.id_customer = id_customer;
+		this.id = id_customer;
 	}
 
 	public String getFirstName() {
@@ -146,8 +146,11 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return String.format(
-				"Customer[id_customer=%d, firstName='%s', lastName='%s', mail='%s', address='%s', telephone='%s' ]", id_customer,
-				firstName, lastName, mail, address, telephone);
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", mail=" + mail
+				+ ", password=" + password + ", address=" + address + ", telephone=" + telephone + ", imageUrl="
+				+ imageUrl + ", myOrders=" + myOrders + ", myCart=" + myCart + ", roles=" + roles + ", idLogged="
+				+ idLogged + "]";
 	}
+
+
 }

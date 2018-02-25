@@ -47,7 +47,7 @@ public class Pedido {
 		// Used by SpringData
 		java.util.Date fecha = new Date();
 		this.date = fecha.toGMTString();
-	}
+	} 
 
 
  

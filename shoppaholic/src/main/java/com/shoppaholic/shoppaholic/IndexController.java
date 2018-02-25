@@ -161,8 +161,18 @@ public class IndexController {
 	}
 
 	@RequestMapping("/orderlist")
-	public String orderlistStart(Model model) {
+	public String orderlistsampleStart(Model model) {
 
+		return "orderlist";
+	}
+	@RequestMapping("/orderlist/{id}")
+	public String orderlistStart(Model model, @PathVariable long id ) {
+		Customer c = customerRepository.findById(id);
+		model.addAttribute("c", c);
+		List<Pedido> orders = c.getMyOrders();
+		model.addAttribute("orders" , orders);
+		;
+		model.addAttribute("ordersize" , c.getMyOrders().size());
 		return "orderlist";
 	}
  

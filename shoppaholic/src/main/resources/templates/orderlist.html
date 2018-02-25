@@ -54,38 +54,36 @@
 
       <!-- Page Heading -->
       <h1 class="my-4">Your Orders: 
-        <small>3</small>
+        <small>{{ordersize}}</small>
       </h1>
-
+	{{#orders}}
       <!-- Project One -->
       <div class="row" >
         <div class="col-md-3" id="orderImage">
             <a href="#">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/240x170" alt="">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="https://jargonwriter.files.wordpress.com/2010/04/shoppingcartfinal1.jpg?w=240" alt="">
             </a>
         </div>
         <div class="col-md-8">
             <div class="orderSpecifications">
-                <h5><strong>Order number: </strong>84786435486</h5>
+                <h5><strong>Order number: </strong>{{id}}</h5>
                 <div class="col-md-6 float-md-left">
-                    <label><strong>Telephone Given: </strong>645786351</label>
+
+                    <label><strong>Number of products: </strong>{{productsofPedido.size}}</label>
                     <br>
-                    <label><strong>Number of products: </strong>4</label>
-                    <br>
-                    <label><strong>Order Date: </strong>04/02/2017</label>
+                    <label><strong>Order Date: </strong>{{date}}</label>
                     <br>
                 </div>
                 <div class="col-md-6 float-md-right">
-                    <label><strong>Shipping Address: </strong>DAW Str.</label>
+
+                    <label><strong>Estimated Shipping Date: </strong>In 1 week</label>
                     <br>
-                    <label><strong>Estimated Shipping Date: </strong>05/12/2017</label>
-                    <br>
-                    <label><strong>Shipping Status: </strong>Preparing</label>
+                    <label><strong>Shipping Status: </strong>{{status}}</label>
                     <br>
                 </div>
             </div>
             <div class="assets">
-                <label><strong>Total Price: </strong>24.53€</label>
+                <label><strong>Total Price: </strong>{{totalPrice}}€</label>
                 <a class="btn btn-outline-secondary float-md-right" href="product.html">View</a>
             </div>
         </div>
@@ -94,80 +92,8 @@
       <!-- /.row -->
 
       <hr>
-
-      <!-- Project Two -->
-      <div class="row" >
-        <div class="col-md-3" id="orderImage">
-            <a href="#">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/200x200" alt="">
-            </a>
-        </div>
-        <div class="col-md-8">
-          <div class="orderSpecifications">
-                <h5><strong>Order number: </strong>84786435486</h5>
-                <div class="col-md-6 float-md-left">
-                    <label><strong>Telephone Given: </strong>645786351</label>
-                    <br>
-                    <label><strong>Number of products: </strong>4</label>
-                    <br>
-                    <label><strong>Order Date: </strong>04/02/2017</label>
-                    <br>
-                </div>
-                <div class="col-md-6 float-md-right">
-                    <label><strong>Shipping Address: </strong>DAW Str.</label>
-                    <br>
-                    <label><strong>Estimated Shipping Date: </strong>05/12/2017</label>
-                    <br>
-                    <label><strong>Shipping Status: </strong>Preparing</label>
-                    <br>
-                </div>
-            </div>
-            <div class="assets">
-                <label><strong>Total Price: </strong>24.53€</label>
-                <a class="btn btn-outline-secondary float-md-right" href="product.html">View</a>
-            </div>
-        </div>
-    </div>
-    <br>
-      <!-- /.row -->
-
-      <hr>
-
-      <!-- Project Three -->
-      <div class="row" >
-        <div class="col-md-3" id="orderImage">
-            <a href="#">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/300x300" alt="">
-            </a>
-        </div>
-        <div class="col-md-8">
-          <div class="orderSpecifications">
-                <h5><strong>Order number: </strong>84786435486</h5>
-                <div class="col-md-6 float-md-left">
-                    <label><strong>Telephone Given: </strong>645786351</label>
-                    <br>
-                    <label><strong>Number of products: </strong>4</label>
-                    <br>
-                    <label><strong>Order Date: </strong>04/02/2017</label>
-                    <br>
-                </div>
-                <div class="col-md-6 float-md-right">
-                    <label><strong>Shipping Address: </strong>DAW Str.</label>
-                    <br>
-                    <label><strong>Estimated Shipping Date: </strong>05/12/2017</label>
-                    <br>
-                    <label><strong>Shipping Status: </strong>Preparing</label>
-                    <br>
-                </div>
-            </div>
-            <div class="assets">
-                <label><strong>Total Price: </strong>24.53€</label>
-                <a class="btn btn-outline-secondary float-md-right" href="product.html">View</a>
-            </div>
-        </div>
-    </div>
-    <br>
-      <!-- /.row -->
+{{/orders}}
+     
 
       <hr>
 

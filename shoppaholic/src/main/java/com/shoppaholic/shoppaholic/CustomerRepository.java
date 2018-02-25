@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	
+	Customer findById(long id);
+	
 	List<Customer> findByLastName(String lastName);
 	
 	Customer findByFirstName(String firstName);
