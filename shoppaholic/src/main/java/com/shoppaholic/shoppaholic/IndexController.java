@@ -42,6 +42,7 @@ public class IndexController {
 	
 	//final static Logger log = LoggerFactory.getLogger(IndexController.class); for login
 
+	@SuppressWarnings("deprecation")
 	@PostConstruct
 	public void init() {
 		java.util.Date fecha = new Date(); 
@@ -227,7 +228,9 @@ public class IndexController {
 			java.util.Date fechacarrito= new Date();
 			List<Product> newcart=  new ArrayList<>();
 			Pedido pedidonuevo = new Pedido("Pending",c.getFirstName(),fechacarrito.toGMTString(),newcart);
+			c.setMyCart(pedidonuevo);
 			pedidoRepository.save(pedidonuevo);
+			customerRepository.save(c);
 			c.setMyCart(pedidonuevo);}}
 		
 		
