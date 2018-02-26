@@ -146,4 +146,27 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 
 ![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/diagrama.png)
 
--
+-------------------------------------------------------------------------------
+
+### Entorno de Desarrollo
+
+- Para generar el entorno de desarrollo debemos crear un proyecto Maven desde Spring suit el cual es una versión de Eclipse. Desde este proyecto Maven que gestiona las dependencias del proyecto Spring se monta con la gerarquia de directorios de un proyecto Spring y conectarla a una base de datos mysql. Esta parte debe ser descargada de internet, para conectarlaa este servidor abres un puerto especificandolo desde el application.properties el cual es un archivo alojado en el proyecto. Una vez hecho esto configuras el usuario y la contraseña para poder trabajar en el workbench de mysql.
+-Como herramientas hemos utilizado el brackets, sublime text y el google chrome.
+
+-------------------------------------------------------------------------------
+
+
+### Diagrama de entidades de Bases de Datos
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/diagramaTemplates.png)
+
+-------------------------------------------------------------------------------
+
+
+### Diagrama de Clases y Templates
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/diagramaClases.png)
+
+
+
+
