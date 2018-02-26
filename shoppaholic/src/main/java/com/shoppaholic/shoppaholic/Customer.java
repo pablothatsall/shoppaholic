@@ -140,7 +140,7 @@ public class Customer {
 		return idLogged;
 	}
 	
-	
+	 
 
 	public long getId() {
 		return id;
