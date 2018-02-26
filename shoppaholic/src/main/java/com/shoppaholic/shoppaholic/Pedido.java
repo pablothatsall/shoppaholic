@@ -54,22 +54,22 @@ public class Pedido {
 
 	public Pedido(String status, String user, String date, List<Product> productsofPedido) {
 		super();
-		this.totalPrice = calculaprecio();
+		
 		this.status = status;
 		this.user = user;
 		this.date = date;
 		this.productsofPedido = productsofPedido;
+		calculaprecio();
 	}
 
 
-	public double calculaprecio() {
+	public void calculaprecio() {
         int suma=0;
         int x=this.getProductsofPedido().size();
         for (int i=0;i<x;i++){
             suma+=this.getProductsofPedido().get(i).getPrice();
         }
-		
-	return suma;
+        this.totalPrice = suma;
 	
 	}
 
@@ -100,6 +100,14 @@ public class Pedido {
     
 	public List<Product> getProductsofPedido() {
 		return productsofPedido;
+	}
+
+
+	
+
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 

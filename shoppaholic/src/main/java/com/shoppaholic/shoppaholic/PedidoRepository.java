@@ -12,10 +12,12 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 	
 	Pedido findByTotalPrice(double totalPrice);
 	
-	List<Pedido> findByStatus(String status);
+Pedido findByStatus(String status);
 	
 	List<Pedido> findByUser(String user);
 	
 	List<Customer> findByDate(String date);
+	
+	
 	  
-}  
+}    

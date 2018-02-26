@@ -28,7 +28,7 @@ import org.springframework.web.context.WebApplicationContext;
 		public long getIdLoggedUser(){
 			return customer.getIdCustomer();
 		}
-		
+		 
 	}
 	 
  

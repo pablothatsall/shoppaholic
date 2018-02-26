@@ -50,14 +50,23 @@
       <form class="form-horizontal">
         <fieldset>
           <div id="legend">
+          {{#pedido}}
+      	  Order ID:
+          {{id}}
+          Order price: 
+          {{totalPrice}}
+          Status:
+          {{status}}
+          {{/pedido}}
+          
             <legend class="">Payment</legend>
           </div>
      
           <!-- Name -->
-          <div class="control-group">
+          <div ">
             <label class="control-label"  for="username">Name</label>
             <div class="controls">
-              <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+              <input type="text"  placeholder="" class="input-xlarge">
             </div>
           </div>
      
@@ -65,15 +74,15 @@
           <div class="control-group">
             <label class="control-label" for="email">Card Number</label>
             <div class="controls">
-              <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+              <input type="text" id="tarjeta" name="tarjeta" placeholder="" class="input-xlarge">
             </div>
           </div>
      
           <!-- Expiry-->
-          <div class="control-group">
+          <div ">
             <label class="control-label" for="password">Card Expiry Date</label>
             <div class="controls">
-              <select class="span3" name="expiry_month" id="expiry_month">
+              <select class="span3" >
                 <option></option>
                 <option value="01">Jan (01)</option>
                 <option value="02">Feb (02)</option>
@@ -88,7 +97,7 @@
                 <option value="11">Nov (11)</option>
                 <option value="12">Dec (12)</option>
               </select>
-              <select class="span2" name="expiry_year">
+              <select class="span2">
                 <option value="13">2018</option>
                 <option value="14">2019</option>
                 <option value="15">2020</option>
@@ -105,18 +114,18 @@
           </div>
      
           <!-- CVV -->
-          <div class="control-group">
+          <div >
             <label class="control-label"  for="password_confirm">Card CVV</label>
             <div class="controls">
-              <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="span2">
+              <input type="password" placeholder="" class="span2">
             </div>
           </div>
      
           <!-- Save card -->
-          <div class="control-group">
+          <div>
             <div class="controls">
               <label class="checkbox" for="save_card">
-                <input type="checkbox" id="save_card" value="option1">
+                <input type="checkbox" >
                 Save Card on File?
               </label>
             </div>
