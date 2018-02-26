@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.*;
@@ -205,11 +208,41 @@ public class IndexController {
 	}
 
 
+	@RequestMapping("/searchNext/{searchterm}")
+	public String searchNext(Model model, @PageableDefault(size = 8) Pageable page, @PathVariable String searchterm) {
+		model.addAttribute("searchtext", searchterm);
+		
+		Page<Product> productos = productRepository.findByName(searchterm,  page);
+		model.addAttribute("products", productos);
+		
+		productos = productRepository.findByLabel(searchterm, page);
+		model.addAttribute("productslabel", productos);
+		
+		model.addAttribute("prevPage", productos.getNumber()-1);
+		model.addAttribute("currentPage", productos.getNumber());
+		model.addAttribute("secondPageButton", productos.getNumber()+1);
+		model.addAttribute("thirdPageButton", productos.getNumber()+2);
+		model.addAttribute("nextPage", productos.getNumber()+1);
+
+		return "search";
+	}
+	
 	@RequestMapping("/search")
-	public String searchStart(Model model, @RequestParam(value = "searchtext", defaultValue = "") String searchtext) {
-		model.addAttribute("searchtext",searchtext);
-		model.addAttribute("products", productRepository.findByName(searchtext));
-		model.addAttribute("productslabel", productRepository.findByLabel(searchtext));
+	public String searchStart(Model model, @PageableDefault(size = 8) Pageable page,
+			@RequestParam(value = "searchtext") String searchtext) {
+		model.addAttribute("searchtext", searchtext);
+		
+		Page<Product> productos = productRepository.findByName(searchtext,  new PageRequest(0, 1));
+		model.addAttribute("products", productos);
+		productos = productRepository.findByLabel(searchtext, page);
+		model.addAttribute("productslabel", productos);
+
+		model.addAttribute("prevPage", productos.getNumber()-1);
+		model.addAttribute("currentPage", productos.getNumber());
+		model.addAttribute("secondPageButton", productos.getNumber()+1);
+		model.addAttribute("thirdPageButton", productos.getNumber()+2);
+		model.addAttribute("nextPage", productos.getNumber()+1);
+
 		return "search";
 	}
 
@@ -396,7 +429,7 @@ public class IndexController {
 		model.addAttribute("products", p);
 		
 		if (!productname.equals("")){
-			productRepository.findByName(productnameoriginal).setName(productname);
+			((Product) productRepository.findByName(productnameoriginal)).setName(productname);
 			
 		
 		} 
