@@ -159,6 +159,7 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 ### Diagrama de entidades de Bases de Datos
 
 ![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/entidades.png)
+- Diagrama templates:
 ![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/diagramaTemplates.png)
 
 -------------------------------------------------------------------------------
