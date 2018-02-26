@@ -26,7 +26,7 @@ public class Pedido {
 	public interface Customers{}
 	
 	public interface Products{}
-	 
+	  
 	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

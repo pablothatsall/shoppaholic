@@ -62,7 +62,7 @@ public class IndexController {
 		Product farcry5 = new Product("Farcry 5", 60 , "The new FarCry",  "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/91ASDwyZjrL._AC_SX215_.jpg",null);
 		Product top = new Product("Romwe Women's Top Blouse", 14.99 , "95% Polyester, 5% Spandex",  "Clothing", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/41M0ZQ42IJL._AC_US0_.jpg",null);
 		Product dress = new Product("KISSMODA Dresses", 18.99, "This pencil dress is made of polyester+spendex.It is lightweight soft and comfortable against your skin. ", "Clothing", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/31tW-sXP46L._AC_UL500_SR385,500_QL65_.jpg",null);
-		Product galaxy8 = new Product("Samsung Galaxy S8 64GB", 626.28, "Infinity Display: a bezel-less, full-frontal, edge-to-edge screen.", "Smartphones", fecha.toGMTString(),"https://www.amazon.com/Samsung-Unlocked-Certified-Refurbished-Midnight/dp/B0764J52SG/ref=sr_1_3?s=wireless&ie=UTF8&qid=1519599211&sr=1-3&keywords=samsung+galaxy+s8",null);
+		Product galaxy8 = new Product("Samsung Galaxy S8 64GB", 626.28, "Infinity Display: a bezel-less, full-frontal, edge-to-edge screen.", "Smartphones", fecha.toGMTString(),"https://thumb.pccomponentes.com/w-530-530/articles/12/123417/s8n3.jpg",null);
 		Product rasp = new Product("Raspberry Pi 3", 38.00, "1.2GHz 64-bit quad-core ARMv8 CPU, 1 GB RAM ", "Electronic", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51Vt9f26ryL._AC_US436_QL65_.jpg",null);
 		Product grill = new Product("Char-Broil Performance 475", 193.03,"4-Burner, 36,000-BTU Cart-Style Gas Grill with 10,000-BTU Lidded Side Burner", "Garden", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/41ISNBS-kML._AC_US436_QL65_.jpg",null);
 		Product forniture = new Product("Devoko Patio Porch Furniture Set", 129.99,"High quality strong steel frame with waterproof PE rattan wicker Patio furniture set.", "Garden", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/411fPmSFixL._AC_US400_QL65_.jpg",null);
@@ -114,6 +114,7 @@ public class IndexController {
 		productRepository.save(donkeykong);
 		productRepository.save(soundbar);
 		productRepository.save(kirby);
+		productRepository.save(darksouls);
 		
 		
 		
@@ -208,6 +209,7 @@ public class IndexController {
 		
 		if(!addcomment.equals("")) {
 			java.util.Date fecha = new Date(); 
+			
 			commentRepository.save(new Comment(chubi,addcomment,fecha.toGMTString(),p));	
 		} 
 		
