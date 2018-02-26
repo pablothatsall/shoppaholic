@@ -342,7 +342,8 @@ public class IndexController {
 					@RequestParam(value = "userfirstname", defaultValue = "") String userfirstname,
 					@RequestParam(value = "userlastname", defaultValue = "") String userlastname,
 					@RequestParam(value = "usermail", defaultValue = "") String usermail,
-					@RequestParam(value = "useraddress", defaultValue = "") String useraddress) {
+					@RequestParam(value = "useraddress", defaultValue = "") String useraddress,
+					@RequestParam(value = "usertelephone", defaultValue = "") String usertelephone) {
 		Customer customer= customerRepository.findOne(id);
 		model.addAttribute("customer", customer);
 		
@@ -363,6 +364,12 @@ public class IndexController {
 		}
 		if(!useraddress.equals("")) {
 			customer.setAddress(useraddress);
+			customerRepository.save(customer);  
+			
+		}
+		
+		if(!usertelephone.equals("")) {
+			customer.setTelephone(Long.valueOf(usertelephone).longValue());;
 			customerRepository.save(customer);  
 			
 		}

@@ -81,11 +81,20 @@
                 <input id="textinput" name="userlastname" placeholder="{{lastName}}" class="form-control input-md"  type="text">
              {{/customer}} 
             </div>
+            
+          
 
             <div class="form-group">
              {{#customer}}
                 <label class="control-label" id="lab" for="textinput">Mail</label>  
                 <input id="textinput" name="usermail" placeholder={{mail}} class="form-control input-md" type="text">
+             {{/customer}} 
+            </div>
+            
+                  <div class="form-group">
+             {{#customer}}
+                <label class="control-label" id="lab" for="textinput">Telephone:</label>  
+                <input id="textinput" name="usertelephone" placeholder="{{telephone}}" class="form-control input-md"  type="text">
              {{/customer}} 
             </div>
 
