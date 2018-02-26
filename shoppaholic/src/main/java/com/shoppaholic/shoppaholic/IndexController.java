@@ -311,7 +311,8 @@ public class IndexController {
 	}
 
 	@RequestMapping("/login")
-	public  String loginStart(Model model) {
+	public  String loginStart(Model model, @RequestParam(value = "email", defaultValue = "") String email,
+			@RequestParam(value = "password", defaultValue = "") String password) {
 		/*if (!customerComponent.isLoggedUser()) {
 			log.info("Not user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
@@ -427,20 +428,42 @@ public class IndexController {
 		
 		
 		return "manageUser";
-
-	}
+ 
+	} 
 	
 	@RequestMapping("/admin/editproduct")
 	public String editProduct(Model model, @RequestParam(value = "productnameoriginal", defaultValue = "") String productnameoriginal,
-			@RequestParam(value = "productname", defaultValue = "") String productname	) {
+			@RequestParam(value = "productname", defaultValue = "") String productname,
+			@RequestParam(value = "productlabel", defaultValue = "") String productlabel,
+			@RequestParam(value = "productdescription", defaultValue = "") String productdescription,
+			@RequestParam(value = "productprice", defaultValue = "-3") long productprice) {
 		List<Product> p = productRepository.findAll();
 		model.addAttribute("products", p);
 		
 		if (!productname.equals("")){
-			((Product) productRepository.findByName(productnameoriginal)).setName(productname);
 			
+			 productRepository.findProductByName(productnameoriginal).setName(productname);
+			 productRepository.save(productRepository.findProductByName(productnameoriginal));
 		
+		}
+		
+		if (!productlabel.equals("")){
+			
+			 productRepository.findProductByName(productnameoriginal).setLabel(productlabel);
+			 productRepository.save(productRepository.findProductByName(productnameoriginal));
 		} 
+		
+		if (!productdescription.equals("")){
+			
+			 productRepository.findProductByName(productnameoriginal).setLabel(productdescription);
+			 productRepository.save(productRepository.findProductByName(productnameoriginal));
+		} 
+		if (productprice != -3){
+			
+			 productRepository.findProductByName(productnameoriginal).setPrice(productprice);
+			 productRepository.save(productRepository.findProductByName(productnameoriginal));
+		} 
+		
 		
 		return "editProduct";
 		}

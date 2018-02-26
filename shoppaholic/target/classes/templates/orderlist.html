@@ -29,8 +29,8 @@
         </button>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
-  				<form class="field" action="search" id="searchform" method="post">
-                    <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?" />
+                 <form class="field" action="search" id="searchform" method="post">
+                    <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?"/>
                     <input type="hidden" name="_csrf" value="{{token}}"/>
                     <button type="submit" id="search">Search</button>
                 </form>
@@ -85,7 +85,7 @@
             </div>
             <div class="assets">
                 <label><strong>Total Price: </strong>{{totalPrice}}€</label>
-                <a class="btn btn-outline-secondary float-md-right" href="product.html">View</a>
+                <a class="btn btn-outline-secondary float-md-right" href="/order/{{id}}">View</a>
             </div>
         </div>
         {{/orders}}
