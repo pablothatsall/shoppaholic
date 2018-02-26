@@ -241,7 +241,7 @@ public class IndexController {
 							@RequestParam(value = "searchtext") String searchtext) {
 						model.addAttribute("searchtext", searchtext);
 						
-						Page<Product> productos = productRepository.findByName(searchtext,  page);
+						Page<Product> productos = productRepository.findByNameContaining(searchtext + "%",  page);
 						model.addAttribute("products", productos);
 						productos = productRepository.findByLabel(searchtext, page);
 						model.addAttribute("productslabel", productos);
