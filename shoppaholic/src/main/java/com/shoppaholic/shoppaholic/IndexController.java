@@ -431,6 +431,7 @@ public class IndexController {
 		model.addAttribute("customers", customers);
 		Customer toDelete = customerRepository.findByMail(deletion);
 		if(toDelete  != null) {
+			pedidoRepository.delete(toDelete.getMyCart());
 			customerRepository.delete(toDelete);
 		
 		} 
