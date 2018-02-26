@@ -212,6 +212,7 @@ public class IndexController {
 			java.util.Date fecha = new Date(); 
 			
 			commentRepository.save(new Comment(chubi,addcomment,fecha.toGMTString(),p));	
+			
 		} 
 		
 		return "product";
@@ -221,7 +222,7 @@ public class IndexController {
 	public String searchNext(Model model, @PageableDefault(size = 8) Pageable page, @PathVariable String searchterm) {
 		model.addAttribute("searchtext", searchterm);
 		
-		Page<Product> productos = productRepository.findByName(searchterm,  page);
+		Page<Product> productos = productRepository.findByName(searchterm ,  page);
 		model.addAttribute("products", productos);
 		
 		productos = productRepository.findByLabel(searchterm, page);
@@ -241,7 +242,7 @@ public class IndexController {
 							@RequestParam(value = "searchtext") String searchtext) {
 						model.addAttribute("searchtext", searchtext);
 						
-						Page<Product> productos = productRepository.findByNameContaining(searchtext + "%",  page);
+						Page<Product> productos = productRepository.findByNameContaining( "%" + searchtext + "%",  page);
 						model.addAttribute("products", productos);
 						productos = productRepository.findByLabel(searchtext, page);
 						model.addAttribute("productslabel", productos);
