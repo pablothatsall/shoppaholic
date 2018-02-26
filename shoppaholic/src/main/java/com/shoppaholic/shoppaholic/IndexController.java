@@ -8,14 +8,13 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.data.domain.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.*;
@@ -60,6 +59,7 @@ public class IndexController {
 		Product harrypotter  = new Product("Harry Potter and the Chamber of Secrets",8.0,"Harry returns to Hogwarts, still famous and a hero, when strange thingsstart to happen", "Movies", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51JxWRcdnRL.jpg",null);
 		Product rocketleague = new Product("Rocket League", 20, "Football + cars", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51Rne6waRLL._SX215_.jpg",null);
 		Product callofduty = new Product("Call of Duty WWII", 45 , "Fight in world war II",  "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51Rne6waRLL._SX215_.jpg",null);
+		Product farcry5 = new Product("Farcry 5", 60 , "The new FarCry",  "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/91ASDwyZjrL._AC_SX215_.jpg",null);
 		Product top = new Product("Romwe Women's Top Blouse", 14.99 , "95% Polyester, 5% Spandex",  "Clothing", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/41M0ZQ42IJL._AC_US0_.jpg",null);
 		Product dress = new Product("KISSMODA Dresses", 18.99, "This pencil dress is made of polyester+spendex.It is lightweight soft and comfortable against your skin. ", "Clothing", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/31tW-sXP46L._AC_UL500_SR385,500_QL65_.jpg",null);
 		Product galaxy8 = new Product("Samsung Galaxy S8 64GB", 626.28, "Infinity Display: a bezel-less, full-frontal, edge-to-edge screen.", "Smartphones", fecha.toGMTString(),"https://www.amazon.com/Samsung-Unlocked-Certified-Refurbished-Midnight/dp/B0764J52SG/ref=sr_1_3?s=wireless&ie=UTF8&qid=1519599211&sr=1-3&keywords=samsung+galaxy+s8",null);
@@ -78,7 +78,10 @@ public class IndexController {
 		Product gigants  = new Product("Fall of Giants",7.99,"A thirteen-year-old Welsh boy enters a man’s world in the mining pits. . . . An American law student rejected in love finds a surprising new career in Woodrow Wilson’s White House...", "Books", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51PtqimkXdL._AC_US436_QL65_.jpg",null);
 		Product headset = new Product("HyperX Cloud II Gaming Headset", 91.82, "USB Audio Sound Card with 7.1 Virtual Surround Sound","Electronic", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/514cV6xMKrL._AC_US436_QL65_.jpg",null);
 		Product camera = new Product("Sony Cyber-shot DSC-RX100M4 Pack", 898.72 , "World's first1 201 MP 1 Exmor RS stacked back illuminated CMOS", "Electronic", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/51HppQk1mfL._AC_US436_QL65_.jpg",null);
+		Product donkeykong = new Product("Donkey Kong", 43, "Monkeys",  "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/913II3nRc0L._AC_SX215_.jpg",null);
 		Product soundbar = new Product("Samsung HW-M360/ZA 2.1",182.43 , "Enjoy a dynamic home Audio experience with 2.1 Channel surround sound.", "Electronic", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/212eg94cyEL._AC_US436_QL65_.jpg",null);
+		Product kirby = new Product("Kirby Star Allies ",54.24, "Go Pink", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/81c18FOO5oL._AC_SX215_.jpg",null);
+		Product darksouls = new Product("Dark Souls: Remastered  ",60.99, "Die and die", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/81KXlktSUGL._AC_SX215_.jpg",null);
 		productRepository.save(fifa);
 		productRepository.save(farcry);
 		productRepository.save(nba);
@@ -89,6 +92,7 @@ public class IndexController {
 		productRepository.save(harrypotter);
 		productRepository.save(rocketleague);
 		productRepository.save(callofduty);
+		productRepository.save(farcry5);
 		productRepository.save(top);
 		productRepository.save(dress);
 		productRepository.save(galaxy8);
@@ -107,7 +111,10 @@ public class IndexController {
 		productRepository.save(gigants);
 		productRepository.save(headset);
 		productRepository.save(camera);
+		productRepository.save(donkeykong);
 		productRepository.save(soundbar);
+		productRepository.save(kirby);
+		
 		
 		
 		 
@@ -115,7 +122,7 @@ public class IndexController {
 
 		List<Product> products = new ArrayList<Product>();
 		products.add(farcry);
-		Pedido cartchubi = new Pedido("Pending", "Chubi", fecha.toGMTString(), products);
+		Pedido cartchubi = new Pedido("Pending", "Ruben", fecha.toGMTString(), products);
 		pedidoRepository.save(cartchubi); 
 		Pedido cartpablo = new Pedido();
 		pedidoRepository.save(cartpablo);
@@ -206,8 +213,7 @@ public class IndexController {
 		
 		return "product";
 	}
-
-
+	
 	@RequestMapping("/searchNext/{searchterm}")
 	public String searchNext(Model model, @PageableDefault(size = 8) Pageable page, @PathVariable String searchterm) {
 		model.addAttribute("searchtext", searchterm);
@@ -228,28 +234,27 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/search")
-	public String searchStart(Model model, @PageableDefault(size = 8) Pageable page,
-			@RequestParam(value = "searchtext") String searchtext) {
-		model.addAttribute("searchtext", searchtext);
-		
-		Page<Product> productos = productRepository.findByName(searchtext,  new PageRequest(0, 1));
-		model.addAttribute("products", productos);
-		productos = productRepository.findByLabel(searchtext, page);
-		model.addAttribute("productslabel", productos);
-
-		model.addAttribute("prevPage", productos.getNumber()-1);
-		model.addAttribute("currentPage", productos.getNumber());
-		model.addAttribute("secondPageButton", productos.getNumber()+1);
-		model.addAttribute("thirdPageButton", productos.getNumber()+2);
-		model.addAttribute("nextPage", productos.getNumber()+1);
-
+		public String searchStart(Model model, @PageableDefault(size = 8) Pageable page,
+							@RequestParam(value = "searchtext") String searchtext) {
+						model.addAttribute("searchtext", searchtext);
+						
+						Page<Product> productos = productRepository.findByName(searchtext,  page);
+						model.addAttribute("products", productos);
+						productos = productRepository.findByLabel(searchtext, page);
+						model.addAttribute("productslabel", productos);
+				
+						model.addAttribute("prevPage", productos.getNumber()-1);
+						model.addAttribute("currentPage", productos.getNumber());
+						model.addAttribute("secondPageButton", productos.getNumber()+1);
+						model.addAttribute("thirdPageButton", productos.getNumber()+2);
+						model.addAttribute("nextPage", productos.getNumber()+1);
 		return "search";
 	}
 
-	@RequestMapping("/payment/{pedidoid}")
-	public String paymentStart(Model model, @PathVariable long pedidoid,
+	@RequestMapping("/payment/{id}")
+	public String paymentStart(Model model, @PathVariable long id,
 			@RequestParam(value = "tarjeta", defaultValue = "") String tarjeta) {
-		Customer c= customerRepository.findById(pedidoid);
+		Customer c= customerRepository.findById(id);
 		Pedido p = c.getMyCart();
 		
 		model.addAttribute("pedido",p);
@@ -263,8 +268,9 @@ public class IndexController {
 			Pedido pedidonuevo = new Pedido("Pending",c.getFirstName(),fechacarrito.toGMTString(),newcart);
 			c.setMyCart(pedidonuevo);
 			pedidoRepository.save(pedidonuevo);
-			customerRepository.save(c);
-			c.setMyCart(pedidonuevo);}}
+			
+			c.setMyCart(pedidonuevo);
+		customerRepository.save(c);}}
 		
 		
 		
@@ -279,9 +285,11 @@ public class IndexController {
 	@RequestMapping("/orderlist/{id}")
 	public String orderlistStart(Model model, @PathVariable long id ) {
 		Customer c = customerRepository.findById(id);
-		model.addAttribute("c", c);
-		List<Pedido> orders = c.getMyOrders();
-		model.addAttribute("orders" , orders);
+		String x =c.getFirstName();
+		List<Customer> n = customerRepository.findByFirstName(x);
+		model.addAttribute("x", n);
+		List<Pedido> norders = pedidoRepository.findByUser(x);
+		model.addAttribute("orders" , norders);
 		;
 		model.addAttribute("ordersize" , c.getMyOrders().size());
 		return "orderlist";

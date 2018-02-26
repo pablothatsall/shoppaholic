@@ -131,8 +131,10 @@
                 <div class="row"><p><strong>Total Price:</strong> {{totalPrice}}€</p></div>
                 <div class="row"><p><strong>Shipping Price:</strong> FREE</p></div>
                 <div class="row"><p><strong>Status</strong> {{status}}</p></div>
+                {{/cartdetails}}
+                {{#customer}}
                 <a class="btn btn-primary" href="/payment/{{id}}">Proceed to pay</a>
-            {{/cartdetails}}
+            	{{/customer}}
             </div>
         </div>
     </div>
