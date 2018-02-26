@@ -186,6 +186,7 @@ public class IndexController {
 
 	@RequestMapping("/signUp")
 	public String signupStart(Model model) {
+		//RequestParameters, create customer with user_role, create order -> cart of customer, save order, save customer
 		return "signUp";
 	}
 
