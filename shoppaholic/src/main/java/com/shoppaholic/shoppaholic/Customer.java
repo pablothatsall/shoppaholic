@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -67,7 +68,7 @@ public class Customer {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.mail = mail;
-		this.password = password;
+		this.password =  new BCryptPasswordEncoder().encode(password);
 		this.address = address;
 		this.telephone = telephone;
 		this.imageUrl = imageUrl;

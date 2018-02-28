@@ -166,6 +166,18 @@ public class IndexController {
 	@RequestMapping("/")
 	public String mainStart(Model model, HttpServletRequest request) {
 		model.addAttribute("products", productRepository.findAll(new PageRequest(0, 4)));
+		
+		boolean login=customerComponent.isLoggedUser();
+    	
+    	if(login){
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		if(uLogged.getRoles().contains("ROLE_USER")){
+
+    			model.addAttribute("user", uLogged);
+    			return "index";
+    		}
+    	}
+    	
 		return "index";
 	}
 	
@@ -173,7 +185,7 @@ public class IndexController {
 	 
 	@RequestMapping("/userprofile")
 	public String userStart(Model model, HttpServletRequest request ) {
-		model.addAttribute("USER", request.isUserInRole("USER"));
+
 		return "userprofile";
 	}
 
@@ -189,6 +201,9 @@ public class IndexController {
 		//RequestParameters, create customer with user_role, create order -> cart of customer, save order, save customer
 		return "signUp";
 	}
+	
+	
+	
 
 	@RequestMapping("/product/{id}")
 	public String productStart(Model model, @PathVariable long id, 
