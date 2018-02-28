@@ -441,7 +441,14 @@ public class IndexController {
 	}
  //Aqui tendremos de id la id del customer que tiene ese carrito
 	@RequestMapping("/cart/{id}")
-	public String cartStart(Model model, @PathVariable long id, @RequestParam(value = "deletion", defaultValue = "-1") long deletion) {
+	public String cartStart(Model model, @PathVariable long id, HttpServletRequest request,
+			@RequestParam(value = "deletion", defaultValue = "-1") long deletion) {
+		boolean login=customerComponent.isLoggedUser();
+    	if(login){
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		
+    			model.addAttribute("user", uLogged);
+    	}
 		Customer customer= customerRepository.findOne(id);
 		model.addAttribute("customer", customer);
 		Pedido carrito = customer.getMyCart();
