@@ -125,26 +125,30 @@ public class IndexController {
 		products.add(farcry);
 		Pedido cartchubi = new Pedido("Pending", "Ruben", fecha.toGMTString(), products);
 		pedidoRepository.save(cartchubi); 
-		Pedido cartpablo = new Pedido();
+		Pedido cartpablo = new Pedido("Pending", "Pablo", fecha.toGMTString(), new ArrayList<Product>() );
 		pedidoRepository.save(cartpablo);
-		Pedido cartdani = new Pedido();
+		Pedido cartdani = new Pedido("Pending", "Dani", fecha.toGMTString(), new ArrayList<Product>() );
 		pedidoRepository.save(cartdani); 
+		Pedido cartsarry = new Pedido("Pending", "Sergio", fecha.toGMTString(), new ArrayList<Product>() );
+		pedidoRepository.save(cartsarry); 
 		
 		
 		List<Pedido> myorderschubi = new ArrayList<>();
 		myorderschubi.add(cartchubi);
 		
-
 		List<Pedido> myorderspablo = new ArrayList<>();
 		myorderspablo.add(cartpablo);
 		
 		List<Pedido> myordersdani = new ArrayList<>();
 		myordersdani.add(cartdani);
+		
+		List<Pedido> myorderssarry = new ArrayList<>();
+		myorderssarry.add(cartsarry);
 	 
 		Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", myorderschubi, cartchubi, "ROLE_USER");
 		Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"https://pbs.twimg.com/profile_images/916980080278102017/HfrABpSp_400x400.jpg",myorderspablo , cartpablo , "ROLE_USER");
 		Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"https://pbs.twimg.com/profile_images/578500665565130752/xVoASGTj_400x400.jpeg",myordersdani, cartdani, "ROLE_USER");
-		Customer s = new Customer("Sergio", "Sarria", "Porro", "sergio", "c/Avion 4",4532 ,"", null,null);
+		Customer s = new Customer("Sergio", "Sarria", "Porro", "sergio", "c/Avion 4",4532 ,"", myorderssarry,cartsarry,"ROLE_USER");
 		customerRepository.save(c);
 		customerRepository.save(p);
 		customerRepository.save(d);
@@ -184,8 +188,20 @@ public class IndexController {
 
 	 
 	@RequestMapping("/userprofile")
-	public String userStart(Model model, HttpServletRequest request ) {
+	public String userStart(Model model, HttpServletRequest request) {
 
+		boolean login=customerComponent.isLoggedUser();
+    	
+    	if(login){
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		if(uLogged.getRoles().equals("ROLE_USER")){
+    			model.addAttribute("loggeduser", uLogged);
+    			
+    			
+    		}
+    	}
+    	
+    	model.addAttribute("loggeduser", true);
 		return "userprofile";
 	}
 
@@ -206,29 +222,44 @@ public class IndexController {
 	
 
 	@RequestMapping("/product/{id}")
-	public String productStart(Model model, @PathVariable long id, 
+	public String productStart(Model model, @PathVariable long id, HttpServletRequest request,
 			@RequestParam(value = "addproduct", defaultValue = "") String addproduct,
 			@RequestParam(value = "addcomment", defaultValue = "") String addcomment) {
+		
+		
+    	
 		Product p = productRepository.findOne(id);
 		model.addAttribute("product", p);
 		List<Comment> c = commentRepository.findByProduct(p);
 		model.addAttribute("comments", c);
-		Customer chubi = customerRepository.findByMail("chubi"); //Esto una vez funcione login registro se cambia chubi por el customer que ha iniciado sesión
-		Pedido pedidotoadd = chubi.getMyCart();
 		
-		if(!addproduct.equals("") && addcomment.equals("")) {
-			pedidotoadd.addProduct(p);
-			pedidotoadd.calculaprecio();
-			customerRepository.save(chubi);
-			
-		}
+		boolean login=customerComponent.isLoggedUser();
+    	if(login){
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		
+    			model.addAttribute("user", uLogged);
+    			Pedido pedidotoadd = uLogged.getMyCart();
+    			
+    			if(!addproduct.equals("") && addcomment.equals("")) {
+    				pedidotoadd.addProduct(p);
+    				pedidotoadd.calculaprecio();
+    				customerRepository.save(uLogged);
+    				
+    			}
+    			
+    			if(!addcomment.equals("")) {
+    				java.util.Date fecha = new Date(); 
+    				
+    				commentRepository.save(new Comment(uLogged,addcomment,fecha.toGMTString(),p));	
+    				
+    			} 
+    	}
+    
 		
-		if(!addcomment.equals("")) {
-			java.util.Date fecha = new Date(); 
-			
-			commentRepository.save(new Comment(chubi,addcomment,fecha.toGMTString(),p));	
-			
-		} 
+		
+		
+		
+
 		
 		return "product";
 	}
@@ -253,8 +284,14 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/search")
-		public String searchStart(Model model, @PageableDefault(size = 8) Pageable page,
+		public String searchStart(Model model, @PageableDefault(size = 8) Pageable page,  HttpServletRequest request,
 							@RequestParam(value = "searchtext") String searchtext) {
+		boolean login=customerComponent.isLoggedUser();
+    	if(login){
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		
+    			model.addAttribute("user", uLogged);
+    	}
 						model.addAttribute("searchtext", searchtext);
 						
 						Page<Product> productos = productRepository.findByNameContaining( "%" + searchtext + "%",  page);

@@ -58,12 +58,12 @@
         </div>
     </nav>
 
-			{{^user}}	
+			{{#loggeduser}}	
 			<br>
 			<div></div>
-						<p><h2>Login correct.</h2></p>
-                        <a  href="/"><h1>Go to index</h1></a>
- 			{{/user}}
+						<center><a  href="/"><p><button class="btn btn-primary" styles><h2>Login correct. Go back to index</h2></button></p></a></center>
+                       
+ 			{{/loggeduser}}
 
 
  		<div id="profile"> {{#user}}
