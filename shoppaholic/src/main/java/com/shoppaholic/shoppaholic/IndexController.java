@@ -206,8 +206,14 @@ public class IndexController {
 	}
 
 	@RequestMapping("/userprofile/{id}")
-	public String userStart(Model model ,@PathVariable long id) {
+	public String userStart(Model model ,@PathVariable long id, HttpServletRequest request) {
+		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+		
 		Customer user = customerRepository.findOne(id);
+		if (uLogged.getId()==id) {
+			
+			//Esconder mis orders y editar
+		}
 		model.addAttribute("user", user);
 		return "userprofile";
 	}
