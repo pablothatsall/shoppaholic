@@ -228,7 +228,9 @@ public class IndexController {
 			@RequestParam(value = "email", defaultValue = "") String email,
     		@RequestParam(value = "password", defaultValue = "") String password,
     		@RequestParam(value = "telephone", defaultValue = "") String telephone,
-    		@RequestParam(value = "address", defaultValue = "") String address){
+    		@RequestParam(value = "address", defaultValue = "") String address)
+			@RequestParam(value = "imageuser", defaultValue = "http://www.redmacro.com/home/wp-content/uploads/consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg") String imageuser){
+		boolean login=customerComponent.isLoggedUser();{
 		if(!firstname.equals("") && !lastname.equals("") && !email.equals("") && !password.equals("")) {
 		java.util.Date fecha = new Date(); 
 		List<Product> products = new ArrayList<Product>();
@@ -236,7 +238,7 @@ public class IndexController {
 		pedidoRepository.save(newcart);
 		List<Pedido> newmyorders = new ArrayList<>();
 		newmyorders.add(newcart);
-		Customer newcustomer= new Customer(firstname, lastname , email, password, address, Long.valueOf(telephone).longValue(),"",newmyorders , newcart, "ROLE_USER");
+		Customer newcustomer= new Customer(firstname, lastname , email, password, address, Long.valueOf(telephone).longValue(),"imageuser",newmyorders , newcart, "ROLE_USER");
 		customerRepository.save(newcustomer);
 		}
 		return "signUp";
