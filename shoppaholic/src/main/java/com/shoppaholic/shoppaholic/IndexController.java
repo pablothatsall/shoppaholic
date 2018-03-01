@@ -228,8 +228,8 @@ public class IndexController {
 			@RequestParam(value = "email", defaultValue = "") String email,
     		@RequestParam(value = "password", defaultValue = "") String password,
     		@RequestParam(value = "telephone", defaultValue = "") String telephone,
-    		@RequestParam(value = "address", defaultValue = "") String address)
-			@RequestParam(value = "imageuser", defaultValue = "http://www.redmacro.com/home/wp-content/uploads/consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg") String imageuser){
+    		@RequestParam(value = "address", defaultValue = "") String address),
+			@RequestParam(value = "imageuser", defaultValue = "http://www.redmacro.com/home/wp-content/uploads/consideraciones-mejorar-primera-experiencia-de-usuario-aplicaciones-web-perfil-usuario.jpg") String imageuser)
 		boolean login=customerComponent.isLoggedUser();{
 		if(!firstname.equals("") && !lastname.equals("") && !email.equals("") && !password.equals("")) {
 		java.util.Date fecha = new Date(); 

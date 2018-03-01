@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.shoppaholic.shoppaholic.Customer.java;
-import com.shoppaholic.shoppaholic.CustomerComponent.java;
-import com.shoppaholic.shoppaholic.CustomerRepository.java;
+import Customer.java;
+import CustomerComponent.java;
+import CustomerRepository.java;
 
 @Controller
 public class FileUploadController {
 
-	private static final String USER_IMAGE_FOLDER = "src/main/resources/static/imgProfile";
+	private static final String USER_IMAGE_FOLDER = "src/main/resources/static/img";
 	
 	
 	@Autowired
