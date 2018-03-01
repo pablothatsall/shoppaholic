@@ -60,35 +60,40 @@
                                 <h3 id="tit">Sign Up</h3>
                             </div>
                             <div class="form-group">
+                             <form action=/register id="formulario" autocomplete="on" method="post">
                                 <label class="control-label" id="lab" for="textinput"> First Name</label>  
-                                <input id="textinput" name="firstname" placeholder="" class="form-control input-md" required="" type="text">
-                            </div>
+                               <input id="firstname" name="firstname" placeholder="" required="required" class="form-control input-md" type="text">
+                       
 
                         <!-- Text input-->
-                            <div class="form-group">
+
                                 <label class="control-label" id="lab" for="textinput">Last Name</label>  
-                                <input id="textinput" name="lastname" placeholder="" class="form-control input-md" required="" type="text">
-                            </div>
+                                <input id="textinput" name="lastname" placeholder="" required="required"  class="form-control input-md" required="" type="text">
+                
 
-                            <div class="form-group">
+                   
                                 <label class="control-label" id="lab" for="textinput">Email Address</label>  
-                                <input id="textinput" name="email" placeholder="" class="form-control input-md" required="" type="text">
-                            </div>
+                                <input id="textinput" name="email" placeholder="" required="required"  class="form-control input-md" required="" type="text">
 
-                        <!-- Textarea -->
 
-                            <div class="form-group">
-                                <label class="control-label" id="lab" for="textarea">Password</label>
-                                <textarea class="form-control" id="textarea" type="password" name="password"></textarea>
-                            </div>
+
+                                <label class="control-label" id="lab" for="textinput">Password</label>
+                                 <input id="textinput" name="password" placeholder="" required="required" type="password"  class="form-control input-md" required="" type="text">
+	
+	 							<label class="control-label" id="lab" for="textarea">Address</label>
+                                <textarea class="form-control" id="textarea" required="required"  name="address"></textarea>
+                                
+                                 <label class="control-label" id="lab" for="textinput">Telephone</label>  
+                                <input id="textinput" name="telephone" placeholder="" required="required"  class="form-control input-md" required="" type="text">
 
                         <!-- Button (Double) -->
-                            <div class="form-group">
+
                                 <label class="control-label" for="btnCancel"></label>
-                                <div class="col-md-12">
-                                    <label><input type="checkbox" name="terms">I agree with the <a href="#">Terms and Conditions</a>.</label>
-                                    <button type="submit" value="Sign up" class="btn btn-primary">Sign Up</button>
-                                </div>
+
+                                   
+                                  <input type="submit" href="/" value="Register" class="btn btn-primary">Sign up                      
+                            	 <input type="hidden" name="_csrf" value="{{token}}"/></button>
+								</form>
                             </div>
                         </div>
                         <div class="col-sm">
@@ -96,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+
 	
 	<footer class="py-5">
       <div class="container">

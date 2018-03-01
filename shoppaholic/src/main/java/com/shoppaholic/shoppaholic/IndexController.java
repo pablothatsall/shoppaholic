@@ -219,25 +219,32 @@ public class IndexController {
 		model.addAttribute("user", user);
 		return "userprofile";
 	}
-
+  
+	 
 	@RequestMapping("/register")
-	public String signIn(Model model, @RequestParam(value = "firstname") String firstname,
-			@RequestParam(value = "lastname") String lastname,
-			@RequestParam(value = "email") String email,
-    		@RequestParam(value = "password") String password){
+	public String signIn(Model model, HttpServletRequest request,
+			@RequestParam(value = "firstname", defaultValue = "") String firstname,
+			@RequestParam(value = "lastname", defaultValue = "") String lastname,
+			@RequestParam(value = "email", defaultValue = "") String email,
+    		@RequestParam(value = "password", defaultValue = "") String password,
+    		@RequestParam(value = "telephone", defaultValue = "") String telephone,
+    		@RequestParam(value = "address", defaultValue = "") String address){
+		if(!firstname.equals("") && !lastname.equals("") && !email.equals("") && !password.equals("")) {
 		java.util.Date fecha = new Date(); 
 		List<Product> products = new ArrayList<Product>();
 		Pedido newcart = new Pedido("Pending",firstname, fecha.toGMTString(), products);
 		pedidoRepository.save(newcart);
 		List<Pedido> newmyorders = new ArrayList<>();
 		newmyorders.add(newcart);
-		Customer newcustomer= new Customer(firstname, "" , email, password, "",0 ,"",newmyorders , newcart, "ROLE_USER");
+		Customer newcustomer= new Customer(firstname, lastname , email, password, address, Long.valueOf(telephone).longValue(),"",newmyorders , newcart, "ROLE_USER");
 		customerRepository.save(newcustomer);
+		}
 		return "signUp";
 	}
 
-	
-	
+
+
+	 
 
 	@RequestMapping("/product/{id}")
 	public String productStart(Model model, @PathVariable long id, HttpServletRequest request,
@@ -454,12 +461,7 @@ public class IndexController {
 		
 	}
  
-	
-	@RequestMapping("/editprofile")
-	public String editprofilesampleStart(Model model) {
-		
-		return "editprofile";
-	} 
+
 	//CON ID
 	@RequestMapping("/editprofile/{id}")
 	public String editprofileStart(Model model, @PathVariable long id,
@@ -518,11 +520,7 @@ public class IndexController {
 
 	
 	
-	@RequestMapping("/cart")
-	public String cartStart(Model model) {
-		
-		return "cart";
-	}
+
  //Aqui tendremos de id la id del customer que tiene ese carrito
 	@RequestMapping("/cart/{id}")
 	public String cartStart(Model model, @PathVariable long id, HttpServletRequest request,
