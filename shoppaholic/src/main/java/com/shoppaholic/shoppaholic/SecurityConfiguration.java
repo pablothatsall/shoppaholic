@@ -28,23 +28,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  http.authorizeRequests().antMatchers("/product/{id}").permitAll();
  http.authorizeRequests().antMatchers("/search/{searchtext}").permitAll();
  http.authorizeRequests().antMatchers("/payment").permitAll();
- http.authorizeRequests().antMatchers("/orderlist").permitAll();
- http.authorizeRequests().antMatchers("/order/{id}").permitAll();
- http.authorizeRequests().antMatchers("/list").permitAll();
- http.authorizeRequests().antMatchers("/cart/{id}").permitAll();//Esto solo para pruebas, hay que hacerlo privado que solo acceda el registrado
- http.authorizeRequests().antMatchers("/orderlist/{id}").permitAll();
- http.authorizeRequests().antMatchers("/admin/manageUser").permitAll();
- http.authorizeRequests().antMatchers("/admin").permitAll(); 
- http.authorizeRequests().antMatchers("/admin/addproduct").permitAll();
- http.authorizeRequests().antMatchers("/admin/editproduct").permitAll();
+ http.authorizeRequests().antMatchers("/orderlist").permitAll(); http.authorizeRequests().antMatchers("/list").permitAll();
+ http.authorizeRequests().antMatchers("/signIn").permitAll();
+ 
  
  
  // Private pages (all other pages)
  
- http.authorizeRequests().antMatchers("/cart").hasAnyRole("USER");
+ http.authorizeRequests().antMatchers("/cart/{id}").hasAnyRole("USER");
  http.authorizeRequests().antMatchers("/editprofile").hasAnyRole("USER");
  http.authorizeRequests().antMatchers("/userprofile/{id}").hasAnyRole("USER");
  http.authorizeRequests().antMatchers("/userprofile").hasAnyRole("USER");
+ http.authorizeRequests().antMatchers("/order/{id}").hasAnyRole("USER");
+ http.authorizeRequests().antMatchers("/orderlist/{id}").hasAnyRole("USER");
+ http.authorizeRequests().antMatchers("/payment/{id}").hasAnyRole("USER");
+ http.authorizeRequests().antMatchers("/admin/**").hasAnyRole("ADMIN");
+ http.authorizeRequests().antMatchers("/admin/*").hasAnyRole("ADMIN");
+ 
+ 
  //http.authorizeRequests().antMatchers("/admin/addProduct").hasAnyRole("ADMIN"); 
  //http.authorizeRequests().antMatchers("/admin/manageUser").hasAnyRole("ADMIN");
  //http.authorizeRequests().antMatchers("/admin").hasAnyRole("ADMIN");

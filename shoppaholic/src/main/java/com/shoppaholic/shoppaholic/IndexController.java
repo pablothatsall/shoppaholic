@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.data.domain.Page;
@@ -146,6 +148,7 @@ public class IndexController {
 		myorderssarry.add(cartsarry);
 	 
 		Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", myorderschubi, cartchubi, "ROLE_USER");
+		c.getRoles().add("ROLE_ADMIN");
 		Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"https://pbs.twimg.com/profile_images/916980080278102017/HfrABpSp_400x400.jpg",myorderspablo , cartpablo , "ROLE_USER");
 		Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"https://pbs.twimg.com/profile_images/578500665565130752/xVoASGTj_400x400.jpeg",myordersdani, cartdani, "ROLE_USER");
 		Customer s = new Customer("Sergio", "Sarria", "Porro", "sergio", "c/Avion 4",4532 ,"", myorderssarry,cartsarry,"ROLE_USER");
@@ -218,12 +221,15 @@ public class IndexController {
 		return "userprofile";
 	}
 
-	@RequestMapping("/signUp")
-	public String signupStart(Model model) {
+	@RequestMapping("/signIn")
+	public String signIn(Model model, @RequestParam(value = "username") String username,
+    		@RequestParam(value = "email") String email,
+    		@RequestParam(value = "password") String password){
+		
 		//RequestParameters, create customer with user_role, create order -> cart of customer, save order, save customer
 		return "signUp";
 	}
-	
+
 	
 	
 
@@ -259,8 +265,16 @@ public class IndexController {
     				commentRepository.save(new Comment(uLogged,addcomment,fecha.toGMTString(),p));	
     				
     			} 
+  
+
     	}
-    
+			else
+				if(!addcomment.equals("")) {
+    				java.util.Date fecha = new Date(); 
+    				Customer anonimo = new Customer("Anonimo");
+    				commentRepository.save(new Comment(anonimo,addcomment,fecha.toGMTString(),p));	
+    				
+    			} 
 		
 		
 		
@@ -316,6 +330,13 @@ public class IndexController {
 	@RequestMapping("/payment/{id}")
 	public String paymentStart(Model model, @PathVariable long id,
 			@RequestParam(value = "tarjeta", defaultValue = "") String tarjeta) {
+		
+		boolean login=customerComponent.isLoggedUser();
+    	if(login){
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		
+    			model.addAttribute("user", uLogged);
+    	}
 		Customer c= customerRepository.findById(id);
 		Pedido p = c.getMyCart();
 		
@@ -359,15 +380,27 @@ public class IndexController {
  
 	@RequestMapping("/order/{id}")
 	public String orderStart(Model model, @PathVariable long id) {
+		Pedido myorder = pedidoRepository.findById(id);
+
+		boolean login=customerComponent.isLoggedUser();
+    	if(login){
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		
+    			model.addAttribute("user", uLogged);
+    	if (myorder.getUser().equals(uLogged.getFirstName())){
+
 		Pedido pedido = pedidoRepository.findOne(id);
 		model.addAttribute("pedido", pedido);
 		List <Product> productos = pedido.getProductsofPedido();
 		model.addAttribute("productos", productos);
 		Integer cantidad= productos.size();
 		model.addAttribute("cantidad", cantidad);
+    	}
+    	}
+    	else
+    		return"error"; 
 		
-		
-		
+    	
 				
 		return "order";
 	}
@@ -383,6 +416,12 @@ public class IndexController {
 			log.info("Logged as " + loggedUser.getName());
 		return new ResponseEntity<>(loggedUser, HttpStatus.OK); */
 		return "login";
+	}
+	
+	@RequestMapping("/loginerror")
+	public  String LoginError(){
+		return "loginerror";
+		
 	}
  
 	@RequestMapping("/list")
@@ -404,6 +443,9 @@ public class IndexController {
 					@RequestParam(value = "usermail", defaultValue = "") String usermail,
 					@RequestParam(value = "useraddress", defaultValue = "") String useraddress,
 					@RequestParam(value = "usertelephone", defaultValue = "") String usertelephone) {
+		
+		
+		
 		Customer customer= customerRepository.findOne(id);
 		model.addAttribute("customer", customer);
 		
@@ -490,20 +532,15 @@ public class IndexController {
 	}
 
 	@RequestMapping("/admin/manageUser")
-	public String manageUser(Model model, @RequestParam(value = "deletion", defaultValue = "-1") String deletion) {
+	public String manageUser(Model model, @RequestParam(value = "deletion", defaultValue = "x") String deletion) {
 		
 		List<Customer> customers = customerRepository.findAll();
 		model.addAttribute("customers", customers);
 		Customer toDelete = customerRepository.findByMail(deletion);
-		if(toDelete  != null) {
-			pedidoRepository.delete(toDelete.getMyCart());
-			customerRepository.delete(toDelete);
-		
-		} 
-		
-		if (deletion==null) {return "administration";}
-		
-		
+		if (!deletion.equals("x")) {	
+		//Implementar
+			
+	System.out.println(toDelete + "was eliminated");}
 		return "manageUser";
  
 	} 

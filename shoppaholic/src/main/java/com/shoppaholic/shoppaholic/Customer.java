@@ -62,6 +62,11 @@ public class Customer {
 		// Used by SpringData
 	}
 
+	protected Customer(String firstName) {
+		this.firstName=firstName;
+		// Used by SpringData
+	}
+	
 	public Customer(String firstName, String lastName, String mail, String password, String address, long telephone,
 			String imageUrl, List<Pedido> myOrders, Pedido cart, String... roles) {
 		super();
