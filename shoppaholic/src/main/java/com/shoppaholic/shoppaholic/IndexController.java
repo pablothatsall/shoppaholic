@@ -190,7 +190,7 @@ public class IndexController {
 	
 
 	 
-	@RequestMapping("/userprofile")
+	@RequestMapping("/userprofile") //Screen shown just when logged
 	public String userStart(Model model, HttpServletRequest request) {
 
 		boolean login=customerComponent.isLoggedUser();
@@ -199,8 +199,7 @@ public class IndexController {
     		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
     		if(uLogged.getRoles().equals("ROLE_USER")){
     			model.addAttribute("loggeduser", uLogged);
-    			
-    			
+    			model.addAttribute("hider", true); 
     		}
     	}
     	
@@ -215,18 +214,25 @@ public class IndexController {
 		Customer user = customerRepository.findOne(id);
 		if (uLogged.getId()==id) {
 			
-			//Esconder mis orders y editar
+			model.addAttribute("hider",true);//Esconder mis orders y editar
 		}
 		model.addAttribute("user", user);
 		return "userprofile";
 	}
 
-	@RequestMapping("/signIn")
-	public String signIn(Model model, @RequestParam(value = "username") String username,
-    		@RequestParam(value = "email") String email,
+	@RequestMapping("/register")
+	public String signIn(Model model, @RequestParam(value = "firstname") String firstname,
+			@RequestParam(value = "lastname") String lastname,
+			@RequestParam(value = "email") String email,
     		@RequestParam(value = "password") String password){
-		
-		//RequestParameters, create customer with user_role, create order -> cart of customer, save order, save customer
+		java.util.Date fecha = new Date(); 
+		List<Product> products = new ArrayList<Product>();
+		Pedido newcart = new Pedido("Pending",firstname, fecha.toGMTString(), products);
+		pedidoRepository.save(newcart);
+		List<Pedido> newmyorders = new ArrayList<>();
+		newmyorders.add(newcart);
+		Customer newcustomer= new Customer(firstname, "" , email, password, "",0 ,"",newmyorders , newcart, "ROLE_USER");
+		customerRepository.save(newcustomer);
 		return "signUp";
 	}
 
@@ -286,6 +292,17 @@ public class IndexController {
 	
 	@RequestMapping("/searchNext/{searchterm}")
 	public String searchNext(Model model, @PageableDefault(size = 8) Pageable page, @PathVariable String searchterm) {
+	boolean login=customerComponent.isLoggedUser();
+    	
+    	if(login){
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		if(uLogged.getRoles().contains("ROLE_USER")){
+
+    			model.addAttribute("user", uLogged);
+    			return "index";
+    		}
+    	}
+		
 		model.addAttribute("searchtext", searchterm);
 		
 		Page<Product> productos = productRepository.findByName(searchterm ,  page);
@@ -367,14 +384,27 @@ public class IndexController {
 	}
 	@RequestMapping("/orderlist/{id}")
 	public String orderlistStart(Model model, @PathVariable long id ) {
-		Customer c = customerRepository.findById(id);
-		String x =c.getFirstName();
-		List<Customer> n = customerRepository.findByFirstName(x);
-		model.addAttribute("x", n);
-		List<Pedido> norders = pedidoRepository.findByUser(x);
-		model.addAttribute("orders" , norders);
-		;
-		model.addAttribute("ordersize" , c.getMyOrders().size());
+	boolean login=customerComponent.isLoggedUser();
+    	
+    	if(login){
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		if(uLogged.getRoles().contains("ROLE_USER") && uLogged.getId()==id){
+
+    			model.addAttribute("user", uLogged);
+    			Customer c = customerRepository.findById(id);
+    			String x =c.getFirstName();
+    			List<Customer> n = customerRepository.findByFirstName(x);
+    			model.addAttribute("x", n);
+    			List<Pedido> norders = pedidoRepository.findByUser(x);
+    			model.addAttribute("orders" , norders);
+    			;
+    			model.addAttribute("ordersize" , c.getMyOrders().size());
+
+    		}
+    	}
+		
+		
+
 		return "orderlist";
 	}
  
@@ -424,11 +454,6 @@ public class IndexController {
 		
 	}
  
-	@RequestMapping("/list")
-	public String listStart(Model model) {
-		return "list";
-	}
-	
 	
 	@RequestMapping("/editprofile")
 	public String editprofilesampleStart(Model model) {
@@ -444,37 +469,48 @@ public class IndexController {
 					@RequestParam(value = "useraddress", defaultValue = "") String useraddress,
 					@RequestParam(value = "usertelephone", defaultValue = "") String usertelephone) {
 		
+	boolean login=customerComponent.isLoggedUser();
+    	
+    	if(login){
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		if(uLogged.getRoles().contains("ROLE_USER") && uLogged.getId()==id){
+
+    			model.addAttribute("user", uLogged);
+    			Customer customer= customerRepository.findOne(id);
+    			model.addAttribute("customer", customer);
+    			
+    			
+    			if(!userfirstname.equals("")) {
+    				customer.setFirstName(userfirstname);
+    				customerRepository.save(customer); 
+    			}
+    			
+    			if(!userlastname.equals("")) {
+    				customer.setLastName(userlastname);
+    				customerRepository.save(customer); 
+    			}
+    			if(!usermail.equals("")) {
+    				customer.setMail(usermail); 
+    				customerRepository.save(customer); 
+    				
+    			}
+    			if(!useraddress.equals("")) {
+    				customer.setAddress(useraddress);
+    				customerRepository.save(customer);  
+    				
+    			}
+    			
+    			if(!usertelephone.equals("")) {
+    				customer.setTelephone(Long.valueOf(usertelephone).longValue());;
+    				customerRepository.save(customer);  
+    				
+    			}
+   
+    		}
+    	}
 		
 		
-		Customer customer= customerRepository.findOne(id);
-		model.addAttribute("customer", customer);
-		
-		
-		if(!userfirstname.equals("")) {
-			customer.setFirstName(userfirstname);
-			customerRepository.save(customer); 
-		}
-		
-		if(!userlastname.equals("")) {
-			customer.setLastName(userlastname);
-			customerRepository.save(customer); 
-		}
-		if(!usermail.equals("")) {
-			customer.setMail(usermail); 
-			customerRepository.save(customer); 
-			
-		}
-		if(!useraddress.equals("")) {
-			customer.setAddress(useraddress);
-			customerRepository.save(customer);  
-			
-		}
-		
-		if(!usertelephone.equals("")) {
-			customer.setTelephone(Long.valueOf(usertelephone).longValue());;
-			customerRepository.save(customer);  
-			
-		}
+
 		
 
 		return "editprofile";
@@ -494,22 +530,24 @@ public class IndexController {
 		boolean login=customerComponent.isLoggedUser();
     	if(login){
     		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
-    		
+    		if(uLogged.getRoles().contains("ROLE_USER") && uLogged.getId()==id){
     			model.addAttribute("user", uLogged);
+    			Customer customer= customerRepository.findOne(id);
+    			model.addAttribute("customer", customer);
+    			Pedido carrito = customer.getMyCart();
+    			model.addAttribute("cartdetails", carrito);
+    			 
+    			List<Product> productsfromcart = customer.getMyCart().getProductsofPedido(); 
+    			model.addAttribute("products", productsfromcart);
+    			
+    			if(deletion!=-1) {
+    				
+    				pedidoRepository.findById(id).deleteProduct(productRepository.findById(deletion));
+    				pedidoRepository.findById(id).calculaprecio();
+    				pedidoRepository.save(carrito);
+    			}
     	}
-		Customer customer= customerRepository.findOne(id);
-		model.addAttribute("customer", customer);
-		Pedido carrito = customer.getMyCart();
-		model.addAttribute("cartdetails", carrito);
-		 
-		List<Product> productsfromcart = customer.getMyCart().getProductsofPedido(); 
-		model.addAttribute("products", productsfromcart);
-		
-		if(deletion!=-1) {
-			
-			pedidoRepository.findById(id).deleteProduct(productRepository.findById(deletion));
-			pedidoRepository.findById(id).calculaprecio();
-			pedidoRepository.save(carrito);
+
 		} 
 		 
 		return "cart";
@@ -521,29 +559,40 @@ public class IndexController {
 			@RequestParam(value = "labelsproduct", defaultValue = "") String labelsproduct,
 			@RequestParam(value = "descriptionproduct", defaultValue = "") String descriptionproduct,
 			@RequestParam(value = "imageproduct", defaultValue = "https://images-eu.ssl-images-amazon.com/images/I/318gIw2AsDL._SS500.jpg") String imageproduct){
-		
-		if(!nameproduct.equals("") && !descriptionproduct.equals("") ) {
-		java.util.Date fecha = new Date(); 
-		List<Comment> comments = new ArrayList<>();
-		Product newproduct = new Product(nameproduct,priceproduct,descriptionproduct,labelsproduct,fecha.toGMTString(),imageproduct,comments);
-		productRepository.save(newproduct);}
+		boolean login=customerComponent.isLoggedUser();
+    	if(login){
+    	
+    		
+    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+    		model.addAttribute("user",uLogged);
+    		if(uLogged.getRoles().contains("ROLE_ADMIN")){
+    		if(!nameproduct.equals("") && !descriptionproduct.equals("") ) {
+    			java.util.Date fecha = new Date(); 
+    			List<Comment> comments = new ArrayList<>();
+    			Product newproduct = new Product(nameproduct,priceproduct,descriptionproduct,labelsproduct,fecha.toGMTString(),imageproduct,comments);
+    			productRepository.save(newproduct);}
+    		}
+    	}
+
 		return "addProduct";
 
 	}
 
 	@RequestMapping("/admin/manageUser")
 	public String manageUser(Model model, @RequestParam(value = "deletion", defaultValue = "x") String deletion) {
-		
+		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+		model.addAttribute("user",uLogged);
+		if(uLogged.getRoles().contains("ROLE_ADMIN")){
 		List<Customer> customers = customerRepository.findAll();
 		model.addAttribute("customers", customers);
 		Customer toDelete = customerRepository.findByMail(deletion);
 		if (!deletion.equals("x")) {	
 		//Implementar
 			
-	System.out.println(toDelete + "was eliminated");}
+	System.out.println(toDelete + "was eliminated");}}
 		return "manageUser";
  
-	} 
+	}  
 	
 	@RequestMapping("/admin/editproduct")
 	public String editProduct(Model model, @RequestParam(value = "productnameoriginal", defaultValue = "") String productnameoriginal,
@@ -551,6 +600,9 @@ public class IndexController {
 			@RequestParam(value = "productlabel", defaultValue = "") String productlabel,
 			@RequestParam(value = "productdescription", defaultValue = "") String productdescription,
 			@RequestParam(value = "productprice", defaultValue = "-3") long productprice) {
+		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
+		model.addAttribute("user",uLogged);
+		if(uLogged.getRoles().contains("ROLE_ADMIN")){
 		List<Product> p = productRepository.findAll();
 		model.addAttribute("products", p);
 		
@@ -577,7 +629,7 @@ public class IndexController {
 			 productRepository.findProductByName(productnameoriginal).setPrice(productprice);
 			 productRepository.save(productRepository.findProductByName(productnameoriginal));
 		} 
-		
+		}
 		
 		return "editProduct";
 		}

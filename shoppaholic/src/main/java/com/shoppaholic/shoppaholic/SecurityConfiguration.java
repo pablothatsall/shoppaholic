@@ -24,12 +24,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  http.authorizeRequests().antMatchers("/login").permitAll();
  http.authorizeRequests().antMatchers("/loginerror").permitAll();
  http.authorizeRequests().antMatchers("/logout").permitAll();
- http.authorizeRequests().antMatchers("/signUp").permitAll();
  http.authorizeRequests().antMatchers("/product/{id}").permitAll();
  http.authorizeRequests().antMatchers("/search/{searchtext}").permitAll();
  http.authorizeRequests().antMatchers("/payment").permitAll();
- http.authorizeRequests().antMatchers("/orderlist").permitAll(); http.authorizeRequests().antMatchers("/list").permitAll();
- http.authorizeRequests().antMatchers("/signIn").permitAll();
+ http.authorizeRequests().antMatchers("/orderlist").permitAll();
+ http.authorizeRequests().antMatchers("/register").permitAll();
  
  
  
@@ -38,6 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
  http.authorizeRequests().antMatchers("/cart/{id}").hasAnyRole("USER");
  http.authorizeRequests().antMatchers("/editprofile").hasAnyRole("USER");
  http.authorizeRequests().antMatchers("/userprofile/{id}").hasAnyRole("USER");
+ http.authorizeRequests().antMatchers("/editprofile/{id}").hasAnyRole("USER");
  http.authorizeRequests().antMatchers("/userprofile").hasAnyRole("USER");
  http.authorizeRequests().antMatchers("/order/{id}").hasAnyRole("USER");
  http.authorizeRequests().antMatchers("/orderlist/{id}").hasAnyRole("USER");

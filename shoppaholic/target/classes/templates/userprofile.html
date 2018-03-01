@@ -38,10 +38,11 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                      {{#hider}}
                      {{^user}}
                         <a class="nav-link" href="/userprofile/1">Log In<img id="icon" src="../img/userIcon.png"></a>
                     {{/user}}
-                    
+                      {{/hider}}
                     {{#user}}
                         <a class="nav-link" href="/userprofile/{{id}}">My Profile<img id="icon" src="../img/userIcon.png"></a>
                     {{/user}}
@@ -76,13 +77,13 @@
               <p><b>Surname:</b>{{lastName}} </p>
               <p><b>Address:</b> {{address}}</p>
               <p><b>Phone:</b>{{telephone}}</p>
-              <p><b>Mail: </b>{{mail}}</p>
+              <p><b>Mail: </b>{{mail}}</p>{{#hider}}
               <p><a href="/editprofile/{{id}}" class="btn btn-primary">Edit Info</a><a href="/" class="btn btn-primary">Back</a></p>
                <p><a href="/orderlist/{{id}}" class="btn btn-primary">My Orders</a></p>
                     	<p> <form action="/logout" method="post" style="position:relative;right: 2em;">
 									<input type="submit"  class="btn btn-primary" value="   Log Out   " />
 									<input type="hidden" name="_csrf" value="{{token}}"/>
-							</form></p>
+							</form></p>{{/hider}}
       </div>
           </div>
           {{/user}}

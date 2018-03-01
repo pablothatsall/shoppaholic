@@ -43,11 +43,13 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                     {{^user}}
+                  
+                    {{^user}}
 
                         <a class="nav-link" href="/userprofile/1">Log In<img id="icon" src="../img/userIcon.png"></a>
 
                     {{/user}}
+
                     
                     {{#user}}
                         <a class="nav-link" href="/userprofile/{{id}}">My Profile<img id="icon" src="../img/userIcon.png"></a>

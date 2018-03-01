@@ -39,10 +39,14 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/userprofile">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                    {{#user}}
+                        <a class="nav-link" href="/userprofile/{{id}}">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                    {{/user}}
                     </li>
                     <li class="nav-item">
+                    {{#user}}
                         <a class="nav-link" href="/cart">My Cart<img id="icon" src="../img/carrito.png"></a>
+                    {{/user}}
                     </li>
                 </ul>
 
