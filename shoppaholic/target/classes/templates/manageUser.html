@@ -64,20 +64,17 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm">
-    </div>
+
 
     <div class="col-sm">
-
-    <div class="form-group">
-        <label class="control-label" id="lab" for="textinput">E-mail</label>  
-        <form class="field" action="" id="searchform" method="post">
-                    <input type="textinput" name="deletion" id="deletion" placeholder=" Mail of customer to delete" />
-
-                   <br>
-                  
-                    <button type="submit" id="deletion" class="btn btn-success">Delete User</button>
-                  
+<form class="form-horizontal">
+<select name="deletion">
+   {{#customers}}  
+    <option value={{mail}}>{{mail}}</option>
+    {{/customers}}
+</select>
+        
+                      <button type="submit" id="deletion" class="btn btn-success">Delete User</button>
                 </form>
                 
     </div>
@@ -88,13 +85,12 @@
     <div class="col-sm">
       
     </div>
-  </div>
-</div>
 
-</form><a href="/admin"><button class="btn btn-primary">Cancel</button></a>
+
+
+<a href="/admin"><button class="btn btn-primary">Cancel</button></a>
    
-</div>
-</div>
+
 
    
      <!-- Footer -->
