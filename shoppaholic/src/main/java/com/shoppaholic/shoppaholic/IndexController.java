@@ -228,7 +228,8 @@ public class IndexController {
 			@RequestParam(value = "email", defaultValue = "") String email,
     		@RequestParam(value = "password", defaultValue = "") String password,
     		@RequestParam(value = "telephone", defaultValue = "") String telephone,
-    		@RequestParam(value = "address", defaultValue = "") String address){
+    		@RequestParam(value = "address", defaultValue = "") String address,
+    		@RequestParam(value = "file", defaultValue = "") String file){
 		if(!firstname.equals("") && !lastname.equals("") && !email.equals("") && !password.equals("")) {
 		java.util.Date fecha = new Date(); 
 		List<Product> products = new ArrayList<Product>();
@@ -236,7 +237,7 @@ public class IndexController {
 		pedidoRepository.save(newcart);
 		List<Pedido> newmyorders = new ArrayList<>();
 		newmyorders.add(newcart);
-		Customer newcustomer= new Customer(firstname, lastname , email, password, address, Long.valueOf(telephone).longValue(),"",newmyorders , newcart, "ROLE_USER");
+		Customer newcustomer= new Customer(firstname, lastname , email, password, address, Long.valueOf(telephone).longValue(),file,newmyorders , newcart, "ROLE_USER");
 		customerRepository.save(newcustomer);
 		}
 		return "signUp";
@@ -442,24 +443,24 @@ public class IndexController {
 		return "order";
 	}
 
-	@RequestMapping("/login")
-	public  String loginStart(Model model, @RequestParam(value = "email", defaultValue = "") String email,
-			@RequestParam(value = "password", defaultValue = "") String password) {
-		/*if (!customerComponent.isLoggedUser()) {
-			log.info("Not user logged");
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		} else {
-			User loggedUser = userComponent.getLoggedUser();
-			log.info("Logged as " + loggedUser.getName());
-		return new ResponseEntity<>(loggedUser, HttpStatus.OK); */
-		return "login";
-	}
-	
-	@RequestMapping("/loginerror")
-	public  String LoginError(){
-		return "loginerror";
-		
-	}
+//	@RequestMapping("/login")
+//	public  String loginStart(Model model, @RequestParam(value = "email", defaultValue = "") String email,
+//			@RequestParam(value = "password", defaultValue = "") String password) {
+//		/*if (!customerComponent.isLoggedUser()) {
+//			log.info("Not user logged");
+//			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//		} else {
+//			User loggedUser = userComponent.getLoggedUser();
+//			log.info("Logged as " + loggedUser.getName());
+//		return new ResponseEntity<>(loggedUser, HttpStatus.OK); */
+//		return "login";
+//	}
+//	
+//	@RequestMapping("/loginerror")
+//public  String LoginError(){
+//		return "loginerror";
+//		
+//	}
  
 
 	//CON ID
@@ -469,7 +470,8 @@ public class IndexController {
 					@RequestParam(value = "userlastname", defaultValue = "") String userlastname,
 					@RequestParam(value = "usermail", defaultValue = "") String usermail,
 					@RequestParam(value = "useraddress", defaultValue = "") String useraddress,
-					@RequestParam(value = "usertelephone", defaultValue = "") String usertelephone) {
+					@RequestParam(value = "usertelephone", defaultValue = "") String usertelephone,
+					@RequestParam(value = "file", defaultValue = "") String file) {
 		
 	boolean login=customerComponent.isLoggedUser();
     	
@@ -507,14 +509,13 @@ public class IndexController {
     				customerRepository.save(customer);  
     				
     			}
-   
+    			if(!file.equals("")) {
+    				customer.setImageUrl(file);
+    				customerRepository.save(customer);  
+    				
+    			}
     		}
     	}
-		
-		
-
-		
-
 		return "editprofile";
 	}
 

@@ -72,10 +72,21 @@
           <div class="row">
             <div class="col-sm">
             </div>
-            
-               {{#customer}}
+            <div class="col-sm">
+            	{{#customer}}
                <img id ="userphoto" src={{imageUrl}}>
+               <div class="form-group">
+               <form action="/image/upload" method="post"enctype="multipart/form-data" id="form-image">
+					<div>
+						<input type="file" name="file" id="input-image" />
+						<input type="hidden" name="_csrf" value="{{token}}"/>
+						<button type="submit" class="btn btn-primary btn-lg uploadImg">Change Image</button>
+					</div>
+				</form>
+				</div>
                   {{/customer}}
+            </div>
+               
 
             <div class="col-sm">
 
@@ -117,8 +128,6 @@
                 <textarea class="form-control"name="useraddress" id="textarea" placeholder="{{address}}" name="descriptionproduct"></textarea>
              {{/customer}} 
             </div>
-
-
 
 
         <!-- Button (Double) -->
