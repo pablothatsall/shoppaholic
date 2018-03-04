@@ -259,6 +259,8 @@ public class IndexController {
 		model.addAttribute("product", p);
 		List<Comment> c = commentRepository.findByProduct(p);
 		model.addAttribute("comments", c);
+		model.addAttribute("label", p.getLabel());
+		model.addAttribute("topsLabel", productRepository.findByLabelOrderByScoreDesc(p.getLabel(), (new PageRequest(0,5))));
 		
 		boolean login=customerComponent.isLoggedUser();
     	if(login){
