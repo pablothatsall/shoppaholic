@@ -27,4 +27,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	Page <Product> findByImageUrl(String imageUrl, @PageableDefault(size = 8) Pageable page);
 	
+	Page <Product> findByScore(int score,@PageableDefault(size = 8) Pageable page);
+	Page <Product> findTop5ByOrderByScoreDesc(@PageableDefault(size = 8) Pageable page);
+
+	
 }  

@@ -37,6 +37,8 @@ public class Product{
 		private String label;
 	@JsonView(Basic.class)
     	private String pDate;
+	@JsonView(Basic.class)
+		private int score;
 	@OneToMany
 		private List<Comment> comments  = new ArrayList<>();
 	
@@ -46,13 +48,14 @@ public class Product{
 		// Used by SpringData
 	}
 
-	public Product(String name, double price, String description, String label, String pDate, String imageUrl, List<Comment> comments) {
+	public Product(String name, double price, String description, String label, String pDate, String imageUrl, int score, List<Comment> comments) {
 		this.name = name;
 		this.price = price;
         this.description = description;
         this.label = label;
         this.pDate = pDate;
         this.imageUrl = imageUrl;
+        this.score = score;
         this.comments = comments;
 	}
 
@@ -123,6 +126,14 @@ public class Product{
 
 	public void setIdLogged(boolean idLogged) {
 		this.idLogged = idLogged;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 
 	public List<Comment> getComments() {

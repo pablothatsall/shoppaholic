@@ -75,8 +75,6 @@
                                 <label class="control-label" id="lab" for="textinput">Email Address</label>  
                                 <input id="textinput" name="email" placeholder="" required="required"  class="form-control input-md" required="" type="text">
 
-
-
                                 <label class="control-label" id="lab" for="textinput">Password</label>
                                  <input id="textinput" name="password" placeholder="" required="required" type="password"  class="form-control input-md" required="" type="text">
 	
@@ -85,6 +83,14 @@
                                 
                                  <label class="control-label" id="lab" for="textinput">Telephone</label>  
                                 <input id="textinput" name="telephone" placeholder="" required="required"  class="form-control input-md" required="" type="text">
+                                <br>
+                                <form action="/image/upload" method="post"enctype="multipart/form-data" id="form-image">
+									<div>
+										<input type="file" name="file" id="input-image" />
+										<input type="hidden" name="_csrf" value="{{token}}"/>
+									</div>
+								</form>
+								<br>
 
                         <!-- Button (Double) -->
 
@@ -105,7 +111,7 @@
 	
 	<footer class="py-5">
       <div class="container">
-        <p class="m-0 text-center text-white">Shopaholic 2018</p>
+        <p class="m-0 text-center text-white fixed-bottom">Shopaholic 2018</p>
       </div>
       <!-- /.container -->
     </footer>

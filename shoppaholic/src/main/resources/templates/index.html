@@ -237,22 +237,11 @@
             <div class="col-lg-3 portfolio-item  pull-left">
                 <h4 style="padding-bottom: 5px">January's best products</h4>
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <img class="img-fluid col-lg-6" src="http://placehold.it/350x200">Product
+                {{#best}}
+                    <a href="/product/{{id}}" class="list-group-item list-group-item-action">
+                        <img class="img-fluid col-lg-4" src="{{imageUrl}}">{{name}}
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <img class="img-fluid col-lg-6" src="http://placehold.it/350x200">Product
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <img class="img-fluid col-lg-6" src="http://placehold.it/350x200">Product
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <img class="img-fluid col-lg-6" src="http://placehold.it/350x200">Product
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <img class="img-fluid col-lg-6" src="http://placehold.it/350x200">Product
-                    </a>
-                    
+                {{/best}}
                 </div>
             </div>
 

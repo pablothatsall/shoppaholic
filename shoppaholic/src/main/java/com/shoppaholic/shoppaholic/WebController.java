@@ -28,10 +28,10 @@ public class WebController {
 		return "login";
 	}
 	
-	@RequestMapping("/logout")
-	public String logout() {
-		return "logout";
-	}
+//	@RequestMapping("/logout")
+//	public String logout() {
+//		return "logout";
+//	}
 
 	@RequestMapping("/loginerror")
 	public String loginerror() {
