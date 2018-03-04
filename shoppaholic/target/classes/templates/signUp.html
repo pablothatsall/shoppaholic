@@ -37,10 +37,14 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/userprofile">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                    {{#user}}
+                        <a class="nav-link" href="/userprofile/{{id}}">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                    {{/user}}
                     </li>
                     <li class="nav-item">
+                    {{#user}}
                         <a class="nav-link" href="/cart">My Cart<img id="icon" src="../img/carrito.png"></a>
+                    {{/user}}
                     </li>
                 </ul>
 
@@ -60,7 +64,7 @@
                                 <h3 id="tit">Sign Up</h3>
                             </div>
                             <div class="form-group">
-                             <form action=/register id="formulario" autocomplete="on" method="post">
+                             <form action="/register" enctype="/multipart/form-data" id="formulario" autocomplete="on" method="post">
                                 <label class="control-label" id="lab" for="textinput"> First Name</label>  
                                <input id="firstname" name="firstname" placeholder="" required="required" class="form-control input-md" type="text">
                        
@@ -84,12 +88,14 @@
                                  <label class="control-label" id="lab" for="textinput">Telephone</label>  
                                 <input id="textinput" name="telephone" placeholder="" required="required"  class="form-control input-md" required="" type="text">
                                 <br>
-                                <form action="/image/upload" method="post"enctype="multipart/form-data" id="form-image">
-									<div>
-										<input type="file" name="file" id="input-image" />
+                               
+										
+										<input type="file" name="file" value="file" id="input-image" />
+										
 										<input type="hidden" name="_csrf" value="{{token}}"/>
-									</div>
-								</form>
+							
+								
+								
 								<br>
 
                         <!-- Button (Double) -->
@@ -97,8 +103,8 @@
                                 <label class="control-label" for="btnCancel"></label>
 
                                    
-                                  <input type="submit" href="/" value="Register" class="btn btn-primary">Sign up                      
-                            	 <input type="hidden" name="_csrf" value="{{token}}"/></button>
+                                  <input type="submit"  href="/" value="Register" class="btn btn-primary">                    
+                            	 <input type="hidden" name="_csrf" value="{{token}}"/>
 								</form>
                             </div>
                         </div>
@@ -122,3 +128,4 @@
     
     </body>
 </html>
+
