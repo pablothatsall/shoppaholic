@@ -90,6 +90,8 @@ public class IndexController {
 			Product soundbar = new Product("Samsung HW-M360/ZA 2.1",182.43 , "Enjoy a dynamic home Audio experience with 2.1 Channel surround sound.", "Electronic", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/212eg94cyEL._AC_US436_QL65_.jpg",22,null);
 			Product kirby = new Product("Kirby Star Allies ",54.24, "Go Pink", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/81c18FOO5oL._AC_SX215_.jpg",22,null);
 			Product darksouls = new Product("Dark Souls: Remastered  ",60.99, "Die and die", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/81KXlktSUGL._AC_SX215_.jpg",27,null);
+			Product sonyalpha = new Product("Sony Alpha 6000 ",750.00, "Faster focus than a reflex", "Electronic", fecha.toGMTString(),"https://sonyglobal.scene7.com/is/image/gwtprod/8a1691c1ffef2e705d1c09e2e3753f2b?fmt=pjpeg&wid=165&bgcolor=FFFFFF&bgc=FFFFFF",26,null);
+			Product mercurial = new Product("Mercurial Puro Fenomeno ",100.00, "Play like Neymar", "Sports", fecha.toGMTString(),"http://eldiezdeportes.com/wp-content/uploads/descarga-9-3-800x425.jpg",21,null);
 			productRepository.save(fifa);
 			productRepository.save(farcry);
 			productRepository.save(nba);
@@ -123,6 +125,9 @@ public class IndexController {
 			productRepository.save(soundbar);
 			productRepository.save(kirby);
 			productRepository.save(darksouls);
+			productRepository.save(sonyalpha);
+			productRepository.save(mercurial);
+			
 			
 			
 			
