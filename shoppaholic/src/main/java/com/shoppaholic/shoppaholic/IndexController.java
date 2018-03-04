@@ -29,7 +29,6 @@ import org.springframework.web.context.WebApplicationContext;
 @Controller
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class IndexController {
-	int counter = 1;
 
 	@Autowired
 	private ProductRepository productRepository;
@@ -49,13 +48,13 @@ public class IndexController {
 	
 	@PostConstruct
 	public void init() {
-		createData(this.counter);
-		this.counter++;
+		if(productRepository.findByName("FIFA").isEmpty()) {
+		createData();
+		}
 	}
 	
 	@SuppressWarnings("deprecation")
-	private void createData (int counter) {
-		if (counter <= 1) {
+	private void createData () {
 			java.util.Date fecha = new Date(); 
 			Product fifa = new Product("FIFA", 45, "Best football simulator", "Videogames", fecha.toGMTString(),"https://images-na.ssl-images-amazon.com/images/I/81JEhgEtqGL._SX385_.jpg",34,null);
 
@@ -172,7 +171,6 @@ public class IndexController {
 			commentRepository.save(c3);
 			Comment c4 = new Comment(d,"Very confortable", fechaactual.toGMTString() ,boots);
 			commentRepository.save(c4);
-		}
 		
 	}
 
