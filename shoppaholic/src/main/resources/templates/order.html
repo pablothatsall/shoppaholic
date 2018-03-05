@@ -34,14 +34,27 @@
                     <input type="hidden" name="_csrf" value="{{token}}"/>
                     <button type="submit" id="search">Search</button>
                 </form>
-
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
+                  
+                    {{^user}}
+
+                        <a class="nav-link" href="/userprofile/1">Log In<img id="icon" src="../img/userIcon.png"></a>
+
+                    {{/user}}
+
+                    
+                    {{#user}}
                         <a class="nav-link" href="/userprofile/{{id}}">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                    {{/user}}
                     </li>
                     <li class="nav-item">
+                    {{#user}}
+                    
                         <a class="nav-link" href="/cart/{{id}}">My Cart<img id="icon" src="../img/carrito.png"></a>
+                    {{/user}}
                     </li>
+                    
                 </ul>
 
             </div>
