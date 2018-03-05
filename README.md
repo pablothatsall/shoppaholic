@@ -90,6 +90,7 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 ![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/pedidos.png)
 
 - Pagina donde se resumen los pedidos realizados. Se compone de imagen y resumen de los datos de envio.
+- *Nota: Esta clase esta nombrada en castellano de manera intencionada debido a motivos de compilación
 
 ##### Pago
 
