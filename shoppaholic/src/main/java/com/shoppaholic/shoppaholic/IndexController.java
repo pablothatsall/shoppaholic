@@ -158,10 +158,10 @@ public class IndexController {
 			List<Pedido> myorderssarry = new ArrayList<>();
 			myorderssarry.add(cartsarry);
 		 
-			Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"https://pbs.twimg.com/profile_images/743815180153393152/cEnZYY2g_400x400.jpg", myorderschubi, cartchubi, "ROLE_USER");
+			Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"../../../../imgProfile/chubi.jpg", myorderschubi, cartchubi, "ROLE_USER");
 			c.getRoles().add("ROLE_ADMIN");
-			Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"https://pbs.twimg.com/profile_images/916980080278102017/HfrABpSp_400x400.jpg",myorderspablo , cartpablo , "ROLE_USER");
-			Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"https://pbs.twimg.com/profile_images/578500665565130752/xVoASGTj_400x400.jpeg",myordersdani, cartdani, "ROLE_USER");
+			Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"../../../../imgProfile/pablo.jpg",myorderspablo , cartpablo , "ROLE_USER");
+			Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"../../../../imgProfile/dani.jpeg",myordersdani, cartdani, "ROLE_USER");
 			Customer s = new Customer("Sergio", "Sarria", "Porro", "sergio", "c/Avion 4",4532 ,"", myorderssarry,cartsarry,"ROLE_USER");
 			customerRepository.save(c);
 			customerRepository.save(p);
@@ -523,9 +523,8 @@ public class IndexController {
     				
     			}
     			if(!file.equals("")) {
-    				customer.setImageUrl(file);
-    				customerRepository.save(customer);  
-    				
+    				customer.setImageUrl("../../../../imgProfile/"+file);
+    				customerRepository.save(customer);
     			}
     		}
     	}

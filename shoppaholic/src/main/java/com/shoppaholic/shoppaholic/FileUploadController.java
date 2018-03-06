@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,10 +17,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.shoppaholic.shoppaholic.Customer;
+import com.shoppaholic.shoppaholic.CustomerComponent;
+import com.shoppaholic.shoppaholic.CustomerRepository;
+
 @Controller
 public class FileUploadController {
 
-	private static final String USER_IMAGE_FOLDER = "src/main/resources/static/imgProfile";
+private static final String USER_IMAGE_FOLDER = "src/main/resources/static/imgProfile";
 	
 	
 	@Autowired
@@ -37,11 +39,12 @@ public class FileUploadController {
 	public String handleFileUpload(Model model, 
 			@RequestParam("file") MultipartFile file) {
 
-		//String fileName = file.getOriginalFilename() + ".jpg";
-		long idLogged=customerComponent.getIdLoggedUser();
-		Customer u=customerRepository.findOne(idLogged);
-		String fileName =idLogged  + ".jpg";
+		String fileName = file.getOriginalFilename() + ".jpg";
+		long idLogged = customerComponent.getIdLoggedUser();
+		Customer customer = customerRepository.findOne(idLogged);
+		//String fileName =idLogged  + ".jpg";
 
+		
 		if (!file.isEmpty()) {
 			try {
 
@@ -53,10 +56,10 @@ public class FileUploadController {
 				File uploadedFile = new File(filesFolder.getAbsolutePath(), fileName);
 				file.transferTo(uploadedFile);
 				
-				u.setImageUrl(fileName);
-				customerRepository.save(u);
-				model.addAttribute("u",u);
-				return "config";
+				customer.setImageUrl("../../../../"+fileName);
+				customerRepository.save(customer);
+				model.addAttribute("customer",customer);
+				return "editProfile";
 
 			} catch (Exception e) {
 				
@@ -64,7 +67,7 @@ public class FileUploadController {
 				model.addAttribute("error",
 						e.getClass().getName() + ":" + e.getMessage());
 				
-				model.addAttribute("u",u);
+				model.addAttribute("customer",customer);
 				//model.addAttribute("imgProfile",true);
 				return "editProfile";
 			}
@@ -72,7 +75,7 @@ public class FileUploadController {
 			
 			model.addAttribute("error",	"The file is empty");
 			
-			model.addAttribute("u",u);
+			model.addAttribute("customer",customer);
 			//model.addAttribute("imgProfile",true);
 			return "editProfile";
 		}
