@@ -248,6 +248,10 @@ public class IndexController {
 		List<Pedido> newmyorders = new ArrayList<>();
 		newmyorders.add(newcart);
 		Customer newcustomer= new Customer(firstname, lastname , email, password, address, Long.valueOf(telephone).longValue(),file,newmyorders , newcart, "ROLE_USER");
+		if(!file.equals("")) {
+			newcustomer.setImageUrl("../../../../imgProfile/"+file);
+			customerRepository.save(newcustomer);
+		}
 		customerRepository.save(newcustomer);
 		}
 		return "signUp";
