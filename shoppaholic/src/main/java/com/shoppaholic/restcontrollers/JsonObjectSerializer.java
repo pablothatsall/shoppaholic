@@ -1,4 +1,4 @@
-package com.example.restcontrollers;
+package com.shoppaholic.restcontrollers;
 
 import java.io.IOException;
 
@@ -29,7 +29,8 @@ public abstract class JsonObjectSerializer<T> extends JsonSerializer<T> {
 			if (ex instanceof IOException) {
 				throw (IOException) ex;
 			}
-			throw new JsonMappingException(jgen, "Object serialize error", ex);
+			//throw new JsonMappingException(jgen, "Object serialize error", ex);
+			throw new JsonMappingException("Object serialize error", ex);
 		}
 	}
 
