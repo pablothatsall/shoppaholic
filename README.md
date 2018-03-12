@@ -7,6 +7,7 @@
 - Rubén Iglesias García (r.iglesiasg@alumnos.urjc.es)
 - Daniel Ribeiro Chacón (d.ribeiro@alumnos.urjc.es)
 - Sergio Sarriá Porro (s.sarria@alumnos.urjc.es)
+- Lei Han (l.han@alumnos.urjc.es)
 
 ### Enlace al tablero de Trello: 
 https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
