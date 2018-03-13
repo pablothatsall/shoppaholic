@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.shoppaholic.shoppaholic.*;
+import com.shoppaholic.shoppaholic.classes.Comment;
+import com.shoppaholic.shoppaholic.classes.Pedido;
 import com.shoppaholic.shoppaholic.classes.Product;
 import com.shoppaholic.shoppaholic.services.*;
 
@@ -27,6 +29,8 @@ public class RestProductController {
 	private CustomerService customerService;
 	@Autowired
 	private PedidoService pedidoService;
+	@Autowired
+	private CommentService commentService;
 
 	@RequestMapping(value="/api/product/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Product> getProduct(@PathVariable long id) {
@@ -39,18 +43,30 @@ public class RestProductController {
 		return productService.findAll();
 	}
 
-	//Not sure if working
+
 	@RequestMapping(value="/api/addProduct", method=RequestMethod.POST)
 	public ResponseEntity<Product> AddProduct(
 			@RequestBody Product p) throws Exception{
 		productService.save(p);
 		return new ResponseEntity<>(p,HttpStatus.CREATED);
 	}
-	
+	//Doesnt work
 	@RequestMapping(value="/api/deleteproduct/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
 		Product p=productService.findOne(id);
+		List<Pedido> x = pedidoService.findAll();
+		List<Comment> comments = commentService.findByProduct(p);
+		for (int i=0; i<x.size(); i++){
+		
+		if (x.get(i).getProductsofPedido().contains(p)) {x.get(0).getProductsofPedido().remove(p);
+		pedidoService.save(x.get(i));
+		
+		comments.clear();
+		
+		} 
+		}
 		productService.delete(p.getId());
+	
 		return new ResponseEntity<>(p,HttpStatus.OK);
 	}
 	

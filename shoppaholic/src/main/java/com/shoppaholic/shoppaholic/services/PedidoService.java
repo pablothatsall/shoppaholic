@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.shoppaholic.shoppaholic.*;
 import com.shoppaholic.shoppaholic.classes.Pedido;
+import com.shoppaholic.shoppaholic.classes.Product;
 import com.shoppaholic.shoppaholic.repositories.PedidoRepository;
 
 
@@ -22,6 +23,10 @@ public class PedidoService {
 
 	public Pedido findById(long id) {
 		return pedidoRepository.findById(id);
+	}
+	
+	public List<Pedido> findAll() {
+		return pedidoRepository.findAll();
 	}
 	
 	public List<Pedido>findByTotalPrice(double price){
@@ -38,5 +43,13 @@ public class PedidoService {
 	
 	public List<Pedido> findByDate(String date) {
 		return pedidoRepository.findByDate(date);
+	}
+	
+	public void save(Pedido pedido) {
+		pedidoRepository.save(pedido);
+	}
+	
+	public void delete(long id) {
+		pedidoRepository.delete(id);
 	}
 }

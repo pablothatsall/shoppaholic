@@ -20,6 +20,5 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 	
 	List<Pedido> findByDate(String date);
 	
-	
 	  
 }    

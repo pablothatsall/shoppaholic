@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.shoppaholic.shoppaholic.*;
 import com.shoppaholic.shoppaholic.classes.Comment;
 import com.shoppaholic.shoppaholic.classes.Customer;
+import com.shoppaholic.shoppaholic.classes.Pedido;
 import com.shoppaholic.shoppaholic.classes.Product;
 import com.shoppaholic.shoppaholic.repositories.CommentRepository;
 
@@ -27,8 +28,15 @@ public class CommentService {
 		return commentRepository.findByCustomer(customer);
 	}
 	
-	List<Comment>findByProduct(Product product){
+	public List<Comment>findByProduct(Product product){
 		return commentRepository.findByProduct(product);
 	}
 	
+	public void save(Comment comment) {
+		commentRepository.save(comment);
+	}
+	
+	public void delete(long id) {
+	commentRepository.delete(id);
+	}
 }
