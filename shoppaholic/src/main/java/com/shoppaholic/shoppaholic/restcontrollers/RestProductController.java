@@ -42,6 +42,13 @@ public class RestProductController {
 	public Collection<Product> getProducts() {
 		return productService.findAll();
 	}
+	
+	@RequestMapping(value="/api/productGetComments/{id}", method=RequestMethod.GET)
+	public Collection<Comment> getProductComments(@PathVariable long id) {
+		Product p=productService.findOne(id);
+		
+		return p.getComments();
+	}
 
 
 	@RequestMapping(value="/api/addProduct", method=RequestMethod.POST)
@@ -50,6 +57,7 @@ public class RestProductController {
 		productService.save(p);
 		return new ResponseEntity<>(p,HttpStatus.CREATED);
 	}
+	
 	//Doesnt work
 	@RequestMapping(value="/api/deleteproduct/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Product> deleteProduct(@PathVariable long id) {

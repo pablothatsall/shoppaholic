@@ -13,15 +13,19 @@ import com.shoppaholic.shoppaholic.classes.Customer.Basic;
 	
 	@Entity
 	public class Comment {
+		public interface Basic {
+		}
 
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
+		@JsonView(Basic.class)
 		private long id;
 		@OneToOne
+		@JsonView(Basic.class)
 		private Customer customer;
-		
+		@JsonView(Basic.class)
 		private String comment;
-		
+		@JsonView(Basic.class)
 		private String date;
 		
 		@ManyToOne

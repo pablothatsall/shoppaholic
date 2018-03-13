@@ -39,6 +39,7 @@ public class Product{
     	private String pDate;
 	@JsonView(Basic.class)
 		private int score;
+	@JsonView(Basic.class)
 	@OneToMany
 		private List<Comment> comments  = new ArrayList<>();
 	
