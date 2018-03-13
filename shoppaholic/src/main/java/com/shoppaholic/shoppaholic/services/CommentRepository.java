@@ -17,7 +17,7 @@ import com.shoppaholic.shoppaholic.classes.Product;
 
 
 @Service
-public class CommentRepository {
+public class CommentService {
 	
 	@Autowired
 	CommentRepository commentRepository;
