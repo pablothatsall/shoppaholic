@@ -21,7 +21,6 @@ import com.shoppaholic.shoppaholic.classes.Customer.Basic;
 		@JsonView(Basic.class)
 		private long id;
 		@OneToOne
-		
 		private Customer customer;
 		@JsonView(Basic.class)
 		private String comment;
