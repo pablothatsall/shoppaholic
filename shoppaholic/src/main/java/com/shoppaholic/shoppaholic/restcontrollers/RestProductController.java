@@ -35,6 +35,7 @@ public class RestProductController {
 	@RequestMapping(value="/api/product/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Product> getProduct(@PathVariable long id) {
 		Product p=productService.findOne(id);
+		List<Comment> x = commentService.findByProduct(p);
 		return new ResponseEntity<>(p,HttpStatus.OK);
 	}
 	
@@ -46,8 +47,8 @@ public class RestProductController {
 	@RequestMapping(value="/api/productGetComments/{id}", method=RequestMethod.GET)
 	public Collection<Comment> getProductComments(@PathVariable long id) {
 		Product p=productService.findOne(id);
-		
-		return p.getComments();
+		List<Comment> x = commentService.findByProduct(p);
+		return x;
 	}
 
 
