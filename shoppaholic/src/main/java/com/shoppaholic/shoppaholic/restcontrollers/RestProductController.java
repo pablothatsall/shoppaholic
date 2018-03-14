@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.shoppaholic.shoppaholic.*;
 import com.shoppaholic.shoppaholic.classes.Comment;
+import com.shoppaholic.shoppaholic.classes.Customer;
 import com.shoppaholic.shoppaholic.classes.Pedido;
 import com.shoppaholic.shoppaholic.classes.Product;
+import com.shoppaholic.shoppaholic.security.CustomerComponent;
 import com.shoppaholic.shoppaholic.services.*;
 
 @RestController
@@ -31,7 +33,10 @@ public class RestProductController {
 	private PedidoService pedidoService;
 	@Autowired
 	private CommentService commentService;
-
+	@Autowired
+	private CustomerComponent customerComponent;
+	
+	
 	@RequestMapping(value="/api/product/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Product> getProduct(@PathVariable long id) {
 		Product p=productService.findOne(id);
@@ -77,6 +82,15 @@ public class RestProductController {
 		productService.delete(p.getId());
 	
 		return new ResponseEntity<>(p,HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/api/addToCart/{id}", method=RequestMethod.POST)
+	public ResponseEntity<Pedido> addToCart(@PathVariable long id) {
+		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
+		uLogged.getMyCart().addProduct(productService.findOne(id));
+		customerService.save(uLogged);
+		return new ResponseEntity<>(uLogged.getMyCart(),HttpStatus.OK);
+
 	}
 	
 }

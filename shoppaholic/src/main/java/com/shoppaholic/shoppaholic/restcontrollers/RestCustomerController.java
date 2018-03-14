@@ -45,4 +45,24 @@ public class RestCustomerController {
 		}
 		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 	}
+	
+	@RequestMapping(value="/api/customer/cart/{id}", method=RequestMethod.GET)
+	public ResponseEntity<Pedido> getCustomerCart(@PathVariable long id) {
+		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
+		if (uLogged.getId()==id) {
+		Customer c=customerService.findOne(id);
+		return new ResponseEntity<>(c.getMyCart(),HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+	}
+	
+	@RequestMapping(value="/api/customer/myorders/{id}", method=RequestMethod.GET)
+	public ResponseEntity<List<Pedido>> getCustomerOrders(@PathVariable long id) {
+		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
+		if (uLogged.getId()==id) {
+		Customer c=customerService.findOne(id);
+		return new ResponseEntity<>(c.getMyOrders(),HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+	}
 }

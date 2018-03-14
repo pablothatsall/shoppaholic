@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.shoppaholic.shoppaholic.*;
 import com.shoppaholic.shoppaholic.classes.Customer;
+import com.shoppaholic.shoppaholic.classes.Product;
 import com.shoppaholic.shoppaholic.repositories.CustomerRepository;
 @Service
 public class CustomerService {
@@ -42,6 +43,14 @@ public class CustomerService {
 	
 	public List<Customer> findByImageUrl(String imageUrl) {
 		return customerRepository.findByImageUrl(imageUrl);
+	}
+	
+	public void save(Customer customer) {
+		customerRepository.save(customer);
+	}
+	
+	public void delete(long id) {
+		customerRepository.delete(id);
 	}
 	
 }
