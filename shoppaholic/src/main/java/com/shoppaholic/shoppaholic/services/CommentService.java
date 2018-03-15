@@ -24,7 +24,7 @@ public class CommentService {
 	@Autowired
 	CommentRepository commentRepository;
 	
-	List<Comment>findByCustomer(Customer customer){
+	public List<Comment>findByCustomer(Customer customer){
 		return commentRepository.findByCustomer(customer);
 	}
 	
@@ -36,8 +36,8 @@ public class CommentService {
 		commentRepository.save(comment);
 	}
 	
-	public void delete(long id) {
-	commentRepository.delete(id);
+	public void delete(List<Comment> comments) {
+	commentRepository.delete(comments);
 	}
 	
 	public List<Comment> findAll() {

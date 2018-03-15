@@ -49,8 +49,8 @@ public class CustomerService {
 		customerRepository.save(customer);
 	}
 	
-	public void delete(long id) {
-		customerRepository.delete(id);
+	public void delete(Customer customer) {
+		customerRepository.delete(customer);
 	}
 	
 }

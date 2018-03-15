@@ -112,7 +112,29 @@ public class RestCustomerController {
 		else{
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
-		
-
 	}
+	
+	@RequestMapping(value="/api/deleteCustomer/id}", method=RequestMethod.DELETE)
+	public ResponseEntity<Customer> EditCustomer(@PathVariable long id){
+		Customer toDelete = customerService.findOne(id);
+		
+		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
+		if(uLogged.getRoles().contains("ROLE_ADMIN")){
+	
+
+		
+		//Implementar
+			List<Comment> commentstodelete = commentService.findByCustomer(toDelete);
+			
+			commentService.delete(commentstodelete);
+
+			customerService.delete(toDelete);
+
+			
+		return new ResponseEntity<>(toDelete,HttpStatus.OK);
+	}
+		else{
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+	}	
 }
