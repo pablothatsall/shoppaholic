@@ -2,6 +2,8 @@ package com.shoppaholic.shoppaholic.restcontrollers;
 import java.util.Collection;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -91,6 +94,47 @@ public class RestProductController {
 		customerService.save(uLogged);
 		return new ResponseEntity<>(uLogged.getMyCart(),HttpStatus.OK);
 
+	}
+	
+	@RequestMapping(value="/api/editProduct/id}", method=RequestMethod.PUT)
+	public ResponseEntity<Product> EditCustomer(@PathVariable long id,@RequestParam(value = "productnameoriginal", defaultValue = "") String productnameoriginal,
+			@RequestParam(value = "productname", defaultValue = "") String productname,
+			@RequestParam(value = "productlabel", defaultValue = "") String productlabel,
+			@RequestParam(value = "productdescription", defaultValue = "") String productdescription,
+			@RequestParam(value = "productprice", defaultValue = "-3") long productprice) {
+		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
+		if (uLogged.isIdLogged()&& uLogged.getRoles().contains("ADMIN")){
+		Product p=productService.findOne(id);
+		
+		if (!productname.equals("")){
+			
+			 productService.findByName(productnameoriginal).setName(productname);
+			 productService.save(productService.findByName(productnameoriginal));
+		
+		}
+		
+		if (!productlabel.equals("")){
+			
+			 productService.findByName(productnameoriginal).setLabel(productlabel);
+			 productService.save(productService.findByName(productnameoriginal));
+		} 
+		
+		if (!productdescription.equals("")){
+			
+			 productService.findByName(productnameoriginal).setLabel(productdescription);
+			 productService.save(productService.findByName(productnameoriginal));
+		} 
+		if (productprice != -3){
+			
+			 productService.findByName(productnameoriginal).setPrice(productprice);
+			 productService.save(productService.findByName(productnameoriginal));
+		} 
+		
+		return new ResponseEntity<>(p,HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
 	}
 	
 }

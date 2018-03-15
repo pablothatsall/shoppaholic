@@ -36,6 +36,10 @@ public class ProductService {
 		productRepository.delete(id);
 	}
 	
+	public Product findByName(String name) {
+		return productRepository.findProductByName(name);
+	}
+	
 	public Page<Product>findByPrice(double price , Pageable page){
 		return productRepository.findByPrice(price,page);
 	}
