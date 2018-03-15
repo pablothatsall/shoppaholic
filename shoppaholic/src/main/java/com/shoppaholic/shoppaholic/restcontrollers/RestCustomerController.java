@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -64,5 +65,54 @@ public class RestCustomerController {
 		return new ResponseEntity<>(c.getMyOrders(),HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+	}
+	
+	@RequestMapping(value="/api/editCustomer/id}", method=RequestMethod.PUT)
+	public ResponseEntity<Customer> EditCustomer(@PathVariable long id,
+			@RequestParam(value = "userfirstname", defaultValue = "") String userfirstname,
+			@RequestParam(value = "userlastname", defaultValue = "") String userlastname,
+			@RequestParam(value = "usermail", defaultValue = "") String usermail,
+			@RequestParam(value = "useraddress", defaultValue = "") String useraddress,
+			@RequestParam(value = "usertelephone", defaultValue = "") String usertelephone,
+			@RequestParam(value = "file", defaultValue = "") String file) {
+		
+		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
+		if (uLogged.isIdLogged()&& uLogged.getId()==id) {
+		if(!userfirstname.equals("")) {
+			uLogged.setFirstName(userfirstname);
+			customerService.save(uLogged); 
+		}
+		
+		if(!userlastname.equals("")) {
+			uLogged.setLastName(userlastname);
+			customerService.save(uLogged); 
+		}
+		if(!usermail.equals("")) {
+			uLogged.setMail(usermail); 
+			customerService.save(uLogged); 
+			
+		}
+		if(!useraddress.equals("")) {
+			uLogged.setAddress(useraddress);
+			customerService.save(uLogged);  
+			
+		}
+		
+		if(!usertelephone.equals("")) {
+			uLogged.setTelephone(Long.valueOf(usertelephone).longValue());;
+			customerService.save(uLogged);  
+			
+		}
+		if(!file.equals("")) {
+			uLogged.setImageUrl("../../../../imgProfile/"+file);
+			customerService.save(uLogged);
+		}
+		return new ResponseEntity<>(uLogged,HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+		
+
 	}
 }
