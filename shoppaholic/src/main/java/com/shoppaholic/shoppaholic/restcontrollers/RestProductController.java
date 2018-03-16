@@ -96,7 +96,7 @@ public class RestProductController {
 
 	}
 	
-	@RequestMapping(value="/api/editProduct/id}", method=RequestMethod.PUT)
+	@RequestMapping(value="/api/editProduct/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Product> EditCustomer(@PathVariable long id,@RequestParam(value = "productnameoriginal", defaultValue = "") String productnameoriginal,
 			@RequestParam(value = "productname", defaultValue = "") String productname,
 			@RequestParam(value = "productlabel", defaultValue = "") String productlabel,
