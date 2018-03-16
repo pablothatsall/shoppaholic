@@ -215,59 +215,7 @@ public class IndexController {
 	 
 
 	
-	@RequestMapping("/searchNext/{searchterm}")
-	public String searchNext(Model model, @PageableDefault(size = 8) Pageable page, @PathVariable String searchterm) {
-	boolean login=customerComponent.isLoggedUser();
-    	
-    	if(login){
-    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
-    		if(uLogged.getRoles().contains("ROLE_USER")){
-
-    			model.addAttribute("user", uLogged);
-    			return "index";
-    		}
-    	}
-		
-		model.addAttribute("searchtext", searchterm);
-		
-		Page<Product> productos = productRepository.findByName(searchterm ,  page);
-		model.addAttribute("products", productos);
-		
-		productos = productRepository.findByLabel(searchterm, page);
-		model.addAttribute("productslabel", productos);
-		
-		model.addAttribute("prevPage", productos.getNumber()-1);
-		model.addAttribute("currentPage", productos.getNumber());
-		model.addAttribute("secondPageButton", productos.getNumber()+1);
-		model.addAttribute("thirdPageButton", productos.getNumber()+2);
-		model.addAttribute("nextPage", productos.getNumber()+1);
-
-		return "search";
-	}
 	
-	@RequestMapping("/search")
-		public String searchStart(Model model, @PageableDefault(size = 8) Pageable page,  HttpServletRequest request,
-							@RequestParam(value = "searchtext") String searchtext) {
-		boolean login=customerComponent.isLoggedUser();
-    	if(login){
-    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
-    		
-    			model.addAttribute("user", uLogged);
-    	}
-						model.addAttribute("searchtext", searchtext);
-						
-						Page<Product> productos = productRepository.findByNameContaining( "%" + searchtext + "%",  page);
-						model.addAttribute("products", productos);
-						productos = productRepository.findByLabel(searchtext, page);
-						model.addAttribute("productslabel", productos);
-				
-						model.addAttribute("prevPage", productos.getNumber()-1);
-						model.addAttribute("currentPage", productos.getNumber());
-						model.addAttribute("secondPageButton", productos.getNumber()+1);
-						model.addAttribute("thirdPageButton", productos.getNumber()+2);
-						model.addAttribute("nextPage", productos.getNumber()+1);
-		return "search";
-	}
 
 
 
