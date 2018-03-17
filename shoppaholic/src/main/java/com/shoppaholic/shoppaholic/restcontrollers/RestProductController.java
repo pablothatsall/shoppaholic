@@ -68,14 +68,15 @@ public class RestProductController {
 	}
 	
 	//Doesnt work
-	@RequestMapping(value="/api/deleteproduct/{id}", method=RequestMethod.DELETE)
-	public ResponseEntity<Product> deleteProduct(@PathVariable long id) {
+	@RequestMapping(value="/api/deleteProduct/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<String> deleteProduct(@PathVariable long id) {
 		Product p=productService.findOne(id);
 		List<Pedido> x = pedidoService.findAll();
 		List<Comment> comments = commentService.findByProduct(p);
 		for (int i=0; i<x.size(); i++){
 		
-		if (x.get(i).getProductsofPedido().contains(p)) {x.get(0).getProductsofPedido().remove(p);
+		if (x.get(i).getProductsofPedido().contains(p)) {
+			x.get(0).getProductsofPedido().remove(p);
 		pedidoService.save(x.get(i));
 		
 		comments.clear();
@@ -84,7 +85,7 @@ public class RestProductController {
 		}
 		productService.delete(p.getId());
 	
-		return new ResponseEntity<>(p,HttpStatus.OK);
+		return new ResponseEntity<>("Deleted product" + p.getName(),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/api/addToCart/{id}", method=RequestMethod.POST)
