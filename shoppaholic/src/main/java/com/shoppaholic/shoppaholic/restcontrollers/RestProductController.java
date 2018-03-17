@@ -95,6 +95,14 @@ public class RestProductController {
 		return new ResponseEntity<>(uLogged.getMyCart(),HttpStatus.OK);
 
 	}
+	@RequestMapping(value="/api/deleteFromCart/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<Pedido> deleteFromCart(@PathVariable long id) {
+		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
+		uLogged.getMyCart().deleteProduct((productService.findOne(id)));
+		customerService.save(uLogged);
+		return new ResponseEntity<>(uLogged.getMyCart(),HttpStatus.OK);
+
+	}
 	
 	@RequestMapping(value="/api/editProduct/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Product> EditCustomer(@PathVariable long id,@RequestParam(value = "productnameoriginal", defaultValue = "") String productnameoriginal,
