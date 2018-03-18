@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.shoppaholic.shoppaholic.classes.Customer;
 import com.shoppaholic.shoppaholic.classes.Pedido;
 import com.shoppaholic.shoppaholic.classes.Product;
@@ -64,6 +65,24 @@ public class RestLoginController {
 			session.invalidate();
 			log.info("Logged out");
 			return new ResponseEntity<>(true, HttpStatus.OK);
+		}
+	}
+	
+	@RequestMapping("/api/login")
+
+	public ResponseEntity<Customer> logIn(HttpServletRequest request) throws JsonProcessingException {
+		
+	
+
+		if (!customerComponent.isLoggedUser()) {
+			log.info("Not user logged");
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		} else {
+			long idLoggedUser = customerComponent.getIdLoggedUser();
+			Customer loggedUser=customerService.findOne(idLoggedUser);
+			//String uSerialized = new ObjectMapper().writeValueAsString(loggedUser);
+			log.info("Logged as " + loggedUser.getFirstName());
+			return new ResponseEntity<>(loggedUser, HttpStatus.OK);
 		}
 	}
 
