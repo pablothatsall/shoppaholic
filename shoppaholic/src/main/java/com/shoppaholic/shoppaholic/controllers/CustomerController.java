@@ -63,8 +63,7 @@ public class CustomerController {
 
 	@RequestMapping("/userprofile/{id}")
 	public String userStart(Model model ,@PathVariable long id, HttpServletRequest request) {
-		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
-		
+		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());		
 		Customer user = customerRepository.findOne(id);
 		if (uLogged.getId()==id) {
 			
@@ -85,25 +84,26 @@ public class CustomerController {
     		@RequestParam(value = "address", defaultValue = "") String address,
     		@RequestParam(value = "file", defaultValue = "") String file){
 		if(!firstname.equals("") && !lastname.equals("") && !email.equals("") && !password.equals("")) {
-		java.util.Date fecha = new Date(); 
-		List<Product> products = new ArrayList<Product>();
-		Pedido newcart = new Pedido("Pending",firstname, fecha.toGMTString(), products);
-		pedidoRepository.save(newcart);
-		List<Pedido> newmyorders = new ArrayList<>();
-		newmyorders.add(newcart);
-		Customer newcustomer= new Customer(firstname, lastname , email, password, address, Long.valueOf(telephone).longValue(),file,newmyorders , newcart, "ROLE_USER");
-		if(!file.equals("")) {
-			newcustomer.setImageUrl("../../../../imgProfile/"+file);
+			java.util.Date fecha = new Date(); 
+			List<Product> products = new ArrayList<Product>();
+			Pedido newcart = new Pedido("Pending",firstname, fecha.toGMTString(), products);
+			pedidoRepository.save(newcart);
+			List<Pedido> newmyorders = new ArrayList<>();
+			newmyorders.add(newcart);
+			Customer newcustomer= new Customer(firstname, lastname , email, password, address, Long.valueOf(telephone).longValue(),file,newmyorders , newcart, "ROLE_USER");
+			
+			if(!file.equals("")) {
+				newcustomer.setImageUrl("../../../../imgProfile/"+file);
+				customerRepository.save(newcustomer);
+			}
 			customerRepository.save(newcustomer);
-		}
-		customerRepository.save(newcustomer);
 		}
 		return "signUp";
 	}
 
 	@RequestMapping("/orderlist/{id}")
 	public String orderlistStart(Model model, @PathVariable long id ) {
-	boolean login=customerComponent.isLoggedUser();
+		boolean login=customerComponent.isLoggedUser();
     	
     	if(login){
     		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
@@ -123,7 +123,6 @@ public class CustomerController {
     	}
 		
 		
-
 		return "orderlist";
 	}
  
@@ -137,7 +136,7 @@ public class CustomerController {
 						@RequestParam(value = "usertelephone", defaultValue = "") String usertelephone,
 						@RequestParam(value = "file", defaultValue = "") String file) {
 			
-		boolean login=customerComponent.isLoggedUser();
+			boolean login=customerComponent.isLoggedUser();
 	    	
 	    	if(login){
 	    		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
@@ -206,7 +205,7 @@ public class CustomerController {
 		    				pedidoRepository.findById(id).calculaprecio();
 		    				pedidoRepository.save(carrito);
 		    			}
-		    	}
+		    		}
 
 				} 
 				 

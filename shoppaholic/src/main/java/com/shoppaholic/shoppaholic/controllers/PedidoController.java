@@ -40,65 +40,66 @@ public class PedidoController {
 	@Autowired 
 	private CommentRepository commentRepository;
 
-@RequestMapping("/order/{id}")
-public String orderStart(Model model, @PathVariable long id) {
-	Pedido myorder = pedidoRepository.findById(id);
+	@RequestMapping("/order/{id}")
+	public String orderStart(Model model, @PathVariable long id) {
+		Pedido myorder = pedidoRepository.findById(id);
 
-	boolean login=customerComponent.isLoggedUser();
-	if(login){
-		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
-		
+		boolean login=customerComponent.isLoggedUser();
+		if(login){
+			Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
 			model.addAttribute("user", uLogged);
-	if (myorder.getUser().equals(uLogged.getFirstName())){
+			if (myorder.getUser().equals(uLogged.getFirstName())){
 
-	Pedido pedido = pedidoRepository.findOne(id);
-	model.addAttribute("pedido", pedido);
-	List <Product> productos = pedido.getProductsofPedido();
-	model.addAttribute("productos", productos);
-	Integer cantidad= productos.size();
-	model.addAttribute("cantidad", cantidad);
+				Pedido pedido = pedidoRepository.findOne(id);
+				model.addAttribute("pedido", pedido);
+				List <Product> productos = pedido.getProductsofPedido();
+				model.addAttribute("productos", productos);
+				Integer cantidad= productos.size();
+				model.addAttribute("cantidad", cantidad);
+			}
+		}
+		else
+			return"error"; 
+		
+		
+				
+		return "order";
 	}
-	}
-	else
-		return"error"; 
-	
-	
+
+
+	@RequestMapping("/payment/{id}")
+	public String paymentStart(Model model, @PathVariable long id,
+			@RequestParam(value = "tarjeta", defaultValue = "") String tarjeta) {
+		
+		boolean login=customerComponent.isLoggedUser();
+		if(login){
+			Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
 			
-	return "order";
-}
-
-
-@RequestMapping("/payment/{id}")
-public String paymentStart(Model model, @PathVariable long id,
-		@RequestParam(value = "tarjeta", defaultValue = "") String tarjeta) {
-	
-	boolean login=customerComponent.isLoggedUser();
-	if(login){
-		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
-		
 			model.addAttribute("user", uLogged);
-	}
-	Customer c= customerRepository.findById(id);
-	Pedido p = c.getMyCart();
-	
-	model.addAttribute("pedido",p);
-	if(!p.getStatus().equals("Paid")) {
-	if(!tarjeta.equals("")) {
-		p.setStatus("Paid");
-		pedidoRepository.save(p);
-
-		java.util.Date fechacarrito= new Date();
-		List<Product> newcart=  new ArrayList<>();
-		Pedido pedidonuevo = new Pedido("Pending",c.getFirstName(),fechacarrito.toGMTString(),newcart);
-		c.setMyCart(pedidonuevo);
-		pedidoRepository.save(pedidonuevo);
+		}
+		Customer c= customerRepository.findById(id);
+		Pedido p = c.getMyCart();
 		
-		c.setMyCart(pedidonuevo);
-	customerRepository.save(c);}}
-	
-	
-	
-	return "payment";
-}
+		model.addAttribute("pedido",p);
+		if(!p.getStatus().equals("Paid")) {
+			if(!tarjeta.equals("")) {
+				p.setStatus("Paid");
+				pedidoRepository.save(p);
+
+				java.util.Date fechacarrito= new Date();
+				List<Product> newcart=  new ArrayList<>();
+				Pedido pedidonuevo = new Pedido("Pending",c.getFirstName(),fechacarrito.toGMTString(),newcart);
+				c.setMyCart(pedidonuevo);
+				pedidoRepository.save(pedidonuevo);
+				
+				c.setMyCart(pedidonuevo);
+				customerRepository.save(c);
+			}
+		}
+		
+		
+		
+		return "payment";
+	}
 
 }

@@ -59,9 +59,8 @@ public class ProductController {
 		boolean login=customerComponent.isLoggedUser();
     	if(login){
     		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
-    		
-    			model.addAttribute("user", uLogged);
-    			Pedido pedidotoadd = uLogged.getMyCart();
+    		model.addAttribute("user", uLogged);
+    		Pedido pedidotoadd = uLogged.getMyCart();
     			
     			if(!addproduct.equals("") && addcomment.equals("")) {
     				pedidotoadd.addProduct(p);
@@ -89,9 +88,6 @@ public class ProductController {
     			} 
 		
 		
-		
-		
-
 		
 		return "product";
 	}

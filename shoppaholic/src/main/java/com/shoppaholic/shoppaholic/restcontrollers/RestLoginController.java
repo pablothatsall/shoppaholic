@@ -41,18 +41,18 @@ public class RestLoginController {
 		@RequestMapping(value="/api/register" , method=RequestMethod.POST)
 	public ResponseEntity<Customer> signIn(@RequestBody Customer customer){
 		if(!customer.getFirstName().equals("") && !customer.getLastName().equals("") && !customer.getMail().equals("") && !customer.getPassword().equals("")) {
-		java.util.Date fecha = new Date(); 
-		List<Product> products = new ArrayList<Product>();
-		Pedido newcart = new Pedido("Pending",customer.getFirstName(), fecha.toGMTString(), products);
-		pedidoService.save(newcart);
-		List<Pedido> newmyorders = new ArrayList<>();
-		newmyorders.add(newcart);
-		Customer newcustomer= new Customer(customer.getFirstName(), customer.getLastName() , customer.getMail(), customer.getPassword(), customer.getAddress(), Long.valueOf(customer.getTelephone()).longValue(),customer.getImageUrl(),newmyorders , newcart, "ROLE_USER");
+			java.util.Date fecha = new Date(); 
+			List<Product> products = new ArrayList<Product>();
+			Pedido newcart = new Pedido("Pending",customer.getFirstName(), fecha.toGMTString(), products);
+			pedidoService.save(newcart);
+			List<Pedido> newmyorders = new ArrayList<>();
+			newmyorders.add(newcart);
+			Customer newcustomer= new Customer(customer.getFirstName(), customer.getLastName() , customer.getMail(), customer.getPassword(), customer.getAddress(), Long.valueOf(customer.getTelephone()).longValue(),customer.getImageUrl(),newmyorders , newcart, "ROLE_USER");
 
-		customerService.save(newcustomer);
-		return new ResponseEntity<>(newcustomer,HttpStatus.OK);
-		}
-		else return new ResponseEntity<>(HttpStatus.PARTIAL_CONTENT);
+			customerService.save(newcustomer);
+			return new ResponseEntity<>(newcustomer,HttpStatus.OK);
+			}
+			else return new ResponseEntity<>(HttpStatus.PARTIAL_CONTENT);
 	}
 	
 	@RequestMapping("/api/logOut")

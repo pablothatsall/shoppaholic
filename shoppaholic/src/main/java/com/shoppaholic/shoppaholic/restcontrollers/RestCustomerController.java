@@ -41,8 +41,8 @@ public class RestCustomerController {
 	public ResponseEntity<Customer> getCustomer(@PathVariable long id) {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
 		if (uLogged.getId()==id) {
-		Customer c=customerService.findOne(id);
-		return new ResponseEntity<>(c,HttpStatus.OK);
+			Customer c=customerService.findOne(id);
+			return new ResponseEntity<>(c,HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 	}
@@ -51,8 +51,8 @@ public class RestCustomerController {
 	public ResponseEntity<Pedido> getCustomerCart(@PathVariable long id) {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
 		if (uLogged.getId()==id) {
-		Customer c=customerService.findOne(id);
-		return new ResponseEntity<>(c.getMyCart(),HttpStatus.OK);
+			Customer c=customerService.findOne(id);
+			return new ResponseEntity<>(c.getMyCart(),HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 	}
@@ -61,8 +61,8 @@ public class RestCustomerController {
 	public ResponseEntity<List<Pedido>> getCustomerOrders(@PathVariable long id) {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
 		if (uLogged.getId()==id) {
-		Customer c=customerService.findOne(id);
-		return new ResponseEntity<>(c.getMyOrders(),HttpStatus.OK);
+			Customer c=customerService.findOne(id);
+			return new ResponseEntity<>(c.getMyOrders(),HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 	}
@@ -78,36 +78,36 @@ public class RestCustomerController {
 		
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
 		if (uLogged.isIdLogged()&& uLogged.getId()==id) {
-		if(!userfirstname.equals("")) {
-			uLogged.setFirstName(userfirstname);
-			customerService.save(uLogged); 
-		}
+			if(!userfirstname.equals("")) {
+				uLogged.setFirstName(userfirstname);
+				customerService.save(uLogged); 
+			}
 		
-		if(!userlastname.equals("")) {
-			uLogged.setLastName(userlastname);
-			customerService.save(uLogged); 
-		}
-		if(!usermail.equals("")) {
-			uLogged.setMail(usermail); 
-			customerService.save(uLogged); 
+			if(!userlastname.equals("")) {
+				uLogged.setLastName(userlastname);
+				customerService.save(uLogged); 
+			}
+			if(!usermail.equals("")) {
+				uLogged.setMail(usermail); 
+				customerService.save(uLogged); 
+				
+			}
+			if(!useraddress.equals("")) {
+				uLogged.setAddress(useraddress);
+				customerService.save(uLogged);  
+				
+			}
 			
-		}
-		if(!useraddress.equals("")) {
-			uLogged.setAddress(useraddress);
-			customerService.save(uLogged);  
-			
-		}
-		
-		if(!usertelephone.equals("")) {
-			uLogged.setTelephone(Long.valueOf(usertelephone).longValue());;
-			customerService.save(uLogged);  
-			
-		}
-		if(!file.equals("")) {
-			uLogged.setImageUrl("../../../../imgProfile/"+file);
-			customerService.save(uLogged);
-		}
-		return new ResponseEntity<>(uLogged,HttpStatus.OK);
+			if(!usertelephone.equals("")) {
+				uLogged.setTelephone(Long.valueOf(usertelephone).longValue());;
+				customerService.save(uLogged);  
+				
+			}
+			if(!file.equals("")) {
+				uLogged.setImageUrl("../../../../imgProfile/"+file);
+				customerService.save(uLogged);
+			}
+			return new ResponseEntity<>(uLogged,HttpStatus.OK);
 		}
 		else{
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
@@ -120,9 +120,6 @@ public class RestCustomerController {
 		
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
 		if(uLogged.getRoles().contains("ROLE_ADMIN")){
-	
-
-		
 		//Implementar
 			List<Comment> commentstodelete = commentService.findByCustomer(toDelete);
 			
@@ -131,8 +128,8 @@ public class RestCustomerController {
 			customerService.delete(toDelete);
 
 			
-		return new ResponseEntity<>("User " + toDelete.getFirstName() +" deleted",HttpStatus.OK);
-	}
+			return new ResponseEntity<>("User " + toDelete.getFirstName() +" deleted",HttpStatus.OK);
+		}
 		else{
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}

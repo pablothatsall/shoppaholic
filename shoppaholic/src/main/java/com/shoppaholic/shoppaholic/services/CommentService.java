@@ -37,7 +37,7 @@ public class CommentService {
 	}
 	
 	public void delete(List<Comment> comments) {
-	commentRepository.delete(comments);
+		commentRepository.delete(comments);
 	}
 	
 	public List<Comment> findAll() {

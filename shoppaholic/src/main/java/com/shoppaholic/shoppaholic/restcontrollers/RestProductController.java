@@ -75,13 +75,13 @@ public class RestProductController {
 		List<Comment> comments = commentService.findByProduct(p);
 		for (int i=0; i<x.size(); i++){
 		
-		if (x.get(i).getProductsofPedido().contains(p)) {
-			x.get(0).getProductsofPedido().remove(p);
-		pedidoService.save(x.get(i));
-		
-		comments.clear();
-		
-		} 
+			if (x.get(i).getProductsofPedido().contains(p)) {
+				x.get(0).getProductsofPedido().remove(p);
+				pedidoService.save(x.get(i));
+			
+				comments.clear();
+			
+			} 
 		}
 		productService.delete(p.getId());
 	
@@ -115,31 +115,31 @@ public class RestProductController {
 		if (uLogged.isIdLogged()&& uLogged.getRoles().contains("ADMIN")){
 		Product p=productService.findOne(id);
 		
-		if (!productname.equals("")){
+			if (!productname.equals("")){
+				
+				 productService.findByName(productnameoriginal).setName(productname);
+				 productService.save(productService.findByName(productnameoriginal));
 			
-			 productService.findByName(productnameoriginal).setName(productname);
-			 productService.save(productService.findByName(productnameoriginal));
-		
-		}
-		
-		if (!productlabel.equals("")){
+			}
 			
-			 productService.findByName(productnameoriginal).setLabel(productlabel);
-			 productService.save(productService.findByName(productnameoriginal));
-		} 
-		
-		if (!productdescription.equals("")){
+			if (!productlabel.equals("")){
+				
+				 productService.findByName(productnameoriginal).setLabel(productlabel);
+				 productService.save(productService.findByName(productnameoriginal));
+			} 
 			
-			 productService.findByName(productnameoriginal).setLabel(productdescription);
-			 productService.save(productService.findByName(productnameoriginal));
-		} 
-		if (productprice != -3){
+			if (!productdescription.equals("")){
+				
+				 productService.findByName(productnameoriginal).setLabel(productdescription);
+				 productService.save(productService.findByName(productnameoriginal));
+			} 
+			if (productprice != -3){
+				
+				 productService.findByName(productnameoriginal).setPrice(productprice);
+				 productService.save(productService.findByName(productnameoriginal));
+			} 
 			
-			 productService.findByName(productnameoriginal).setPrice(productprice);
-			 productService.save(productService.findByName(productnameoriginal));
-		} 
-		
-		return new ResponseEntity<>(p,HttpStatus.OK);
+			return new ResponseEntity<>(p,HttpStatus.OK);
 		}
 		else{
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

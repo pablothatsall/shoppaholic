@@ -40,7 +40,7 @@ public class SearchController {
 	public String searchNext(Model model, @PathVariable String searchterm, @PathVariable int pages) {
 	boolean login=customerComponent.isLoggedUser();
 		
-	Pageable page = new PageRequest (0, 8 + 8*pages);
+		Pageable page = new PageRequest (0, 8 + 8*pages);
 	
     	if(login){
     		Customer uLogged=customerRepository.findOne(customerComponent.getIdLoggedUser());
