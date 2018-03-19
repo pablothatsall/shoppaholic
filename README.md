@@ -177,4 +177,4 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 
 
 ### API REST Documentation
-[API.md](https://github.com/sarry150/shoppaholic/API.md "API.md")
+[API.md](https://github.com/pablothatsall/shoppaholic/blob/master/API.md "API.md")
