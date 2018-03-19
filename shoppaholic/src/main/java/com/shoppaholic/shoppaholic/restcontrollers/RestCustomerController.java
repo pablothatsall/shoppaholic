@@ -108,7 +108,7 @@ public class RestCustomerController {
 		
 	}
 	
-	@RequestMapping(value="/api/deleteCustomer/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/api/admin/deleteCustomer/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<String> DeleteCustomer(@PathVariable long id){
 		Customer toDelete = customerService.findOne(id);
 		
