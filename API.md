@@ -124,7 +124,7 @@ Edita los datos del usuario.
 
 * URL:
 
-	/api/deleteCustomer
+	/api/admin/deleteCustomer
 
 * Función
 
@@ -351,7 +351,7 @@ Devuelve los comentarios del objeto introducido.
 
 * URL:
 
-	/api/addProduct
+	/api/admin/addProduct
 
 * Función
 

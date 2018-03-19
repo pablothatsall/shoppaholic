@@ -75,6 +75,18 @@ public class Pedido {
 
 
 
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
+
+
 	public List<Product> getList() {
 		return productsofPedido;
 	}

@@ -49,15 +49,15 @@ public class RestProductController {
 	}
 	
 	@RequestMapping(value = "/api/products", method = RequestMethod.GET)
-	public Collection<Product> getProducts() {
-		return productService.findAll();
+	public ResponseEntity<Collection<Product>> getProducts() {
+		return new ResponseEntity<>(productService.findAll(),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/api/productGetComments/{id}", method=RequestMethod.GET)
-	public Collection<Comment> getProductComments(@PathVariable long id) {
+	public ResponseEntity<Collection<Comment>> getProductComments(@PathVariable long id) {
 		Product p=productService.findOne(id);
 		List<Comment> x = commentService.findByProduct(p);
-		return x;
+		return new ResponseEntity<>(x,HttpStatus.OK);
 	}
 
 

@@ -40,37 +40,37 @@ import com.shoppaholic.shoppaholic.services.ProductService;
 		@Autowired
 		private PedidoRepository pedidoRepository;
 		
-		@RequestMapping(value="/api/order/{idC}/{idP}", method=RequestMethod.GET)
-		public ResponseEntity<Pedido> getCustomer(@PathVariable long idC, @PathVariable long idP) {
+		@RequestMapping(value="/api/order/{id}", method=RequestMethod.GET)
+		public ResponseEntity<Pedido> getOrder( @PathVariable long id) {
 			Customer uLogged = customerService.findOne(customerComponent.getIdLoggedUser());
-			if (uLogged.getId() == idC) {
-				//List<Pedido> pedidos= uLogged.getMyOrders();
-				List<Pedido> ps = pedidoService.findByUser(uLogged.getFirstName());
-				Pedido p = null;
-				for (Pedido ped: ps) {
-					if (ped.getId() == idP) {
-						 p = ped;
+			 if (pedidoService.findByUser(uLogged.getFirstName()).contains(pedidoService.findById(id))) {
+			
+				Pedido p = pedidoService.findById(id);
+				
+					
 						 return new ResponseEntity<>(p,HttpStatus.OK);
-					}
-				}
+					
+				
 			}
 			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 		}
 		
-		@RequestMapping(value="/api/createorder", method=RequestMethod.POST)
-		public ResponseEntity<Pedido> addPedido() throws Exception {
+		@RequestMapping(value="/api/paycart", method=RequestMethod.POST)
+		public ResponseEntity <List<Pedido>> addPedido() throws Exception {
 			Customer uLogged = customerService.findOne(customerComponent.getIdLoggedUser());
 			java.util.Date fechacarrito= new Date();
 			List<Product> newcart=  new ArrayList<>();
 			uLogged.getMyCart().setStatus("Paid");
 			Pedido newOrder = new Pedido("Pending",uLogged.getFirstName(),fechacarrito.toGMTString(),newcart);
-			uLogged.setMyCart(newOrder);
 			pedidoRepository.save(newOrder);
 			//Empties the cart after an order is performed
 			/*for (Product pr: uLogged.getMyCart().getProductsofPedido()) {
 				uLogged.getMyCart().deleteProduct(pr);
 			}*/
-			pedidoService.save(newOrder);
-			return new ResponseEntity<>(newOrder,HttpStatus.CREATED);
+	
+			uLogged.setMyCart(newOrder);
+			uLogged.getMyOrders().add(uLogged.getMyCart());
+			customerService.save(uLogged);
+			return new ResponseEntity<>(uLogged.getMyOrders(),HttpStatus.CREATED);
 		}
 }

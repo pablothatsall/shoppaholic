@@ -40,6 +40,11 @@ public class ProductService {
 		return productRepository.findProductByName(name);
 	}
 	
+	
+	public List<Product> findByNameContaining(String name) {
+		return productRepository.findByNameContaining(name);
+	}
+	
 	public Page<Product>findByPrice(double price , Pageable page){
 		return productRepository.findByPrice(price,page);
 	}
