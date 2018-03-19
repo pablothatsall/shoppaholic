@@ -612,3 +612,4 @@ Elimina al usuario identificado.
 
 
 
+## POSTMAN COLLECTION EXAMPLE https://www.getpostman.com/collections/9f9d032b47e54574a23e
