@@ -552,8 +552,8 @@ Define un pedido.
 
 	* Required:
 
-		`idC=[long]`
-		`idP=[long]`
+		`id=[long]`
+		
 
 
 
