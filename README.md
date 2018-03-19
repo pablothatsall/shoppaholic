@@ -179,3 +179,11 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 
 https://github.com/pablothatsall/shoppaholic/blob/master/API.md
 
+
+-------------------------------------------------------------------------------
+
+### Diagrama API
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/DiagramaAPI.png)
+
+
