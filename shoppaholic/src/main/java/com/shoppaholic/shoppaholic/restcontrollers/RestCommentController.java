@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.shoppaholic.shoppaholic.*;
 import com.shoppaholic.shoppaholic.classes.Comment;
+import com.shoppaholic.shoppaholic.classes.Customer;
 import com.shoppaholic.shoppaholic.classes.Pedido;
 import com.shoppaholic.shoppaholic.classes.Product;
+import com.shoppaholic.shoppaholic.security.CustomerComponent;
 import com.shoppaholic.shoppaholic.services.*;
 
 @RestController
@@ -32,6 +34,8 @@ public class RestCommentController {
 	private PedidoService pedidoService;
 	@Autowired
 	private CommentService commentService;
+	@Autowired
+	private CustomerComponent customerComponent;
 
 	
 	@RequestMapping(value="/api/comments", method=RequestMethod.GET)
@@ -42,9 +46,10 @@ public class RestCommentController {
 	@RequestMapping(value="/api/addComment/{id}", method=RequestMethod.POST)
 	public ResponseEntity<Collection<Comment>>   addComment(@PathVariable long id, @RequestBody Comment c) {
 		if(!c.equals("") ) {
-			java.util.Date fecha = new Date(); 
-			
-			commentService.save(c);	
+			java.util.Date fecha = new Date();
+			Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
+			Comment newcomment = new Comment(uLogged,c.getComment(),c.getDate(),productService.findOne(id));
+			commentService.save(newcomment);	
 			
 		} 
 		
