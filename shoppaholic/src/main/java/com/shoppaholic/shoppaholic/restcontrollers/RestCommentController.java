@@ -1,5 +1,6 @@
 package com.shoppaholic.shoppaholic.restcontrollers;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,19 @@ public class RestCommentController {
 
 	
 	@RequestMapping(value="/api/comments", method=RequestMethod.GET)
-	public  Collection<Comment> getComments() {
-		return commentService.findAll();
+	public  ResponseEntity<Collection<Comment>> getComments() {
+		return new ResponseEntity<>(commentService.findAll(),HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value="/api/addComment/{id}", method=RequestMethod.POST)
+	public ResponseEntity<Collection<Comment>>   addComment(@PathVariable long id, @RequestBody Comment c) {
+		if(!c.equals("") ) {
+			java.util.Date fecha = new Date(); 
+			
+			commentService.save(c);	
+			
+		} 
+		
+		 return new ResponseEntity<>(commentService.findAll(),HttpStatus.CREATED);
 	}
 }
