@@ -530,7 +530,7 @@ Configura la los metodos las funciones.
 
 * URL:
 
-	/api/order
+	/api/order/{id}
 
 * Función
 
@@ -563,7 +563,7 @@ Define un pedido.
 
 * URL:
 
-	/api/createorder
+	/api/paycart
 
 * Función
 
@@ -585,7 +585,7 @@ Crea un nuevo pedido.
 
 * URL:
 
-	/api/deleteCustomer
+	/api/admin/deleteCustomer
 
 * Función
 
@@ -612,31 +612,3 @@ Elimina al usuario identificado.
 
 
 
-		## Eliminar Usuario
-
-* URL:
-
-	/api/deleteCustomer
-
-* Función
-
-Elimina al usuario identificado.
-
-* Success Response:
-
-	* HttpStatus.OK
-
-* Error Response:
-
-	* HttpStatus.UNAUTHORIZED
-
-
-* Método:
-
-	`DELETE`
-
-* URL Params
-
-	* Required:
-
-		`id=[long]`
