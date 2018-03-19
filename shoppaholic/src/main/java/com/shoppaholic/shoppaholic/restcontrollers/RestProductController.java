@@ -1,5 +1,6 @@
 package com.shoppaholic.shoppaholic.restcontrollers;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,11 +61,13 @@ public class RestProductController {
 	}
 
 
-	@RequestMapping(value="/api/addProduct", method=RequestMethod.POST)
+	@RequestMapping(value="/api/admin/addProduct", method=RequestMethod.POST)
 	public ResponseEntity<Product> AddProduct(
 			@RequestBody Product p) throws Exception{
-		productService.save(p);
-		return new ResponseEntity<>(p,HttpStatus.CREATED);
+		java.util.Date actualdate = new Date();
+		Product pnew = new Product(p.getName(),p.getPrice(), p.getDescription(), p.getLabel(), actualdate.toGMTString(), p.getImageUrl(), p.getScore(), p.getComments());
+		productService.save(pnew);
+		return new ResponseEntity<>(pnew,HttpStatus.CREATED);
 	}
 	
 	//Doesnt work
@@ -105,45 +108,38 @@ public class RestProductController {
 
 	}
 	
-	@RequestMapping(value="/api/editProduct/{id}", method=RequestMethod.PUT)
-	public ResponseEntity<Product> EditCustomer(@PathVariable long id,@RequestParam(value = "productnameoriginal", defaultValue = "") String productnameoriginal,
-			@RequestParam(value = "productname", defaultValue = "") String productname,
-			@RequestParam(value = "productlabel", defaultValue = "") String productlabel,
-			@RequestParam(value = "productdescription", defaultValue = "") String productdescription,
-			@RequestParam(value = "productprice", defaultValue = "-3") long productprice) {
+	@RequestMapping(value="/api/admin/editProduct/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Product> EditCustomer(@PathVariable long id,@RequestBody Product p) {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
-		if (uLogged.isIdLogged()&& uLogged.getRoles().contains("ADMIN")){
-		Product p=productService.findOne(id);
 		
-			if (!productname.equals("")){
+		
+			Product poriginal = productService.findOne(id);
+			if (!p.getName().equals("")){
 				
-				 productService.findByName(productnameoriginal).setName(productname);
-				 productService.save(productService.findByName(productnameoriginal));
+				 productService.findByName(poriginal.getName()).setName(p.getName());
+				 productService.save(poriginal);
 			
 			}
 			
-			if (!productlabel.equals("")){
+			if (!p.getLabel().equals("")){
 				
-				 productService.findByName(productnameoriginal).setLabel(productlabel);
-				 productService.save(productService.findByName(productnameoriginal));
+				 productService.findByName(poriginal.getName()).setLabel(p.getLabel());
+				 productService.save(poriginal);
 			} 
 			
-			if (!productdescription.equals("")){
+			if (!p.getLabel().equals("")){
 				
-				 productService.findByName(productnameoriginal).setLabel(productdescription);
-				 productService.save(productService.findByName(productnameoriginal));
+				 productService.findByName(poriginal.getName()).setLabel(p.getLabel());
+				 productService.save(poriginal);
 			} 
-			if (productprice != -3){
+			if (p.getPrice() != -3){
 				
-				 productService.findByName(productnameoriginal).setPrice(productprice);
-				 productService.save(productService.findByName(productnameoriginal));
+				 productService.findByName(poriginal.getName()).setPrice(p.getPrice());
+				 productService.save(poriginal);
 			} 
 			
 			return new ResponseEntity<>(p,HttpStatus.OK);
-		}
-		else{
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}
+
 	}
 	
 }

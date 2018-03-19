@@ -46,9 +46,9 @@ public class RestCommentController {
 	@RequestMapping(value="/api/addComment/{id}", method=RequestMethod.POST)
 	public ResponseEntity<Collection<Comment>>   addComment(@PathVariable long id, @RequestBody Comment c) {
 		if(!c.equals("") ) {
-			java.util.Date fecha = new Date();
+			java.util.Date actualdate = new Date();
 			Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
-			Comment newcomment = new Comment(uLogged,c.getComment(),c.getDate(),productService.findOne(id));
+			Comment newcomment = new Comment(uLogged,c.getComment(),actualdate.toGMTString(),productService.findOne(id));
 			commentService.save(newcomment);	
 			
 		} 
