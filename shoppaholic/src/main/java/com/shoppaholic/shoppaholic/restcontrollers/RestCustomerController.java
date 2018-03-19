@@ -67,51 +67,45 @@ public class RestCustomerController {
 		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 	}
 	
-	@RequestMapping(value="/api/editCustomer/id}", method=RequestMethod.PUT)
-	public ResponseEntity<Customer> EditCustomer(@PathVariable long id,
-			@RequestParam(value = "userfirstname", defaultValue = "") String userfirstname,
-			@RequestParam(value = "userlastname", defaultValue = "") String userlastname,
-			@RequestParam(value = "usermail", defaultValue = "") String usermail,
-			@RequestParam(value = "useraddress", defaultValue = "") String useraddress,
-			@RequestParam(value = "usertelephone", defaultValue = "") String usertelephone,
-			@RequestParam(value = "file", defaultValue = "") String file) {
+	@RequestMapping(value="/api/editCustomer", method=RequestMethod.PUT)
+	public ResponseEntity<Customer> EditCustomer(
+			@RequestBody Customer updatedCustomer) {
 		
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
-		if (uLogged.isIdLogged()&& uLogged.getId()==id) {
-			if(!userfirstname.equals("")) {
-				uLogged.setFirstName(userfirstname);
+		
+			if(!updatedCustomer.getFirstName().equals("")) {
+				uLogged.setFirstName(updatedCustomer.getFirstName());
 				customerService.save(uLogged); 
 			}
 		
-			if(!userlastname.equals("")) {
-				uLogged.setLastName(userlastname);
+			if(!updatedCustomer.getLastName().equals("")) {
+				uLogged.setLastName(updatedCustomer.getLastName());
 				customerService.save(uLogged); 
 			}
-			if(!usermail.equals("")) {
-				uLogged.setMail(usermail); 
+			if(!updatedCustomer.getMail().equals("")) {
+				uLogged.setMail(updatedCustomer.getMail()); 
 				customerService.save(uLogged); 
 				
 			}
-			if(!useraddress.equals("")) {
-				uLogged.setAddress(useraddress);
+			if(!updatedCustomer.getAddress().equals("")) {
+				uLogged.setAddress(updatedCustomer.getAddress());
 				customerService.save(uLogged);  
 				
 			}
 			
-			if(!usertelephone.equals("")) {
-				uLogged.setTelephone(Long.valueOf(usertelephone).longValue());;
+			if (updatedCustomer.getTelephone()!=0) {
+				uLogged.setTelephone(Long.valueOf(updatedCustomer.getTelephone()).longValue());;
 				customerService.save(uLogged);  
 				
 			}
-			if(!file.equals("")) {
-				uLogged.setImageUrl("../../../../imgProfile/"+file);
+			if(updatedCustomer.getImageUrl().equals("")) {
+				uLogged.setImageUrl("../../../../imgProfile/"+updatedCustomer.getImageUrl());
 				customerService.save(uLogged);
 			}
 			return new ResponseEntity<>(uLogged,HttpStatus.OK);
-		}
-		else{
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}
+	
+		
+		
 	}
 	
 	@RequestMapping(value="/api/deleteCustomer/{id}", method=RequestMethod.DELETE)
