@@ -177,5 +177,5 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 
 ### API
 
-![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/API.md)
+https://github.com/pablothatsall/shoppaholic/blob/master/API.md
 
