@@ -77,13 +77,15 @@ public class ProductController {
     				
     			} 
   
-    			return "product";
+    		
     	}
 			else
 				if(!addcomment.equals("")) {
     				java.util.Date fecha = new Date(); 
     				Customer anonimo = new Customer("Anonimo");
-    				commentRepository.save(new Comment(anonimo,addcomment,fecha.toGMTString(),p));	
+    				commentRepository.save(new Comment(anonimo,addcomment,fecha.toGMTString(),p));
+    				productRepository.save(p);
+    			
     				
     			} 
 		
