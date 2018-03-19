@@ -172,5 +172,10 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 ![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/diagramaClases.png)
 
 
+-------------------------------------------------------------------------------
 
+
+### API
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/API.md)
 
