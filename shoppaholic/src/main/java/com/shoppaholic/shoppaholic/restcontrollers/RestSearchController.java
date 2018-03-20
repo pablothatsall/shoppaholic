@@ -39,14 +39,14 @@ public class RestSearchController {
 		@Autowired
 	private CustomerComponent customerComponent;
 		
-	@RequestMapping(value="/api/searchByLabel/{labelname}")
+	@RequestMapping(value="/api/searchlabel/{labelname}")
 	public ResponseEntity<Page<Product>> SearchByLabel (@PathVariable String labelname, @PageableDefault(size = 8) Pageable page){
 		return new ResponseEntity<>(productService.findByLabel(labelname, page),HttpStatus.OK);
 		
 		
 	}
 	
-	@RequestMapping(value="/api/searchByName/{name}")
+	@RequestMapping(value="/api/searchname/{name}")
 	public ResponseEntity<List<Product>> SearchByName (@PathVariable String name, @PageableDefault(size = 8) Pageable page){
 		return new ResponseEntity<>(productService.findByNameContaining("%" + name + "%"),HttpStatus.OK);
 		
