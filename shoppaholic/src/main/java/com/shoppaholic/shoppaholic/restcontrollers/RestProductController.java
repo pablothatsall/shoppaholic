@@ -53,7 +53,7 @@ public class RestProductController {
 		return new ResponseEntity<>(productService.findAll(),HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/api/productGetComments/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/api/productComments/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Collection<Comment>> getProductComments(@PathVariable long id) {
 		Product p=productService.findOne(id);
 		List<Comment> x = commentService.findByProduct(p);
@@ -61,7 +61,7 @@ public class RestProductController {
 	}
 
 
-	@RequestMapping(value="/api/admin/addProduct", method=RequestMethod.POST)
+	@RequestMapping(value="/api/admin/newproduct", method=RequestMethod.POST)
 	public ResponseEntity<Product> AddProduct(
 			@RequestBody Product p) throws Exception{
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());

@@ -43,7 +43,7 @@ public class RestCommentController {
 		return new ResponseEntity<>(commentService.findAll(),HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(value="/api/addComment/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/api/newcomment/{id}", method=RequestMethod.POST)
 	public ResponseEntity<Comment> addComment(@PathVariable long id, @RequestBody Comment c) {
 		if(!c.equals("") ) {
 			Product p = productService.findOne(id);
