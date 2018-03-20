@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.shoppaholic.shoppaholic.classes.Customer;
 import com.shoppaholic.shoppaholic.classes.Pedido;
@@ -67,7 +68,7 @@ public class RestLoginController {
 			return new ResponseEntity<>(true, HttpStatus.OK);
 		}
 	}
-	
+	@JsonView(Customer.Basic.class)
 	@RequestMapping("/api/login")
 
 	public ResponseEntity<Customer> logIn(HttpServletRequest request) throws JsonProcessingException {

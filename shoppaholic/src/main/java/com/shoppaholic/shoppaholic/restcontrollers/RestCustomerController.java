@@ -36,7 +36,8 @@ public class RestCustomerController {
 	private CommentService commentService;
 		@Autowired
 	private CustomerComponent customerComponent;
-	
+		
+	@JsonView(Customer.Basic.class)
 	@RequestMapping(value="/api/customer/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Customer> getCustomer(@PathVariable long id) {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
