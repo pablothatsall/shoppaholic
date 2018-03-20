@@ -64,15 +64,22 @@ public class RestProductController {
 	@RequestMapping(value="/api/admin/addProduct", method=RequestMethod.POST)
 	public ResponseEntity<Product> AddProduct(
 			@RequestBody Product p) throws Exception{
+		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
+		if (uLogged.getRoles().contains("ROLE_ADMIN")){
 		java.util.Date actualdate = new Date();
 		Product pnew = new Product(p.getName(),p.getPrice(), p.getDescription(), p.getLabel(), actualdate.toGMTString(), p.getImageUrl(), p.getScore(), p.getComments());
 		productService.save(pnew);
-		return new ResponseEntity<>(pnew,HttpStatus.CREATED);
+		return new ResponseEntity<>(pnew,HttpStatus.CREATED);}
+		else {
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+		}
 	}
 	
-	//Doesnt work
+	
 	@RequestMapping(value="/api/deleteProduct/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<String> deleteProduct(@PathVariable long id) {
+		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
+		if (uLogged.getRoles().contains("ROLE_ADMIN")){
 		Product p=productService.findOne(id);
 		List<Pedido> x = pedidoService.findAll();
 		List<Comment> comments = commentService.findByProduct(p);
@@ -88,7 +95,10 @@ public class RestProductController {
 		}
 		productService.delete(p.getId());
 	
-		return new ResponseEntity<>("Deleted product" + p.getName(),HttpStatus.OK);
+		return new ResponseEntity<>("Deleted product" + p.getName(),HttpStatus.OK);}
+		else {
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(value="/api/addToCart/{id}", method=RequestMethod.POST)
@@ -111,7 +121,7 @@ public class RestProductController {
 	@RequestMapping(value="/api/admin/editProduct/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Product> EditCustomer(@PathVariable long id,@RequestBody Product p) {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
-		
+		if (uLogged.getRoles().contains("ROLE_ADMIN")){
 		
 			Product poriginal = productService.findOne(id);
 			if (!p.getName().equals("")){
@@ -138,7 +148,10 @@ public class RestProductController {
 				 productService.save(poriginal);
 			} 
 			
-			return new ResponseEntity<>(p,HttpStatus.OK);
+			return new ResponseEntity<>(p,HttpStatus.OK);}
+		else {
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+		}
 
 	}
 	
