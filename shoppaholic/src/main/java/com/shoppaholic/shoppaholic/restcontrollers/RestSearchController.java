@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -39,15 +40,29 @@ public class RestSearchController {
 		@Autowired
 	private CustomerComponent customerComponent;
 		
-	@RequestMapping(value="/api/searchlabel/{labelname}")
-	public ResponseEntity<Page<Product>> SearchByLabel (@PathVariable String labelname, @PageableDefault(size = 8) Pageable page){
+	@RequestMapping(value="/api/searchlabel/{labelname}/{npage}")
+	public ResponseEntity<Page<Product>> SearchByLabel (@PathVariable String labelname, @PageableDefault(size = 8) Pageable page,  @PathVariable int npage){
+		if (npage > 1) {
+			int aux = npage;
+			while (aux!=1) {
+			page = page.next();
+			aux= aux-1;
+			}
+		}
 		return new ResponseEntity<>(productService.findByLabel(labelname, page),HttpStatus.OK);
 		
 		
 	}
 	
-	@RequestMapping(value="/api/searchname/{name}")
-	public ResponseEntity<List<Product>> SearchByName (@PathVariable String name, @PageableDefault(size = 8) Pageable page){
+	@RequestMapping(value="/api/searchname/{name}/{npage}")
+	public ResponseEntity<List<Product>> SearchByName (@PathVariable String name, @PageableDefault(size = 8) Pageable page, @PathVariable int npage){
+		if (npage > 1) {
+			int aux = npage;
+			while (aux!=1) {
+			page = page.next();
+			aux= aux-1;
+			}
+		}
 		return new ResponseEntity<>(productService.findByNameContaining("%" + name + "%"),HttpStatus.OK);
 		
 		
