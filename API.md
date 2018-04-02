@@ -37,24 +37,24 @@ Compueba de identidad del usuario.
 
 * JSON
 
-	`{
-        "id": 1,
-        "customer": {
-            "id": 1,
-            "firstName": "Ruben",
-            "lastName": "Iglesias",
-            "mail": "chubi",
-            "address": "c/Aprobado",
-            "telephone": 1313,
-            "imageUrl": "../../../../imgProfile/chubi.jpg",
-            "roles": [
-                "ROLE_USER",
-                "ROLE_ADMIN"
-            ],
-            "idLogged": false,
-            "idCustomer": 1
-        },
-    },`
+	`{  
+        "id": 1,  
+        "customer": {  
+            "id": 1,  
+            "firstName": "Ruben",  
+            "lastName": "Iglesias",  
+            "mail": "chubi",  
+            "address": "c/Aprobado",  
+            "telephone": 1313,  
+            "imageUrl": "../../../../imgProfile/chubi.jpg",  
+            "roles": [  
+                "ROLE_USER",  
+                "ROLE_ADMIN"  
+            ],  
+            "idLogged": false,  
+            "idCustomer": 1  
+        },  
+    },`  
 
 
 
