@@ -92,37 +92,47 @@ Devuelve el carrito al usuario.
 	* Entry
 		{
 		  "id": 2,
-		  "name": "Spinning",
-		  "image1": "image-Spinning-1.jpg",
-		  "image2": "image-Spinning-2.jpg",
-		  "image3": "image-Spinning-3.jpg",
-		  "description": "La mejor clase de Spinning",
-		  "development": "Clases de 45 minutos.",
-		  "benefit": "Consigue un cuerpo 10 de forma divertida.",
+		  "totalPrice": 30,
+	      "status": "Pending",
+	      "user": "Ruben",
 		  }
 
-	*"myCart": {
-                "id": 1,
-                "totalPrice": 30,
-                "status": "Pending",
-                "user": "Ruben",
-                "date": "1 Apr 2018 15:50:19 GMT",
-                "productsofPedido": [
-                    {
-                        "id": 2,
-                        "name": "FARCRY Primal",
-                        "price": 30,
-                        "description": "Survive ",
-                        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-                        "label": "Videogames",
-                        "pDate": "1 Apr 2018 15:50:19 GMT",
-                        "score": 22,
-                        "comments": [],
-                        "idLogged": false,
-                        "pdate": "1 Apr 2018 15:50:19 GMT"
-                    }
-                ],            }
-
+	*   "id": 1,
+	    "totalPrice": 30,
+	    "status": "Pending",
+	    "user": "Ruben",
+	    "date": "2 Apr 2018 13:19:28 GMT",
+	    "productsofPedido": [
+        {
+            "id": 2,
+            "name": "FARCRY Primal",
+            "price": 30,
+            "description": "Survive ",
+            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+            "label": "Videogames",
+            "pDate": "2 Apr 2018 13:19:28 GMT",
+            "score": 22,
+            "comments": [],
+            "idLogged": false,
+            "pdate": "2 Apr 2018 13:19:28 GMT"
+        }
+    ],
+    "list": [
+        {
+            "id": 2,
+            "name": "FARCRY Primal",
+            "price": 30,
+            "description": "Survive ",
+            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+            "label": "Videogames",
+            "pDate": "2 Apr 2018 13:19:28 GMT",
+            "score": 22,
+            "comments": [],
+            "idLogged": false,
+            "pdate": "2 Apr 2018 13:19:28 GMT"
+        }
+    ]
+}
 
 
 ## Compras Usuario
@@ -156,46 +166,43 @@ Devuelve las compras realizadas por el usuario identificado.
 
 * JSON
 
-	*"list": {
-                "id": 4,
-                "totalPrice": 187.24,
-                "user": "Dani",
-                "date": "1 Apr 2018 15:50:19 GMT",
-                "products": [
-                    {
-                        "comment": "Very confortable",
-				        "date": "2 Apr 2018 11:58:24 GMT",
-				        "product": {
-			            "id": 19,
-			            "name": "adidas Performance Men's",
-			            "price": 157.24,
-			            "description": "Responsive touch and optimum ball control out of the box with soft AGILITY MESH",
-			            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/518XBaSv+lL._AC_US0_.jpg",
-			            "label": "Sports",
-			            "pDate": "2 Apr 2018 11:58:23 GMT",
-			            "score": 22,
-			            "comments": [],
-			            "idLogged": false,
-			            "pdate": "2 Apr 2018 11:58:23 GMT"
-        }
-                    }
-                ],
-                "list": [
-                    {
-                        "id": 2,
-                        "name": "FARCRY Primal",
-                        "price": 30,
-                        "description": "Survive ",
-                        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-                        "label": "Videogames",
-                        "pDate": "1 Apr 2018 15:50:19 GMT",
-                        "score": 22,
-                        "comments": [],
-                        "idLogged": false,
-                        "pdate": "1 Apr 2018 15:50:19 GMT"
-                    }
-                ]
+	*[
+    {
+        "id": 1,
+        "totalPrice": 30,
+        "status": "Pending",
+        "user": "Ruben",
+        "date": "2 Apr 2018 13:19:28 GMT",
+        "productsofPedido": [
+            {
+                "id": 2,
+                "name": "FARCRY Primal",
+                "price": 30,
+                "description": "Survive ",
+                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+                "label": "Videogames",
+                "pDate": "2 Apr 2018 13:19:28 GMT",
+                "score": 22,
+                "comments": [],
+                "idLogged": false,
+                "pdate": "2 Apr 2018 13:19:28 GMT"
             }
+        ],
+        "list": [
+            {
+                "id": 2,
+                "name": "FARCRY Primal",
+                "price": 30,
+                "description": "Survive ",
+                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+                "label": "Videogames",
+                "pDate": "2 Apr 2018 13:19:28 GMT",
+                "score": 22,
+                "comments": [],
+                "idLogged": false,
+                "pdate": "2 Apr 2018 13:19:28 GMT"
+            }
+        ]
 
 
 
@@ -217,6 +224,101 @@ Edita los datos del usuario.
 * Método:
 
 	`PUT`
+
+*JSON
+	
+	*{
+    "id": 1,
+    "firstName": "Antonio",
+    "lastName": "Iglesias",
+    "mail": "chubi",
+    "password": "$2a$10$oUBi2zi/2YJjcOTK1w5Qbu.MLL38bwRgY4cJJwiGULGm/A7H2Z/yW",
+    "address": "c/Aprobado",
+    "telephone": 1313,
+    "imageUrl": "../../../../imgProfile/chubi.jpg",
+    "myOrders": [
+        {
+            "id": 1,
+            "totalPrice": 30,
+            "status": "Pending",
+            "user": "Ruben",
+            "date": "2 Apr 2018 13:19:28 GMT",
+            "productsofPedido": [
+                {
+                    "id": 2,
+                    "name": "FARCRY Primal",
+                    "price": 30,
+                    "description": "Survive ",
+                    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+                    "label": "Videogames",
+                    "pDate": "2 Apr 2018 13:19:28 GMT",
+                    "score": 22,
+                    "comments": [],
+                    "idLogged": false,
+                    "pdate": "2 Apr 2018 13:19:28 GMT"
+                }
+            ],
+            "list": [
+                {
+                    "id": 2,
+                    "name": "FARCRY Primal",
+                    "price": 30,
+                    "description": "Survive ",
+                    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+                    "label": "Videogames",
+                    "pDate": "2 Apr 2018 13:19:28 GMT",
+                    "score": 22,
+                    "comments": [],
+                    "idLogged": false,
+                    "pdate": "2 Apr 2018 13:19:28 GMT"
+                }
+            ]
+        }
+    ],
+    "myCart": {
+        "id": 1,
+        "totalPrice": 30,
+        "status": "Pending",
+        "user": "Ruben",
+        "date": "2 Apr 2018 13:19:28 GMT",
+        "productsofPedido": [
+            {
+                "id": 2,
+                "name": "FARCRY Primal",
+                "price": 30,
+                "description": "Survive ",
+                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+                "label": "Videogames",
+                "pDate": "2 Apr 2018 13:19:28 GMT",
+                "score": 22,
+                "comments": [],
+                "idLogged": false,
+                "pdate": "2 Apr 2018 13:19:28 GMT"
+            }
+        ],
+        "list": [
+            {
+                "id": 2,
+                "name": "FARCRY Primal",
+                "price": 30,
+                "description": "Survive ",
+                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+                "label": "Videogames",
+                "pDate": "2 Apr 2018 13:19:28 GMT",
+                "score": 22,
+                "comments": [],
+                "idLogged": false,
+                "pdate": "2 Apr 2018 13:19:28 GMT"
+            }
+        ]
+    },
+    "roles": [
+        "ROLE_USER",
+        "ROLE_ADMIN"
+    ],
+    "idLogged": false,
+    "idCustomer": 1
+}
 
 
 
@@ -248,6 +350,10 @@ Elimina al usuario identificado.
 	* Required:
 
 		`id=[long]`
+
+*JSON
+
+	*User Pablo deleted
 		
 
 -------------------------------------------------------------------------------
@@ -350,6 +456,18 @@ Abre la sesión identificada previamente.
 * Error Response:
 
 	* HttpStatus.UNAUTHORIZED
+
+*JSON
+
+	*{
+	    "firstName": "Antonio",
+	    "lastName": "Iglesias",
+	    "mail": "chubi",
+	    "password": "$2a$10$oUBi2zi/2YJjcOTK1w5Qbu.MLL38bwRgY4cJJwiGULGm/A7H2Z/yW",
+	    "address": "c/Aprobado",
+	    "telephone": 1313,
+	    "imageUrl": "../../../../imgProfile/chubi.jpg"
+	}
 		
 
 
@@ -447,7 +565,6 @@ Añade un comentario.
 		 "mail": "dani",
 		 "message": "Very confortable"
 	}
- 	CREATED OK
 
 -------------------------------------------------------------------------------
 
@@ -479,19 +596,19 @@ Devuelve el producto introducido.
 		`id=[long]`
 
 *JSON:
-	*"product": {
-            "id": 29,
-            "name": "Sony Cyber-shot DSC-RX100M4 Pack",
-            "price": 898.72,
-            "description": "World's first1 201 MP 1 Exmor RS stacked back illuminated CMOS",
-            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51HppQk1mfL._AC_US436_QL65_.jpg",
-            "label": "Electronic",
-            "pDate": "2 Apr 2018 11:58:23 GMT",
-            "score": 32,
-            "comments": [],
-            "idLogged": false,
-            "pdate": "2 Apr 2018 11:58:23 GMT"
-        }
+	*{
+	    "id": 4,
+	    "name": "Pioneer cdj-2000nxs2",
+	    "price": 2290.99,
+	    "description": "For DJing ",
+	    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg",
+	    "label": "Music",
+	    "pDate": "2 Apr 2018 13:19:28 GMT",
+	    "score": 31,
+	    "comments": [],
+	    "idLogged": false,
+	    "pdate": "2 Apr 2018 13:19:28 GMT"
+	}
 		
 
 
@@ -656,13 +773,43 @@ Añade el objeto seleccionado al carrito.
 		`id=[long]`
 
 *JSON
-	*"addCart": {
-                "id": 29,
-	            "name": "Sony Cyber-shot DSC-RX100M4 Pack",
-	            "price": 898.72,
-	            "label": "Electronic",
-	            "pDate": "2 Apr 2018 11:58:23 GMT",
-            },
+	*{
+	    "id": 1,
+	    "totalPrice": 30,
+	    "status": "Pending",
+	    "user": "Ruben",
+	    "date": "2 Apr 2018 13:19:28 GMT",
+	    "productsofPedido": [
+	        {
+	            "id": 4,
+	            "name": "Pioneer cdj-2000nxs2",
+	            "price": 2290.99,
+	            "description": "For DJing ",
+	            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg",
+	            "label": "Music",
+	            "pDate": "2 Apr 2018 13:19:28 GMT",
+	            "score": 31,
+	            "comments": [],
+	            "idLogged": false,
+	            "pdate": "2 Apr 2018 13:19:28 GMT"
+	        }
+	    ],
+	    "list": [
+	        {
+	            "id": 4,
+	            "name": "Pioneer cdj-2000nxs2",
+	            "price": 2290.99,
+	            "description": "For DJing ",
+	            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg",
+	            "label": "Music",
+	            "pDate": "2 Apr 2018 13:19:28 GMT",
+	            "score": 31,
+	            "comments": [],
+	            "idLogged": false,
+	            "pdate": "2 Apr 2018 13:19:28 GMT"
+	        }
+	    ]
+	}
 
 
 
@@ -821,7 +968,7 @@ Define un pedido.
 
 * Función
 
-Crea un nuevo pedido.
+	Crea un nuevo pedido.
 
 * Success Response:
 
@@ -834,24 +981,54 @@ Crea un nuevo pedido.
 
 *JSON
 
-	*Entry
-		{
-		"totalPrice": 0,
-		"user": "Pablo",
-		"productsofPedido": [],
-        "list": []
-		}
-	*"newOrders": [
-              
-        {
-            "totalPrice": 30,
-            "status": "Pending",
-            "user": "Pablo",
-            "date": "2 Apr 2018 11:58:23 GMT",
-            "productsofPedido": [],
-            "list": []
-        }
-
+	*[
+	    {
+	        "id": 1,
+	        "totalPrice": 30,
+	        "status": "Paid",
+	        "user": "Ruben",
+	        "date": "2 Apr 2018 13:19:28 GMT",
+	        "productsofPedido": [
+	            {
+	                "id": 4,
+	                "name": "Pioneer cdj-2000nxs2",
+	                "price": 2290.99,
+	                "description": "For DJing ",
+	                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg",
+	                "label": "Music",
+	                "pDate": "2 Apr 2018 13:19:28 GMT",
+	                "score": 31,
+	                "comments": [],
+	                "idLogged": false,
+	                "pdate": "2 Apr 2018 13:19:28 GMT"
+	            }
+	        ],
+	        "list": [
+	            {
+	                "id": 4,
+	                "name": "Pioneer cdj-2000nxs2",
+	                "price": 2290.99,
+	                "description": "For DJing ",
+	                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/9198ikbY1aL._SL1500_.jpg",
+	                "label": "Music",
+	                "pDate": "2 Apr 2018 13:19:28 GMT",
+	                "score": 31,
+	                "comments": [],
+	                "idLogged": false,
+	                "pdate": "2 Apr 2018 13:19:28 GMT"
+	            }
+	        ]
+	    },
+	    {
+	        "id": 5,
+	        "totalPrice": 0,
+	        "status": "Pending",
+	        "user": "Antonio",
+	        "date": "2 Apr 2018 13:35:07 GMT",
+	        "productsofPedido": [],
+	        "list": []
+	    }
+	]
 
 
 
@@ -883,6 +1060,10 @@ Elimina al usuario identificado.
 	* Required:
 
 		`id=[long]`
+
+*JSON
+		
+		*User Pablo deleted
 
 
 
