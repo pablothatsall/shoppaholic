@@ -37,7 +37,7 @@ Compueba de identidad del usuario.
 
 * JSON
 
-	* {
+	*{
         "id": 1,
         "customer": {
             "id": 1,
