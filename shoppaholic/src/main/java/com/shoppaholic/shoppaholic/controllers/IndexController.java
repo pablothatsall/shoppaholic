@@ -173,7 +173,8 @@ public class IndexController {
 			pedidoRepository.save(cartdani); 
 			Pedido cartsarry = new Pedido("Pending", "Sergio", fecha.toGMTString(), new ArrayList<Product>() );
 			pedidoRepository.save(cartsarry); 
-			
+			Pedido cartlei = new Pedido("Pending", "Lei", fecha.toGMTString(), new ArrayList<Product>() );
+			pedidoRepository.save(cartlei); 
 			
 			List<Pedido> myorderschubi = new ArrayList<>();
 			myorderschubi.add(cartchubi);
@@ -186,17 +187,22 @@ public class IndexController {
 			
 			List<Pedido> myorderssarry = new ArrayList<>();
 			myorderssarry.add(cartsarry);
+			
+			List<Pedido> myorderslei = new ArrayList<>();
+			myorderslei.add(cartlei);
 		 
 			Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"../../../../imgProfile/chubi.jpg", myorderschubi, cartchubi, "ROLE_USER");
 			c.getRoles().add("ROLE_ADMIN");
 			Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"../../../../imgProfile/pablo.jpg",myorderspablo , cartpablo , "ROLE_USER");
 			Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"../../../../imgProfile/dani.jpeg",myordersdani, cartdani, "ROLE_USER");
 			Customer s = new Customer("Sergio", "Sarria", "Porro", "sergio", "c/Avion 4",4532 ,"", myorderssarry,cartsarry,"ROLE_USER");
+			Customer l = new Customer("Lei", "Han", "lei", "lei", "c/abcd", 23,"../../../../imgProfile/descarga.png",myorderslei, cartlei, "ROLE_USER");
 			
 			customerRepository.save(c);
 			customerRepository.save(p);
 			customerRepository.save(d);
 			customerRepository.save(s);
+			customerRepository.save(l);
 			
 			java.util.Date fechaactual = new Date();
 			Comment c1 = new Comment(c,"I like fifa", fechaactual.toGMTString() ,fifa);
