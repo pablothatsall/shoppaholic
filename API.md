@@ -35,6 +35,27 @@ Compueba de identidad del usuario.
 
 		`id=[long]`
 
+* JSON
+
+	*{
+        "id": 1,
+        "customer": {
+            "id": 1,
+            "firstName": "Ruben",
+            "lastName": "Iglesias",
+            "mail": "chubi",
+            "address": "c/Aprobado",
+            "telephone": 1313,
+            "imageUrl": "../../../../imgProfile/chubi.jpg",
+            "roles": [
+                "ROLE_USER",
+                "ROLE_ADMIN"
+            ],
+            "idLogged": false,
+            "idCustomer": 1
+        },
+    },
+
 
 
 ## Carrito Usuario
@@ -66,6 +87,46 @@ Devuelve el carrito al usuario.
 
 		`id=[long]`
 
+* JSON
+
+	*"myCart": {
+                "id": 1,
+                "totalPrice": 30,
+                "status": "Pending",
+                "user": "Ruben",
+                "date": "1 Apr 2018 15:50:19 GMT",
+                "productsofPedido": [
+                    {
+                        "id": 2,
+                        "name": "FARCRY Primal",
+                        "price": 30,
+                        "description": "Survive ",
+                        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+                        "label": "Videogames",
+                        "pDate": "1 Apr 2018 15:50:19 GMT",
+                        "score": 22,
+                        "comments": [],
+                        "idLogged": false,
+                        "pdate": "1 Apr 2018 15:50:19 GMT"
+                    }
+                ],
+                "list": [
+                    {
+                        "id": 2,
+                        "name": "FARCRY Primal",
+                        "price": 30,
+                        "description": "Survive ",
+                        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+                        "label": "Videogames",
+                        "pDate": "1 Apr 2018 15:50:19 GMT",
+                        "score": 22,
+                        "comments": [],
+                        "idLogged": false,
+                        "pdate": "1 Apr 2018 15:50:19 GMT"
+                    }
+                ]
+            }
+
 
 
 ## Compras Usuario
@@ -96,6 +157,49 @@ Devuelve las compras realizadas por el usuario identificado.
 	* Required:
 
 		`id=[long]`
+
+* JSON
+
+	*"list": {
+                "id": 4,
+                "totalPrice": 187.24,
+                "user": "Dani",
+                "date": "1 Apr 2018 15:50:19 GMT",
+                "products": [
+                    {
+                        "comment": "Very confortable",
+				        "date": "2 Apr 2018 11:58:24 GMT",
+				        "product": {
+			            "id": 19,
+			            "name": "adidas Performance Men's",
+			            "price": 157.24,
+			            "description": "Responsive touch and optimum ball control out of the box with soft AGILITY MESH",
+			            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/518XBaSv+lL._AC_US0_.jpg",
+			            "label": "Sports",
+			            "pDate": "2 Apr 2018 11:58:23 GMT",
+			            "score": 22,
+			            "comments": [],
+			            "idLogged": false,
+			            "pdate": "2 Apr 2018 11:58:23 GMT"
+        }
+                    }
+                ],
+                "list": [
+                    {
+                        "id": 2,
+                        "name": "FARCRY Primal",
+                        "price": 30,
+                        "description": "Survive ",
+                        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+                        "label": "Videogames",
+                        "pDate": "1 Apr 2018 15:50:19 GMT",
+                        "score": 22,
+                        "comments": [],
+                        "idLogged": false,
+                        "pdate": "1 Apr 2018 15:50:19 GMT"
+                    }
+                ]
+            }
 
 
 
@@ -183,6 +287,21 @@ Da de alta a un usuario en el sistema.
 	* Required:
 
 		Customer
+
+*JSON
+	*{
+	  	"id": 3,
+	  	"firstName": "Pablo",
+    	"lastName": "Moreno",
+	    "mail": "pablo",
+	    "password": "$2a$10$QoR19MlfmI7F8VQMXfRK7utggXQp6oaLYFRSsVEl534G.ygckrnAG",
+	    "address": "c/Sprint",
+	    "telephone": 666,
+	    "imageUrl": "../../../../imgProfile/pablo.jpg",
+	  	"roles": [
+	      "ROLE_USER"
+	    ]
+	 }
 		
 
 
@@ -250,6 +369,24 @@ Devuelve todos los comentarios .
 
 	`GET`
 
+* JSON
+
+	*"comment": "Nice camera",
+        "date": "1 Apr 2018 15:50:19 GMT",
+        "product": {
+            "id": 29,
+            "name": "Sony Cyber-shot DSC-RX100M4 Pack",
+            "price": 898.72,
+            "description": "World's first1 201 MP 1 Exmor RS stacked back illuminated CMOS",
+            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51HppQk1mfL._AC_US436_QL65_.jpg",
+            "label": "Electronic",
+            "pDate": "1 Apr 2018 15:50:19 GMT",
+            "score": 32,
+            "comments": [],
+            "idLogged": false,
+            "pdate": "1 Apr 2018 15:50:19 GMT"
+        }
+
 
 ## Añadir Comentario
 
@@ -274,6 +411,16 @@ Añade un comentario.
 	* Required:
 
 		`id=[long]`
+
+*JSON:
+	*{
+ "id": 4,
+ "name": "Dani",
+ "address": "c/Henry",
+ "mail": "dani",
+ "message": "Very confortable"
+}
+ CREATED OK
 
 -------------------------------------------------------------------------------
 
@@ -303,6 +450,21 @@ Devuelve el producto introducido.
 	* Required:
 
 		`id=[long]`
+
+*JSON:
+	*"product": {
+            "id": 29,
+            "name": "Sony Cyber-shot DSC-RX100M4 Pack",
+            "price": 898.72,
+            "description": "World's first1 201 MP 1 Exmor RS stacked back illuminated CMOS",
+            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51HppQk1mfL._AC_US436_QL65_.jpg",
+            "label": "Electronic",
+            "pDate": "2 Apr 2018 11:58:23 GMT",
+            "score": 32,
+            "comments": [],
+            "idLogged": false,
+            "pdate": "2 Apr 2018 11:58:23 GMT"
+        }
 		
 
 
@@ -346,6 +508,23 @@ Devuelve los comentarios del objeto introducido.
 
 		`id=[long]`
 
+*JSON:
+	*{
+	 "comment": "Great book",
+        "date": "2 Apr 2018 11:58:24 GMT",
+        "product": {
+            "id": 26,
+            "name": "Origin: A Novel",
+            "price": 17.96,
+            "description": "Robert Langdon, Harvard professor of symbology and religious iconology, arrives at the ultramodern Guggenheim Museum Bilbao to attend a major announcement...",
+            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51OOD3HzgzL._AC_US436_QL65_.jpg",
+            "label": "Books",
+            "pDate": "2 Apr 2018 11:58:23 GMT",
+            "score": 22,
+			"idLogged": false,
+            "pdate": "2 Apr 2018 11:58:23 GMT"
+	}
+
 
 ## Añadir Objeto
 
@@ -365,6 +544,23 @@ Añade un objeto.
 * Método:
 
 	`POST`
+
+*JSON:
+	*{
+        "id": 2,
+        "name": "FARCRY Primal",
+        "price": 30,
+        "description": "Survive ",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+        "label": "Videogames",
+        "pDate": "2 Apr 2018 11:58:23 GMT",
+        "score": 22,
+        "comments": [],
+        "idLogged": false,
+        "pdate": "2 Apr 2018 11:58:23 GMT"
+                        }
+
+      CREATED.OK
 
 
 
@@ -419,6 +615,15 @@ Añade el objeto seleccionado al carrito.
 	* Required:
 
 		`id=[long]`
+
+*JSON
+	*"addCart": {
+                "id": 29,
+	            "name": "Sony Cyber-shot DSC-RX100M4 Pack",
+	            "price": 898.72,
+	            "label": "Electronic",
+	            "pDate": "2 Apr 2018 11:58:23 GMT",
+            },
 
 
 
@@ -518,6 +723,27 @@ Busca mediante el nombre del objeto.
 
 Configura la los metodos las funciones.
 
+* JSON
+
+	*{
+        "id": 1,
+        "customer": {
+            "id": 1,
+            "firstName": "Ruben",
+            "lastName": "Iglesias",
+            "mail": "chubi",
+            "address": "c/Aprobado",
+            "telephone": 1313,
+            "imageUrl": "../../../../imgProfile/chubi.jpg",
+            "roles": [
+                "ROLE_USER",
+                "ROLE_ADMIN"
+            ],
+            "idLogged": false,
+            "idCustomer": 1
+        },
+    },
+
 
 
 -------------------------------------------------------------------------------
@@ -553,6 +779,18 @@ Define un pedido.
 	* Required:
 
 		`id=[long]`
+
+*JSON
+	*"myOrders": [
+                {
+                    "id": 2,
+                    "totalPrice": 0,
+                    "status": "Pending",
+                    "user": "Pablo",
+                    "date": "2 Apr 2018 11:58:23 GMT",
+                    "productsofPedido": [],
+                    "list": []
+                }
 		
 
 
@@ -577,6 +815,17 @@ Crea un nuevo pedido.
 * Método:
 
 	`POST`
+
+*JSON
+	*"newOrders": [
+                {
+                    "totalPrice": 0,
+                    "status": "Pending",
+                    "user": "Pablo",
+                    "date": "2 Apr 2018 11:58:23 GMT",
+                    "productsofPedido": [],
+                    "list": []
+                }
 
 
 
