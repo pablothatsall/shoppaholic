@@ -37,7 +37,7 @@ Compueba de identidad del usuario.
 
 * JSON
 
-	* {
+	s{
         "id": 1,
         "customer": {
             "id": 1,
@@ -751,7 +751,7 @@ Elimina al objeto identificado.
 
 * URL:
 
-	/api/editCart
+	/api/addToCart
 
 * Función
 
