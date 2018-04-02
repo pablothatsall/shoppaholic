@@ -37,7 +37,7 @@ Compueba de identidad del usuario.
 
 * JSON
 
-	*{
+	* {
         "id": 1,
         "customer": {
             "id": 1,
@@ -166,43 +166,43 @@ Devuelve las compras realizadas por el usuario identificado.
 
 * JSON
 
-	*[
-    {
-        "id": 1,
-        "totalPrice": 30,
-        "status": "Pending",
-        "user": "Ruben",
-        "date": "2 Apr 2018 13:19:28 GMT",
-        "productsofPedido": [
-            {
-                "id": 2,
-                "name": "FARCRY Primal",
-                "price": 30,
-                "description": "Survive ",
-                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-                "label": "Videogames",
-                "pDate": "2 Apr 2018 13:19:28 GMT",
-                "score": 22,
-                "comments": [],
-                "idLogged": false,
-                "pdate": "2 Apr 2018 13:19:28 GMT"
-            }
-        ],
-        "list": [
-            {
-                "id": 2,
-                "name": "FARCRY Primal",
-                "price": 30,
-                "description": "Survive ",
-                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-                "label": "Videogames",
-                "pDate": "2 Apr 2018 13:19:28 GMT",
-                "score": 22,
-                "comments": [],
-                "idLogged": false,
-                "pdate": "2 Apr 2018 13:19:28 GMT"
-            }
-        ]
+	* [
+	    {
+	        "id": 1,
+	        "totalPrice": 30,
+	        "status": "Pending",
+	        "user": "Ruben",
+	        "date": "2 Apr 2018 13:19:28 GMT",
+	        "productsofPedido": [
+	            {
+	                "id": 2,
+	                "name": "FARCRY Primal",
+	                "price": 30,
+	                "description": "Survive ",
+	                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+	                "label": "Videogames",
+	                "pDate": "2 Apr 2018 13:19:28 GMT",
+	                "score": 22,
+	                "comments": [],
+	                "idLogged": false,
+	                "pdate": "2 Apr 2018 13:19:28 GMT"
+	            }
+	        ],
+	        "list": [
+	            {
+	                "id": 2,
+	                "name": "FARCRY Primal",
+	                "price": 30,
+	                "description": "Survive ",
+	                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+	                "label": "Videogames",
+	                "pDate": "2 Apr 2018 13:19:28 GMT",
+	                "score": 22,
+	                "comments": [],
+	                "idLogged": false,
+	                "pdate": "2 Apr 2018 13:19:28 GMT"
+	            }
+	    ]
 
 
 
@@ -225,9 +225,9 @@ Edita los datos del usuario.
 
 	`PUT`
 
-*JSON
+* JSON
 	
-	*{
+	* {
     "id": 1,
     "firstName": "Antonio",
     "lastName": "Iglesias",
@@ -276,49 +276,49 @@ Edita los datos del usuario.
         }
     ],
     "myCart": {
-        "id": 1,
-        "totalPrice": 30,
-        "status": "Pending",
-        "user": "Ruben",
-        "date": "2 Apr 2018 13:19:28 GMT",
-        "productsofPedido": [
-            {
-                "id": 2,
-                "name": "FARCRY Primal",
-                "price": 30,
-                "description": "Survive ",
-                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-                "label": "Videogames",
-                "pDate": "2 Apr 2018 13:19:28 GMT",
-                "score": 22,
-                "comments": [],
-                "idLogged": false,
-                "pdate": "2 Apr 2018 13:19:28 GMT"
-            }
-        ],
-        "list": [
-            {
-                "id": 2,
-                "name": "FARCRY Primal",
-                "price": 30,
-                "description": "Survive ",
-                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-                "label": "Videogames",
-                "pDate": "2 Apr 2018 13:19:28 GMT",
-                "score": 22,
-                "comments": [],
-                "idLogged": false,
-                "pdate": "2 Apr 2018 13:19:28 GMT"
-            }
-        ]
-    },
-    "roles": [
-        "ROLE_USER",
-        "ROLE_ADMIN"
-    ],
-    "idLogged": false,
-    "idCustomer": 1
-}
+		        "id": 1,
+		        "totalPrice": 30,
+		        "status": "Pending",
+		        "user": "Ruben",
+		        "date": "2 Apr 2018 13:19:28 GMT",
+		        "productsofPedido": [
+		            {
+		                "id": 2,
+		                "name": "FARCRY Primal",
+		                "price": 30,
+		                "description": "Survive ",
+		                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+		                "label": "Videogames",
+		                "pDate": "2 Apr 2018 13:19:28 GMT",
+		                "score": 22,
+		                "comments": [],
+		                "idLogged": false,
+		                "pdate": "2 Apr 2018 13:19:28 GMT"
+		            }
+		        ],
+		        "list": [
+		            {
+		                "id": 2,
+		                "name": "FARCRY Primal",
+		                "price": 30,
+		                "description": "Survive ",
+		                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+		                "label": "Videogames",
+		                "pDate": "2 Apr 2018 13:19:28 GMT",
+		                "score": 22,
+		                "comments": [],
+		                "idLogged": false,
+		                "pdate": "2 Apr 2018 13:19:28 GMT"
+		            }
+		        ]
+		    },
+		    "roles": [
+		        "ROLE_USER",
+		        "ROLE_ADMIN"
+		    ],
+		    "idLogged": false,
+		    "idCustomer": 1
+		}
 
 
 
@@ -330,7 +330,7 @@ Edita los datos del usuario.
 
 * Función
 
-Elimina al usuario identificado.
+	Elimina al usuario identificado.
 
 * Success Response:
 
@@ -351,9 +351,9 @@ Elimina al usuario identificado.
 
 		`id=[long]`
 
-*JSON
+* JSON
 
-	*User Pablo deleted
+	* User Pablo deleted
 		
 
 -------------------------------------------------------------------------------
@@ -390,7 +390,7 @@ Da de alta a un usuario en el sistema.
 
 		Customer
 
-*JSON
+* JSON
 
 	* Entry
 		{
@@ -403,7 +403,7 @@ Da de alta a un usuario en el sistema.
 		    "imageUrl": "../../../../imgProfile/pablo.jpg",
 		  }
 
-	*{
+	* {
 	  	"id": 3,
 	  	"firstName": "Pablo",
     	"lastName": "Moreno",
@@ -457,9 +457,9 @@ Abre la sesión identificada previamente.
 
 	* HttpStatus.UNAUTHORIZED
 
-*JSON
+* JSON
 
-	*{
+	* {
 	    "firstName": "Antonio",
 	    "lastName": "Iglesias",
 	    "mail": "chubi",
@@ -548,7 +548,7 @@ Añade un comentario.
 
 		`id=[long]`
 
-*JSON:
+* JSON:
 	
 	* Entry
 		{
@@ -558,7 +558,7 @@ Añade un comentario.
 		 "mail": "dani",
 		 "message": "Very confortable
 		  }
-	*{
+	* {
 		 "id": 4,
 		 "name": "Dani",
 		 "address": "c/Henry",
@@ -595,8 +595,8 @@ Devuelve el producto introducido.
 
 		`id=[long]`
 
-*JSON:
-	*{
+* JSON:
+	* {
 	    "id": 4,
 	    "name": "Pioneer cdj-2000nxs2",
 	    "price": 2290.99,
@@ -652,8 +652,8 @@ Devuelve los comentarios del objeto introducido.
 
 		`id=[long]`
 
-*JSON:
-	*{
+* JSON:
+	* {
 	 "comment": "Great book",
         "date": "2 Apr 2018 11:58:24 GMT",
         "product": {
@@ -689,7 +689,7 @@ Añade un objeto.
 
 	`POST`
 
-*JSON:
+* JSON:
 
 	* Entry
 
@@ -702,7 +702,7 @@ Añade un objeto.
 			"score": 22,
 		}
 
-	*{
+	* {
 	        "id": 2,
 	        "name": "FARCRY Primal",
 	        "price": 30,
@@ -772,8 +772,8 @@ Añade el objeto seleccionado al carrito.
 
 		`id=[long]`
 
-*JSON
-	*{
+* JSON
+	* {
 	    "id": 1,
 	    "totalPrice": 30,
 	    "status": "Pending",
@@ -943,8 +943,8 @@ Define un pedido.
 
 		`id=[long]`
 
-*JSON
-	*"myOrders": 
+* JSON
+	* "myOrders": 
                 {
                     "id": 2,
                     "totalPrice": 0,
@@ -979,9 +979,9 @@ Define un pedido.
 
 	`POST`
 
-*JSON
+* JSON
 
-	*[
+	* [
 	    {
 	        "id": 1,
 	        "totalPrice": 30,
@@ -1061,9 +1061,9 @@ Elimina al usuario identificado.
 
 		`id=[long]`
 
-*JSON
+* JSON
 		
-		*User Pablo deleted
+		* User Pablo deleted
 
 
 
