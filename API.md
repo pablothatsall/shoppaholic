@@ -751,7 +751,7 @@ Elimina al objeto identificado.
 
 * URL:
 
-	/api/addToCart
+	/api/editCart
 
 * Función
 
