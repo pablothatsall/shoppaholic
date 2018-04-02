@@ -37,7 +37,7 @@ Compueba de identidad del usuario.
 
 * JSON
 
-	{
+	`{
         "id": 1,
         "customer": {
             "id": 1,
@@ -54,7 +54,7 @@ Compueba de identidad del usuario.
             "idLogged": false,
             "idCustomer": 1
         },
-    },
+    },`
 
 
 
