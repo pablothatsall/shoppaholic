@@ -89,6 +89,18 @@ Devuelve el carrito al usuario.
 
 * JSON
 
+	* Entry
+		{
+		  "id": 2,
+		  "name": "Spinning",
+		  "image1": "image-Spinning-1.jpg",
+		  "image2": "image-Spinning-2.jpg",
+		  "image3": "image-Spinning-3.jpg",
+		  "description": "La mejor clase de Spinning",
+		  "development": "Clases de 45 minutos.",
+		  "benefit": "Consigue un cuerpo 10 de forma divertida.",
+		  }
+
 	*"myCart": {
                 "id": 1,
                 "totalPrice": 30,
@@ -109,23 +121,7 @@ Devuelve el carrito al usuario.
                         "idLogged": false,
                         "pdate": "1 Apr 2018 15:50:19 GMT"
                     }
-                ],
-                "list": [
-                    {
-                        "id": 2,
-                        "name": "FARCRY Primal",
-                        "price": 30,
-                        "description": "Survive ",
-                        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-                        "label": "Videogames",
-                        "pDate": "1 Apr 2018 15:50:19 GMT",
-                        "score": 22,
-                        "comments": [],
-                        "idLogged": false,
-                        "pdate": "1 Apr 2018 15:50:19 GMT"
-                    }
-                ]
-            }
+                ],            }
 
 
 
@@ -289,6 +285,18 @@ Da de alta a un usuario en el sistema.
 		Customer
 
 *JSON
+
+	* Entry
+		{
+		  "id": 3,
+		  "firstName": "Pablo",
+	    	"lastName": "Moreno",
+		    "mail": "pablo",
+		  "address": "c/Sprint",
+		    "telephone": 666,
+		    "imageUrl": "../../../../imgProfile/pablo.jpg",
+		  }
+
 	*{
 	  	"id": 3,
 	  	"firstName": "Pablo",
@@ -371,7 +379,17 @@ Devuelve todos los comentarios .
 
 * JSON
 
-	*"comment": "Nice camera",
+	* Entry
+		{
+		  "id": 29,
+		  "comment": "Nice camera",
+          "date": "1 Apr 2018 15:50:19 GMT",
+		  "description": "World's first1 201 MP 1 Exmor RS stacked back illuminated CMOS",
+		  "label": "Electronic",
+		  "score": 32,
+		  }
+
+	*	"comment": "Nice camera",
         "date": "1 Apr 2018 15:50:19 GMT",
         "product": {
             "id": 29,
@@ -413,14 +431,23 @@ Añade un comentario.
 		`id=[long]`
 
 *JSON:
+	
+	* Entry
+		{
+		 "id": 4,
+		 "name": "Dani",
+		 "address": "c/Henry",
+		 "mail": "dani",
+		 "message": "Very confortable
+		  }
 	*{
- "id": 4,
- "name": "Dani",
- "address": "c/Henry",
- "mail": "dani",
- "message": "Very confortable"
-}
- CREATED OK
+		 "id": 4,
+		 "name": "Dani",
+		 "address": "c/Henry",
+		 "mail": "dani",
+		 "message": "Very confortable"
+	}
+ 	CREATED OK
 
 -------------------------------------------------------------------------------
 
@@ -546,19 +573,31 @@ Añade un objeto.
 	`POST`
 
 *JSON:
+
+	* Entry
+
+		{
+			"name": "FARCRY Primal",
+			"price": 30,
+	        "description": "Survive ",
+			"imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+	        "label": "Videogames",
+			"score": 22,
+		}
+
 	*{
-        "id": 2,
-        "name": "FARCRY Primal",
-        "price": 30,
-        "description": "Survive ",
-        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-        "label": "Videogames",
-        "pDate": "2 Apr 2018 11:58:23 GMT",
-        "score": 22,
-        "comments": [],
-        "idLogged": false,
-        "pdate": "2 Apr 2018 11:58:23 GMT"
-                        }
+	        "id": 2,
+	        "name": "FARCRY Primal",
+	        "price": 30,
+	        "description": "Survive ",
+	        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+	        "label": "Videogames",
+	        "pDate": "2 Apr 2018 11:58:23 GMT",
+	        "score": 22,
+	        "comments": [],
+	        "idLogged": false,
+	        "pdate": "2 Apr 2018 11:58:23 GMT"
+	                        }
 
       CREATED.OK
 
@@ -713,8 +752,6 @@ Busca mediante el nombre del objeto.
 ###RestSecurityConfig
 
 
-## Eliminar Usuario
-
 * URL:
 
 	/api/**
@@ -722,27 +759,6 @@ Busca mediante el nombre del objeto.
 * Función
 
 Configura la los metodos las funciones.
-
-* JSON
-
-	*{
-        "id": 1,
-        "customer": {
-            "id": 1,
-            "firstName": "Ruben",
-            "lastName": "Iglesias",
-            "mail": "chubi",
-            "address": "c/Aprobado",
-            "telephone": 1313,
-            "imageUrl": "../../../../imgProfile/chubi.jpg",
-            "roles": [
-                "ROLE_USER",
-                "ROLE_ADMIN"
-            ],
-            "idLogged": false,
-            "idCustomer": 1
-        },
-    },
 
 
 
@@ -781,7 +797,7 @@ Define un pedido.
 		`id=[long]`
 
 *JSON
-	*"myOrders": [
+	*"myOrders": 
                 {
                     "id": 2,
                     "totalPrice": 0,
@@ -817,15 +833,24 @@ Crea un nuevo pedido.
 	`POST`
 
 *JSON
+
+	*Entry
+		{
+		"totalPrice": 0,
+		"user": "Pablo",
+		"productsofPedido": [],
+        "list": []
+		}
 	*"newOrders": [
-                {
-                    "totalPrice": 0,
-                    "status": "Pending",
-                    "user": "Pablo",
-                    "date": "2 Apr 2018 11:58:23 GMT",
-                    "productsofPedido": [],
-                    "list": []
-                }
+              
+        {
+            "totalPrice": 30,
+            "status": "Pending",
+            "user": "Pablo",
+            "date": "2 Apr 2018 11:58:23 GMT",
+            "productsofPedido": [],
+            "list": []
+        }
 
 
 
