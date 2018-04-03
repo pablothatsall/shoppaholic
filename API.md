@@ -37,23 +37,23 @@ Compueba de identidad del usuario.
 
 * JSON
 
-	{
-        "id": 1,  
-        "customer": {  
-            "id": 1,  
-            "firstName": "Ruben",  
-            "lastName": "Iglesias",  
-            "mail": "chubi",  
-            "address": "c/Aprobado",  
-            "telephone": 1313,  
-            "imageUrl": "../../../../imgProfile/chubi.jpg",  
-            "roles": [  
-                "ROLE_USER",  
-                "ROLE_ADMIN"  
-            ],  
-            "idLogged": false,  
-            "idCustomer": 1  
-        },  
+		{
+		"id": 1,  
+		"customer": {  
+		"id": 1,  
+		"firstName": "Ruben",  
+		"lastName": "Iglesias",  
+		"mail": "chubi",  
+		"address": "c/Aprobado",  
+		"telephone": 1313,  
+		"imageUrl": "../../../../imgProfile/chubi.jpg",  
+		"roles": [  
+		"ROLE_USER",  
+		"ROLE_ADMIN"  
+		],  
+		"idLogged": false,  
+		"idCustomer": 1  
+		},  
     
     }
 
@@ -170,7 +170,7 @@ Devuelve las compras realizadas por el usuario identificado.
 
 	{
         
-	        "id": 1,
+	  	"id": 1,
 	        "totalPrice": 30,
 	        "status": "Pending",
 	        "user": "Ruben",
@@ -230,7 +230,7 @@ Edita los datos del usuario.
 
 * JSON
 	
-	{
+		{
 		    "id": 1,
 		    "firstName": "Antonio",
 		    "lastName": "Iglesias",
@@ -397,27 +397,29 @@ Da de alta a un usuario en el sistema.
 * JSON
 
 	Entry
-		{
-		  "id": 3,
-		  "firstName": "Pablo",
-	    	"lastName": "Moreno",
-		    "mail": "pablo",
-		  "address": "c/Sprint",
-		    "telephone": 666,
-		    "imageUrl": "../../../../imgProfile/pablo.jpg",
-		  }
+{
+
+		"id": 3,
+		"firstName": "Pablo",
+		"lastName": "Moreno",
+		"mail": "pablo",
+		"address": "c/Sprint",
+		"telephone": 666,
+		"imageUrl": "../../../../imgProfile/pablo.jpg",
+}
 
 	{
-        "id": 3,
-	  	"firstName": "Pablo",
-    	"lastName": "Moreno",
-	    "mail": "pablo",
-	    "password": "$2a$10$QoR19MlfmI7F8VQMXfRK7utggXQp6oaLYFRSsVEl534G.ygckrnAG",
-	    "address": "c/Sprint",
-	    "telephone": 666,
-	    "imageUrl": "../../../../imgProfile/pablo.jpg",
-	  	"roles": [
-	      "ROLE_USER"  
+	
+		"id": 3,
+			"firstName": "Pablo",
+		"lastName": "Moreno",
+		    "mail": "pablo",
+		    "password": "$2a$10$QoR19MlfmI7F8VQMXfRK7utggXQp6oaLYFRSsVEl534G.ygckrnAG",
+		    "address": "c/Sprint",
+		    "telephone": 666,
+		    "imageUrl": "../../../../imgProfile/pablo.jpg",
+			"roles": [
+		      "ROLE_USER"  
     }
 
 
@@ -462,15 +464,15 @@ Abre la sesión identificada previamente.
 * JSON
 
 	{
-        "firstName": "Antonio",
-	    "lastName": "Iglesias",
-	    "mail": "chubi",
-	    "password": "$2a$10$oUBi2zi/2YJjcOTK1w5Qbu.MLL38bwRgY4cJJwiGULGm/A7H2Z/yW",
-	    "address": "c/Aprobado",
-	    "telephone": 1313,
-	    "imageUrl": "../../../../imgProfile/chubi.jpg"  
-    
-       }
+	
+		"firstName": "Antonio",
+		"lastName": "Iglesias",
+		"mail": "chubi",
+		"password": "$2a$10$oUBi2zi/2YJjcOTK1w5Qbu.MLL38bwRgY4cJJwiGULGm/A7H2Z/yW",
+		"address": "c/Aprobado",
+		"telephone": 1313,
+		"imageUrl": "../../../../imgProfile/chubi.jpg"  
+	}
 
 
 
@@ -501,29 +503,32 @@ Devuelve todos los comentarios .
 
 	* Entry
 		{
+		
 		  "id": 29,
 		  "comment": "Nice camera",
-          "date": "1 Apr 2018 15:50:19 GMT",
+          	  "date": "1 Apr 2018 15:50:19 GMT",
 		  "description": "World's first1 201 MP 1 Exmor RS stacked back illuminated CMOS",
 		  "label": "Electronic",
 		  "score": 32,
 		  }
+		  
 
 	{
-        "comment": "Nice camera",
-        "date": "1 Apr 2018 15:50:19 GMT",
-        "product": {
-            "id": 29,
-            "name": "Sony Cyber-shot DSC-RX100M4 Pack",
-            "price": 898.72,
-            "description": "World's first1 201 MP 1 Exmor RS stacked back illuminated CMOS",
-            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51HppQk1mfL._AC_US436_QL65_.jpg",
-            "label": "Electronic",
-            "pDate": "1 Apr 2018 15:50:19 GMT",
-            "score": 32,
-            "comments": [],
-            "idLogged": false,
-            "pdate": "1 Apr 2018 15:50:19 GMT"
+	
+		"comment": "Nice camera",
+		"date": "1 Apr 2018 15:50:19 GMT",
+		"product": {
+		"id": 29,
+		"name": "Sony Cyber-shot DSC-RX100M4 Pack",
+		"price": 898.72,
+		"description": "World's first1 201 MP 1 Exmor RS stacked back illuminated CMOS",
+		"imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51HppQk1mfL._AC_US436_QL65_.jpg",
+		"label": "Electronic",
+		"pDate": "1 Apr 2018 15:50:19 GMT",
+		"score": 32,
+		"comments": [],
+		"idLogged": false,
+		"pdate": "1 Apr 2018 15:50:19 GMT"
     
        }
 
@@ -565,6 +570,7 @@ Añade un comentario.
 		  }
 
 	{
+	
          "id": 4,
 		 "name": "Dani",
 		 "address": "c/Henry",
@@ -605,6 +611,7 @@ Devuelve el producto introducido.
 * JSON:
 	
 	{
+	
         "id": 4,
 	    "name": "Pioneer cdj-2000nxs2",
 	    "price": 2290.99,
@@ -665,19 +672,20 @@ Devuelve los comentarios del objeto introducido.
 * JSON:
 	
 	{
-	 "comment": "Great book",
-        "date": "2 Apr 2018 11:58:24 GMT",
-        "product": {
-            "id": 26,
-            "name": "Origin: A Novel",
-            "price": 17.96,
-            "description": "Robert Langdon, Harvard professor of symbology and religious iconology, arrives at the ultramodern Guggenheim Museum Bilbao to attend a major announcement...",
-            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51OOD3HzgzL._AC_US436_QL65_.jpg",
-            "label": "Books",
-            "pDate": "2 Apr 2018 11:58:23 GMT",
-            "score": 22,
-			"idLogged": false,
-            "pdate": "2 Apr 2018 11:58:23 GMT"
+	
+		 "comment": "Great book",
+		"date": "2 Apr 2018 11:58:24 GMT",
+		"product": {
+		    "id": 26,
+		    "name": "Origin: A Novel",
+		    "price": 17.96,
+		    "description": "Robert Langdon, Harvard professor of symbology and religious iconology, arrives at the ultramodern Guggenheim Museum Bilbao to attend a major announcement...",
+		    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51OOD3HzgzL._AC_US436_QL65_.jpg",
+		    "label": "Books",
+		    "pDate": "2 Apr 2018 11:58:23 GMT",
+		    "score": 22,
+				"idLogged": false,
+		    "pdate": "2 Apr 2018 11:58:23 GMT"
 	}
 
 
@@ -706,6 +714,7 @@ Añade un objeto.
 	* Entry
 
 		{
+		
 			"name": "FARCRY Primal",
 			"price": 30,
 	        "description": "Survive ",
@@ -714,7 +723,8 @@ Añade un objeto.
 			"score": 22,
 		}
 
-	* {
+	{
+	
 	        "id": 2,
 	        "name": "FARCRY Primal",
 	        "price": 30,
@@ -788,6 +798,7 @@ Añade el objeto seleccionado al carrito.
 	
 
 	{
+	
         "id": 1,
 	    "totalPrice": 30,
 	    "status": "Pending",
@@ -962,6 +973,7 @@ Define un pedido.
 	
 
 	{
+	
 		"myOrders": 2,
                     "totalPrice": 0,
                     "status": "Pending",
@@ -998,6 +1010,7 @@ Define un pedido.
 * JSON
 
 	{
+	
         "id": 1,
 	        "totalPrice": 30,
 	        "status": "Paid",
