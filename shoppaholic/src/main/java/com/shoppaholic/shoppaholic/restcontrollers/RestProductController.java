@@ -101,7 +101,7 @@ public class RestProductController {
 		}
 	}
 	
-	@RequestMapping(value="/api/editCart/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/api/addToCart/{id}", method=RequestMethod.POST)
 	public ResponseEntity<Pedido> addToCart(@PathVariable long id) {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
 		uLogged.getMyCart().addProduct(productService.findOne(id));
@@ -109,7 +109,7 @@ public class RestProductController {
 		return new ResponseEntity<>(uLogged.getMyCart(),HttpStatus.OK);
 
 	}
-	@RequestMapping(value="/api/editCart/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/api/deleteFromCart/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Pedido> deleteFromCart(@PathVariable long id) {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
 		uLogged.getMyCart().deleteProduct((productService.findOne(id)));
@@ -117,20 +117,6 @@ public class RestProductController {
 		return new ResponseEntity<>(uLogged.getMyCart(),HttpStatus.OK);
 
 	}
-	
-	/*
-	@RequestMapping(value="/api/editCart/{id}", method=RequestMethod.PUT)
-	public ResponseEntity<Pedido> modifyCart(@PathVariable long id, @RequestBody Pedido pModified) {
-		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
-		Pedido p = uLogged.getMyCart();
-		if(p != null) {
-			p.setProductsofPedido(pModified.getProductsofPedido());
-			customerService.save(uLogged);		
-		}
-		return new ResponseEntity<>(uLogged.getMyCart(),HttpStatus.OK);
-	}
-	*/
-	
 	
 	@RequestMapping(value="/api/admin/editProduct/{id}", method=RequestMethod.PUT)
 	public ResponseEntity<Product> EditCustomer(@PathVariable long id,@RequestBody Product p) {
