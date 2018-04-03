@@ -99,40 +99,40 @@ Devuelve el carrito al usuario.
 		  }`
 
 		  {
-	        "id": 1,
-		    "totalPrice": 30,
-		    "status": "Pending",
-		    "user": "Ruben",
-		    "date": "2 Apr 2018 13:19:28 GMT",
-		    "productsofPedido": [
-						        {
-						            "id": 2,
-						            "name": "FARCRY Primal",
-						            "price": 30,
-						            "description": "Survive ",
-						            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-						            "label": "Videogames",
-						            "pDate": "2 Apr 2018 13:19:28 GMT",
-						            "score": 22,
-						            "comments": [],
-						            "idLogged": false,
-						            "pdate": "2 Apr 2018 13:19:28 GMT"
-						        }
-							    ],
-		    "list": [
-						        {
-						            "id": 2,
-						            "name": "FARCRY Primal",
-						            "price": 30,
-						            "description": "Survive ",
-						            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-						            "label": "Videogames",
-						            "pDate": "2 Apr 2018 13:19:28 GMT",
-						            "score": 22,
-						            "comments": [],
-						            "idLogged": false,
-						            "pdate": "2 Apr 2018 13:19:28 GMT"
-						        }  
+		        "id": 1,
+			    "totalPrice": 30,
+			    "status": "Pending",
+			    "user": "Ruben",
+			    "date": "2 Apr 2018 13:19:28 GMT",
+			    "productsofPedido": [
+							        {
+							            "id": 2,
+							            "name": "FARCRY Primal",
+							            "price": 30,
+							            "description": "Survive ",
+							            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+							            "label": "Videogames",
+							            "pDate": "2 Apr 2018 13:19:28 GMT",
+							            "score": 22,
+							            "comments": [],
+							            "idLogged": false,
+							            "pdate": "2 Apr 2018 13:19:28 GMT"
+							        }
+								    ],
+			    "list": [
+							        {
+							            "id": 2,
+							            "name": "FARCRY Primal",
+							            "price": 30,
+							            "description": "Survive ",
+							            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+							            "label": "Videogames",
+							            "pDate": "2 Apr 2018 13:19:28 GMT",
+							            "score": 22,
+							            "comments": [],
+							            "idLogged": false,
+							            "pdate": "2 Apr 2018 13:19:28 GMT"
+							        }  
         	},  
 
 
