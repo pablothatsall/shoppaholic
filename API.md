@@ -231,7 +231,7 @@ Edita los datos del usuario.
 * JSON
 	
 	{
-		        "id": 1,
+		    "id": 1,
 		    "firstName": "Antonio",
 		    "lastName": "Iglesias",
 		    "mail": "chubi",
@@ -322,7 +322,7 @@ Edita los datos del usuario.
 				    "idLogged": false,
 				    "idCustomer": 1 
     
-       }
+     }
 
 
 
@@ -396,7 +396,7 @@ Da de alta a un usuario en el sistema.
 
 * JSON
 
-	* Entry
+	Entry
 		{
 		  "id": 3,
 		  "firstName": "Pablo",
@@ -417,11 +417,8 @@ Da de alta a un usuario en el sistema.
 	    "telephone": 666,
 	    "imageUrl": "../../../../imgProfile/pablo.jpg",
 	  	"roles": [
-	      "ROLE_USER"
-    
-       }
-
-		
+	      "ROLE_USER"  
+    }
 
 
 ## Cerrar Sesión
@@ -474,8 +471,6 @@ Abre la sesión identificada previamente.
 	    "imageUrl": "../../../../imgProfile/chubi.jpg"  
     
        }
-
-		
 
 
 
