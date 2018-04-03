@@ -231,96 +231,96 @@ Edita los datos del usuario.
 * JSON
 	
 	{
-        "id": 1,
-    "firstName": "Antonio",
-    "lastName": "Iglesias",
-    "mail": "chubi",
-    "password": "$2a$10$oUBi2zi/2YJjcOTK1w5Qbu.MLL38bwRgY4cJJwiGULGm/A7H2Z/yW",
-    "address": "c/Aprobado",
-    "telephone": 1313,
-    "imageUrl": "../../../../imgProfile/chubi.jpg",
-    "myOrders": [
-        {
-            "id": 1,
-            "totalPrice": 30,
-            "status": "Pending",
-            "user": "Ruben",
-            "date": "2 Apr 2018 13:19:28 GMT",
-            "productsofPedido": [
-                {
-                    "id": 2,
-                    "name": "FARCRY Primal",
-                    "price": 30,
-                    "description": "Survive ",
-                    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-                    "label": "Videogames",
-                    "pDate": "2 Apr 2018 13:19:28 GMT",
-                    "score": 22,
-                    "comments": [],
-                    "idLogged": false,
-                    "pdate": "2 Apr 2018 13:19:28 GMT"
-                }
-            ],
-            "list": [
-                {
-                    "id": 2,
-                    "name": "FARCRY Primal",
-                    "price": 30,
-                    "description": "Survive ",
-                    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-                    "label": "Videogames",
-                    "pDate": "2 Apr 2018 13:19:28 GMT",
-                    "score": 22,
-                    "comments": [],
-                    "idLogged": false,
-                    "pdate": "2 Apr 2018 13:19:28 GMT"
-                }
-            ]
-        }
-    ],
-    "myCart": {
 		        "id": 1,
-		        "totalPrice": 30,
-		        "status": "Pending",
-		        "user": "Ruben",
-		        "date": "2 Apr 2018 13:19:28 GMT",
-		        "productsofPedido": [
-		            {
-		                "id": 2,
-		                "name": "FARCRY Primal",
-		                "price": 30,
-		                "description": "Survive ",
-		                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-		                "label": "Videogames",
-		                "pDate": "2 Apr 2018 13:19:28 GMT",
-		                "score": 22,
-		                "comments": [],
-		                "idLogged": false,
-		                "pdate": "2 Apr 2018 13:19:28 GMT"
-		            }
-		        ],
-		        "list": [
-		            {
-		                "id": 2,
-		                "name": "FARCRY Primal",
-		                "price": 30,
-		                "description": "Survive ",
-		                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
-		                "label": "Videogames",
-		                "pDate": "2 Apr 2018 13:19:28 GMT",
-		                "score": 22,
-		                "comments": [],
-		                "idLogged": false,
-		                "pdate": "2 Apr 2018 13:19:28 GMT"
-		            }
-		        ]
-		    },
-		    "roles": [
-		        "ROLE_USER",
-		        "ROLE_ADMIN"
+		    "firstName": "Antonio",
+		    "lastName": "Iglesias",
+		    "mail": "chubi",
+		    "password": "$2a$10$oUBi2zi/2YJjcOTK1w5Qbu.MLL38bwRgY4cJJwiGULGm/A7H2Z/yW",
+		    "address": "c/Aprobado",
+		    "telephone": 1313,
+		    "imageUrl": "../../../../imgProfile/chubi.jpg",
+		    "myOrders": [
+		        {
+		            "id": 1,
+		            "totalPrice": 30,
+		            "status": "Pending",
+		            "user": "Ruben",
+		            "date": "2 Apr 2018 13:19:28 GMT",
+		            "productsofPedido": [
+		                {
+		                    "id": 2,
+		                    "name": "FARCRY Primal",
+		                    "price": 30,
+		                    "description": "Survive ",
+		                    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+		                    "label": "Videogames",
+		                    "pDate": "2 Apr 2018 13:19:28 GMT",
+		                    "score": 22,
+		                    "comments": [],
+		                    "idLogged": false,
+		                    "pdate": "2 Apr 2018 13:19:28 GMT"
+		                }
+		            ],
+		            "list": [
+		                {
+		                    "id": 2,
+		                    "name": "FARCRY Primal",
+		                    "price": 30,
+		                    "description": "Survive ",
+		                    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+		                    "label": "Videogames",
+		                    "pDate": "2 Apr 2018 13:19:28 GMT",
+		                    "score": 22,
+		                    "comments": [],
+		                    "idLogged": false,
+		                    "pdate": "2 Apr 2018 13:19:28 GMT"
+		                }
+		            ]
+		        }
 		    ],
-		    "idLogged": false,
-		    "idCustomer": 1 
+		    "myCart": {
+				        "id": 1,
+				        "totalPrice": 30,
+				        "status": "Pending",
+				        "user": "Ruben",
+				        "date": "2 Apr 2018 13:19:28 GMT",
+				        "productsofPedido": [
+				            {
+				                "id": 2,
+				                "name": "FARCRY Primal",
+				                "price": 30,
+				                "description": "Survive ",
+				                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+				                "label": "Videogames",
+				                "pDate": "2 Apr 2018 13:19:28 GMT",
+				                "score": 22,
+				                "comments": [],
+				                "idLogged": false,
+				                "pdate": "2 Apr 2018 13:19:28 GMT"
+				            }
+				        ],
+				        "list": [
+				            {
+				                "id": 2,
+				                "name": "FARCRY Primal",
+				                "price": 30,
+				                "description": "Survive ",
+				                "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61oqT8IYn4L.jpg",
+				                "label": "Videogames",
+				                "pDate": "2 Apr 2018 13:19:28 GMT",
+				                "score": 22,
+				                "comments": [],
+				                "idLogged": false,
+				                "pdate": "2 Apr 2018 13:19:28 GMT"
+				            }
+				        ]
+				    },
+				    "roles": [
+				        "ROLE_USER",
+				        "ROLE_ADMIN"
+				    ],
+				    "idLogged": false,
+				    "idCustomer": 1 
     
        }
 
