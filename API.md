@@ -37,7 +37,7 @@ Compueba de identidad del usuario.
 
 * JSON
 
-	`{  
+	{
         "id": 1,  
         "customer": {  
             "id": 1,  
@@ -54,7 +54,8 @@ Compueba de identidad del usuario.
             "idLogged": false,  
             "idCustomer": 1  
         },  
-    },`  
+    
+       }
 
 
 
@@ -90,19 +91,20 @@ Devuelve el carrito al usuario.
 * JSON
 
 	* Entry
-		{
+		`{
 		  "id": 2,
 		  "totalPrice": 30,
 	      "status": "Pending",
 	      "user": "Ruben",
-		  }
+		  }`
 
-	*   "id": 1,
-	    "totalPrice": 30,
-	    "status": "Pending",
-	    "user": "Ruben",
-	    "date": "2 Apr 2018 13:19:28 GMT",
-	    "productsofPedido": [
+		  {
+	        "id": 1,
+		    "totalPrice": 30,
+		    "status": "Pending",
+		    "user": "Ruben",
+		    "date": "2 Apr 2018 13:19:28 GMT",
+		    "productsofPedido": [
         {
             "id": 2,
             "name": "FARCRY Primal",
@@ -130,9 +132,10 @@ Devuelve el carrito al usuario.
             "comments": [],
             "idLogged": false,
             "pdate": "2 Apr 2018 13:19:28 GMT"
-        }
-    ]
-}
+        }  
+        },  
+    
+       }
 
 
 ## Compras Usuario
@@ -166,8 +169,8 @@ Devuelve las compras realizadas por el usuario identificado.
 
 * JSON
 
-	* [
-	    {
+	{
+        
 	        "id": 1,
 	        "totalPrice": 30,
 	        "status": "Pending",
@@ -201,8 +204,9 @@ Devuelve las compras realizadas por el usuario identificado.
 	                "comments": [],
 	                "idLogged": false,
 	                "pdate": "2 Apr 2018 13:19:28 GMT"
-	            }
-	    ]
+	            }  
+    
+       }
 
 
 
@@ -227,8 +231,8 @@ Edita los datos del usuario.
 
 * JSON
 	
-	* {
-    "id": 1,
+	{
+        "id": 1,
     "firstName": "Antonio",
     "lastName": "Iglesias",
     "mail": "chubi",
@@ -317,8 +321,9 @@ Edita los datos del usuario.
 		        "ROLE_ADMIN"
 		    ],
 		    "idLogged": false,
-		    "idCustomer": 1
-		}
+		    "idCustomer": 1 
+    
+       }
 
 
 
@@ -403,8 +408,8 @@ Da de alta a un usuario en el sistema.
 		    "imageUrl": "../../../../imgProfile/pablo.jpg",
 		  }
 
-	* {
-	  	"id": 3,
+	{
+        "id": 3,
 	  	"firstName": "Pablo",
     	"lastName": "Moreno",
 	    "mail": "pablo",
@@ -414,8 +419,9 @@ Da de alta a un usuario en el sistema.
 	    "imageUrl": "../../../../imgProfile/pablo.jpg",
 	  	"roles": [
 	      "ROLE_USER"
-	    ]
-	 }
+    
+       }
+
 		
 
 
@@ -459,15 +465,17 @@ Abre la sesión identificada previamente.
 
 * JSON
 
-	* {
-	    "firstName": "Antonio",
+	{
+        "firstName": "Antonio",
 	    "lastName": "Iglesias",
 	    "mail": "chubi",
 	    "password": "$2a$10$oUBi2zi/2YJjcOTK1w5Qbu.MLL38bwRgY4cJJwiGULGm/A7H2Z/yW",
 	    "address": "c/Aprobado",
 	    "telephone": 1313,
-	    "imageUrl": "../../../../imgProfile/chubi.jpg"
-	}
+	    "imageUrl": "../../../../imgProfile/chubi.jpg"  
+    
+       }
+
 		
 
 
@@ -507,7 +515,8 @@ Devuelve todos los comentarios .
 		  "score": 32,
 		  }
 
-	*	"comment": "Nice camera",
+	{
+        "comment": "Nice camera",
         "date": "1 Apr 2018 15:50:19 GMT",
         "product": {
             "id": 29,
@@ -521,7 +530,9 @@ Devuelve todos los comentarios .
             "comments": [],
             "idLogged": false,
             "pdate": "1 Apr 2018 15:50:19 GMT"
-        }
+    
+       }
+
 
 
 ## Añadir Comentario
@@ -550,7 +561,7 @@ Añade un comentario.
 
 * JSON:
 	
-	* Entry
+	
 		{
 		 "id": 4,
 		 "name": "Dani",
@@ -558,13 +569,15 @@ Añade un comentario.
 		 "mail": "dani",
 		 "message": "Very confortable
 		  }
-	* {
-		 "id": 4,
+
+	{
+         "id": 4,
 		 "name": "Dani",
 		 "address": "c/Henry",
 		 "mail": "dani",
 		 "message": "Very confortable"
-	}
+    
+       }
 
 -------------------------------------------------------------------------------
 
@@ -596,8 +609,9 @@ Devuelve el producto introducido.
 		`id=[long]`
 
 * JSON:
-	* {
-	    "id": 4,
+	
+	{
+        "id": 4,
 	    "name": "Pioneer cdj-2000nxs2",
 	    "price": 2290.99,
 	    "description": "For DJing ",
@@ -608,7 +622,9 @@ Devuelve el producto introducido.
 	    "comments": [],
 	    "idLogged": false,
 	    "pdate": "2 Apr 2018 13:19:28 GMT"
-	}
+    
+       }
+
 		
 
 
@@ -653,7 +669,8 @@ Devuelve los comentarios del objeto introducido.
 		`id=[long]`
 
 * JSON:
-	* {
+	
+	{
 	 "comment": "Great book",
         "date": "2 Apr 2018 11:58:24 GMT",
         "product": {
@@ -668,6 +685,7 @@ Devuelve los comentarios del objeto introducido.
 			"idLogged": false,
             "pdate": "2 Apr 2018 11:58:23 GMT"
 	}
+
 
 
 ## Añadir Objeto
@@ -773,8 +791,10 @@ Añade el objeto seleccionado al carrito.
 		`id=[long]`
 
 * JSON
-	* {
-	    "id": 1,
+	
+
+	{
+        "id": 1,
 	    "totalPrice": 30,
 	    "status": "Pending",
 	    "user": "Ruben",
@@ -809,7 +829,8 @@ Añade el objeto seleccionado al carrito.
 	            "pdate": "2 Apr 2018 13:19:28 GMT"
 	        }
 	    ]
-	}
+    
+       }
 
 
 
@@ -944,16 +965,17 @@ Define un pedido.
 		`id=[long]`
 
 * JSON
-	* "myOrders": 
-                {
-                    "id": 2,
+	
+
+	{
+		"myOrders": 2,
                     "totalPrice": 0,
                     "status": "Pending",
                     "user": "Pablo",
                     "date": "2 Apr 2018 11:58:23 GMT",
                     "productsofPedido": [],
-                    "list": []
-                }
+                    "list": []  
+        },  
 		
 
 
@@ -981,9 +1003,8 @@ Define un pedido.
 
 * JSON
 
-	* [
-	    {
-	        "id": 1,
+	{
+        "id": 1,
 	        "totalPrice": 30,
 	        "status": "Paid",
 	        "user": "Ruben",
@@ -1028,7 +1049,9 @@ Define un pedido.
 	        "productsofPedido": [],
 	        "list": []
 	    }
-	]
+        },  
+    
+       }
 
 
 
