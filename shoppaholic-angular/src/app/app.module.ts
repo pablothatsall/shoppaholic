@@ -4,10 +4,47 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AddProductComponent } from './addProduct.component';
+import { AdministrationComponent } from './administration.component';
+import { AdministrationProductComponent } from './administrationProduct.component';
+import { CartComponent } from './cart.component';
+import { EditProductComponent } from './editProduct.component';
+import { EditProfileComponent } from './editProfile.component';
+import { ErrorComponent } from './error.component';
+import { ListComponent } from './list.component';
+import { LoginComponent } from './login.component';
+import { LoginErrorComponent } from './loginerror.component';
+import { ManageUserComponent } from './manageUser.component';
+import { OrderComponent } from './order.component';
+import { OrderlistComponent } from './orderlist.component';
+import { PaymentComponent } from './payment.component';
+import { ProductComponent } from './product.component';
+import { SearchComponent } from './search.component';
+import { SignUpComponent } from './signUp.component';
+import { userprofileComponent } from './userprofile.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddProductComponent,
+    AdministrationComponent,
+    AdministrationProductComponent,
+    CartComponent,
+    EditProductComponent,
+    EditProfileComponent,
+    ErrorComponent,
+    ListComponent,
+    LoginComponent,
+    LoginErrorComponent,
+    ManageUserComponent,
+    OrderComponent,
+    OrderlistComponent,
+    PaymentComponent,
+    ProductComponent,
+    SearchComponent,
+    SignUpComponent,
+    userprofileComponent
   ],
   imports: [
     BrowserModule,

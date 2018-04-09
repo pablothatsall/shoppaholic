@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shoppaholic</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+    <!-- Custom styles for this template -->
+    <link href="../css/modern-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!-- ************************** Navigation ************************************** -->
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img id="icon" src="../img/logo.png">SHOPPAHOLIC</a>
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><img id="icon" src="../img/menuicon.png"></span>
+        </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                 <form class="field" action="../search" id="searchform" method="post">
+                    <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?"/>
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    <button type="submit" id="search">Search</button>
+                </form>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                  
+                    {{^user}}
+
+                        <a class="nav-link" href="/userprofile/1">Log In<img id="icon" src="../img/userIcon.png"></a>
+
+                    {{/user}}
+
+                    
+                    {{#user}}
+                        <a class="nav-link" href="/userprofile/{{id}}">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                    {{/user}}
+                    </li>
+                    <li class="nav-item">
+                    {{#user}}
+                    
+                        <a class="nav-link" href="/cart/{{id}}">My Cart<img id="icon" src="../img/carrito.png"></a>
+                    {{/user}}
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <br>
+    <div class="container">
+
+      <div class="row">
+
+        
+
+        <div class="col-lg-8">
+
+          <div class="card mt-4">
+          {{#product}}
+            <img class="card-img-top img-fluid" src={{imageUrl}} alt="">
+            <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="card-title">{{name}}</h3>
+                </div>
+                <div class="col-md-3">
+                    <h2 style="text-align: right">{{Price}}€</h2>
+                </div>
+                <div class="col-md-1" style="text-align: right">
+                <form action="/product/{{id}}" method="post">
+                    
+                     <input type="hidden" name="addproduct" value="{{id}}" >
+                    		<input type="hidden" name="_csrf" value="{{token}}"/>
+                    <input type="submit"  class="btn btn-primary" value="Add to my cart"><img id="icon" src="../img/userIcon.png">
+                </div>
+            </div>
+              <p class="card-text">{{description}}</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6"></div>
+                
+              </div>{{/product}}
+          </div>
+          <!-- /.card -->
+
+          <div class="card card-outline-secondary my-4">
+      
+            <div class="card-header">
+                <h3>Comments</h3>
+            </div>
+            <div class="card-body">
+            
+              {{#comments}}
+              <h6>Comment by {{customer.firstName}}</h6>
+              <p>{{date}}</p>
+              <p>{{comment}}</p>
+
+              
+
+              
+              {{/comments}}
+            </div>
+          </div>
+          <!-- /.card -->
+	 <form class="form-horizontal">
+ Add your comment: <input type="text" name="addcomment" value="">
+   <button id="btnSave" name="btnSave" class="btn btn-success">Save</button>
+</form>
+
+
+        </div>
+        <!-- /.col-lg-9 -->
+        <div class="col-lg-4">
+
+          <h4 style="padding-bottom: 5px; padding-top: 5px">Top {{label}}</h4>
+                <div class="list-group">
+                {{#topsLabel}}
+                    <a href="/product/{{id}}" class="list-group-item list-group-item-action">
+                        <img class="img-fluid col-lg-4" src="{{imageUrl}}">{{name}}
+                    </a>
+                 {{/topsLabel}}
+                </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+      </div>
+        
+       <br>
+       <br>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <p class="m-0 text-center text-white">Shoppaholic 2018</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+  </body>
+
+</html>

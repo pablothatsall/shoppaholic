@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shopaholic</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+    <!-- Custom styles for this template -->
+    <link href="../css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img id="icon" src="../img/logo.png">SHOPPAHOLIC</a>
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><img id="icon" src="../img/menuicon.png"></span>
+        </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                 <form class="field" action="../search" id="searchform" method="post">
+                    <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?"/>
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    <button type="submit" id="search">Search</button>
+                </form>
+
+ <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                     {{^user}}
+
+                        <a class="nav-link" href="/userprofile/1">Log In<img id="icon" src="../img/userIcon.png"></a>
+
+                    {{/user}}
+                    
+                    {{#user}}
+                        <a class="nav-link" href="/userprofile/{{id}}">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                    {{/user}}
+                    </li>
+                    <li class="nav-item">
+                    {{#user}}
+                    
+                        <a class="nav-link" href="/cart/{{id}}">My Cart<img id="icon" src="../img/carrito.png"></a>
+                    {{/user}}
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+   
+    <form class="form-horizontal">
+
+
+        <div>
+            <h3 id="tit">Edit Profile</h3>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+            </div>
+            <div class="col-sm">
+            	{{#customer}}
+               <img id ="userphoto" src={{imageUrl}}>
+               <div class="form-group">
+               <form action="/image/upload" method="post"enctype="multipart/form-data" id="form-image">
+					<div>
+						<input type="file" name="file" id="input-image" />
+					</div>
+				 	<button type="submit" class="btn btn-primary btn-lg uploadImg">Change Image</button>
+				</form>
+				</div>
+                  {{/customer}}
+            </div>
+               
+
+            <div class="col-sm">
+
+            <div class="form-group"> 
+         {{#customer}}
+                <label class="control-label" id="lab" for="textinput">Name</label>  
+                <input id="textinput" name="userfirstname" placeholder="{{firstName}}" class="form-control input-md" type="text">
+             {{/customer}}    
+            </div>
+
+        <!-- Text input-->
+            <div class="form-group">
+             {{#customer}}
+                <label class="control-label" id="lab" for="textinput">Last Name</label>  
+                <input id="textinput" name="userlastname" placeholder="{{lastName}}" class="form-control input-md"  type="text">
+             {{/customer}} 
+            </div>
+            
+          
+
+            <div class="form-group">
+             {{#customer}}
+                <label class="control-label" id="lab" for="textinput">Mail</label>  
+                <input id="textinput" name="usermail" placeholder={{mail}} class="form-control input-md" type="text">
+             {{/customer}} 
+            </div>
+            
+                  <div class="form-group">
+             {{#customer}}
+                <label class="control-label" id="lab" for="textinput">Telephone:</label>  
+                <input id="textinput" name="usertelephone" placeholder="{{telephone}}" class="form-control input-md"  type="text">
+             {{/customer}} 
+            </div>
+
+        <!-- Textarea -->
+            <div class="form-group">
+             {{#customer}}
+                <label class="control-label" id="lab" for="textarea">Address</label>
+                <textarea class="form-control"name="useraddress" id="textarea" placeholder="{{address}}" name="descriptionproduct"></textarea>
+             {{/customer}} 
+            </div>
+
+
+        <!-- Button (Double) -->
+            <div class="form-group">
+                <label class="control-label" for="btnCancel"></label>
+                <div class="col-md-8">
+                    <button id="btnCancel" name="btnCancel" class="btn btn-primary">Cancel</button>
+                    <button id="btnSave" name="btnSave" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm">
+              
+            </div>
+          </div>
+        </div>
+
+    </form>
+    
+<!--  
+{{#customer}}
+      <div id="profile">
+          <div><img id ="userphoto" src={{imageUrl}}> </div>
+          <div id="userinfo">
+          
+             <form class="field" action="/editprofile/{{id}}" id="editprofile" method="post">
+              <p><b>Username:</b> <input  name="userfirstname" id="userfirstname" type="text" placeholder="{{firstName}}"/></p>
+              <p><b>Mail: </b><input name="usermail" id="usermail" type="text" placeholder="{{mail}}"/></p>
+              <p><b>Surname:</b> <input name="userlastname" id="userlastname" type="text"  placeholder="{{lastName}}"/> </p>
+              <p><b>Address:</b> <input name="useraddress" id="useraddress" type="text"  placeholder="{{address}}"/></p>
+             
+              
+              <p><a href="/userprofile" class="btn btn-primary">Back</a>
+                <button type="submit" id="editprofile" class="btn btn-success">Edit</button></p>
+                <input type="hidden" name="_csrf" value="{{token}}"/>
+             </form> 
+          </div>
+          
+       
+      </div>
+       
+{{/customer}}  -->    
+      
+     <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+        <p class="m-0 text-center text-white">Shopaholic 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>  

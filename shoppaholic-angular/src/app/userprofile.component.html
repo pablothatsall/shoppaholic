@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Shoppaholic</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="../img/logo.png" />
+<!-- Custom styles for this template -->
+<link href="../css/modern-business.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="/"><img id="icon"
+				src="../img/logo.png">SHOPPAHOLIC</a>
+
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"><img id="icon"
+					src="../img/menuicon.png"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<form class="field" action="../search" id="searchform" method="post">
+					<input type="text" name="searchtext" id="searchterm"
+						placeholder=" What are you searching for?" /> <input type="hidden"
+						name="_csrf" value="{{token}}" />
+					<button type="submit" id="search">Search</button>
+				</form>
+
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">{{#hider}} {{^user}} <a class="nav-link"
+						href="/userprofile/1">Log In<img id="icon"
+							src="../img/userIcon.png"></a> {{/user}} {{/hider}} {{#user}} <a
+						class="nav-link" href="/userprofile/{{id}}">My Profile<img
+							id="icon" src="../img/userIcon.png"></a> {{/user}}
+					</li>
+					<li class="nav-item">{{#user}} <a class="nav-link"
+						href="/cart/{{id}}">My Cart<img id="icon"
+							src="../img/carrito.png"></a> {{/user}}
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+
+	{{#loggeduser}}
+	<br>
+	<div></div>
+	<center>
+		<a href="/"><p><button class="btn btn-primary" styles><h2>Login correct. Go back to index</h2></button></p></a>
+	</center>
+
+	{{/loggeduser}}
+
+
+	<div id="profile">
+		{{#user}}
+		<div>
+			<img id="userphoto" src={{imageUrl}}>
+		</div>
+		<div id="userinfo">
+
+			<div id="userinfo">
+
+				<p>
+					<b>Name:</b> {{firstName}}
+				</p>
+				<p>
+					<b>Surname:</b>{{lastName}}
+				</p>
+				<p>
+					<b>Address:</b> {{address}}
+				</p>
+				<p>
+					<b>Phone:</b>{{telephone}}
+				</p>
+				<p>
+					<b>Mail: </b>{{mail}}
+				</p>
+				{{#hider}}
+				<p>
+					<a href="/editprofile/{{id}}" class="btn btn-primary">Edit Info</a><a
+						href="/" class="btn btn-primary">Back</a>
+				</p>
+				<p>
+					<a href="/orderlist/{{id}}" class="btn btn-primary">My Orders</a>
+				</p>
+				<p>
+				<form action="/logout" method="post" style="position: relative; right: 2em;">
+					<input type="submit" class="btn btn-primary" value="   Log Out   " />
+					<input type="hidden" name="_csrf" value="{{token}}" />
+				</form>
+				</p>
+				{{/hider}}
+			</div>
+		</div>
+		{{/user}}
+	</div>
+
+
+	<!-- Footer -->
+	<footer class="py-5">
+		<div class="container">
+			<p class="m-0 text-center text-white">Shoppaholic 2018</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="../vendor/jquery/jquery.min.js"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

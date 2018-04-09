@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shopaholic</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+    <!-- Custom styles for this template -->
+    <link href="../css/modern-business.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/open-iconic-bootstrap.css" rel="stylesheet">
+
+  </head>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img id="icon" src="../img/logo.png">SHOPPAHOLIC</a>
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><img id="icon" src="../img/menuicon.png"></span>
+        </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                 <form class="field" action="../search" id="searchform" method="post">
+                    <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?"/>
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    <button type="submit" id="search">Search</button>
+                </form>
+
+ <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                     {{^user}}
+
+                        <a class="nav-link" href="/userprofile/1">Log In<img id="icon" src="../img/userIcon.png"></a>
+
+                    {{/user}}
+                    
+                    {{#user}}
+                        <a class="nav-link" href="/userprofile/{{id}}">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                    {{/user}}
+                    </li>
+                    <li class="nav-item">
+                    {{#user}}
+                    
+                        <a class="nav-link" href="/cart/{{id}}">My Cart<img id="icon" src="../img/carrito.png"></a>
+                    {{/user}}
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading -->
+      <h1 class="my-4">Your Orders: 
+        <small>{{ordersize}}</small>
+      </h1>
+	
+      <!-- Project One -->
+      <div class="row" >
+      {{#orders}}
+        <div class="col-md-3" id="orderImage">
+            <a href="#">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="https://jargonwriter.files.wordpress.com/2010/04/shoppingcartfinal1.jpg?w=240" alt="">
+            </a>
+        </div>
+        <div class="col-md-8">
+            <div class="orderSpecifications">
+                <h5><strong>Order number: </strong>{{id}}</h5>
+                <div class="col-md-6 float-md-left">
+
+                    <label><strong>Number of products: </strong>{{productsofPedido.size}}</label>
+                    <br>
+                    <label><strong>Order Date: </strong>{{date}}</label>
+                    <br>
+                </div>
+                <div class="col-md-6 float-md-right">
+
+                    <label><strong>Estimated Shipping Date: </strong>In 1 week</label>
+                    <br>
+                    <label><strong>Shipping Status: </strong>{{status}}</label>
+                    <br>
+                </div>
+            </div>
+            <div class="assets">
+                <label><strong>Total Price: </strong>{{totalPrice}}€</label>
+                <a class="btn btn-outline-secondary float-md-right" href="/order/{{id}}">View</a>
+            </div>
+        </div>
+        {{/orders}}
+    </div>
+    <br>
+      <!-- /.row -->
+
+      <hr>
+
+     
+
+      <hr>
+
+      <!-- Pagination -->
+
+
+    </div>
+    <!-- /.container -->
+
+   
+     <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+        <p class="m-0 text-center text-white">Shopaholic 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

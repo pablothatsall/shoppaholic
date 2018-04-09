@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+  
+  	<script type="text/javascript" src="jquery-1.8.3.js"></script>
+	<script type="text/javascript">
+		document.onreadystatechange = function () {
+			  var state = document.readyState
+			  if (state == 'interactive') {
+			       document.getElementById('contents').style.visibility="hidden";
+			  } else if (state == 'complete') {
+			      setTimeout(function(){
+			         document.getElementById('interactive');
+			         document.getElementById('load').style.visibility="hidden";
+			         document.getElementById('contents').style.visibility="visible";
+			      },1000);
+			  }
+			}
+	</script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shoppaholic</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/img/logo.png" />
+    <!-- Custom styles for this template -->
+    <link href="/css/modern-business.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img id="icon" src="/img/logo.png">SHOPPAHOLIC</a>
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><img id="icon" src="/img/menuicon.png"></span>
+        </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                 <form class="field" action="/search/{searchterm}" id="searchform" method="post">
+                    <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?"/>
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    <button type="submit" id="search">Search</button>
+                </form>
+
+                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                     {{^user}}
+
+                        <a class="nav-link" href="/userprofile/1">Log In<img id="icon" src="/img/userIcon.png"></a>
+
+                    {{/user}}
+                    
+                    {{#user}}
+                        <a class="nav-link" href="/userprofile/{{id}}">My Profile<img id="icon" src="/img/userIcon.png"></a>
+                    {{/user}}
+                    </li>
+                    <li class="nav-item">
+                    {{#user}}
+                    
+                        <a class="nav-link" href="/cart/{{id}}">My Cart<img id="icon" src="/img/carrito.png"></a>
+                    {{/user}}
+                    </li>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Page Content -->
+    <div id="load"></div>
+    <div id="contents" class="container">
+
+      <!-- Page Heading -->
+      <h1 class="my-4">Results by search: 
+        <small> {{searchtext}}</small>
+      </h1>
+	
+	
+	
+      <div class="row">
+      {{#products}}
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="/product/{{id}}"><img class="card-img-top" src={{imageUrl}} alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="/product/{{id}}">{{name}}</a>
+              </h4>
+              <p class="card-text">{{description}}</p>
+              <p class="card-text">{{price}}€</p>
+            </div>
+          </div>
+        </div>
+           {{/products}}
+           
+           {{#productslabel}}
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+          <div class="card h-100">
+            <a href="/product/{{id}}"><img class="card-img-top" src={{imageUrl}} alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="/product/{{id}}">{{name}}</a>
+              </h4>
+              <p class="card-text">{{description}}</p>
+              <p class="card-text">{{price}}€</p>
+            </div>
+          </div>
+        </div>
+           {{/productslabel}}
+      </div>
+      
+
+      <!-- /.row -->
+
+      <!-- Pagination -->
+      <!-- Pagination -->
+      <ul class="pagination justify-content-center">
+      	{{#more}}
+        <li class="page-item">
+          <a class="page-link" href="/search/{{searchtext}}/loadMore/{{nextPage}}">Load More</a>
+        </li>
+        {{/more}}
+        {{^more}}
+        <li class="page-item">
+          <a class="page-link">No More Results</a>
+        </li>
+        {{/more}}
+      </ul>
+
+    </div>
+    <!-- /.container -->
+
+   
+     <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+        <p class="m-0 text-center text-white">Shoppaholic 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

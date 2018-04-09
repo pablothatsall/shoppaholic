@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shopaholic</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+    <!-- Custom styles for this template -->
+    <link href="../css/modern-business.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/open-iconic-bootstrap.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img id="icon" src="../img/logo.png">SHOPPAHOLIC</a>
+
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><img id="icon" src="../img/menuicon.png"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                 <form class="field" action="../search" id="searchform" method="post">
+                    <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?"/>
+                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    <button type="submit" id="search">Search</button>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    {{#user}}
+                        <a class="nav-link" href="/userprofile/{{id}}">My Profile<img id="icon" src="../img/userIcon.png"></a>
+                    {{/user}}
+                    </li>
+                    <li class="nav-item">
+                    {{#user}}
+                        <a class="nav-link" href="/cart">My Cart<img id="icon" src="../img/carrito.png"></a>
+                    {{/user}}
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+
+
+    <form class="form-horizontal">
+
+
+        <div>
+            <h3 id="tit">Add Product</h3>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm">
+            </div>
+
+            <div class="col-sm">
+
+            <div class="form-group">
+                <label class="control-label" id="lab" for="textinput">Name</label>  
+                <input id="textinput" name="nameproduct" placeholder="" class="form-control input-md" required="" type="text">
+            </div>
+
+        <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label" id="lab" for="textinput">Price</label>  
+                <input id="textinput" name="priceproduct" placeholder="" class="form-control input-md" required="" type="text">
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" id="lab" for="textinput">Labels (Separated by Comas)</label>  
+                <input id="textinput" name="labelsproduct" placeholder="" class="form-control input-md" required="" type="text">
+            </div>
+
+        <!-- Textarea -->
+            <div class="form-group">
+                <label class="control-label" id="lab" for="textarea">Description</label>
+                <textarea class="form-control" id="textarea" name="descriptionproduct"></textarea>
+            </div>
+
+
+            <div class="control-group" id="video">
+                <label class="control-label" id="lab" for="filebutton">Add Image </label>
+                <div class="controls">
+                    <input id="filebutton" name="imageproduct" class="input-file" type="file">
+                </div>
+            </div>
+
+        <!-- Button (Double) -->
+            <div class="form-group">
+                <label class="control-label" for="btnCancel"></label>
+                <div class="col-md-8">
+                    <button id="btnSave" name="btnSave" class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+            <div class="col-sm">
+             
+            </div>
+          </div>
+        </div>
+
+    </form> <a href="/admin"><button class="btn btn-primary">Cancel</button></a>
+   
+     <!-- Footer -->
+    <footer class="py-5">
+      <div class="container">
+        <p class="m-0 text-center text-white">Shopaholic 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
