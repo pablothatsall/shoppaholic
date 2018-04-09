@@ -1,4 +1,4 @@
-echo Publishing Docker image
-
-docker tag shoppaholic daniribeiro/shoppaholic
-docker push daniribeiro/shoppaholic
+#!/bin/bash
+##Login on docker to push the image
+docker login
+docker push pmorenoyurjc/shoppaholic:latest
