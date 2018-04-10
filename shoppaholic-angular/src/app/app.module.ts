@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AddProductComponent } from './addProduct.component';
@@ -22,6 +22,8 @@ import { ProductComponent } from './product.component';
 import { SearchComponent } from './search.component';
 import { SignUpComponent } from './signUp.component';
 import { userprofileComponent } from './userprofile.component';
+import { HeaderComponent } from './header.component';
+import { FooterComponent } from './footer.component';
 
 
 @NgModule({
@@ -44,12 +46,15 @@ import { userprofileComponent } from './userprofile.component';
     ProductComponent,
     SearchComponent,
     SignUpComponent,
-    userprofileComponent
+    userprofileComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    JsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
