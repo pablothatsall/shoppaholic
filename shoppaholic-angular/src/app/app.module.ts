@@ -24,6 +24,8 @@ import { SignUpComponent } from './signUp.component';
 import { userprofileComponent } from './userprofile.component';
 import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
+import { CommentService } from './comment.service';
+import { ProductService } from './product.service';
 
 
 @NgModule({
@@ -56,7 +58,7 @@ import { FooterComponent } from './footer.component';
     HttpModule,
     JsonpModule
   ],
-  providers: [],
+  providers: [CommentService,ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
