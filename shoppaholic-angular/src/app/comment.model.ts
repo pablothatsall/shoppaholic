@@ -4,7 +4,7 @@ import { Customer} from './customer.model';
 import { Product  } from './product.model';
 
 export interface Comment {
-    id? number;
+    id?:number;
     customer:Customer;
     comment: string;
     date: string;

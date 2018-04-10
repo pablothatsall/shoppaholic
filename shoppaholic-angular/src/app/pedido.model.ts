@@ -4,7 +4,7 @@ import { Product  } from './product.model';
 
 export interface Pedido{
     id?: number;
-    totalPrice: double;
+    totalPrice: number;
     status: string;
     user: string;
     date: string;

@@ -5,7 +5,7 @@ import { Pedido } from './pedido.model';
 export interface Product{
     id?: number;
     name: string;
-    price: double;
+    price: number;
     description: string;
     imageUrl: string;
     label:string;
