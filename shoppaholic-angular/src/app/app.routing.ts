@@ -19,7 +19,7 @@ import { ProductComponent } from './product.component';
 import { SearchComponent } from './search.component';
 import { SignUpComponent } from './signUp.component';
 import { userprofileComponent } from './userprofile.component';
-import { HeaderComponent } from './header.component';
+import { NavigationComponent } from './navigation.component';
 import { FooterComponent } from './footer.component';
 
 const appRoutes = [
