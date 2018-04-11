@@ -24,6 +24,7 @@ import { FooterComponent } from './footer.component';
 
 const appRoutes = [
  { path: 'customer/:id_user', component: userprofileComponent},
+ { path: 'signup', component: SignUpComponent},
    { path: '', redirectTo: 'new', pathMatch: 'full' }
 ]
 

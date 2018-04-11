@@ -22,9 +22,10 @@ import { OrderlistComponent } from './orderlist.component';
 import { PaymentComponent } from './payment.component';
 import { ProductComponent } from './product.component';
 import { SearchComponent } from './search.component';
-import { SignUpComponent } from './signUp.component';
+
 import { userprofileComponent } from './userprofile.component';
 */
+import { SignUpComponent } from './signUp.component';
 import { NavigationComponent } from './navigation.component';
 import { FooterComponent } from './footer.component';
 
@@ -58,6 +59,7 @@ import { CustomerService } from './customer.service';
     SignUpComponent,
     userprofileComponent,
     */
+    SignUpComponent,
     NavigationComponent,
     FooterComponent
   
