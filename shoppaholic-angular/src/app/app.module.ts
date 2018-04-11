@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+
+/*
 import { AddProductComponent } from './addProduct.component';
 import { AdministrationComponent } from './administration.component';
 import { AdministrationProductComponent } from './administrationProduct.component';
@@ -22,8 +24,11 @@ import { ProductComponent } from './product.component';
 import { SearchComponent } from './search.component';
 import { SignUpComponent } from './signUp.component';
 import { userprofileComponent } from './userprofile.component';
+*/
 import { NavigationComponent } from './navigation.component';
 import { FooterComponent } from './footer.component';
+
+
 import { CommentService } from './comment.service';
 import { ProductService } from './product.service';
 import { PedidoService } from './pedido.service';
@@ -33,6 +38,7 @@ import { CustomerService } from './customer.service';
 @NgModule({
   declarations: [
     AppComponent,
+  /*
     AddProductComponent,
     AdministrationComponent,
     AdministrationProductComponent,
@@ -51,8 +57,11 @@ import { CustomerService } from './customer.service';
     SearchComponent,
     SignUpComponent,
     userprofileComponent,
+    */
     NavigationComponent,
     FooterComponent
+  
+  
   ],
   imports: [
     BrowserModule,
