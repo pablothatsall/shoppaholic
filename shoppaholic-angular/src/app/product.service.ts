@@ -15,5 +15,17 @@ export class ProductService {
       let url="http://localhost:4200/api/Product/"+id;
     }
 
+    getProducts(){
+    let url="http://localhost:4200/api/searchlabel/Videogames/1";
+    const options = new RequestOptions({ withCredentials: true});
+    return this.http.get(url,options).map(
+      response => response.json())
+      .catch(error =>this.handleError(error))
+  }
+
+  private handleError(error: any) {
+        console.error(error);
+        return Observable.throw('Server error (' + error.status + '): ' + error.text);
+    }
 
 }
