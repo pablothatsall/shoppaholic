@@ -1,11 +1,15 @@
    
-<!-- ///////////////////////////////////////////////////////////////////////////////////
-   <router-outlet></router-outlet>
---> 
-    <!-- Navigation -->
-      
+<!-- dejar solo esta etiqueta -->
+<router-outlet></router-outlet>
 
-    <navigation></navigation>
+
+
+
+
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////
+    hay que mover estos contenidos al home.component.html 
+--> 
 
 <!-- //////////////////////////////////////////////////////////////////////////////////   
 
@@ -18,85 +22,6 @@
             </ol>
 
 -->
-
-
-        
-            <!-- ******************************* Carousels ********************************* -->
-
-     
-            <div class="carousel-inner" role="listbox">
-
-
-                <!-- Slide One - Set the background image for this slide in the line below -->
-
-
-
-                <div class="carousel-item active" style="background-image: url(assets/img/librosSlider.png)">
-                    <a href="">
-                        <div class="carousel-caption d-none d-md-block">
-                     <form action="search" method="post">
-                    
-                     <input type="hidden" name="searchtext" value="Books" >
-                    <input type="submit"  class="btn btn-primary" value="Books">
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                     <h3>Don't just read</h3>
-                     <p>Enjoy books</p>
-                    </form>
-                        </div>
-                    </a>
-                </div>
-
-
-                <!-- Slide Two - Set the background image for this slide in the line below -->
-
-
-
-                <div class="carousel-item" style="background-image: url(assets/img/smartphonesSlider.png)">
-                    <a href="">
-                        <div class="carousel-caption d-none d-md-block">
-                        <form action="search" method="post">
-                    
-                     <input type="hidden" name="searchtext" value="Smartphones" >
-                    <input type="submit"  class="btn btn-primary" value="Smartphones">
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                     <h3>Smartphone Revolution</h3>
-                     <p>Technology in your hands</p>
-                    </form>
-                </div>
-                            
-                            
-                                     
-
-                <!-- Slide Three - Set the background image for this slide in the line below -->
-
-
-                <div class="carousel-item" style="background-image: url(assets/img/moviesSlider.png)">
-                    <a href="">
-                        <div class="carousel-caption d-none d-md-block">
-                            <form action="search" method="post">
-                    
-                     <input type="hidden" name="searchtext" value="Movies" >
-                    <input type="submit"  class="btn btn-primary" value="Movies">
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                     <h3>Cinema at home</h3>
-                     <p>Buy your favorite movies</p>
-                    </form>
-
-                </div>
-                    </a>
-                        </div>
-                    
- 
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
- 
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-                    </a></div>{{product.name}}</div>
 
                                                
        
@@ -347,7 +272,5 @@
 
     <!-- /.container -->
 
-               
 
-    <footercomponent></footercomponent>
     

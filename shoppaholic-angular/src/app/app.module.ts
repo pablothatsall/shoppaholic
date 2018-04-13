@@ -34,6 +34,8 @@ import { CommentService } from './comment.service';
 import { ProductService } from './product.service';
 import { PedidoService } from './pedido.service';
 import { CustomerService } from './customer.service';
+import { routing } from './app.routing';
+import { HomeComponent } from './home.component';
 
 
 @NgModule({
@@ -59,6 +61,7 @@ import { CustomerService } from './customer.service';
     SignUpComponent,
     userprofileComponent,
     */
+    HomeComponent,
     SignUpComponent,
     NavigationComponent,
     FooterComponent
@@ -69,7 +72,8 @@ import { CustomerService } from './customer.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    routing
   ],
   providers: [CommentService,ProductService,PedidoService,CustomerService],
   bootstrap: [AppComponent]

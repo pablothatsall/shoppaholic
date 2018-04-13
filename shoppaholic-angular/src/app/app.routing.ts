@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { AddProductComponent } from './addProduct.component';
+/*import { AddProductComponent } from './addProduct.component';
 import { AdministrationComponent } from './administration.component';
 import { AdministrationProductComponent } from './administrationProduct.component';
 import { CartComponent } from './cart.component';
@@ -17,15 +17,20 @@ import { OrderlistComponent } from './orderlist.component';
 import { PaymentComponent } from './payment.component';
 import { ProductComponent } from './product.component';
 import { SearchComponent } from './search.component';
-import { SignUpComponent } from './signUp.component';
-import { userprofileComponent } from './userprofile.component';
 import { NavigationComponent } from './navigation.component';
 import { FooterComponent } from './footer.component';
+*/
+//import { userprofileComponent } from './userprofile.component';
+import { SignUpComponent } from './signUp.component';
+import { HomeComponent } from './home.component';
+
 
 const appRoutes = [
- { path: 'customer/:id_user', component: userprofileComponent},
- { path: 'signup', component: SignUpComponent},
-   { path: '', redirectTo: 'new', pathMatch: 'full' }
+ //{ path: 'customer/:id_user', component: userprofileComponent},
+  { path: 'signUp', component: SignUpComponent},
+  { path: 'home', component:HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
