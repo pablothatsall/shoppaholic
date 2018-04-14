@@ -5,7 +5,9 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-/*
+import { SignUpComponent } from './signUp.component';
+import { NavigationComponent } from './navigation.component';
+import { FooterComponent } from './footer.component';
 import { AddProductComponent } from './addProduct.component';
 import { AdministrationComponent } from './administration.component';
 import { AdministrationProductComponent } from './administrationProduct.component';
@@ -14,6 +16,7 @@ import { EditProductComponent } from './editProduct.component';
 import { EditProfileComponent } from './editProfile.component';
 import { ErrorComponent } from './error.component';
 import { ListComponent } from './list.component';
+import { HomeComponent } from './home.component';
 import { LoginComponent } from './login.component';
 import { LoginErrorComponent } from './loginerror.component';
 import { ManageUserComponent } from './manageUser.component';
@@ -22,21 +25,13 @@ import { OrderlistComponent } from './orderlist.component';
 import { PaymentComponent } from './payment.component';
 import { ProductComponent } from './product.component';
 import { SearchComponent } from './search.component';
-
 import { userprofileComponent } from './userprofile.component';
-*/
-import { SignUpComponent } from './signUp.component';
-import { NavigationComponent } from './navigation.component';
-import { FooterComponent } from './footer.component';
-
 
 import { CommentService } from './comment.service';
 import { ProductService } from './product.service';
 import { PedidoService } from './pedido.service';
 import { CustomerService } from './customer.service';
 import { routing } from './app.routing';
-import { HomeComponent } from './home.component';
-
 
 @NgModule({
   declarations: [
