@@ -1,4 +1,4 @@
-
+<navigation></navigation>
 <body>
 
 <!--    
@@ -56,7 +56,7 @@
                             	 <input type="hidden" name="_csrf" value="{{token}}"/></button>
                             	
                             	</form>
-                            	<p>Not a member?</p>    <a href="/register" class="btn btn-primary" style="margin-left: 0px">Sign up</a>
+                            	<p>Not a member?</p>    <a  [routerLink]="['/signUp']" class="btn btn-primary" style="margin-left: 0px">Sign up</a>
                             </div>
                         </div>
                         <div class="col-sm">
@@ -68,4 +68,4 @@
 
     
     </body>
-</html>
+    <footercomponent></footercomponent> 

@@ -9,7 +9,7 @@ import { EditProductComponent } from './editProduct.component';
 import { EditProfileComponent } from './editProfile.component';
 import { ErrorComponent } from './error.component';
 import { ListComponent } from './list.component';
-import { LoginComponent } from './login.component';
+
 import { LoginErrorComponent } from './loginerror.component';
 import { ManageUserComponent } from './manageUser.component';
 import { OrderComponent } from './order.component';
@@ -21,6 +21,7 @@ import { NavigationComponent } from './navigation.component';
 import { FooterComponent } from './footer.component';
 */
 //import { userprofileComponent } from './userprofile.component';
+import { LoginComponent } from './login.component';
 import { SignUpComponent } from './signUp.component';
 import { HomeComponent } from './home.component';
 
