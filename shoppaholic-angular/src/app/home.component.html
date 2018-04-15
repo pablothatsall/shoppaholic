@@ -81,7 +81,8 @@
         </a>
                    </div>
 
-<!-- 2018-4-13 18:52:16 si dejo esta linea no funciona el routing a logIn del <navigation>, no se por qué, lo dejo comentado
-        </div>{{product.name}}</div>
-    -->
+ <div *ngIf="product" class="row save-return">
+      {{product.name}}
+</div>
+
         <footercomponent></footercomponent>

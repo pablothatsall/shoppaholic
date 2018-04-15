@@ -27,7 +27,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
 		
 		// URLs that need authentication to access to it
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/product/{id}").hasRole("USER");
+		
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/productGetComments/{id}").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/admin/**").hasRole("ADMIN");
@@ -36,7 +36,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		// Other URLs can be accessed without authentication
 		http.authorizeRequests().anyRequest().permitAll();
-
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/product/{id}").permitAll();
 		// Disable CSRF protection (it is difficult to implement with ng2)
 		http.csrf().disable();
 
