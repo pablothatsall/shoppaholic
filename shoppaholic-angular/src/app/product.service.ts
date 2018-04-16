@@ -22,7 +22,7 @@ export class ProductService {
     }
 
     getProducts(){
-    let url="http://localhost:4200/api/searchlabel/Videogames/1";
+    let url="http://localhost:4200/api/products";
     const options = new RequestOptions({ withCredentials: true});
     return this.http.get(url,options).map(
       response => response.json())
