@@ -13,6 +13,12 @@ export class ProductService {
 
       getProduct(id:number){
       let url="http://localhost:4200/api/Product/"+id;
+       console.log(url);
+    
+    return this.http.get(url).map(
+      response => response.json())
+      //response => this.extractPlaylist(response))
+      .catch(error =>this.handleError(error))
     }
 
     getProducts(){
