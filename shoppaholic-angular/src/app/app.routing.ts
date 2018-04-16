@@ -28,10 +28,11 @@ import { HomeComponent } from './home.component';
 
 const appRoutes = [
  //{ path: 'customer/:id_user', component: userprofileComponent},
-
+ { path: 'login', component:LoginComponent },
   { path: 'signUp', component: SignUpComponent},
   { path: 'home', component:HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
+
   
 ]
 

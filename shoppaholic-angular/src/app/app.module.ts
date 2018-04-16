@@ -56,6 +56,7 @@ import { routing } from './app.routing';
     SignUpComponent,
     userprofileComponent,
     */
+    LoginComponent,
     HomeComponent,
     SignUpComponent,
     NavigationComponent,
