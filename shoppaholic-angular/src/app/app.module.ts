@@ -15,7 +15,6 @@ import { CartComponent } from './cart.component';
 import { EditProductComponent } from './editProduct.component';
 import { EditProfileComponent } from './editProfile.component';
 import { ErrorComponent } from './error.component';
-import { ListComponent } from './list.component';
 import { HomeComponent } from './home.component';
 import { LoginComponent } from './login.component';
 import { LoginErrorComponent } from './loginerror.component';
@@ -44,8 +43,6 @@ import { routing } from './app.routing';
     EditProductComponent,
     EditProfileComponent,
     ErrorComponent,
-    ListComponent,
-    LoginComponent,
     LoginErrorComponent,
     ManageUserComponent,
     OrderComponent,
@@ -53,7 +50,6 @@ import { routing } from './app.routing';
     PaymentComponent,
     ProductComponent,
     SearchComponent,
-    SignUpComponent,
     userprofileComponent,
     */
     LoginComponent,

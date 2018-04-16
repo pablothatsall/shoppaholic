@@ -8,8 +8,6 @@ import { CartComponent } from './cart.component';
 import { EditProductComponent } from './editProduct.component';
 import { EditProfileComponent } from './editProfile.component';
 import { ErrorComponent } from './error.component';
-import { ListComponent } from './list.component';
-
 import { LoginErrorComponent } from './loginerror.component';
 import { ManageUserComponent } from './manageUser.component';
 import { OrderComponent } from './order.component';
@@ -28,9 +26,9 @@ import { HomeComponent } from './home.component';
 
 const appRoutes = [
  //{ path: 'customer/:id_user', component: userprofileComponent},
+ { path: 'home', component:HomeComponent },
  { path: 'login', component:LoginComponent },
   { path: 'signUp', component: SignUpComponent},
-  { path: 'home', component:HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
   
