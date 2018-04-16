@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
-
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
     selector: 'search',
     templateUrl: './search.component.html'

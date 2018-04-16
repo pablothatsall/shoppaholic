@@ -29,6 +29,7 @@ import { HomeComponent } from './home.component';
 const appRoutes = [
  //{ path: 'customer/:id_user', component: userprofileComponent},
   { path: 'home', component:HomeComponent },
+  { path: 'home/search/:id', component:SearchComponent },//NO FUNCIONAA
   { path: 'login', component:LoginComponent },
   { path: 'signUp', component: SignUpComponent},
   { path: 'product/:id', component:ProductComponent },

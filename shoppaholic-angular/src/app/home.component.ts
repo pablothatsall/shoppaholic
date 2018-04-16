@@ -9,19 +9,19 @@ import { Router, ActivatedRoute } from '@angular/router';
   })
   export class HomeComponent {
 
-  product:Product[];
+  products:Product[];
  
   
  constructor(private router: Router, activatedRoute: ActivatedRoute, private productService: ProductService){
-
+          let id = activatedRoute.params.subscribe(params=>{
 
         
         this.productService.getProducts().subscribe(
-        product =>this.product=product,
+        product =>this.products=product,
         error =>  console.error(error)
         );
 
-    
+    })
  
   }
 }

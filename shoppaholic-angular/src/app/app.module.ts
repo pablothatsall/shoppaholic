@@ -48,9 +48,10 @@ import { routing } from './app.routing';
     OrderComponent,
     OrderlistComponent,
     PaymentComponent,
-    SearchComponent,
+ 
     userprofileComponent,
     */
+    SearchComponent,
     ProductComponent,
     LoginComponent,
     HomeComponent,
