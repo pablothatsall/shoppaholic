@@ -1,9 +1,7 @@
     <!-- Navigation -->
     
     <navigation></navigation>
- <div class="col-md-6" *ngFor="let product of products">
-     {{product.name}}
-</div>
+
     
 
             <!-- ******************************* Carousels ********************************* -->
@@ -83,7 +81,18 @@
         </a>
                    </div>
               
-
- 
+ <div class="col-md-6" *ngFor="let product of products">
+     {{product.name}}
+     
+</div>
+  {{products}}
+   -           
+    <ul class="items">
+      <li *ngFor="let product of products">
+        <p>{{product.name}}</p>
+          
+      </li>
+    </ul>
+  -            
 
         <footercomponent></footercomponent>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 import { Product} from './product.model';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -13,15 +14,13 @@ import { Router, ActivatedRoute } from '@angular/router';
  
   
  constructor(private router: Router, activatedRoute: ActivatedRoute, private productService: ProductService){
-         activatedRoute.params.subscribe(params=>{
 
-        
-        this.productService.getProducts().subscribe(
-        products =>this.products=products,
-        error =>  console.error(error)
-        );
 
-    })
- 
+    this.productService.getProducts().subscribe(
+      products => this.products = products,
+      error => console.log(error)
+    );
   }
+ 
+  
 }

@@ -5,11 +5,24 @@ import 'rxjs/Rx';
 import { Observable } from "rxjs/Observable";
 import { Comment } from './comment.model';
 
+export interface Product{
+    id?: number;
+    name: string;
+    price: number;
+    description: string;
+    imageUrl: string;
+    label:string;
+    pDate:string;
+    score:number;
+    comments:Comment[];
+    idLogged:boolean;
+}
 
+const URL = 'https://localhost:8443/api/products/';
 
 @Injectable()
 export class ProductService {
-   constructor(private http: Http) { };
+   constructor(private http: Http) { }
 
       getProduct(id:number){
       let url="http://localhost:4200/api/Product/"+id;
@@ -24,11 +37,10 @@ export class ProductService {
     }
 
     getProducts(){
-    let url="http://localhost:4200/api/products";
-    const options = new RequestOptions({ withCredentials: true});
-    return this.http.get(url,options).map(
-      response => response.json())
-      .catch(error =>this.handleError(error))
+       return this.http.get(URL, { withCredentials: true })
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
   }
 
   private handleError(error: any) {
