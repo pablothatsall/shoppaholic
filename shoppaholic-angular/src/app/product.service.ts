@@ -17,8 +17,10 @@ export class ProductService {
     
     return this.http.get(url).map(
       response => response.json())
-      //response => this.extractPlaylist(response))
+      //response => this.extractProduct(response))
       .catch(error =>this.handleError(error))
+
+      
     }
 
     getProducts(){

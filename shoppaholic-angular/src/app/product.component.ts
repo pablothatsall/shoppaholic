@@ -11,15 +11,25 @@ import {Product} from './product.model';
   product:Product;
    constructor(private router: Router, activatedRoute: ActivatedRoute, private productService: ProductService,
         ){
-  let id_product = activatedRoute.params.subscribe(params=>{
+  let id = activatedRoute.params.subscribe(params=>{
   	 this.productService.getProduct(params['id']).subscribe(
         product=>{ 
-          /*this.product=product,*/
+          this.product=product
+          
 
         },
         error=>console.error(error)
 );
     });
+
+
     
   }
+
+      getProduct(id:number){
+    this.productService.getProduct(id).subscribe(
+      product =>{ this.product=product;},
+      error => console.error(error)
+    )
+  }	
 }

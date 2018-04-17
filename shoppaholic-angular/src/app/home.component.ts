@@ -13,11 +13,11 @@ import { Router, ActivatedRoute } from '@angular/router';
  
   
  constructor(private router: Router, activatedRoute: ActivatedRoute, private productService: ProductService){
-          let id = activatedRoute.params.subscribe(params=>{
+         activatedRoute.params.subscribe(params=>{
 
         
         this.productService.getProducts().subscribe(
-        product =>this.products=product,
+        products =>this.products=products,
         error =>  console.error(error)
         );
 
