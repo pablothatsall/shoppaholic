@@ -3,7 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 import { Product} from './product.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Http } from '@angular/http';
 
+
+const BASE_URL = 'http://localhost:4200/api/products';
 @Component({
     selector: 'home',
     templateUrl: './home.component.html'
@@ -13,13 +16,24 @@ import { Router, ActivatedRoute } from '@angular/router';
   products:Product[];
  
   
- constructor(private router: Router, activatedRoute: ActivatedRoute, private productService: ProductService){
+ constructor(private http: Http,  private productService: ProductService){}
 
+    ngOnInit() {
+    this.refresh();
+  }
 
-    this.productService.getProducts().subscribe(
-      products => this.products = products,
-      error => console.log(error)
+  private refresh() {
+    this.http.get(BASE_URL).subscribe(
+      response => this.products = response.json(),
+      error => this.handleError(error)
     );
+  }
+
+    
+  
+
+  private handleError(error: any) {
+    console.error(error);
   }
  
   

@@ -32,6 +32,7 @@ import { PedidoService } from './pedido.service';
 import { CustomerService } from './customer.service';
 import { routing } from './app.routing';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +63,7 @@ import { routing } from './app.routing';
   
   ],
   imports: [
+
     BrowserModule,
     FormsModule,
     HttpModule,
