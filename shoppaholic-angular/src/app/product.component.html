@@ -1,42 +1,49 @@
 
 <navigation></navigation>
 <body>
-    {{product.name}}
+ 
+    
     <br>
     <div class="container">
 
       <div class="row">
+  
+      
 
-     
+        <div *ngIf="product"  class="col-lg-8">
+           
 
-        <div class="col-lg-8">
-             <!--   
-
-          <div class="card mt-4">
-          {{#product}}
-            <img class="card-img-top img-fluid" src={{imageUrl}} alt="">
+          <div  class="card mt-4">
+            
+            <img class="card-img-top img-fluid" src={{product.imageUrl}} alt="">
+               
             <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <h3 class="card-title">{{name}}</h3>
+                    
+                    <h3 class="card-title">{{product.name}}</h3>
                 </div>
+               
                 <div class="col-md-3">
-                    <h2 style="text-align: right">{{Price}}€</h2>
+                    <h2 style="text-align: right">{{product.price}}€</h2>
                 </div>
+                
                 <div class="col-md-1" style="text-align: right">
+                    <!--
                 <form action="/product/{{id}}" method="post">
                     
                      <input type="hidden" name="addproduct" value="{{id}}" >
                     		<input type="hidden" name="_csrf" value="{{token}}"/>
                     <input type="submit"  class="btn btn-primary" value="Add to my cart"><img id="icon" src="../img/userIcon.png">
-                </div>
-            </div>
-              <p class="card-text">{{description}}</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6"></div>
                 
-              </div>{{/product}}
+--></div>
+
+            </div>
+              <p class="card-text">{{product.description}}</p>
+
+            </div>
+        
+
           </div>
           
 
@@ -47,33 +54,33 @@
             </div>
             <div class="card-body">
             
-              {{#comments}}
-              <h6>Comment by {{customer.firstName}}</h6>
-              <p>{{date}}</p>
-              <p>{{comment}}</p>
+             
+              <h6>Comment by {{product.customer.firstName}}</h6>
+              <p>{{product.comment.date}}</p>
+              <p>{{product.comment}}</p>
 
               
 
               
-              {{/comments}}
+           
             </div>
           </div>
-        
+       
 	 <form class="form-horizontal">
  Add your comment: <input type="text" name="addcomment" value="">
    <button id="btnSave" name="btnSave" class="btn btn-success">Save</button>
 </form>
-
+ <!--
 
         </div>
         
         <div class="col-lg-4">
 
-          <h4 style="padding-bottom: 5px; padding-top: 5px">Top {{label}}</h4>
+          <h4 style="padding-bottom: 5px; padding-top: 5px">Top {{product.label}}</h4>
                 <div class="list-group">
                 {{#topsLabel}}
                     <a href="/product/{{id}}" class="list-group-item list-group-item-action">
-                        <img class="img-fluid col-lg-4" src="{{imageUrl}}">{{name}}
+                        <img class="img-fluid col-lg-4" src="{{product.imageUrl}}">{{product.name}}
                     </a>
                  {{/topsLabel}}
                 </div>
@@ -86,10 +93,9 @@
         
        <br>
        <br>
-        
+  
 
     </div>
-    {{product.name}}
 
 
 

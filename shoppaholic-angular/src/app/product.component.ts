@@ -2,34 +2,32 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from './product.service';
 import {Product} from './product.model';
-
+import { Http } from '@angular/http';
+const BASE_URL = 'http://localhost:4200/api/product/1';
 @Component({
-    selector: 'product',
+   
+    
     templateUrl: './product.component.html'
   })
   export class ProductComponent {
   product:Product;
-   constructor(private router: Router, activatedRoute: ActivatedRoute, private productService: ProductService,
-        ){
-  let id = activatedRoute.params.subscribe(params=>{
-  	 this.productService.getProduct(params['id']).subscribe(
-        product=>{ 
-          this.product=product
-          
-
-        },
-        error=>console.error(error)
-);
-    });
-
-
-    
+   constructor(private http: Http,  private productService: ProductService){}
+    ngOnInit() {
+    this.refresh();
   }
 
-      getProduct(id:number){
-    this.productService.getProduct(id).subscribe(
-      product =>{ this.product=product;},
-      error => console.error(error)
-    )
-  }	
+  private refresh() {
+    this.http.get(BASE_URL).subscribe(
+      response => this.product = response.json(),
+      error => this.handleError(error)
+    );
+  }
+
+    
+  
+
+  private handleError(error: any) {
+    console.error(error);
+  }
+
 }
