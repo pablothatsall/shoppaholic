@@ -31,6 +31,7 @@ import { ProductService } from './product.service';
 import { PedidoService } from './pedido.service';
 import { CustomerService } from './customer.service';
 import { routing } from './app.routing';
+import { LoginService } from 'app/login.service';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { routing } from './app.routing';
  
     userprofileComponent,
     */
+    
     SearchComponent,
     ProductComponent,
     LoginComponent,
@@ -68,7 +70,7 @@ import { routing } from './app.routing';
     JsonpModule,
     routing
   ],
-  providers: [CommentService,ProductService,PedidoService,CustomerService],
+  providers: [CommentService,ProductService,PedidoService,CustomerService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

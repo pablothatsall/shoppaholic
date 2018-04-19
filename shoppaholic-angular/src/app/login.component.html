@@ -1,31 +1,6 @@
 <navigation></navigation>
 <body>
-
-<!--    
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="/"><img id="icon" src="../img/logo.png">SHOPPAHOLIC</a>
-
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"><img id="icon" src="../img/menuicon.png"></span>
-        </button>
-
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                 <form class="field" action="../search" id="searchform" method="post">
-                    <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?"/>
-                    <input type="hidden" name="_csrf" value="{{token}}"/>
-                    <button type="submit" id="search">Search</button>
-                </form>
-
-
-
-            </div>
-        </div>
-    </nav>
--->
-        
-
-
+    
     
 				<div class="container">
                     <div class="row">
@@ -37,14 +12,15 @@
                                 <h3 id="tit">Log In</h3>
                             </div>
                         <div class="form-group">
-                            <form action="/logIn "id="formulario" autocomplete="on" method="post">
+                            <form *ngIf="!loginService.isLogged" action="/logIn "id="formulario" autocomplete="on" method="post">
+
                                 <label for="email" class="control-label" id="lab" for="textinput"> Email</label>  
-                                <input id="email" name="email" placeholder="" required="required" class="form-control input-md" type="text">
+                                <input #user type="email" id="email" name="email" placeholder="" required="required" class="form-control input-md" type="text">
                             
                         <!-- Text input-->
                             
                                 <label for ="password" class="control-label" id="lab" for="textinput">Password</label>  
-                               <input id="password" name="password" required="required" type="password" class="form-control input-md" placeholder="************" />
+                               <input #pass id="password" name="password" required="required" type="password" class="form-control input-md" placeholder="************" />
 
                                        
                            
@@ -52,8 +28,8 @@
 				    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
 				    	    	</label>-->
                           
-                            	<button type="submit" href="/" value="Login" class="btn btn-primary">LogIn                       
-                            	 <input type="hidden" name="_csrf" value="{{token}}"/></button>
+                            	<button type="submit" (click)="logIn($event, user.value, pass.value)"  href="/" value="Login" class="btn btn-primary">LogIn </button>                      
+                            	 <input type="hidden" name="_csrf" value="{{token}}"/>
                             	
                             	</form>
                             	<p>Not a member?</p>    <a  [routerLink]="['/signUp']" class="btn btn-primary" style="margin-left: 0px">Sign up</a>

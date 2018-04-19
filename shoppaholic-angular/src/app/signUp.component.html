@@ -16,7 +16,7 @@
                 </div>
                 <div class="form-group">
                 <form action="/register" enctype="/multipart/form-data" id="formulario" autocomplete="on" method="post">
-                    <label class="control-label" id="lab" for="textinput"> First Name</label>  
+                    <label class="control-label" id="lab" for="textinput">First Name</label>  
                     <input id="firstname" name="firstname" placeholder="" required="required" class="form-control input-md" type="text">
                        
                        
@@ -24,9 +24,11 @@
                     <label class="control-label" id="lab" for="textinput">Last Name</label>  
                     <input id="textinput" name="lastname" placeholder="" required="required"  class="form-control input-md" required="" type="text">
                    
-                    <label class="control-label" id="lab" for="textinput">Email Address</label>  
+                    <label class="control-label" id="lab" for="textinput">Email Address</label> 
+                    <input class="form-control" name="email" type="email" placeholder="" required data-validation-required-message="Introduce your email."> 
+                    <!--
                     <input id="textinput" name="email" placeholder="" required="required"  class="form-control input-md" required="" type="text">
-
+                    -->
                     <label class="control-label" id="lab" for="textinput">Password</label>
                     <input id="textinput" name="password" placeholder="" required="required" type="password"  class="form-control input-md" required="" type="text">
 	
