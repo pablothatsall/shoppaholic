@@ -29,6 +29,13 @@ export class ProductService {
   
   }
 
+      searchProducts(searchtext:string){
+       return this.http.get('http://localhost:4200/api/searchname/' + searchtext + '/1',{ withCredentials: true })
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
+  }
+
   private handleError(error: any) {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text);
@@ -38,7 +45,7 @@ export class ProductService {
     this.pedidoService.addToCart(id).subscribe(
     pedido => {
         
-    },
+      },
       error => console.error(error)
     )
   }*/

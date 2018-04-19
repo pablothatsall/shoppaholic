@@ -25,32 +25,35 @@
 -->
 
   <body>
-<!--
+
 
     
-    <div id="load"></div>
+   
     <div id="contents" class="container">
 
       <h1 class="my-4">Results by search: 
         <small> {{searchtext}}</small>
       </h1>
 	
-	
+
 	
       <div class="row">
-      {{#products}}
+     	
         <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
-            <a href="/product/{{id}}"><img class="card-img-top" src={{imageUrl}} alt=""></a>
+            <div>
+          <div *ngFor="let product of products " class="card h-100">
+            <a [routerLink]="['/product',product.id]"><img class="card-img-top" src={{product.imageUrl}} alt=""></a>
             <div class="card-body">
+                
               <h4 class="card-title">
-                <a href="/product/{{id}}">{{name}}</a>
+                <a [routerLink]="['/product',product.id]">{{product.name}}</a>
               </h4>
-              <p class="card-text">{{description}}</p>
-              <p class="card-text">{{price}}€</p>
+              <p class="card-text">{{product.description}}</p>
+              <p class="card-text">{{product.price}}€</p>
             </div>
           </div>
-        </div>
+                </div>
+        </div><!--
            {{/products}}
            
            {{#productslabel}}
@@ -59,19 +62,20 @@
             <a href="/product/{{id}}"><img class="card-img-top" src={{imageUrl}} alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="/product/{{id}}">{{name}}</a>
+                <a href="/product/{{id}}">{{product.name}}</a>
               </h4>
-              <p class="card-text">{{description}}</p>
-              <p class="card-text">{{price}}€</p>
+              <p class="card-text">{{product.description}}</p>
+              <p class="card-text">{{product.price}}€</p>
+
             </div>
           </div>
-        </div>
-           {{/productslabel}}
+        </div>--> 
+            
       </div>
       
 
-      
-
+    
+<!--
 
       <ul class="pagination justify-content-center">
       	{{#more}}
@@ -85,13 +89,13 @@
         </li>
         {{/more}}
       </ul>
-
+ -->
     </div>
     
 
 
- -->
-  </body>
+
+  
 
   <!-- ejemplo10 buscar libros en google
     
@@ -102,6 +106,12 @@
   
 
 
--->
+
+
+        
+       
+     
+        <!-- Marketing Icons Section -->
+
 
    <footercomponent></footercomponent> 
