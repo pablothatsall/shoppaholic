@@ -36,7 +36,12 @@ public class RestCommentController {
 	private CommentService commentService;
 	@Autowired
 	private CustomerComponent customerComponent;
-
+	
+	@RequestMapping(value="/api/comments/{id}", method=RequestMethod.GET)
+	public  ResponseEntity<Collection<Comment>> getProductComments(@PathVariable long id) {
+		Product p = productService.findOne(id);
+		return new ResponseEntity<>(commentService.findByProduct(p),HttpStatus.OK);
+	}
 	
 	@RequestMapping(value="/api/comments", method=RequestMethod.GET)
 	public  ResponseEntity<Collection<Comment>> getComments() {

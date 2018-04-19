@@ -4,6 +4,7 @@ import { ProductService } from './product.service';
 import {Product} from './product.model';
 import { Http } from '@angular/http';
 const BASE_URL = 'http://localhost:4200/api/product/1';
+const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
 @Component({
    
     
@@ -11,6 +12,7 @@ const BASE_URL = 'http://localhost:4200/api/product/1';
   })
   export class ProductComponent {
   product:Product;
+  comments:Comment[];
    constructor(private http: Http,  private productService: ProductService){}
     ngOnInit() {
     this.refresh();
@@ -21,10 +23,14 @@ const BASE_URL = 'http://localhost:4200/api/product/1';
       response => this.product = response.json(),
       error => this.handleError(error)
     );
+
+
+
+
+
   }
 
-    
-  
+
 
   private handleError(error: any) {
     console.error(error);

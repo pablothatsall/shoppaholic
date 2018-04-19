@@ -14,7 +14,7 @@ export class ProductService {
    constructor(private http: Http) { }
 
       getProduct(id:number|string){
-return this.http.get(URL + id, { withCredentials: true })
+      return this.http.get(URL + id, { withCredentials: true })
       .map(response => response.json())
       .catch(error => this.handleError(error));
   

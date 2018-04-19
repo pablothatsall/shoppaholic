@@ -207,12 +207,16 @@ public class IndexController {
 			java.util.Date fechaactual = new Date();
 			Comment c1 = new Comment(c,"I like fifa", fechaactual.toGMTString() ,fifa);
 			commentRepository.save(c1);
+			customerRepository.save(c);
 			Comment c2 = new Comment(s,"Great book", fechaactual.toGMTString() ,origin);
 			commentRepository.save(c2);
+			customerRepository.save(s);
 			Comment c3 = new Comment(p,"Nice camera", fechaactual.toGMTString() ,camera);
 			commentRepository.save(c3);
+			customerRepository.save(p);
 			Comment c4 = new Comment(d,"Very confortable", fechaactual.toGMTString() ,boots);
 			commentRepository.save(c4);
+			customerRepository.save(d);
 		
 	}
 
