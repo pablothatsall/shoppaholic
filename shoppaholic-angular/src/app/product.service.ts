@@ -7,7 +7,7 @@ import { Comment } from './comment.model';
 import { Product } from './product.model';
 
 
-const URL = 'https://localhost:8443/api/product/' ;
+const URL = 'https://localhost:4200/api/product/' ;
 
 @Injectable()
 export class ProductService {
@@ -21,7 +21,7 @@ export class ProductService {
     }
 
     getProducts(){
-       return this.http.get('https://localhost:8443/api/products/', { withCredentials: true })
+       return this.http.get('https://localhost:4200/api/products/', { withCredentials: true })
       .map(response => response.json())
       .catch(error => this.handleError(error));
   
