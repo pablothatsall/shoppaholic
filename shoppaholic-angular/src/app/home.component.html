@@ -90,7 +90,7 @@
             <div class="col-lg-3 portfolio-item">
                 <div id="product-card" class="card h-100">
                     <div class="card-header">
-                    	<a href="/product/{{id}}">
+                    	<a [routerLink]="['/product',product.id]">
                         <img id="card-image" src={{product.imageUrl}} class="card-img-top">
                         </a>
                     </div>

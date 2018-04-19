@@ -5,6 +5,8 @@ import 'rxjs/Rx';
 import { Observable } from "rxjs/Observable";
 import { Comment } from './comment.model';
 import { Product } from './product.model';
+import {CustomerService} from './customer.service';
+import {PedidoService} from './pedido.service';
 
 
 const URL = 'http://localhost:4200/api/product/' ;
@@ -32,4 +34,12 @@ export class ProductService {
         return Observable.throw('Server error (' + error.status + '): ' + error.text);
     }
 
+    /*  addToCart(){
+    this.pedidoService.addToCart(id).subscribe(
+    pedido => {
+        
+    },
+      error => console.error(error)
+    )
+  }*/
 }
