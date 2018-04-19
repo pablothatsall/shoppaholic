@@ -47,8 +47,8 @@
 
                     <label class="control-label" for="btnCancel"></label>
                
-                    <input type="submit"  href="/" value="Register" class="btn btn-primary">  
-
+                      <button  class="btn btn-primary" (click)="signIn($event,firstname.value,lastname.value,email.value,password.value.telephone.value)" type="button">Sign in</button> 
+                    <a  [routerLink]="['/login']" class="btn btn-primary" style="margin-left: 0px">Back to Login</a>
                     <input type="hidden" name="_csrf" value="{{token}}"/>
 				</form>
                 </div>

@@ -38,22 +38,21 @@
                             </div>
                         <div class="form-group">
                             <form action="/logIn "id="formulario" autocomplete="on" method="post">
-                                <label for="email" class="control-label" id="lab" for="textinput"> Email</label>  
-                                <input id="email" name="email" placeholder="" required="required" class="form-control input-md" type="text">
+                                <p><label for="email" class="control-label" id="lab" for="textinput"> Email   </label>  
+                                 <input #email id="email" name="email" required="required" type="text" placeholder="email" /> </p>
                             
                         <!-- Text input-->
-                            
+                            <p>
                                 <label for ="password" class="control-label" id="lab" for="textinput">Password</label>  
-                               <input id="password" name="password" required="required" type="password" class="form-control input-md" placeholder="************" />
+                                <input #password id="password" name="password" required="required" type="password" placeholder="************" /></p>
 
                                        
                            
-                            	<!--<label>
+                            	<label>
 				    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
-				    	    	</label>-->
-                          
-                            	<button type="submit" href="/" value="Login" class="btn btn-primary">LogIn                       
-                            	 <input type="hidden" name="_csrf" value="{{token}}"/></button>
+				    	    	</label>
+                                
+                            	<button class="btn btn-primary" type="button" (click)="logIn($event, email.value, pass.value)">Log In</button>	
                             	
                             	</form>
                             	<p>Not a member?</p>    <a  [routerLink]="['/signUp']" class="btn btn-primary" style="margin-left: 0px">Sign up</a>
