@@ -13,23 +13,29 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
   export class ProductComponent {
   product:Product;
   comments:Comment[];
-   constructor(private http: Http,  private productService: ProductService){}
-    ngOnInit() {
-    this.refresh();
+   constructor(private router: Router, activatedRoute: ActivatedRoute,  private productService: ProductService){
+       let id = activatedRoute.params.subscribe(params => {
+              
+      this.productService.getProduct(params['id']).subscribe(
+      product =>{
+        this.product=product,
+        this.comments=product.comments;
+      
+      },
+      error =>  console.error(error)
+      );
+     
+      
+  });
+
   }
 
-  private refresh() {
-    this.http.get(BASE_URL).subscribe(
-      response => this.product = response.json(),
-      error => this.handleError(error)
-    );
-
-
-
-
-
+  getProduct(id:number){
+    this.productService.getProduct(id).subscribe(
+      product =>{ this.product=product;},
+      error => console.error(error)
+    )
   }
-
 
 
   private handleError(error: any) {
