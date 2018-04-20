@@ -44,7 +44,7 @@ import { LoginService } from 'app/login.service';
     EditProductComponent,
     EditProfileComponent,
     ErrorComponent,
-    LoginErrorComponent,
+   
     ManageUserComponent,
     OrderComponent,
     OrderlistComponent,
@@ -52,7 +52,7 @@ import { LoginService } from 'app/login.service';
  
     userprofileComponent,
     */
-    
+    LoginErrorComponent,  
     SearchComponent,
     ProductComponent,
     LoginComponent,
