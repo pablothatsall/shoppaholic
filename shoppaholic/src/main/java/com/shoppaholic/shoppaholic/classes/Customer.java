@@ -30,7 +30,7 @@ public class Customer {
 
 	public interface Products {
 	}
-
+	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
