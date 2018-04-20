@@ -29,6 +29,13 @@ export class ProductService {
   
   }
 
+   addToCart(id:number|string){
+       return this.http.post('http://localhost:4200/api/addToCart/' + id, { withCredentials: true })
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
+  }
+
       searchProducts(searchtext:string){
        return this.http.get('http://localhost:4200/api/searchname/' + searchtext + '/1',{ withCredentials: true })
       .map(response => response.json())

@@ -29,14 +29,11 @@
                 </div>
                 
                 <div class="col-md-1" style="text-align: right">
-                    <!--
-                <form action="/product/{{id}}" method="post">
-                    
-                     <input type="hidden" name="addproduct" value="{{id}}" >
-                    		<input type="hidden" name="_csrf" value="{{token}}"/>
-                    <input type="submit"  class="btn btn-primary" value="Add to my cart"><img id="icon" src="../img/userIcon.png">
+                   
+
+                    <button class="btn btn-primary" type="button" (click)="AddToCart(product.id)"><img id="icon" src="./assets/img/carrito.png"></button>
                 
---></div>
+</div>
 
             </div>
               <p class="card-text">{{product.description}}</p>
@@ -55,9 +52,9 @@
             <div class="card-body">
             
              
-              <h6>Comment by {{product.customer.firstName}}</h6>
+           <!--   <h6>Comment by {{product.customer.firstName}}</h6>
               <p>{{product.comment.date}}</p>
-              <p>{{product.comment}}</p>
+              <p>{{product.comment}}</p>-->
 
               
 

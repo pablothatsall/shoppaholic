@@ -38,6 +38,13 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
     )
   }
 
+  AddToCart(id:number){
+    this.productService.addToCart(id).subscribe(
+      product =>{ this.product=product;},
+      error => console.error(error)
+    )
+  }
+
    createProduct(artist:Product){
     let url="http://localhost:4200/api/admin/newproduct";
     const options = new RequestOptions({ withCredentials: true});
