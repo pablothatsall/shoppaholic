@@ -23,7 +23,7 @@ export class PedidoService {
 
     const options = new RequestOptions({ withCredentials: true, headers });
 
-      return this.http.get('http://localhost:4200/api/customer/cart/' + id, { withCredentials: true })
+      return this.http.get('http://localhost:4200/api/customer/cart/' + id, options)
       .map(response => response.json())
       .catch(error => this.handleError(error));
   

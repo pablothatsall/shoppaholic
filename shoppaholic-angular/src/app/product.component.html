@@ -51,11 +51,11 @@
             </div>
             <div class="card-body">
             
-             
-           <!--   <h6>Comment by {{product.customer.firstName}}</h6>
-              <p>{{product.comment.date}}</p>
-              <p>{{product.comment}}</p>-->
-
+             <div *ngFor="let comment of comments">
+         <h6>Comment by {{comment.customer.firstName}}</h6>
+              <p>{{comment.date}}</p>
+              <p>{{comment.comment}}</p>
+                 </div>
               
 
               
