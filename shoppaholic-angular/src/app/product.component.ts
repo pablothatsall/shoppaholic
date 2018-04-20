@@ -31,15 +31,15 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
 
   }
 
-  getProduct(id:number){
-    this.productService.getProduct(id).subscribe(
-      product =>{ this.product=product;},
+  getComments(id:number){
+    this.commentService.getComments(id).subscribe(
+      comments => { this.comments=product.comments;},
       error => console.error(error)
-    )
+      )
   }
 
-  AddToCart(id:number){
-    this.productService.addToCart(id).subscribe(
+  getProduct(id:number){
+    this.productService.getProduct(id).subscribe(
       product =>{ this.product=product;},
       error => console.error(error)
     )
