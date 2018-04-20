@@ -40,7 +40,7 @@ import { routing } from './app.routing';
     AddProductComponent,
     AdministrationComponent,
     AdministrationProductComponent,
-    CartComponent,
+   
     EditProductComponent,
     EditProfileComponent,
     ErrorComponent,
@@ -52,6 +52,7 @@ import { routing } from './app.routing';
  
     userprofileComponent,
     */
+     CartComponent,
     SearchComponent,
     ProductComponent,
     LoginComponent,

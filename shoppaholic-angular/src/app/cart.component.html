@@ -1,21 +1,24 @@
+<navigation></navigation>
+<body>
+<div *ngIf="cart">{{cart.products}}</div>
+<!--
+  
 
-  <body>
 
 
-    <!-- Page Content -->
     <div class="container">
 		{{#customer}}
 		<br>
 		<h1>This is your cart {{firstName}}</h1>
 		{{/customer}}
-      <!-- Page Heading -->
+  
       <h1 class="my-4">Products in your cart:
       {{#cartdetails}}
         <small> {{productsofPedido.size}}</small>
         {{/cartdetails}}
       </h1>
 
-      <!-- Project One -->
+      
         <div class="row">
             <div class="col-md-9">
                 <div class="orderProducts"> 
@@ -99,5 +102,6 @@
 
       
 
-  </body>
-
+  -->
+</body>
+<footercomponent></footercomponent>
