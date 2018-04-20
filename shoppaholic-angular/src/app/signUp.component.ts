@@ -8,10 +8,10 @@ import { Router, ActivatedRoute } from '@angular/router';
     templateUrl: './signUp.component.html'
   })
   export class SignUpComponent {
-    user : Customer = null;
+    user : Customer;
 
-    constructor(private router:Router, private userService:CustomerService){
-      this.user={firstname:"", lastname:"", password:"", address:"", mail:"", telephone:null, myOrders:null, myCart:null, roles:["ROLE_USER"], idLogged:false};
+    constructor(private router:Router, private customerService:CustomerService){
+      this.user={firstName:"", lastName:"", password:"", address:"", mail:"", telephone:null, myOrders:null, myCart:null, roles:["ROLE_USER"], idLogged:false};
 
   }
   
@@ -19,17 +19,23 @@ import { Router, ActivatedRoute } from '@angular/router';
     event.preventDefault();
 
     console.log(firstname);
-    
-    this.user.firstname=firstname;
-    this.user.lastname=lastname;
+    this.user.idCustomer=6;
+    this.user.firstName=firstname;
+    this.user.lastName=lastname;
     this.user.mail=email;
     this.user.password=password;
     this.user.address=address;
+    this.user.imageUrl=null;
     this.user.telephone=telephone;
+    this.user.myOrders=null;
+    this.user.myCart=null;
+    this.user.roles=["ROLE_USER"];
+    this.user.idLogged=false;
 
 
-    this.userService.createCustomer(this.user).subscribe(
+    this.customerService.createCustomer(this.user).subscribe(
         user => {
+            this.user=user;
             console.log(user);
             this.goToLogin();
     },

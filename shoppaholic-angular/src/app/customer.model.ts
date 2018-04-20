@@ -4,9 +4,9 @@ import { Comment} from './comment.model';
 import { Product  } from './product.model';
 
 export interface Customer {
-    id_user?: number;
-    firstname: string;
-    lastname: string;
+    idCustomer?: number;
+    firstName: string;
+    lastName: string;
     mail: string;
     password: string;
     address:string;

@@ -96,7 +96,7 @@ export class CustomerService {
   }
 
   createCustomer(user:Customer){
-    let url = URL + "/newCustomer";
+    let url = "http://localhost:4200/api/register";
     return this.http.post(url,user)
       .map(response => response.json())
       .catch(error => this.handleError(error));
