@@ -11,7 +11,8 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
     templateUrl: './product.component.html'
   })
   export class ProductComponent {
-    ;
+  commentService: any;
+    
   product:Product;
   comments:Comment[];
    constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private productService: ProductService){
