@@ -18,7 +18,8 @@ logIn(event: any, email: string, password: string) {
       },
       //error => alert('Invalid user or password')
       error=>{console.log(error),
-      alert('Invalid user or password')}
+      //alert('Invalid user or password')}
+      this.router.navigate(['/loginError'])}
     );}
 
       navigate(){

@@ -17,39 +17,37 @@
                 <div class="form-group">
                 <form action="/register" enctype="/multipart/form-data" id="formulario" autocomplete="on" method="post">
                     <label class="control-label" id="lab" for="textinput"> First Name</label>  
-                    <input id="firstname" name="firstname" placeholder="" required="required" class="form-control input-md" type="text">
-                       
-                       
+                    <input #firstname id="firstname" name="firstname" placeholder="" required="required" class="form-control input-md" type="text">
 
                     <label class="control-label" id="lab" for="textinput">Last Name</label>  
-                    <input id="textinput" name="lastname" placeholder="" required="required"  class="form-control input-md" required="" type="text">
+                    <input #lastname id="textinput" name="lastname" placeholder="" required="required"  class="form-control input-md" required="" type="text">
                    
                     <label class="control-label" id="lab" for="textinput">Email Address</label>  
-                    <input id="textinput" name="email" placeholder="" required="required"  class="form-control input-md" required="" type="text">
+                    <input #email id="textinput" name="email" placeholder="" required="required"  class="form-control input-md" required="" type="text">
 
                     <label class="control-label" id="lab" for="textinput">Password</label>
-                    <input id="textinput" name="password" placeholder="" required="required" type="password"  class="form-control input-md" required="" type="text">
+                    <input #password id="textinput" name="password" placeholder="" required="required" type="password"  class="form-control input-md" required="" type="text">
 	
 	 				<label class="control-label" id="lab" for="textarea">Address</label>
-                    <textarea class="form-control" id="textarea" required="required"  name="address"></textarea>
+                    <textarea #address class="form-control" id="textarea" required="required"  name="address"></textarea>
                                 
                     <label class="control-label" id="lab" for="textinput">Telephone</label>  
-                    <input id="textinput" name="telephone" placeholder="" required="required"  class="form-control input-md" required="" type="text">
+                    <input #telephone id="textinput" name="telephone" placeholder="" required="required"  class="form-control input-md" required="" type="text">
                     <br>
                                			
-					<input type="file" name="file" value="file" id="input-image" />
+					<input #imageUrl type="file" name="file" value="file" id="input-image" />
 								
-					<input type="hidden" name="_csrf" value="{{token}}"/>		
-								
-					<br>
+							
+                    <br>
+                    <br>
 
                 
 
                     <label class="control-label" for="btnCancel"></label>
                
-                      <button  class="btn btn-primary" (click)="signIn($event,firstname.value,lastname.value,email.value,password.value.telephone.value)" type="button">Sign in</button> 
+                      <button  class="btn btn-primary" (click)="signIn($event, firstname.value, lastname.value, email.value, password.value, telephone.value)" type="button">Sign in</button> 
                     <a  [routerLink]="['/login']" class="btn btn-primary" style="margin-left: 0px">Back to Login</a>
-                    <input type="hidden" name="_csrf" value="{{token}}"/>
+                    
 				</form>
                 </div>
                 

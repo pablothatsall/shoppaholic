@@ -31,6 +31,7 @@ const appRoutes = [
   { path: 'home', component:HomeComponent },
   { path: 'home/search/:searchtext', component:SearchComponent },//NO FUNCIONAA
   { path: 'login', component:LoginComponent },
+  { path: 'loginError', component:LoginErrorComponent },
   { path: 'signUp', component: SignUpComponent},
   { path: 'product/:id', component:ProductComponent },
   { path: 'search/:searchtext', component:SearchComponent},

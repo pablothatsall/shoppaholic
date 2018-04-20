@@ -95,6 +95,14 @@ export class CustomerService {
       .catch(error =>this.handleError(error))
   }
 
+  createCustomer(user:Customer){
+    let url = URL + "/newCustomer";
+    return this.http.post(url,user)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+
+
   private handleError(error: any) {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text);
@@ -109,4 +117,9 @@ function utf8_to_b64(str) {
     return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
         return String.fromCharCode(<any>'0x' + p1);
     }));
+
+
+    
+
+
 }
