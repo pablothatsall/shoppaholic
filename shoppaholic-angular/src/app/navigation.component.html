@@ -11,9 +11,9 @@
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
              <form class="field" action="../search" id="searchform" method="post">
-                <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?"/>
+                <input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?" [(ngModel)]="searchtext"/>
                 <input type="hidden" name="_csrf" value="{{token}}"/>
-                <button type="submit" id="search">Search</button>
+                <button type="submit" id="search" (click)="search()">Search</button>
             </form>
 
 

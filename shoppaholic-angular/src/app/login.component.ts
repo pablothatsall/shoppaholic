@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   	 constructor(private router: Router, activatedRoute: ActivatedRoute, private customerService: CustomerService) { }
 
 logIn(event: any, email: string, pass: string) {
-/*
+
     event.preventDefault();
 
     this.customerService.logIn(email, pass).subscribe(
@@ -23,7 +23,7 @@ logIn(event: any, email: string, pass: string) {
 
       navigate(){
      this.router.navigate(['/']);
-     */
+     
   }
 
 
