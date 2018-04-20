@@ -19,10 +19,11 @@
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a [routerLink]="['/login']" class="nav-link" >Log In<img id="icon" src="assets/img/userIcon.png"></a>
-                    <a *ngIf="userLogged" class="nav-link" [routerLink]="['/customer',userLogged.id]">My Profile<img id="icon" src="../img/userIcon.png"></a>
-                    <a *ngIf="userLogged" class="nav-link" [routerLink]="['/cart',userLogged.id]">My Cart<img id="icon" src="../img/carrito.png"></a>
-                
+                    <a *ngIf="!userLogged" [routerLink]="['/login']" class="nav-link" >Log In<img id="icon" src="assets/img/userIcon.png"></a>
+                     <ul class="navbar-nav ml-auto">
+                    <li><a *ngIf="userLogged" class="nav-link" [routerLink]="['/customer',userLogged.id]">My Profile<img id="icon" src="./assets/img/userIcon.png"></a></li>
+                         <li><a *ngIf="userLogged" class="nav-link" [routerLink]="['/cart',userLogged.id]">My Cart<img id="icon" src="./assets/img/carrito.png"></a></li>
+                   </ul>
                 </li>
             </ul>
 

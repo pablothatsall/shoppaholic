@@ -8,11 +8,11 @@ import { Router, ActivatedRoute } from '@angular/router';
   export class LoginComponent {
   	 constructor(private router: Router, activatedRoute: ActivatedRoute, private customerService: CustomerService) { }
 
-logIn(event: any, email: string, pass: string) {
+logIn(event: any, email: string, password: string) {
 
     event.preventDefault();
 
-    this.customerService.logIn(email, pass).subscribe(
+    this.customerService.logIn(email, password).subscribe(
       u =>{ console.log(u),
       this.navigate();
       },

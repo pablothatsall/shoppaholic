@@ -43,12 +43,12 @@ export class CustomerService {
     private processLogInResponse(response) {
         this.isLogged = true;
         this.customer = response.json();
-        this.isAdmin = this.customer.roles.indexOf('ROLE_ADMIN') !== -1;
+       
     }
 
-    logIn(email: string, pass: string) {
+    logIn(email: string, password: string) {
         
-        const userPass = email + ':' + pass;
+        const userPass = email + ':' + password;
 
         const headers = new Headers({
             //'Access-Control-Allow-Origin': '*',
@@ -58,7 +58,7 @@ export class CustomerService {
 
         const options = new RequestOptions({ withCredentials: true, headers });
 
-        return this.http.get(URL + '/logIn', options).map(
+        return this.http.get(URL + '/login', options).map(
             response => {
                 this.processLogInResponse(response);
                 return this.customer;
@@ -78,12 +78,20 @@ export class CustomerService {
             }
         );
     }
-      getCustomer(id:number){
-    let url="http://localhost:4200/api/customer/"+id;
-    console.log(url);
+    getCustomer(id:number){
+	    let url="http://localhost:4200/api/customer/"+id;
+	    console.log(url);
+	    
+	    return this.http.get(url).map(
+	      response => response.json())
+	      .catch(error =>this.handleError(error))
+ 	 }
+ 	getCustomerByName(name:string){
+    	let url="http://localhost:4200/api/User/SearchByName?key="+name;
+    	console.log(url);
     
-    return this.http.get(url).map(
-      response => response.json())
+   		 return this.http.get(url).map(
+      	response => response.json())
       .catch(error =>this.handleError(error))
   }
 
