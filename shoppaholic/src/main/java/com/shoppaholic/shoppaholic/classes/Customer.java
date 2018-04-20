@@ -40,7 +40,6 @@ public class Customer {
 	private String lastName;
 	@JsonView(Basic.class)
 	private String mail;
-	@JsonView(Basic.class)
 	private String password;
 	@JsonView(Basic.class)
 	private String address;

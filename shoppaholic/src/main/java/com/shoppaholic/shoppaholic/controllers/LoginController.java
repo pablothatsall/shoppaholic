@@ -26,6 +26,7 @@ public class LoginController {
 	@Autowired
 	private CustomerComponent customerComponent;
    
+	   
 	@RequestMapping("/logIn")
 	public ResponseEntity<Customer> logIn() {
 
