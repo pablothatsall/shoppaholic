@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from './product.service';
 import {Product} from './product.model';
 import { Http, Response,Headers, RequestOptions } from '@angular/http';
+import { CommentService } from './comment.service';
+
 const BASE_URL = 'http://localhost:4200/api/product/1';
 const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
 @Component({
