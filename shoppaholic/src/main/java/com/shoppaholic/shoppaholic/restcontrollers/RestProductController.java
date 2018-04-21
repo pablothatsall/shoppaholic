@@ -1,4 +1,5 @@
 package com.shoppaholic.shoppaholic.restcontrollers;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -51,6 +52,22 @@ public class RestProductController {
 	@RequestMapping(value = "/api/products", method = RequestMethod.GET)
 	public ResponseEntity<Collection<Product>> getProducts() {
 		return new ResponseEntity<>(productService.findAll(),HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/api/firstproducts", method = RequestMethod.GET)
+	public ResponseEntity<Collection<Product>> getFirstProducts() {
+		Product p1=productService.findOne(1);
+		Product p2=productService.findOne(2);
+		Product p3=productService.findOne(3);
+		Product p4=productService.findOne(4);
+		List<Product> x = new ArrayList<Product>();
+		x.add(p1);
+		x.add(p2);
+		x.add(p3);
+		x.add(p4);
+		
+		return new ResponseEntity<>(x,HttpStatus.OK);
+		
 	}
 	
 	@RequestMapping(value="/api/productComments/{id}", method=RequestMethod.GET)

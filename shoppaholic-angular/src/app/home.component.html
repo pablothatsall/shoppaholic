@@ -79,16 +79,16 @@
         </div>        
               
 
-<div  class="container-fluid">
+<div   class="container-fluid">
 
         <h3 class="my-4">Our products</h3>
        
      
         <!-- Marketing Icons Section -->
-    <div *ngFor="let product of products " >
-        <div  id="product-list1" class="row">
+    
+        <div  id="product-list" class="row">
            
-            <div class="col-lg-3 portfolio-item">
+            <div *ngFor="let product of products " class="col-lg-3 portfolio-item">
                 <div id="product-card" class="card h-100">
                     <div class="card-header">
                     	<a [routerLink]="['/product',product.id]">
@@ -119,8 +119,7 @@
             
        </div>    
             
-</div> 
-                
+        
 <div class="row" style="padding-left: 20px; padding-bottom: 20px">
             <div class="col-lg-8">
                 <div>

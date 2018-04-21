@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 
 
-const BASE_URL = 'http://localhost:4200/api/products';
+const BASE_URL = 'http://localhost:4200/api/firstproducts';
 @Component({
     selector: 'home',
     templateUrl: './home.component.html'

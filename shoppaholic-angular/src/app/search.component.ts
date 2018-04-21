@@ -9,14 +9,16 @@ import { Product} from './product.model';
   })
   export class SearchComponent {
   products:Product[];
+  searchtext:String;
    constructor(private router: Router, activatedRoute: ActivatedRoute,  private productService: ProductService){
        let id = activatedRoute.params.subscribe(params => {
               
       this.productService. searchProducts(params['searchtext']).subscribe(
       products =>{
         this.products=products;
-      
+        this.searchtext=params['searchtext'];
       },
+
       error =>  console.error(error)
       );
      
