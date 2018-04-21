@@ -48,6 +48,8 @@ export class ProductService {
         return Observable.throw('Server error (' + error.status + '): ' + error.text);
     }
 
+
+
     /*  addToCart(){
     this.pedidoService.addToCart(id).subscribe(
     pedido => {
@@ -57,3 +59,4 @@ export class ProductService {
     )
   }*/
 }
+

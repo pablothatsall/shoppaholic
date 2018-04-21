@@ -15,7 +15,7 @@ import { Http, Response,Headers, RequestOptions } from '@angular/http';
 
   	 constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private pedidoService: PedidoService, private customerService: CustomerService){
        let id = activatedRoute.params.subscribe(params => {
-       	 this.pedidoService.getCart(params['id']).subscribe(
+       	 this.pedidoService.getCart(params['id'], customerService.customer).subscribe(
       cart =>{
         this.customer=customerService.customer;
         this.cart=cart

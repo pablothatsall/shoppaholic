@@ -1,52 +1,55 @@
 <navigation></navigation>
 <body>
-<div *ngIf="cart">{{cart.products}}</div>
-<!--
+<div *ngIf="cart">{{cart.totalPrice}}
+    
+    {{cart.user}}
+      {{cart.id}}</div>
+    
+
   
 
 
 
-    <div class="container">
-		{{#customer}}
+    <div *ngIf="cart" class="container">
+		
 		<br>
-		<h1>This is your cart {{firstName}}</h1>
-		{{/customer}}
+		<h1>This is your cart {{cart.user}}</h1>
+		
   
       <h1 class="my-4">Products in your cart:
-      {{#cartdetails}}
-        <small> {{productsofPedido.size}}</small>
-        {{/cartdetails}}
+      
+        <small> {{cart.productsofPedido.length}}</small>
+        
       </h1>
 
-      
-        <div class="row">
-            <div class="col-md-9">
+  
+        <div class="row">   
+           <div class="col-md-9">     
                 <div class="orderProducts"> 
-                    <div class="row">{{#products}}
+                    <div *ngFor="let product of cart.productsofPedido" class="row">
                         <div class="col-md-3" id="orderImage">
                             <a href="/product/{{id}}">
                                 <img class="img-fluid rounded mb-3 mb-md-0" src="{{imageUrl}}" alt="">
                             </a>
-                        </div>
+                        </div> 
                         <div class="col-md-8">
-                          <h5>{{name}}</h5>
-                            <p>{{description}}</p>
+                          <h5>{{product.name}}</h5>
+                            <p>{{product.description}}</p>
                             <div class="assets">
-                                <label><strong>Price: </strong>{{price}}€</label>
+                                <label><strong>Price: </strong>{{product.price}}€</label>
                                 <div class="btn-group float-md-right">
                                
-                   <form action="" method="post">
-                  <input type="submit"  class="btn btn-danger" value="Delete">
-                    <input type="hidden" name="deletion"  placeholder="Delete" value="{{id}}" >
-                    		<input type="hidden" name="_csrf" value="{{token}}"/>
+                  
+                  <input type="submit" (click)="Delete()"  class="btn btn-danger" value="Delete">
+                   
+                    		
                   
 
-                                   </form>
-                
+                                   
                                 </div>
-                            </div>
-                        </div>{{/products}}
-                    </div>
+                             </div>
+                        </div>
+                   </div>
                     <br>
                     
                     <br>
@@ -69,7 +72,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Number" aria-label="Number" aria-describedby="basic-addon1">
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3">-->
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Email Address</span>
                         </div>
@@ -78,17 +81,17 @@
                 </div>
             </div>
             <div class="col-md-3 border border-primary" id="cartSummary">
-            {{#cartdetails}}
+          
                 <div class="row" id="cartSummaryTitle"><h4>Cart summary:</h4></div>
-                <div class="row"><p><strong>Number of products:</strong> {{productsofPedido.size}}</p></div>
-                <div class="row"><p><strong>Total Price:</strong> {{totalPrice}}€</p></div>
+                <div class="row"><p><strong>Number of products:</strong> </p></div>
+                <div class="row"><p><strong>Total Price:</strong> {{cart.totalPrice}}€</p></div>
                 <div class="row"><p><strong>Shipping Price:</strong> FREE</p></div>
-                <div class="row"><p><strong>Status</strong> {{status}}</p></div>
-                {{/cartdetails}}
-                {{#customer}}
-                <a class="btn btn-primary" href="/payment/{{id}}">Proceed to pay</a>
-            	{{/customer}}
-            </div>
+                <div class="row"><p><strong>Status</strong> {{cart.status}}</p></div>
+          
+
+                <a class="btn btn-primary" href="/payment/">Proceed to pay</a>
+
+            </div>-->
         </div>
     </div>
         
@@ -102,6 +105,6 @@
 
       
 
-  -->
+ 
 </body>
 <footercomponent></footercomponent>

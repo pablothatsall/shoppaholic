@@ -4,6 +4,9 @@ import { Http, Response,RequestOptions,Headers } from '@angular/http';
 import 'rxjs/Rx';
 import { Observable } from "rxjs/Observable";
 import { Product } from './product.model';
+import { Customer } from './customer.model';
+
+
 
 
 
@@ -15,13 +18,20 @@ export class PedidoService {
       let url="http://localhost:4200/api/order/"+id;
     }
 
-     getCart(id:number|string){
-     	 const headers = new Headers({
-      'Content-Type': 'application/json',
-      //'X-Requested-With': 'XMLHttpRequest'
-    });
+     getCart(id:number|string, customer:Customer){
+	const userPass = customer.mail + ':' + customer.password;
 
-    const options = new RequestOptions({ withCredentials: true, headers });
+        const headers = new Headers({
+            //'Access-Control-Allow-Origin': '*',
+            'Authorization': 'Basic ' + utf8_to_b64(userPass),
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+
+
+
+
+
+    const options = new RequestOptions({ withCredentials: true });
 
       return this.http.get('http://localhost:4200/api/customer/cart/' + id, options)
       .map(response => response.json())
@@ -34,4 +44,9 @@ export class PedidoService {
     }
 
 
+}
+function utf8_to_b64(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
+        return String.fromCharCode(<any>'0x' + p1);
+    }));
 }
