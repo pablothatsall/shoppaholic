@@ -91,7 +91,8 @@ https://trello.com/b/TWf57Qly/shoppaholic-daw-2018
 ![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/pedidos.png)
 
 - Pagina donde se resumen los pedidos realizados. Se compone de imagen y resumen de los datos de envio.
-- *Nota: Esta clase esta nombrada en castellano de manera intencionada debido a motivos de compilación ya que el nombre de Order generaba un problema a la hora de acceder a la base de datos ya qe se interpretaba como un Order de ordenar en SQL
+- Nota: Esta clase esta nombrada en castellano de manera intencionada debido a motivos de compilación ya que el nombre de Order generaba un problema a la hora de acceder a la base de datos ya qe se interpretaba como un Order de ordenar en SQL.
+
 
 ##### Pago
 
@@ -185,5 +186,24 @@ https://github.com/pablothatsall/shoppaholic/blob/master/API.md
 ### Diagrama API
 
 ![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/DiagramaAPI.png)
+
+
+-------------------------------------------------------------------------------
+
+### Preparación del Entorno de Desarrollo
+
+- Primero es necesario descargar e instalar la herramienta angular-cli, para ello introducimos el comando ***npm install -g @angular/cli*** y automaticamente se ocupara de todo. Podemos usar el comando ***ng -v*** para comprobar la versión descargada y asi comprobar que el resultado ha sido correcto.
+
+- Usando el comando ***ng new*** seguido del nombre que queramos generamos un nuevo proyecto.
+
+- En caso de que hicieran falta el uso de otras librerias estas se conseguirian usando el comando ***npm install --save*** seguido del nombre de la libreria deseada.
+
+- Usamos el comando ***cd*** seguido del nombre del proyecto para situar el directorio en el lugar correcto.
+
+- Para asegurarnos de que estamos utilizando los estilos y componentes material del framework abrimos el archivo angular-cli.json y modificamos la propiedad de styles styles.css a styles.scss, haciendo lo propio despues con el nombre del archivo.
+
+- Conectamos la aplicación con su back-end para lo cual sera necesario el uso del comando ***ng serve***. En caso de que haya un archivo ya creado de la conexión el nombre de este ira a continuación del comando precedido de ***--proxy-config***, como ejemplo: ***ng serve --proxy-config proxy.conf.json***.
+
+- Por último con ***ng open*** abrimos la aplicación en el navegador la cual esta situada en la URL: http: // localhost: 4200 /.
 
 
