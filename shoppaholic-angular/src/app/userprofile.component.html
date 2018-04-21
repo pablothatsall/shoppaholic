@@ -2,98 +2,54 @@
 
 
 <body>
-    <br><br> hola
-<div *ngIf=customer>{{customer.firstName}}</div>
-<!--
-	<nav class="navbar navbar-expand-lg fixed-top">
-		<div *ngIf=customer class="container">
-			<a class="navbar-brand" href="/"><img id="icon"
-				src="../img/logo.png">SHOPPAHOLIC</a>
-
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"><img id="icon" src="../img/menuicon.png"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<form class="field" action="../search" id="searchform" method="post">
-					<input type="text" name="searchtext" id="searchterm" placeholder=" What are you searching for?" /> 
-					<input type="hidden" name="_csrf" value="{{token}}" />
-					<button type="submit" id="search">Search</button>
-				</form>
-
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">{{#hider}} {{^user}} <a class="nav-link"
-						href="/userprofile/1">Log In<img id="icon"
-							src="../img/userIcon.png"></a> {{/user}} {{/hider}} {{#user}} <a
-						class="nav-link" href="/userprofile/{{id}}">My Profile<img
-							id="icon" src="../img/userIcon.png"></a> {{/user}}
-					</li>
-					<li class="nav-item">{{#user}} <a class="nav-link"
-						href="/cart/{{id}}">My Cart<img id="icon"
-							src="../img/carrito.png"></a> {{/user}}
-					</li>
-
-				</ul>
-
-			</div>
-		</div>
-	</nav>
-
-	{{#loggeduser}}
-	<br>
-	<div></div>
-	<center>
-		<a href="/"><p><button class="btn btn-primary" styles><h2>Login correct. Go back to index</h2></button></p></a>
-	</center>
-
-	{{/loggeduser}}
 
 
-	<div id="profile">
-		{{#user}}
+
+	<div *ngIf=customer id="profile">
+	
 		<div>
-			<img id="userphoto" src={{imageUrl}}>
+			<img id="userphoto" src={{customer.imageUrl}}>
 		</div>
 		<div id="userinfo">
 
-			<div id="userinfo">
+				
 
 				<p>
-					<b>Name:</b> {{firstName}}
+					<b>Name:</b> {{customer.firstName}}
 				</p>
 				<p>
-					<b>Surname:</b>{{lastName}}
+					<b>Surname:</b>{{customer.lastName}}
 				</p>
 				<p>
-					<b>Address:</b> {{address}}
+					<b>Address:</b> {{customer.address}}
 				</p>
 				<p>
-					<b>Phone:</b>{{telephone}}
+					<b>Phone:</b>{{customer.telephone}}
 				</p>
 				<p>
-					<b>Mail: </b>{{mail}}
+					<b>Mail: </b>{{customer.mail}}
 				</p>
-				{{#hider}}
+		
 				<p>
-					<a href="/editprofile/{{id}}" class="btn btn-primary">Edit Info</a><a
+					<a href="/editprofile/{{customer.id}}" class="btn btn-primary">Edit Info</a><a
 						href="/" class="btn btn-primary">Back</a>
 				</p>
 				<p>
-					<a href="/orderlist/{{id}}" class="btn btn-primary">My Orders</a>
+					<a href="/orderlist/{{customer.id}}" class="btn btn-primary">My Orders</a>
 				</p>
 				<p>
-				<form action="/logout" method="post" style="position: relative; right: 2em;">
-					<input type="submit" class="btn btn-primary" value="   Log Out   " />
-					<input type="hidden" name="_csrf" value="{{token}}" />
-				</form>
+				
+					<input type="submit" (action)="logOut()" class="btn btn-primary" value="   Log Out   " />
+				
+				
 				</p>
-				{{/hider}}
-			</div>
+				
+		
 		</div>
 
 	</div>
 
-		-->
+		
 
 </body>
 
