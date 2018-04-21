@@ -14,7 +14,7 @@ customer:Customer;
   	 constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private customerService: CustomerService){
        let id = activatedRoute.params.subscribe(params => {
        	 this.customerService.getCustomer(params['id']).subscribe(
-      cart =>{
+      customer =>{
         this.customer=customerService.customer;
         
       

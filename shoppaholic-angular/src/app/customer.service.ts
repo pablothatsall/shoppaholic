@@ -27,6 +27,7 @@ export class CustomerService {
             //'Access-Control-Allow-Origin': '*'
         });
 
+
         const options = new RequestOptions({ withCredentials: true});
 
         this.http.get(URL + '/logIn',options).subscribe(
@@ -49,10 +50,11 @@ export class CustomerService {
     logIn(email: string, password: string) {
         
         const userPass = email + ':' + password;
-
+        var s =  utf8_to_b64(userPass);
         const headers = new Headers({
             //'Access-Control-Allow-Origin': '*',
-            'Authorization': 'Basic ' + utf8_to_b64(userPass),
+
+            'Authorization': 'Basic ' + btoa(userPass),
             'X-Requested-With': 'XMLHttpRequest'
         });
 

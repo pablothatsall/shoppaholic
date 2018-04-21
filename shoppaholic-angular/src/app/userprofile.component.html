@@ -1,9 +1,12 @@
-<navigation></navigation><!--
+<navigation></navigation>
+
+
 <body>
-
-
+    <br><br> hola
+<div *ngIf=customer>{{customer.firstName}}</div>
+<!--
 	<nav class="navbar navbar-expand-lg fixed-top">
-		<div class="container">
+		<div *ngIf=customer class="container">
 			<a class="navbar-brand" href="/"><img id="icon"
 				src="../img/logo.png">SHOPPAHOLIC</a>
 
@@ -87,12 +90,12 @@
 				{{/hider}}
 			</div>
 		</div>
-		{{/user}}
+
 	</div>
 
-
+		-->
 
 </body>
 
--->
+
 <footercomponent></footercomponent>
