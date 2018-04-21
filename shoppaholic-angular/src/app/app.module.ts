@@ -49,8 +49,9 @@ import { routing } from './app.routing';
     OrderlistComponent,
     PaymentComponent,
  
-    userprofileComponent,
+    
     */
+    userprofileComponent,
      CartComponent,
     SearchComponent,
     ProductComponent,
