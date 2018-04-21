@@ -30,7 +30,14 @@ export class ProductService {
   }
 
    addToCart(id:number|string){
-       return this.http.post('http://localhost:4200/api/addToCart/' + id, { withCredentials: true })
+  const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest',
+            //'Access-Control-Allow-Origin': '*'
+        });
+
+
+        const options = new RequestOptions({ withCredentials: true, headers});
+      return this.http.post('http://localhost:4200/api/addToCart/' + id, options)
       .map(response => response.json())
       .catch(error => this.handleError(error));
   

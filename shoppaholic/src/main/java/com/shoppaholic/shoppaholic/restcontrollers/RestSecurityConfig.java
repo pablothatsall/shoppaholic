@@ -38,6 +38,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/login").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/product/{id}").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/topproducts").permitAll();
 		// Disable CSRF protection (it is difficult to implement with ng2)
 		http.csrf().disable();
 

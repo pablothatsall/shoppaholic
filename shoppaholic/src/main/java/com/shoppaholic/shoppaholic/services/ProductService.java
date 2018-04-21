@@ -65,7 +65,7 @@ public class ProductService {
 		return productRepository.findByScore(score,page);
 	}
 	
-	public Page<Product>findTop5ByOrderByScoreDesc(Pageable page){
+	public Page<Product>findTop5ByOrderByScoreDesc(int x,Pageable page){
 		return productRepository.findTop5ByOrderByScoreDesc(page);
 	}
 	

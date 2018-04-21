@@ -7,6 +7,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -68,6 +71,18 @@ public class RestProductController {
 		
 		return new ResponseEntity<>(x,HttpStatus.OK);
 		
+	}
+	
+	@RequestMapping(value="/api/topproducts/{npage}", method = RequestMethod.GET)
+	public ResponseEntity<Page<Product>> SearchTopProducts (@PageableDefault(size = 8) Pageable page, @PathVariable int npage){
+		if (npage > 1) {
+			int aux = npage;
+			while (aux!=1) {
+			page = page.next();
+			aux= aux-1;
+			}
+		}
+		return new ResponseEntity<>(productService.findTop5ByOrderByScoreDesc(1,page),HttpStatus.OK);
 	}
 	
 	@RequestMapping(value="/api/productComments/{id}", method=RequestMethod.GET)

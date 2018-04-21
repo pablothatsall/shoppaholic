@@ -14,20 +14,35 @@ const BASE_URL = 'http://localhost:4200/api/firstproducts';
   export class HomeComponent {
 
   products:Product[];
+  topproducts:Product[];
  
   
  constructor(private http: Http,  private productService: ProductService){}
 
     ngOnInit() {
     this.refresh();
+
   }
 
   private refresh() {
     this.http.get(BASE_URL).subscribe(
       response => this.products = response.json(),
+
+      error => this.handleError(error)
+    );
+
+this.http.get('localhost:4200/api/topproducts/1').subscribe(
+      response => this.topproducts = response.json(),
+    
       error => this.handleError(error)
     );
   }
+
+
+
+
+
+  
 
     
   
