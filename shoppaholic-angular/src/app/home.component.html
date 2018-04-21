@@ -179,12 +179,12 @@
             </div>
             <div class="col-lg-3 portfolio-item  pull-left">
                 <h4 style="padding-bottom: 5px">January's best products</h4>
-                <div *ngFor="let productx of topproducts "class="list-group">
-               
-                  <a [routerLink]="['/product',productx.id]" class="list-group-item list-group-item-action">
-                        <img class="img-fluid col-lg-4" src="{{productx.imageUrl}}">{{productx.name}}
+                <div class="list-group">
+               <!-- {{#best}}
+                    <a href="/product/{{id}}" class="list-group-item list-group-item-action">
+                        <img class="img-fluid col-lg-4" src="{{imageUrl}}">{{name}}
                     </a>
-                 AQUI ARREGLAR PARA ANGULAR
+                {{/best}}--> AQUI ARREGLAR PARA ANGULAR
                 </div>
             </div>
 

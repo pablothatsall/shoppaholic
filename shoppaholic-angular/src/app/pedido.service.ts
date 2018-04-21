@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 import { Observable } from "rxjs/Observable";
 import { Product } from './product.model';
 import { Customer } from './customer.model';
-import { CustomerService } from './customer.service';
+
 
 
 
@@ -23,7 +23,7 @@ export class PedidoService {
 
         const headers = new Headers({
             //'Access-Control-Allow-Origin': '*',
-              'Authorization': 'Basic ' + btoa(userPass),
+            'Authorization': 'Basic ' + utf8_to_b64(userPass),
             'X-Requested-With': 'XMLHttpRequest'
         });
 
