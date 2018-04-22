@@ -1,20 +1,12 @@
 <navigation></navigation>
 <body>
-    <div *ngFor="let order of orders">
-   Order Id: {{order.id}} 
-   Total Price: {{order.totalPrice}}
-    </div>
-
-    <!-- Page Content 
     <div class="container">
-
-      <h1 class="my-4">Your Orders: 
-        <small>{{ordersize}}</small>
-      </h1>
-	
-     
-      <div class="row" >
-      {{#orders}}
+		<div *ngIf="orders">
+      		<h1 class="my-4">Your Orders:<small>{{orders.length}}</small></h1>
+		</div>
+        
+      
+	<div *ngFor="let order of orders" class="row">
         <div class="col-md-3" id="orderImage">
             <a href="#">
                 <img class="img-fluid rounded mb-3 mb-md-0" src="https://jargonwriter.files.wordpress.com/2010/04/shoppingcartfinal1.jpg?w=240" alt="">
@@ -22,46 +14,32 @@
         </div>
         <div class="col-md-8">
             <div class="orderSpecifications">
-                <h5><strong>Order number: </strong>{{id}}</h5>
+                <h5><strong>Order number: </strong>{{order.id}}</h5>
                 <div class="col-md-6 float-md-left">
-
-                    <label><strong>Number of products: </strong>{{productsofPedido.size}}</label>
+                    <label><strong>Number of products: </strong>{{order.productsofPedido.length}}</label>
                     <br>
-                    <label><strong>Order Date: </strong>{{date}}</label>
+                    <label><strong>Order Date: </strong>{{order.date}}</label>
                     <br>
                 </div>
                 <div class="col-md-6 float-md-right">
-
                     <label><strong>Estimated Shipping Date: </strong>In 1 week</label>
                     <br>
-                    <label><strong>Shipping Status: </strong>{{status}}</label>
+                    <label><strong>Shipping Status: </strong>{{order.status}}</label>
                     <br>
                 </div>
             </div>
             <div class="assets">
-                <label><strong>Total Price: </strong>{{totalPrice}}€</label>
-                <a class="btn btn-outline-secondary float-md-right" href="/order/{{id}}">View</a>
+                <label><strong>Total Price: </strong>{{order.totalPrice}}€</label>
+                <a class="btn btn-outline-secondary float-md-right" [routerLink]="['/order',order.id]">View</a>
             </div>
         </div>
-        {{/orders}}
-    </div>
+	</div>
     <br>
     
-
       <hr>
-
      
-
       <hr>
-
     
-
-
     </div>
-    <!-- /.container -->
-
-
-
-  </body>
+</body>
 <footercomponent></footercomponent>
-
