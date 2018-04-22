@@ -31,11 +31,11 @@
 				</p>
 		
 				<p>
-					<a href="/editprofile/{{customer.id}}" class="btn btn-primary">Edit Info</a><a
-						href="/" class="btn btn-primary">Back</a>
+					<a [routerLink]="['/editprofile',customer.id]" class="btn btn-primary">Edit Info</a>
+                    <a [routerLink]="['/']" class="btn btn-primary">Back</a>
 				</p>
 				
-					<a [routerLink]="['/myorders',customer.id]" class="nav-link">My Orders</a>
+					<a [routerLink]="['/myorders',customer.id]" class="btn btn-primary">My Orders</a>
 				
 				<p>
 				

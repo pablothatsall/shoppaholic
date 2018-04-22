@@ -1,4 +1,5 @@
-  <body>
+<navigatiosn></navigatiosn>
+<body>
 
 
    
@@ -10,12 +11,12 @@
         </div>
 
         <div class="container">
-          <div class="row">
+          <div *ngIf="customer" class="row">
             <div class="col-sm">
             </div>
             <div class="col-sm">
-            	{{#customer}}
-               <img id ="userphoto" src={{imageUrl}}>
+            	
+               <img id ="userphoto" src={{customer.imageUrl}}>
                <div class="form-group">
                <form action="/image/upload" method="post"enctype="multipart/form-data" id="form-image">
 					<div>
@@ -24,49 +25,48 @@
 				 	<button type="submit" class="btn btn-primary btn-lg uploadImg">Change Image</button>
 				</form>
 				</div>
-                  {{/customer}}
+           
             </div>
                
 
             <div class="col-sm">
 
             <div class="form-group"> 
-         {{#customer}}
+  
                 <label class="control-label" id="lab" for="textinput">Name</label>  
-                <input id="textinput" name="userfirstname" placeholder="{{firstName}}" class="form-control input-md" type="text">
-             {{/customer}}    
+                <input id="textinput" name="userfirstname" placeholder="{{customer.firstName}}" class="form-control input-md" type="text">
+
             </div>
 
         <!-- Text input-->
             <div class="form-group">
-             {{#customer}}
+
                 <label class="control-label" id="lab" for="textinput">Last Name</label>  
-                <input id="textinput" name="userlastname" placeholder="{{lastName}}" class="form-control input-md"  type="text">
-             {{/customer}} 
+                <input id="textinput" name="userlastname" placeholder="{{customer.lastName}}" class="form-control input-md"  type="text">
+
             </div>
             
           
 
             <div class="form-group">
-             {{#customer}}
+
                 <label class="control-label" id="lab" for="textinput">Mail</label>  
-                <input id="textinput" name="usermail" placeholder={{mail}} class="form-control input-md" type="text">
-             {{/customer}} 
+                <input id="textinput" name="usermail" placeholder={{customer.mail}} class="form-control input-md" type="text">
+
             </div>
             
-                  <div class="form-group">
-             {{#customer}}
+
                 <label class="control-label" id="lab" for="textinput">Telephone:</label>  
-                <input id="textinput" name="usertelephone" placeholder="{{telephone}}" class="form-control input-md"  type="text">
-             {{/customer}} 
+                <input id="textinput" name="usertelephone" placeholder="{{customer.telephone}}" class="form-control input-md"  type="text">
+ 
             </div>
 
         <!-- Textarea -->
             <div class="form-group">
-             {{#customer}}
+
                 <label class="control-label" id="lab" for="textarea">Address</label>
-                <textarea class="form-control"name="useraddress" id="textarea" placeholder="{{address}}" name="descriptionproduct"></textarea>
-             {{/customer}} 
+                <textarea class="form-control"name="useraddress" id="textarea" placeholder="{{customer.address}}" name="descriptionproduct"></textarea>
+
             </div>
 
 
@@ -83,7 +83,7 @@
               
             </div>
           </div>
-        </div>
+       
 
     </form>
     
@@ -114,3 +114,4 @@
 
   </body>
 
+<footercomponent></footercomponent>
