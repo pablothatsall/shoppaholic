@@ -14,14 +14,8 @@ import { CustomerService } from './customer.service';
 export class PedidoService {
    constructor(private http: Http, ) { };
 
-      getPedido(id:number, customer:Customer){
-      const userPass = customer.mail + ':' + customer.password;
-
-        const headers = new Headers({
-            //'Access-Control-Allow-Origin': '*',
-              'Authorization': 'Basic ' + btoa(userPass),
-            'X-Requested-With': 'XMLHttpRequest'
-        });
+      getPedido(id:number){
+     
 
 
 

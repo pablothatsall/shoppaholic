@@ -55,15 +55,7 @@ export class ProductService {
         return Observable.throw('Server error (' + error.status + '): ' + error.text);
     }
 
-/*
-addProduct(product:Product){
 
-
-  
-}
-
-
-*/
 
     /*  addToCart(){
     this.pedidoService.addToCart(id).subscribe(

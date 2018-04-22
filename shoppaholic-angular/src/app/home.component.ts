@@ -21,7 +21,7 @@ const BASE_URL = 'http://localhost:4200/api/firstproducts';
 
     ngOnInit() {
     this.refresh();
-
+    this.top();
   }
 
   private refresh() {
@@ -31,16 +31,16 @@ const BASE_URL = 'http://localhost:4200/api/firstproducts';
       error => this.handleError(error)
     );
 
+  }
+private top(){
+
 this.http.get('localhost:4200/api/topproducts/1').subscribe(
       response => this.topproducts = response.json(),
     
       error => this.handleError(error)
     );
-  }
 
-
-
-
+}
 
   
 

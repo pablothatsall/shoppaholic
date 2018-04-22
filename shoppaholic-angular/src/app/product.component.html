@@ -76,7 +76,7 @@
           <h4 style="padding-bottom: 5px; padding-top: 5px">Top<!-- {{product.label}}--></h4>
                 <div *ngIf="product" class="list-group">
                <!-- {{#topsLabel}}-->
-                    <a [routerLink]="['/product/1']" class="list-group-item list-group-item-action">
+                    <a [routerLink]="['/product/product.id']" class="list-group-item list-group-item-action">
                         <img class="img-fluid col-lg-4" src="{{product.imageUrl}}">{{product.name}}
                     </a>
                <!--   {{/topsLabel}}-->
