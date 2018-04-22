@@ -30,6 +30,7 @@ const appRoutes = [
   { path: 'customer/:id', component: userprofileComponent},
   { path: 'home', component:HomeComponent },
   { path: 'myorders/:id', component:OrderlistComponent },
+  { path: 'order/:id', component:OrderComponent },
   { path: 'home/search/:searchtext', component:SearchComponent },
   { path: 'cart/:id', component:CartComponent },
   { path: 'login', component:LoginComponent },
