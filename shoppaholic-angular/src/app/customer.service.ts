@@ -28,7 +28,7 @@ export class CustomerService {
         });
 
 
-        const options = new RequestOptions({ withCredentials: true});
+        const options = new RequestOptions({ withCredentials: true, headers});
 
         this.http.get(URL + '/logIn',options).subscribe(
             response => this.processLogInResponse(response),
