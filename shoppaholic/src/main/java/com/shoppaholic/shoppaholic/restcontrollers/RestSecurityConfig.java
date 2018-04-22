@@ -28,8 +28,13 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		// URLs that need authentication to access to it
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/order/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/deleteFromCart/**").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/addToCart/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/paycart/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/myorders/**").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/customer/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/editcustomer/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/newcomment/**").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/productGetComments/{id}").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/admin/**").hasRole("ADMIN");
@@ -41,6 +46,8 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/product/{id}").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/products").permitAll();
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/topproducts").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/comments").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/firstproducts").permitAll();
 		// Disable CSRF protection (it is difficult to implement with ng2)
 		http.csrf().disable();
 
