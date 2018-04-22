@@ -49,6 +49,26 @@ export class PedidoService {
       .catch(error => this.handleError(error));
   
     }
+
+     payCart(){
+  const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest',
+            //'Access-Control-Allow-Origin': '*'
+        });
+
+
+        const options = new RequestOptions({ withCredentials: true, headers});
+
+
+
+
+    
+
+      return this.http.post('http://localhost:4200/api/paycart/', options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
+    }
     private handleError(error: any) {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text);

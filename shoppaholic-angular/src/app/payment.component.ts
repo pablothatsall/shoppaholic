@@ -1,4 +1,5 @@
 
+
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PedidoService } from './pedido.service';
@@ -32,5 +33,18 @@ import { Http, Response,Headers, RequestOptions } from '@angular/http';
   });
 
   }
+
+  payCart(){
+    this.pedidoService.payCart().subscribe(
+       
+      payment =>{ 
+        this.customerService.reqIsLogged
+       
+        },
+      error => console.error(error)
+    )
+     this.router.navigate(['/'])}
+  
               
 }
+

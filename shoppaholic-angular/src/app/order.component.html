@@ -1,7 +1,10 @@
 <navigation></navigation>
 
 <body>
-    <div *ngIf="order">{{order.totalPrice}}</div>
+
+   
+
+
 	<div class="container">
 		<div *ngIf="order">
 			<br>
@@ -14,7 +17,8 @@
 			<small>{{order.productsofPedido.length}}</small>
 		</h2>
 
-		<div class="row">
+
+		<div *ngIf="order" class="row">
 			<div *ngFor="let product of order.productsofPedido">
 				<div class="col-md-3" id="orderImage">
 					<a href="#">
