@@ -206,4 +206,6 @@ https://github.com/pablothatsall/shoppaholic/blob/master/API.md
 
 - Por último con ***ng open*** abrimos la aplicación en el navegador la cual esta situada en la URL: http: // localhost: 4200 /.
 
+### Diagrama de Clases y Templates
 
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/diagramaF5.png)
