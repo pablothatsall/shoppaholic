@@ -38,6 +38,7 @@ const appRoutes = [
   { path: 'payment/:id', component: PaymentComponent},
   { path: 'product/:id', component:ProductComponent },
   { path: 'search/:searchtext', component:SearchComponent},
+  { path: 'editprofile/:id', component: EditProfileComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
   

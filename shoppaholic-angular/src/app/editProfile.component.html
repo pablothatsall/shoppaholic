@@ -1,4 +1,4 @@
-<navigatiosn></navigatiosn>
+<navigation></navigation>
 <body>
 
 
@@ -38,7 +38,7 @@
 
             </div>
 
-        <!-- Text input-->
+
             <div class="form-group">
 
                 <label class="control-label" id="lab" for="textinput">Last Name</label>  
@@ -60,8 +60,6 @@
                 <input id="textinput" name="usertelephone" placeholder="{{customer.telephone}}" class="form-control input-md"  type="text">
  
             </div>
-
-        <!-- Textarea -->
             <div class="form-group">
 
                 <label class="control-label" id="lab" for="textarea">Address</label>
@@ -70,7 +68,7 @@
             </div>
 
 
-        <!-- Button (Double) -->
+
             <div class="form-group">
                 <label class="control-label" for="btnCancel"></label>
                 <div class="col-md-8">
@@ -87,9 +85,9 @@
 
     </form>
     
-<!--  
-{{#customer}}
-      <div id="profile">
+<!--
+
+      <div *ngIf="customer" id="profile">
           <div><img id ="userphoto" src={{imageUrl}}> </div>
           <div id="userinfo">
           
@@ -108,8 +106,7 @@
           
        
       </div>
-       
-{{/customer}}  -->    
+       -->
 
 
   </body>
