@@ -47,11 +47,12 @@ import { routing } from './app.routing';
     ManageUserComponent,
     OrderComponent,
    
-    PaymentComponent,
+    
  
     
     */
-     OrderlistComponent,
+    PaymentComponent,
+    OrderlistComponent,
     userprofileComponent,
      CartComponent,
     SearchComponent,

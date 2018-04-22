@@ -35,6 +35,7 @@ const appRoutes = [
   { path: 'login', component:LoginComponent },
   { path: 'loginError', component:LoginErrorComponent },
   { path: 'signUp', component: SignUpComponent},
+  { path: 'payment/:id', component: PaymentComponent},
   { path: 'product/:id', component:ProductComponent },
   { path: 'search/:searchtext', component:SearchComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }

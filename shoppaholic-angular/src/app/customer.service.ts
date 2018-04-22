@@ -18,6 +18,7 @@ export class CustomerService {
 
     constructor(private http: Http,private router: Router) {
         //this.reqIsLogged();
+
     }
 
     reqIsLogged() {
@@ -30,7 +31,7 @@ export class CustomerService {
 
         const options = new RequestOptions({ withCredentials: true, headers});
 
-        this.http.get(URL + '/logIn',options).subscribe(
+        this.http.post(URL + '/logIn',options).subscribe(
             response => this.processLogInResponse(response),
             error => {
                 if (error.status !== 401) {
@@ -48,7 +49,7 @@ export class CustomerService {
     }
 
     logIn(email: string, password: string) {
-        
+          
         const userPass = email + ':' + password;
         var s =  utf8_to_b64(userPass);
         const headers = new Headers({
@@ -63,6 +64,8 @@ export class CustomerService {
         return this.http.get(URL + '/login', options).map(
             response => {
                 this.processLogInResponse(response);
+              
+
                 return this.customer;
             }
         );
