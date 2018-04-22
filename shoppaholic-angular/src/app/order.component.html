@@ -1,44 +1,39 @@
-    <!-- Page Content -->
-    <div class="container">
-	{{#pedido}}
-	<br>
-	<h1>Order ID : {{id}}</h1>
-	<h3>Status: {{status}}</h3>
-	<h3>Price: {{totalPrice}}</h3>
-	{{/pedido}}
-      <!-- Page Heading -->
-      <h2 class="my-4">Order Products: 
-        <small>{{cantidad}}</small>
-      </h2>
+<navigation></navigation>
+<body>
+	
+	<div class="container">
+		<div *ngIf="order">
+			<br>
+			<h1>Order ID : {{order.id}}</h1>
+			<h3>Status: {{order.status}}</h3>
+			<h3>Price: {{order.totalPrice}}</h3>
+		</div>
+		
+		<h2 *ngIf="order" class="my-4">Order Products: 
+			<small>{{order.productsofPedido.length}}</small>
+		</h2>
 
+		<div class="row">
+			<div *ngFor="let product of order.productsofPedido">
+				<div class="col-md-3" id="orderImage">
+					<a href="#">
+						<img class="img-fluid rounded mb-3 mb-md-0" src="{{product.imageUrl}}" alt="">
+					</a>
+				</div>
 
-{{#productos}}
-      <!-- Project One -->
-      <div class="row" >
-        <div class="col-md-3" id="orderImage">
-            <a href="#">
-                <img class="img-fluid rounded mb-3 mb-md-0" src={{imageUrl}} alt="">
-            </a>
-        </div>
-        <div class="col-md-8">
-          <h5>{{name}}</h5>
-            <p>{{description}}</p>
-            <p>{{label}}</p>
-            <div class="assets">
-                <label><strong>Price: </strong>{{price}}€</label>
-                <a class="btn btn-outline-secondary float-md-right" href="/product/{{id}}">View</a>
-            </div>
-        </div>
+				<div class="col-md-8">
+					<h5>{{product.name}}</h5>
+					<p>{{product.description}}</p>
+					<p>{{product.label}}</p>
+					<div class="assets">
+						<label><strong>Price: </strong>{{product.price}}€</label>
+						<a class="btn btn-outline-secondary float-md-right" [routerLink]="['/product',product.id]">View</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
     </div>
- {{/productos}}  
-   
-      <hr>
-
-
-
-    </div>
-    <!-- /.container -->
-
-
-  </body>
-
+	
+</body>
+<footercomponent></footercomponent>
