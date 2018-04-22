@@ -192,7 +192,7 @@ https://github.com/pablothatsall/shoppaholic/blob/master/API.md
 
 ### Preparación del Entorno de Desarrollo
 
-- Primero es necesario descargar e instalar la herramienta angular-cli, para ello introducimos el comando ***npm install -g @angular/cli*** y automaticamente se ocupara de todo. Podemos usar el comando ***ng -v*** para comprobar la versión descargada y asi comprobar que el resultado ha sido correcto.
+- Primero es necesario descargar e instalar la herramienta angular-cli, para ello introducimos el comando ***npm install -g angular/cli*** y automaticamente se ocupara de todo. Podemos usar el comando ***ng -v*** para comprobar la versión descargada y asi comprobar que el resultado ha sido correcto.
 
 - Usando el comando ***ng new*** seguido del nombre que queramos generamos un nuevo proyecto.
 
