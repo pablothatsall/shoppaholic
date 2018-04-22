@@ -59,7 +59,7 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
        
       product =>{ 
         this.customerService.reqIsLogged
-        this.product=product;
+       
         },
       error => console.error(error)
     )

@@ -43,6 +43,21 @@ export class ProductService {
   
   }
 
+   deleteFromCart(id:number|string){
+  const headers = new Headers({
+          //  'X-Requested-With': 'XMLHttpRequest',
+            //'Access-Control-Allow-Origin': '*'
+        });
+
+
+        const options = new RequestOptions({ withCredentials: true, headers});
+      return this.http.delete('http://localhost:4200/api/deleteFromCart/' + id)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
+  }
+
+
       searchProducts(searchtext:string){
        return this.http.get('http://localhost:4200/api/searchname/' + searchtext + '/1',{ withCredentials: true })
       .map(response => response.json())
