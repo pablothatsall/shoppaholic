@@ -12,10 +12,27 @@ import { CustomerService } from './customer.service';
 
 @Injectable()
 export class PedidoService {
-   constructor(private http: Http) { };
+   constructor(private http: Http, ) { };
 
-      getPedido(id:number){
-      let url="http://localhost:4200/api/order/"+id;
+      getPedido(id:number, customer:Customer){
+      const userPass = customer.mail + ':' + customer.password;
+
+        const headers = new Headers({
+            //'Access-Control-Allow-Origin': '*',
+              'Authorization': 'Basic ' + btoa(userPass),
+            'X-Requested-With': 'XMLHttpRequest'
+        });
+
+
+
+
+
+    const options = new RequestOptions({ withCredentials: true });
+
+      return this.http.get('http://localhost:4200/api/order/' + id, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
     }
 
      getCart(id:number|string, customer:Customer){

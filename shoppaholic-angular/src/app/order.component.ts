@@ -14,15 +14,31 @@ import { Http, Response,Headers, RequestOptions } from '@angular/http';
 export class OrderComponent {
 	order:Pedido;
     customer:Customer;
+    constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private pedidoService: PedidoService, private customerService: CustomerService){
+       let id = activatedRoute.params.subscribe(params => {
+      this.pedidoService.getPedido(params['id'],customerService.customer).subscribe(
+      order =>{
+        this.order=order
+        
+      },
+      error =>  console.error(error)
+      );
+     
 
+     
+      
+  }); 
+
+/*
  	constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private pedidoService: PedidoService, private customerService: CustomerService){
 		let id = activatedRoute.params.subscribe(params => {
-       	this.pedidoService.getPedido(params['id'], customerService.customer).subscribe(
+       	this.pedidoService.getPedido(params['id']).subscribe(
     order =>{
         this.order = order
 			},
 			error =>  console.error(error)
 			);
 		});
-	}           
+	}*/           
+}
 }

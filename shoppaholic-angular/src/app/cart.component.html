@@ -86,7 +86,7 @@
                 <div class="row"><p><strong>Status</strong> {{cart.status}}</p></div>
           
 
-                <a class="btn btn-primary" href="/payment/">Proceed to pay</a>
+                <a class="btn btn-primary" [routerLink]="['/payment',cart.id]">Proceed to pay</a>
 
             </div>
         </div>
