@@ -10,4 +10,23 @@ import {Pedido} from './pedido.model'
   })
   export class OrderlistComponent {
   	orders:Pedido[];
-}
+
+  	 constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http, private customerService: CustomerService){
+       let id = activatedRoute.params.subscribe(params => {
+       	 this.customerService.getOrders(params['id']).subscribe(
+      orders =>{
+        this.orders=orders;
+     
+        
+      
+      },
+      error =>  console.error(error)
+      );
+     
+      
+  });
+
+  }
+            
+  }
+     

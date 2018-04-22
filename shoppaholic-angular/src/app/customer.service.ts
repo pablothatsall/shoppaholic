@@ -104,6 +104,14 @@ export class CustomerService {
       .catch(error => this.handleError(error));
   }
 
+    getOrders(id:number){
+        let url="http://localhost:4200/api/customer/myorders/"+id;
+        console.log(url);
+        
+        return this.http.get(url).map(
+          response => response.json())
+          .catch(error =>this.handleError(error))
+      }
 
   private handleError(error: any) {
         console.error(error);

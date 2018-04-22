@@ -1,5 +1,9 @@
 <navigation></navigation>
 <body>
+    <div *ngFor="let order of orders">
+   Order Id: {{order.id}} 
+   Total Price: {{order.totalPrice}}
+    </div>
 
     <!-- Page Content 
     <div class="container">
