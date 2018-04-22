@@ -104,6 +104,7 @@ public class Pedido {
     }
     public void addProduct(Product product) {
     	this.productsofPedido.add(product);
+    	this.totalPrice+=product.getPrice();
     }
     
     public void deleteProduct(Product product) {
