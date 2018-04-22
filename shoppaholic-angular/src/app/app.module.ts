@@ -40,12 +40,22 @@ import { routing } from './app.routing';
     AddProductComponent,
     AdministrationComponent,
     AdministrationProductComponent,
-    EditProductComponent,
-    ErrorComponent,
-    ManageUserComponent,
-  */
+   
     
+ 
+    ErrorComponent,
+  
+    
+    OrderlistComponent,
+    
+    
+
+
+    */ 
+  
     EditProfileComponent,
+    //ManageUserComponent, 
+    OrderComponent,
     PaymentComponent,
     OrderlistComponent,
     userprofileComponent,
@@ -57,8 +67,8 @@ import { routing } from './app.routing';
     HomeComponent,
     SignUpComponent,
     NavigationComponent,
-    FooterComponent,
-    OrderComponent
+    FooterComponent
+  
   
   ],
   imports: [

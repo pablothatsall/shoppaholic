@@ -27,19 +27,20 @@ import { HomeComponent } from './home.component';
 
 
 const appRoutes = [
+  //{ path: '/admin/manageUsers', component: ManageUserComponent},
   { path: 'customer/:id', component: userprofileComponent},
   { path: 'home', component:HomeComponent },
+  { path: 'editprofile/:id', component:EditProfileComponent },
   { path: 'myorders/:id', component:OrderlistComponent },
-  { path: 'order/:id', component:OrderComponent },
   { path: 'home/search/:searchtext', component:SearchComponent },
   { path: 'cart/:id', component:CartComponent },
   { path: 'login', component:LoginComponent },
   { path: 'loginError', component:LoginErrorComponent },
   { path: 'signUp', component: SignUpComponent},
-  { path: 'payment/:id', component: PaymentComponent},
   { path: 'product/:id', component:ProductComponent },
   { path: 'search/:searchtext', component:SearchComponent},
-  { path: 'editprofile/:id', component: EditProfileComponent },
+  { path: 'payment/:id', component:PaymentComponent },  
+
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 
   

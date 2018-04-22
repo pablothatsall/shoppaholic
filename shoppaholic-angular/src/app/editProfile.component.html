@@ -1,7 +1,6 @@
 <navigation></navigation>
 <body>
 
-
    
     <form class="form-horizontal">
 
@@ -73,7 +72,7 @@
                 <label class="control-label" for="btnCancel"></label>
                 <div class="col-md-8">
                     <button id="btnCancel" name="btnCancel" class="btn btn-primary">Cancel</button>
-                    <button id="btnSave" name="btnSave" class="btn btn-success">Save</button>
+                    <button type="submit "id="btnSave" name="btnSave" (click)="editProfile(userfirstname.value, userlastname.value, usermail.value, usertelephone.value, useraddress.value)" class="btn btn-success">Save</button>
                 </div>
             </div>
         </div>
@@ -84,29 +83,6 @@
        
 
     </form>
-    
-<!--
-
-      <div *ngIf="customer" id="profile">
-          <div><img id ="userphoto" src={{imageUrl}}> </div>
-          <div id="userinfo">
-          
-             <form class="field" action="/editprofile/{{id}}" id="editprofile" method="post">
-              <p><b>Username:</b> <input  name="userfirstname" id="userfirstname" type="text" placeholder="{{firstName}}"/></p>
-              <p><b>Mail: </b><input name="usermail" id="usermail" type="text" placeholder="{{mail}}"/></p>
-              <p><b>Surname:</b> <input name="userlastname" id="userlastname" type="text"  placeholder="{{lastName}}"/> </p>
-              <p><b>Address:</b> <input name="useraddress" id="useraddress" type="text"  placeholder="{{address}}"/></p>
-             
-              
-              <p><a href="/userprofile" class="btn btn-primary">Back</a>
-                <button type="submit" id="editprofile" class="btn btn-success">Edit</button></p>
-                <input type="hidden" name="_csrf" value="{{token}}"/>
-             </form> 
-          </div>
-          
-       
-      </div>
-       -->
 
 
   </body>

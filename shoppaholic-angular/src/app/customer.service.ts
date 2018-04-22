@@ -18,7 +18,6 @@ export class CustomerService {
 
     constructor(private http: Http,private router: Router) {
         //this.reqIsLogged();
-
     }
 
     reqIsLogged() {
@@ -31,7 +30,7 @@ export class CustomerService {
 
         const options = new RequestOptions({ withCredentials: true, headers});
 
-        this.http.post(URL + '/logIn',options).subscribe(
+        this.http.get(URL + '/logIn',options).subscribe(
             response => this.processLogInResponse(response),
             error => {
                 if (error.status !== 401) {
@@ -49,7 +48,7 @@ export class CustomerService {
     }
 
     logIn(email: string, password: string) {
-          
+        
         const userPass = email + ':' + password;
         var s =  utf8_to_b64(userPass);
         const headers = new Headers({
@@ -64,8 +63,6 @@ export class CustomerService {
         return this.http.get(URL + '/login', options).map(
             response => {
                 this.processLogInResponse(response);
-              
-
                 return this.customer;
             }
         );
@@ -103,6 +100,13 @@ export class CustomerService {
   createCustomer(user:Customer){
     let url = "http://localhost:4200/api/register";
     return this.http.post(url,user)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+
+    editCustomer(user:Customer){
+    let url = "http://localhost:4200/api/editCustomer";
+    return this.http.put(url,user)
       .map(response => response.json())
       .catch(error => this.handleError(error));
   }
