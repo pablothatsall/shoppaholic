@@ -33,14 +33,14 @@
             <div class="form-group"> 
   
                 <label class="control-label" id="lab" for="textinput">Name</label>  
-               <input #firstname id="firstname" name="firstname" placeholder="" required="required" class="form-control input-md" type="text">
+               <input #firstname id="firstname" name="firstname" placeholder="{{customer.firstName}}" required="required" class="form-control input-md" type="text">
             </div>
 
 
             <div class="form-group">
 
                 <label class="control-label" id="lab" for="textinput">Last Name</label>  
-                <input #lastname id="textinput" name="lastname" placeholder="" required="required"  class="form-control input-md" required="" type="text">
+                <input #lastname id="textinput" name="lastname" placeholder="{{customer.lastName}}" required="required"  class="form-control input-md" required="" type="text">
 
             </div>
             
@@ -49,19 +49,19 @@
             <div class="form-group">
 
                 <label class="control-label" id="lab" for="textinput">Mail</label>  
-                <input #mail id=mail name="mail" placeholder="" required="required" class="form-control input-md" type="text">
+                <input #mail id=mail name="mail" placeholder="{{customer.mail}}" required="required" class="form-control input-md" type="text">
 
             </div>
             
 
                 <label class="control-label" id="lab" for="textinput">Telephone:</label>  
-                <input #telephone id="textinput" name="telephone" placeholder="" required="required"  class="form-control input-md" required="" type="text">
+                <input #telephone id="textinput" name="telephone" placeholder="{{customer.telephone}}" required="required"  class="form-control input-md" required="" type="text">
  
             </div>
             <div class="form-group">
 
                 <label class="control-label" id="lab" for="textarea">Address</label>
-                 <textarea #address class="form-control" id="textarea" required="required"  name="address"></textarea>
+                 <textarea #address class="form-control" id="textarea" required="required" placeholder="{{customer.address}}" name="address"></textarea>
 
             </div>
 
