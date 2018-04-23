@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from './product.service';
 import { CommentService } from './comment.service';
+import { Comment } from './comment.model';
 import { CustomerService } from './customer.service';
 import {Product} from './product.model';
 import { Http, Response,Headers, RequestOptions } from '@angular/http';
@@ -16,7 +17,13 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
     ;
   product:Product;
   comments:Comment[];
+  newcomment:Comment;
    constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private productService: ProductService, private commentService: CommentService, private customerService:CustomerService){
+
+   
+   
+
+
        let id = activatedRoute.params.subscribe(params => {
               this.getComments(params['id']);
       this.productService.getProduct(params['id']).subscribe(
@@ -31,7 +38,7 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
      
       
   }); 
-
+ this.newcomment={id:5, customer:customerService.customer, comment:"", date:"", product:this.product,idLogged:customerService.customer.idLogged};
 
   }
 
@@ -64,6 +71,22 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
       error => console.error(error)
     )
   }
+
+  AddCommment(id:number, commentinfo:string){
+    this.newcomment.comment=commentinfo;
+
+
+    this.commentService.addComments(id,this.newcomment).subscribe(
+       
+      product =>{ 
+        this.product=product;
+       
+        },
+      error => console.error(error)
+    )
+  }
+
+
 
    createProduct(artist:Product){
     let url="http://localhost:4200/api/admin/newproduct";

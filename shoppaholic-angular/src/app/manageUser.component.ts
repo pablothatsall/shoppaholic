@@ -39,6 +39,7 @@ import { CustomerService } from './customer.service';
         },
       error => console.error(error)
     )
+    this.router.navigate(['/admin'])
   }
 
 }

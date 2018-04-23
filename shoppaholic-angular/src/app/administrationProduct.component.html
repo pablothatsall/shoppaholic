@@ -3,9 +3,7 @@
 
   <body>
 
-
     <form class="form-horizontal">
-
 
         <div>
             <h3 id="tit">Edit or Delete Product</h3>
@@ -13,28 +11,25 @@
 
         <div class="container">
           <div class="row">
-            <div class="col-sm">
-            </div>
+
 
             <div class="col-sm">
 
-            <div class="form-group">
-                <label class="control-label" id="lab" for="textinput">Product ID</label>  
-                <input #id id="textinput" name="textinput" placeholder="" class="form-control input-md" required="" type="text">
-            </div>
+             
+       
+        
 
-        <!-- Button (Double) -->
-            <div class="form-group">
+ 
+          <div *ngFor="let product of products"class="form-group">
                 <label class="control-label" for="btnCancel"></label>
                 <div class="col-md-12">
-                    <button id="btnCancel" name="btnCancel" class="btn btn-primary" [routerLink]="['/editproduct',id.value]" > Edit Product</button>
-                    <button id="btnSave" name="btnSave" class="btn btn-success">Delete Product</button>
+                    {{product.name}}
+                    <button  [routerLink]="['/editproduct',product.id]"> Edit Product</button>
+                    <button id="btnSave" name="btnSave" class="btn btn-success" (click)="deleteProduct(product.id)">Delete Product</button>
                 </div>
             </div>
         </div>
-            <div class="col-sm">
-              
-            </div>
+ 
           </div>
         </div>
 

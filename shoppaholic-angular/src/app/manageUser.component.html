@@ -9,23 +9,17 @@
     <h3 id="tit">Manage Users</h3>
 </div>
 
-<div class="container">
+<div  class="container">
   <div class="row">
 
 
     <div  class="col-sm">
         
-<form class="form-horizontal">
-<select  name="deletion">
- 
- 
-    <option  *ngFor="let customer of customers" value={{customer.id}} #firstname>{{customer.mail}}</option>
-  
-
-</select>
-        
-                      <button type="submit" id="deletion"(click)="deleteUser(3)" class="btn btn-success">Delete User</button><!--OJOAL3-->
-                </form>
+        <form class="form-horizontal">
+            <div  *ngFor="let customer of customers">{{customer.mail}}
+                    <button type="submit" id="deletion"(click)="deleteUser(customer.id)" class="btn btn-success">Delete User</button><!--OJOAL3-->
+            </div>
+        </form>
                 
     </div>
 

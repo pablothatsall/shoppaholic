@@ -23,7 +23,12 @@ export class ProductService {
     }
 
     getProducts(){
-       return this.http.get('http://localhost:4200/api/products/', { withCredentials: true })
+        const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest',
+            //'Access-Control-Allow-Origin': '*'
+        });
+
+       return this.http.get('http://localhost:4200/api/products', { withCredentials: true, headers })
       .map(response => response.json())
       .catch(error => this.handleError(error));
   
@@ -51,11 +56,26 @@ export class ProductService {
 
 
         const options = new RequestOptions({ withCredentials: true, headers});
-      return this.http.post('http://localhost:4200/api/admin/newproduct', options, product)
+      return this.http.post('http://localhost:4200/api/admin/newproduct/', product)
       .map(response => response.json())
       .catch(error => this.handleError(error));
   
   }
+
+  deleteProduct(id:number){
+  const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest',
+            //'Access-Control-Allow-Origin': '*'
+        });
+
+
+        const options = new RequestOptions({ withCredentials: true, headers});
+      return this.http.delete('http://localhost:4200/api/admin/deleteProduct/' + id, options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
+  }
+
 
    deleteFromCart(id:number|string){
   const headers = new Headers({

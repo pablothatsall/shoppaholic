@@ -63,9 +63,9 @@
             </div>
           </div>
        
-	 <form class="form-horizontal">
- Add your comment: <input type="text" name="addcomment" value="">
-   <button id="btnSave" name="btnSave" class="btn btn-success">Save</button>
+	 <form>
+ Add your comment: <input #commentinfo type="text" name="commentinfo" value="">
+     <button class="btn btn-primary" type="button" (click)="AddComment(product.id,'HOLAAA')">Add Comment</button>
 </form>
 
 
@@ -75,11 +75,11 @@
 
           <h4 style="padding-bottom: 5px; padding-top: 5px">Top<!-- {{product.label}}--></h4>
                 <div *ngIf="product" class="list-group">
-               <!-- {{#topsLabel}}-->
+
                     <a [routerLink]="['/product/product.id']" class="list-group-item list-group-item-action">
                         <img class="img-fluid col-lg-4" src="{{product.imageUrl}}">{{product.name}}
                     </a>
-               <!--   {{/topsLabel}}-->
+           
                 </div>
 
  
