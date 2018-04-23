@@ -63,6 +63,33 @@ export class ProductService {
   }
 
 
+
+    getTopProducts(){
+        const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest',
+            //'Access-Control-Allow-Origin': '*'
+        });
+
+       return this.http.get('http://localhost:4200/api/topproducts/1', { withCredentials: true})
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
+
+  }
+
+   getTopLabelProducts(label:String){
+        const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest',
+            //'Access-Control-Allow-Origin': '*'
+        });
+
+       return this.http.get('http://localhost:4200/api/toplabelproducts/'+label + '/1', { withCredentials: true})
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
+  }
+
+
   editProduct(product:Product, id:number){
   const headers = new Headers({
             'X-Requested-With': 'XMLHttpRequest',

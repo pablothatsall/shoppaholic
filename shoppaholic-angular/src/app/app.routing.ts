@@ -9,7 +9,7 @@ import { EditProductComponent } from './editProduct.component';
 import { EditProfileComponent } from './editProfile.component';
 import { ErrorComponent } from './error.component';
 
-
+import { topProductsComponent } from './topProducts.component';
 import { LoginErrorComponent } from './loginerror.component';
 import { ManageUserComponent } from './manageUser.component';
 import { OrderComponent } from './order.component';
@@ -27,6 +27,7 @@ import { HomeComponent } from './home.component';
 
 
 const appRoutes = [
+
   { path: 'order/:id', component: OrderComponent},
   { path: 'adminproducts', component: AdministrationProductComponent},
   { path: 'editproduct/:id', component: EditProductComponent},

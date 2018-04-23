@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-
+import { topLabelProductsComponent } from './topLabelProducts.component';
+import { topProductsComponent } from './topProducts.component';
 import { SignUpComponent } from './signUp.component';
 import { NavigationComponent } from './navigation.component';
 import { FooterComponent } from './footer.component';
@@ -47,6 +48,8 @@ import { routing } from './app.routing';
     OrderlistComponent,
     userprofileComponent,
     CartComponent,
+    topProductsComponent,
+    topLabelProductsComponent,
     SearchComponent,
     ProductComponent,
     LoginComponent,
