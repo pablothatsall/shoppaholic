@@ -36,9 +36,9 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
      
 
      
-      
+      this.newcomment={id:5, customer:customerService.customer, comment:"", date:"", product:this.product,idLogged:null};
+
   }); 
- this.newcomment={id:5, customer:customerService.customer, comment:"", date:"", product:this.product,idLogged:customerService.customer.idLogged};
 
   }
 
@@ -72,18 +72,17 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
     )
   }
 
-  AddCommment(id:number, commentinfo:string){
-    this.newcomment.comment=commentinfo;
-
-
+  AddComment(id:number, commentinfo:string){
+    
+      this.newcomment.comment=commentinfo;
     this.commentService.addComments(id,this.newcomment).subscribe(
        
       product =>{ 
-        this.product=product;
-       
+      
         },
       error => console.error(error)
     )
+     this.router.navigate(['/product',id])
   }
 
 

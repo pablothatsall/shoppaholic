@@ -62,12 +62,12 @@
            
             </div>
           </div>
-       
-	 <form>
- Add your comment: <input #commentinfo type="text" name="commentinfo" value="">
-     <button class="btn btn-primary" type="button" (click)="AddComment(product.id,'HOLAAA')">Add Comment</button>
-</form>
+       <div *ngIf="product">
+	 
+ Add your comment: <input #commentinfo type="text" name="commentinfo">
+     <button class="btn btn-primary" type="button" (click)="AddComment(product.id,commentinfo.value)">Add Comment</button>
 
+</div>
 
           </div>
      
