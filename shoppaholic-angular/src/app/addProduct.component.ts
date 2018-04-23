@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {Customer} from './customer.model';
 import {Product} from './product.model'
 import { ProductService } from './product.service';
+import { CustomerService } from './customer.service';
 
 @Component({
     selector: 'addProduct',
@@ -11,10 +12,18 @@ import { ProductService } from './product.service';
   })
   export class AddProductComponent {
 product:Product;
-constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private productService: ProductService){}
+constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private productService: ProductService, private customerService:CustomerService){
+
+	 this.product={id:36, name:"", price:4, label:"", description:"",imageUrl:"",pDate:"",score:0,comments:null,idLogged:null};
+
+	
+    
+  
+    
+}
 
 
- addProduct (name:string,price:number,labels:string,description:string){
+addProduct (name:string,price:number,labels:string,description:string){
  	
 this.product.name=name;
 this.product.price=price;
