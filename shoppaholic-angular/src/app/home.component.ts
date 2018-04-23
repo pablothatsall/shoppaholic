@@ -17,11 +17,25 @@ const BASE_URL = 'http://localhost:4200/api/firstproducts';
   topproducts:Product[];
  
   
- constructor(private http: Http,  private productService: ProductService){}
+ constructor(private http: Http,  private productService: ProductService, activatedRoute:ActivatedRoute){ let id = activatedRoute.params.subscribe(params => {
+          this.productService.getTopProducts().subscribe(
+          
+        topproducts => {this.topproducts = topproducts.getContent()},
+      
+      
+      error =>  console.error(error)
+      );
+     
+      
+  });
+}
 
     ngOnInit() {
     this.refresh();
     this.top();
+      
+  
+
   }
 
   private refresh() {

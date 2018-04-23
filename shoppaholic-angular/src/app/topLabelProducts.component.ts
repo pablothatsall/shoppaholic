@@ -17,7 +17,7 @@ import { Http } from '@angular/http';
        let id = activatedRoute.params.subscribe(params => {
        	 this.productService.getTopLabelProducts(params['searchtext']).subscribe(
           
-        topproducts => {this.toplabelproducts = topproducts.getContent()},
+        toplabelproducts => {this.toplabelproducts = toplabelproducts.getContent()},
       
       
       error =>  console.error(error)

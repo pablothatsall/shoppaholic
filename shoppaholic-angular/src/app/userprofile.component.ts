@@ -13,14 +13,12 @@ customer:Customer;
 isAdmin:boolean;
 
   	 constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private customerService: CustomerService){
-       this.isAdmin=false;
+       if(customerService.customer.roles.length>1){this.isAdmin=true}else{this.isAdmin=false};
        let id = activatedRoute.params.subscribe(params => {
        	 this.customerService.getCustomer(params['id']).subscribe(
       customer =>{
         this.customer=customerService.customer;
-        if(this.customer.roles.indexOf("ADMIN")==1 || this.customer.roles.indexOf("ADMIN")==0){
-          this.isAdmin=true;
-        }
+
       
       },
       error =>  console.error(error)

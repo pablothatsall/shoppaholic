@@ -73,7 +73,7 @@
      
         <div class="col-lg-4">
 
-          <h4 style="padding-bottom: 5px; padding-top: 5px">Top<!-- {{product.label}}--></h4>
+          <h4 style="padding-bottom: 5px; padding-top: 5px"><!-- Top{{product.label}}--></h4>
                 <div *ngIf="product" class="list-group">
 
                     <a [routerLink]="['/product/product.id']" class="list-group-item list-group-item-action">
@@ -82,6 +82,14 @@
            
                 </div>
 <toplabelproducts></toplabelproducts>
+             <div *ngFor="let product of toplabelproducts">{{product.name}}
+                    AQUI ARREGLAR PARA ANGULAR {{product.name}}
+               <!--
+                  <a [routerLink]="['/product',product.id]" class="list-group-item list-group-item-action">
+                        <img class="img-fluid col-lg-4" src="{{product.imageUrl}}">{{product.name}}
+                    </a>-->
+                 
+                </div>
  
         </div>
      
