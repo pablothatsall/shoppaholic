@@ -35,6 +35,7 @@ import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
+    AdministrationProductComponent ,
     AppComponent,
     EditProductComponent,
     AddProductComponent,

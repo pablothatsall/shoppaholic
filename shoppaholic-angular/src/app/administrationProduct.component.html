@@ -20,14 +20,14 @@
 
             <div class="form-group">
                 <label class="control-label" id="lab" for="textinput">Product ID</label>  
-                <input id="textinput" name="textinput" placeholder="" class="form-control input-md" required="" type="text">
+                <input #id id="textinput" name="textinput" placeholder="" class="form-control input-md" required="" type="text">
             </div>
 
         <!-- Button (Double) -->
             <div class="form-group">
                 <label class="control-label" for="btnCancel"></label>
                 <div class="col-md-12">
-                    <button id="btnCancel" name="btnCancel" class="btn btn-primary" href="/editProduct"><a id="bt" href="editProduct.html"> Edit Product</a></button>
+                    <button id="btnCancel" name="btnCancel" class="btn btn-primary" [routerLink]="['/editproduct',id.value]" > Edit Product</button>
                     <button id="btnSave" name="btnSave" class="btn btn-success">Delete Product</button>
                 </div>
             </div>
