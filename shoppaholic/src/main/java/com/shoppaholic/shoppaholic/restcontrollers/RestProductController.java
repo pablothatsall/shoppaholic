@@ -108,7 +108,7 @@ public class RestProductController {
 	}
 	
 	
-	@RequestMapping(value="/api/deleteProduct/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/api/admin/deleteProduct/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<String> deleteProduct(@PathVariable long id) {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
 		if (uLogged.getRoles().contains("ROLE_ADMIN")){
