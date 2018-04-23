@@ -36,18 +36,22 @@
 				</p>
 				
 					<a [routerLink]="['/myorders',customer.id]" class="btn btn-primary">My Orders</a>
-				
+				  
 				<p>
 				
 					<input type="submit" (action)="logOut()" class="btn btn-primary" value="   Log Out   " />
 				
 				
 				</p>
+             <div *ngIf="isAdmin">
+                     <a [routerLink]="['/admin']" class="btn btn-primary">Admin</a>
+                </div>
 				
 		
 		</div>
 
 	</div>
+ 
 
 		
 

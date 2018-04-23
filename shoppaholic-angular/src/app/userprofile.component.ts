@@ -10,13 +10,17 @@ import { CustomerService } from './customer.service';
   export class userprofileComponent {
 
 customer:Customer;
+isAdmin:boolean;
 
   	 constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private customerService: CustomerService){
+       this.isAdmin=false;
        let id = activatedRoute.params.subscribe(params => {
        	 this.customerService.getCustomer(params['id']).subscribe(
       customer =>{
         this.customer=customerService.customer;
-        
+        if(this.customer.roles.indexOf("ADMIN")==1 || this.customer.roles.indexOf("ADMIN")==0){
+          this.isAdmin=true;
+        }
       
       },
       error =>  console.error(error)
@@ -25,14 +29,6 @@ customer:Customer;
       
   });
 
-  }
-    logOut() {
-    this.customerService.logOut().subscribe(
-      response => { },
-      error => console.log('Error when trying to log out: ' + error)
-
-    );
-    this.router.navigate(['/'])
   }
               
 }
