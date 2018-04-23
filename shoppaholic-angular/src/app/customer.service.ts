@@ -88,6 +88,15 @@ export class CustomerService {
 	      response => response.json())
 	      .catch(error =>this.handleError(error))
  	 }
+
+          getCustomers(){
+        let url="http://localhost:4200/api/customers";
+        console.log(url);
+        
+        return this.http.get(url).map(
+          response => response.json())
+          .catch(error =>this.handleError(error))
+      }
  	getCustomerByName(name:string){
     	let url="http://localhost:4200/api/User/SearchByName?key="+name;
     	console.log(url);
@@ -110,6 +119,15 @@ export class CustomerService {
       .map(response => response.json())
       .catch(error => this.handleError(error));
   }
+
+      deleteUser(id:number){
+    let url = "http://localhost:4200/api/admin/deleteCustomer/" + id;
+    return this.http.delete(url)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  }
+
+
 
     getOrders(id:number){
         let url="http://localhost:4200/api/customer/myorders/"+id;

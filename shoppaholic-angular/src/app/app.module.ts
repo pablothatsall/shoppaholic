@@ -54,7 +54,7 @@ import { routing } from './app.routing';
     */ 
     AdministrationComponent,
     EditProfileComponent,
-    //ManageUserComponent, 
+    ManageUserComponent, 
     OrderComponent,
     PaymentComponent,
     OrderlistComponent,

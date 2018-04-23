@@ -27,13 +27,12 @@ import { HomeComponent } from './home.component';
 
 
 const appRoutes = [
-  //{ path: '/admin/manageUsers', component: ManageUserComponent},
+  { path: 'manageusers', component: ManageUserComponent},
   { path: 'admin', component: AdministrationComponent},
   { path: 'customer/:id', component: userprofileComponent},
   { path: 'home', component:HomeComponent },
   { path: 'editprofile/:id', component:EditProfileComponent },
   { path: 'myorders/:id', component:OrderlistComponent },
-  { path: 'home/search/:searchtext', component:SearchComponent },
   { path: 'cart/:id', component:CartComponent },
   { path: 'login', component:LoginComponent },
   { path: 'loginError', component:LoginErrorComponent },
