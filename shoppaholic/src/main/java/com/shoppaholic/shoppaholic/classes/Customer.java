@@ -52,6 +52,7 @@ public class Customer {
 	private List<Pedido> myOrders = new ArrayList<>();
 	@OneToOne
 	private Pedido myCart;
+	@JsonView(Basic.class)
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 

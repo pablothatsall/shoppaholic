@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.shoppaholic.shoppaholic.*;
 import com.shoppaholic.shoppaholic.classes.Customer;
+import com.shoppaholic.shoppaholic.classes.Pedido;
 import com.shoppaholic.shoppaholic.classes.Product;
 import com.shoppaholic.shoppaholic.repositories.CustomerRepository;
 @Service
@@ -28,6 +29,10 @@ public class CustomerService {
 	public List<Customer> findByFirstName(String firstName) {
 		return customerRepository.findByFirstName(firstName);
 	}
+	public List<Customer> findAll() {
+		return customerRepository.findAll();
+	}
+	
 	
 	public List<Customer> findByAddress(String address) {
 		return customerRepository.findByAddress(address);

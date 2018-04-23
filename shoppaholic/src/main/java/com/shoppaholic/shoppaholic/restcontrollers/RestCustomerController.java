@@ -48,6 +48,12 @@ public class RestCustomerController {
 		return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 	}
 	
+	@RequestMapping(value="/api/customers", method=RequestMethod.GET)
+	public ResponseEntity<Collection<Customer>> getCustomers() {
+
+			return new ResponseEntity<>(customerService.findAll(),HttpStatus.OK);
+		}
+	
 	@RequestMapping(value="/api/customer/cart/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Pedido> getCustomerCart(@PathVariable long id) {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
