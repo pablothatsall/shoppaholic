@@ -28,6 +28,7 @@ import { HomeComponent } from './home.component';
 
 const appRoutes = [
   //{ path: '/admin/manageUsers', component: ManageUserComponent},
+  { path: 'admin', component: AdministrationComponent},
   { path: 'customer/:id', component: userprofileComponent},
   { path: 'home', component:HomeComponent },
   { path: 'editprofile/:id', component:EditProfileComponent },

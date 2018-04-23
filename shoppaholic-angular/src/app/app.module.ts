@@ -38,7 +38,7 @@ import { routing } from './app.routing';
     AppComponent,
   /*
     AddProductComponent,
-    AdministrationComponent,
+   
     AdministrationProductComponent,
    
     
@@ -52,7 +52,7 @@ import { routing } from './app.routing';
 
 
     */ 
-  
+    AdministrationComponent,
     EditProfileComponent,
     //ManageUserComponent, 
     OrderComponent,

@@ -33,15 +33,14 @@
             <div class="form-group"> 
   
                 <label class="control-label" id="lab" for="textinput">Name</label>  
-                <input id="textinput" name="userfirstname" placeholder="{{customer.firstName}}" class="form-control input-md" type="text">
-
+               <input #firstname id="firstname" name="firstname" placeholder="" required="required" class="form-control input-md" type="text">
             </div>
 
 
             <div class="form-group">
 
                 <label class="control-label" id="lab" for="textinput">Last Name</label>  
-                <input id="textinput" name="userlastname" placeholder="{{customer.lastName}}" class="form-control input-md"  type="text">
+                <input #lastname id="textinput" name="lastname" placeholder="" required="required"  class="form-control input-md" required="" type="text">
 
             </div>
             
@@ -50,19 +49,19 @@
             <div class="form-group">
 
                 <label class="control-label" id="lab" for="textinput">Mail</label>  
-                <input id="textinput" name="usermail" placeholder={{customer.mail}} class="form-control input-md" type="text">
+                <input #mail id=mail name="mail" placeholder="" required="required" class="form-control input-md" type="text">
 
             </div>
             
 
                 <label class="control-label" id="lab" for="textinput">Telephone:</label>  
-                <input id="textinput" name="usertelephone" placeholder="{{customer.telephone}}" class="form-control input-md"  type="text">
+                <input #telephone id="textinput" name="telephone" placeholder="" required="required"  class="form-control input-md" required="" type="text">
  
             </div>
             <div class="form-group">
 
                 <label class="control-label" id="lab" for="textarea">Address</label>
-                <textarea class="form-control"name="useraddress" id="textarea" placeholder="{{customer.address}}" name="descriptionproduct"></textarea>
+                 <textarea #address class="form-control" id="textarea" required="required"  name="address"></textarea>
 
             </div>
 
@@ -72,7 +71,7 @@
                 <label class="control-label" for="btnCancel"></label>
                 <div class="col-md-8">
                     <button id="btnCancel" name="btnCancel" class="btn btn-primary">Cancel</button>
-                    <button type="submit "id="btnSave" name="btnSave" (click)="editProfile(userfirstname.value, userlastname.value, usermail.value, usertelephone.value, useraddress.value)" class="btn btn-success">Save</button>
+                    <button type="submit "id="btnSave" name="btnSave" (click)="editProfile(firstname.value, lastname.value, mail.value, telephone.value, address.value)" class="btn btn-success">Save</button>
                 </div>
             </div>
         </div>

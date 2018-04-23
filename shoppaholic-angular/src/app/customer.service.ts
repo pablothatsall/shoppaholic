@@ -44,7 +44,7 @@ export class CustomerService {
     private processLogInResponse(response) {
         this.isLogged = true;
         this.customer = response.json();
-       
+       // if this.customer.getRoles
     }
 
     logIn(email: string, password: string) {
