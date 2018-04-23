@@ -27,6 +27,7 @@ import { HomeComponent } from './home.component';
 
 
 const appRoutes = [
+  { path: 'order/:id', component: OrderComponent},
   { path: 'adminproducts', component: AdministrationProductComponent},
   { path: 'editproduct/:id', component: EditProductComponent},
   { path: 'addproduct', component: AddProductComponent},

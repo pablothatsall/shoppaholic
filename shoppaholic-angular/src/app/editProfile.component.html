@@ -69,8 +69,8 @@
 
             <div class="form-group">
                 <label class="control-label" for="btnCancel"></label>
-                <div class="col-md-8">
-                    <button id="btnCancel" name="btnCancel" class="btn btn-primary">Cancel</button>
+                <div *ngIf="customer"class="col-md-8">
+                    <button id="btnCancel" name="btnCancel" class="btn btn-primary" [routerLink]="['/customer',customer.id]">Cancel</button>
                     <button type="submit "id="btnSave" name="btnSave" (click)="editProfile(firstname.value, lastname.value, mail.value, telephone.value, address.value)" class="btn btn-success">Save</button>
                 </div>
             </div>
