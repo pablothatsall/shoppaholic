@@ -51,6 +51,7 @@ this.productService.editProduct(this.product,this.product.id).subscribe(
       product =>{ this.product=product;},
       error => console.error(error)
     )
+this.router.navigate(['/admin']);
 
 
   }

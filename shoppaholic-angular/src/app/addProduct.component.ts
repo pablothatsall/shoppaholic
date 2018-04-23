@@ -36,7 +36,7 @@ this.productService.addProduct(this.product).subscribe(
       error => console.error(error)
     )
 
-
+this.router.navigate(['/admin']);
   }
 }
   
