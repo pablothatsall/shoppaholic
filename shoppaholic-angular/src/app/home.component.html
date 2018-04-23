@@ -19,13 +19,13 @@
                 <!-- Slide One - Set the background image for this slide in the line below -->
 
                 <div class="carousel-item active" style="background-image: url(./assets/img/librosSlider.png)">
-                    <a [routerLink]="['/search',Books]">
+                    <a [routerLink]="['/search','Books']">
                         <div class="carousel-caption d-none d-md-block">
                      <form action="search" method="post">
                     
-                     <input type="hidden" name="searchtext" value="Books" >
+                    
                     <input type="submit"  class="btn btn-primary" value="Books">
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
+                     
                      <h3>Don't just read</h3>
                      <p>Enjoy books</p>
                     </form>
@@ -36,7 +36,7 @@
                 <!-- Slide Two - Set the background image for this slide in the line below -->
 
                 <div class="carousel-item" style="background-image: url(./assets/img/smartphonesSlider.png)">
-                    <a [routerLink]="['/search',Smartphones]">
+                    <a [routerLink]="['/search','Smartphones']">
                         <div class="carousel-caption d-none d-md-block">
                         <form action="search" method="post">
                     
@@ -54,7 +54,7 @@
 
                 <!-- Slide Three - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url(./assets/img/moviesSlider.png)">
-                    <a [routerLink]="['/search',Movies]">
+                    <a [routerLink]="['/search','Movies']">
                         <div class="carousel-caption d-none d-md-block">
                             <form action="search" method="post">
                     
@@ -199,67 +199,37 @@
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
                 <img class="card-img-top" src="http://theoscillation.com/publishing-books/?view_iaq=publishing+books.jpg" alt="">
-                    <a [routerLink]="['/search',searchtext]"  >  <form action="search/{searchtext}" method="post">
-                    
-                     <input type="hidden" name="searchtext" value="Books" >
-                    <input type="submit"  class="btn btn-primary" value="Books">
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                    </form></a>
+                    <a [routerLink]="['/search','books']" class="btn btn-primary"  > Books  </a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
                 <img class="card-img-top" src="https://www.lovevalencia.com/wp-content/uploads/2015/11/arago-cinema-700x400.jpg">
-                    <a href="/search"  >  <form action="search/{searchtext}" method="post">
-                    
-                     <input type="hidden" name="searchtext" value="Movies" >
-                    <input type="submit"  class="btn btn-primary" value="Movies">
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                    </form></a>
+                    <a [routerLink]="['/search','movies']" class="btn btn-primary"  > Movies  </a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
                 <img class="card-img-top" src="http://canalnewsecuador.com/wp-content/uploads/2017/07/smartphones_latam_populares.png">
-                    <a href="/search"  >  <form action="search/{searchtext}" method="post">
-                    
-                     <input type="hidden" name="searchtext" value="Smartphones" >
-                    <input type="submit"  class="btn btn-primary" value="Smartphones">
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                    </form></a>
+                <a [routerLink]="['/search','smartphones']" class="btn btn-primary"  > Smartphones  </a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
                 <img class="card-img-top" src="https://gazettereview.com/wp-content/uploads/2016/07/most-popular-video-games.png">
-                    <a href="/search"  >  <form action="search/{searchtext}" method="post">
-                    
-                     <input type="hidden" name="searchtext" value="Videogames" >
-                    <input type="submit"  class="btn btn-primary" value="Videogames">
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                    </form></a>
+               <a [routerLink]="['/search','videogames']" class="btn btn-primary"  > Videogames  </a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
                 <img class="card-img-top" src="https://www.elpaisdelosjovenes.com/wp-content/uploads/2017/09/competencia-dj2.jpg">
-                    <a href="/search"  >  <form action="search/{searchtext}" method="post">
-                    
-                     <input type="hidden" name="searchtext" value="Music" >
-                    <input type="submit"  class="btn btn-primary" value="Music">
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                    </form></a>
+                   <a [routerLink]="['/search','music']" class="btn btn-primary"  > Music  </a>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-50">
                 <img class="card-img-top" src="https://sofecom.com/wp-content/uploads/2018/01/Impacto-Meltdown-y-Spectre.jpg">
-                    <a href="/search"  >  <form action="search/{searchtext}" method="post">
-                    
-                     <input type="hidden" name="searchtext" value="Electronic" >
-                    <input type="submit"  class="btn btn-primary" value="Electronic">
-                     <input type="hidden" name="_csrf" value="{{token}}"/>
-                    </form></a>
+                    <a [routerLink]="['/search','electronic']" class="btn btn-primary"  > Electronic  </a>
                 </div>
             </div>
         </div>
