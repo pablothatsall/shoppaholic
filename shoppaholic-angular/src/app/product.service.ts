@@ -43,6 +43,20 @@ export class ProductService {
   
   }
 
+  addProduct(product:Product){
+  const headers = new Headers({
+            'X-Requested-With': 'XMLHttpRequest',
+            //'Access-Control-Allow-Origin': '*'
+        });
+
+
+        const options = new RequestOptions({ withCredentials: true, headers});
+      return this.http.post('http://localhost:4200/api/admin/newproduct', options, product)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
+  }
+
    deleteFromCart(id:number|string){
   const headers = new Headers({
           //  'X-Requested-With': 'XMLHttpRequest',

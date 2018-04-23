@@ -36,22 +36,8 @@ import { routing } from './app.routing';
 @NgModule({
   declarations: [
     AppComponent,
-  /*
+    EditProductComponent,
     AddProductComponent,
-   
-    AdministrationProductComponent,
-   
-    
- 
-    ErrorComponent,
-  
-    
-    OrderlistComponent,
-    
-    
-
-
-    */ 
     AdministrationComponent,
     EditProfileComponent,
     ManageUserComponent, 
@@ -59,7 +45,7 @@ import { routing } from './app.routing';
     PaymentComponent,
     OrderlistComponent,
     userprofileComponent,
-     CartComponent,
+    CartComponent,
     SearchComponent,
     ProductComponent,
     LoginComponent,
