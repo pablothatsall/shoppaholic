@@ -191,12 +191,12 @@ public class IndexController {
 			List<Pedido> myorderslei = new ArrayList<>();
 			myorderslei.add(cartlei);
 		 
-			Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"../../../../imgProfile/chubi.jpg", myorderschubi, cartchubi, "ROLE_USER");
+			Customer c = new Customer("Ruben", "Iglesias", "chubi", "chubi", "c/Aprobado", 1313,"./assets/imgProfile/chubi.jpg", myorderschubi, cartchubi, "ROLE_USER");
 			c.getRoles().add("ROLE_ADMIN");
-			Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"../../../../imgProfile/pablo.jpg",myorderspablo , cartpablo , "ROLE_USER");
-			Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"../../../../imgProfile/dani.jpeg",myordersdani, cartdani, "ROLE_USER");
+			Customer p = new Customer("Pablo", "Moreno", "pablo", "pablo", "c/Sprint", 666,"./assets/imgProfile/pablo.jpg",myorderspablo , cartpablo , "ROLE_USER");
+			Customer d = new Customer("Dani", "Ribeiro", "dani", "dani", "c/Henry", 88,"./assets/imgProfile/dani.jpeg",myordersdani, cartdani, "ROLE_USER");
 			Customer s = new Customer("Sergio", "Sarria", "Porro", "sergio", "c/Avion 4",4532 ,"", myorderssarry,cartsarry,"ROLE_USER");
-			Customer l = new Customer("Lei", "Han", "lei", "lei", "c/abcd", 23,"../../../../imgProfile/descarga.png",myorderslei, cartlei, "ROLE_USER");
+			Customer l = new Customer("Lei", "Han", "lei", "lei", "c/abcd", 23,"./assets/imgProfile/descarga.png",myorderslei, cartlei, "ROLE_USER");
 			
 			customerRepository.save(c);
 			customerRepository.save(p);

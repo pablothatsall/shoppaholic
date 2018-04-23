@@ -85,6 +85,20 @@ public class RestProductController {
 		return new ResponseEntity<>(productService.findTop5ByOrderByScoreDesc(1,page),HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/api/toplabelproducts/{label}/{npage}", method = RequestMethod.GET)
+	public ResponseEntity<Page<Product>> SearchTopLabelProducts (@PageableDefault(size = 8) Pageable page, @PathVariable int npage, @PathVariable String label){
+		if (npage > 1) {
+			int aux = npage;
+			while (aux!=1) {
+			page = page.next();
+			aux= aux-1;
+			}
+		}
+		return new ResponseEntity<>(productService.findByLabelOrderByScoreDesc(label,page),HttpStatus.OK);
+	}
+	
+	
+	
 	@RequestMapping(value="/api/productComments/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Collection<Comment>> getProductComments(@PathVariable long id) {
 		Product p=productService.findOne(id);

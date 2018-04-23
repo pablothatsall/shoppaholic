@@ -63,7 +63,10 @@ public class RestSearchController {
 			aux= aux-1;
 			}
 		}
-		return new ResponseEntity<>(productService.findByNameContaining("%" + name + "%"),HttpStatus.OK);
+		List<Product> labels = productService.findByLabel(name, page).getContent();
+		List<Product> names = productService.findByNameContaining("%" + name + "%");
+		names.addAll(labels);
+		return new ResponseEntity<>(names,HttpStatus.OK);
 		
 		
 	}
