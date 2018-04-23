@@ -1,6 +1,5 @@
-<navigation></navigation>  
-<!--<body>
-
+<navigation></navigation>
+<body>
 
 
     <form class="form-horizontal">
@@ -9,78 +8,61 @@
         <div>
             <h3 id="tit">Edit Product</h3>
         </div>
- 
 
-
-
-        <div class="container">
+        <div *ngIf="product" class="container">
           <div class="row">
             <div class="col-sm">
             </div>
 
             <div class="col-sm">
-            
-         
- <select name="productnameoriginal">
-
-    <option value={{name}}>{{name}}</option>
-   
-</select>
- 
 
             <div class="form-group">
-                <label class="control-label" id="lab" for="productname">Name</label>  
-                <input id="productname" name="productname" placeholder="" class="form-control input-md" type="text">
+                <label class="control-label" id="lab" for="textinput">Name</label>  
+                <input #name id="textinput" name="nameproduct" placeholder="{{product.name}}" class="form-control input-md" required="" type="text">
             </div>
 
+        <!-- Text input-->
             <div class="form-group">
                 <label class="control-label" id="lab" for="textinput">Price</label>  
-                <input id="productprice" name="productprice" placeholder="" class="form-control input-md"  type="text">
+                <input #price id="textinput" name="priceproduct" placeholder="{{product.price}}" class="form-control input-md" required="" type="text">
             </div>
 
             <div class="form-group">
-                <label class="control-label" id="lab" for="textinput">Label</label>  
-                <input id="productlabe" name="productlabel" placeholder="" class="form-control input-md"  type="text">
+                <label class="control-label" id="lab" for="textinput">Labels (Separated by Comas)</label>  
+                <input #labels id="textinput" name="labelsproduct" placeholder="{{product.label}}" class="form-control input-md" required="" type="text">
             </div>
 
+        <!-- Textarea -->
             <div class="form-group">
                 <label class="control-label" id="lab" for="textarea">Description</label>
-                <textarea class="productdescription" id="productdescription" name="textarea"></textarea>
+                <textarea #description class="form-control" id="textarea" placeholder="{{product.description}}" name="descriptionproduct"></textarea>
             </div>
-			<div class="form-group">
-				<form action="/image/upload" method="post"enctype="multipart/form-data" id="form-image">
-					<div>
-						<input type="file" name="file" id="input-image" />
-						<input type="hidden" name="_csrf" value="{{token}}"/>
-						<button type="submit" class="btn btn-primary btn-lg uploadImg">Change Image</button>
-					</div>
-				</form>
-			</div>
 
 
-            <div class="form-group">
-                <label class="control-label" for="btnCancel"></label>
-                <div class="col-md-8">
-                    
-                    <button id="btnSave" name="btnSave" class="btn btn-success">Save</button>
-                 </form>
-                  
+            <div class="control-group" id="video">
+                <label class="control-label" id="lab" for="filebutton">Add Image </label>
+                <div class="controls">
+                    <input  id="filebutton" name="imageproduct" class="input-file" type="file">
                 </div>
             </div>
+
+        <!-- Button (Double) -->
+            <div class="form-group">
+               
+                
+                    <button  (click)="editProduct(name.value,price.value,labels.value,description.value)" class="btn btn-success">Edit</button>
+                
+            </div>
         </div>
-        
             <div class="col-sm">
-            
              
-   
             </div>
           </div>
         </div>
-<a href="/admin"><button class="btn btn-primary">Cancel</button></a>
-    
+
+    </form> <a [routerLink]="['/admin']"><button class="btn btn-primary">Cancel</button></a>
 
 
   </body>
 
--->
 <footercomponent></footercomponent>
