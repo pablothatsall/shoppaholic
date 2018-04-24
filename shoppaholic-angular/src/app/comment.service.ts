@@ -25,9 +25,13 @@ export class CommentService {
 
 
         const options = new RequestOptions({ withCredentials: true});
+         this.http.get('/api/product/' + id,options)
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
       return this.http.post('/api/newcomment/' + id,comment,options)
       .map(response => response.json())
       .catch(error => this.handleError(error));
+
   }
 
 

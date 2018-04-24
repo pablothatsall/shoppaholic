@@ -18,7 +18,7 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
   product:Product;
   comments:Comment[];
   newcomment:Comment;
-   constructor(private router: Router, activatedRoute: ActivatedRoute, private http: Http,  private productService: ProductService, private commentService: CommentService, private customerService:CustomerService){
+   constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: Http,  private productService: ProductService, private commentService: CommentService, private customerService:CustomerService){
 
    
    
@@ -70,19 +70,23 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
         },
       error => console.error(error)
     )
+
   }
 
-  AddComment(id:number, commentinfo:string){
+  AddComment(id:number, commentinfo:string, ){
     
       this.newcomment.comment=commentinfo;
+
     this.commentService.addComments(id,this.newcomment).subscribe(
        
-      product =>{ 
-      
+      comments =>{ 
+      this.comments=comments,
+       //location.reload()
+      this.router.navigate([''])
         },
       error => console.error(error)
     )
-     window.location.reload();
+
   }
 
 
