@@ -1,16 +1,22 @@
 
 <navigation></navigation>
 <body>
- 
-    
+                        
+ <div *ngIf="showcomment">
+         <h6>Comment by {{showcomment.customer.firstName}}</h6>
+              <p>{{showcomment.date}}</p>
+              <p>{{showcomment.comment}}</p>
+                 </div>
     <br>
     <div class="container">
+             
+
 
       <div class="row">
   
       
 
-        <div *ngIf="product"  class="col-lg-8">
+        <div  *ngIf="product" class="col-lg-8">
            
 
           <div  class="card mt-4">
@@ -56,21 +62,23 @@
               <p>{{comment.date}}</p>
               <p>{{comment.comment}}</p>
                  </div>
+       
+                
               
 
-              
            
             </div>
+
           </div>
-       <div *ngIf="product">
+       
 	 
  Add your comment: <input #commentinfo type="text" name="commentinfo">
      <button class="btn btn-primary" type="submit" (click)="AddComment(product.id,commentinfo.value)" >Add Comment</button>
 
-</div>
+
 
           </div>
-     
+
         <div class="col-lg-4">
 
           <h4 style="padding-bottom: 5px; padding-top: 5px"><!-- Top{{product.label}}--></h4>

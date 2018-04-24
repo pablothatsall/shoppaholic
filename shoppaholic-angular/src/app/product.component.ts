@@ -18,6 +18,7 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
   product:Product;
   comments:Comment[];
   newcomment:Comment;
+  showcomment:Comment;
    constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: Http,  private productService: ProductService, private commentService: CommentService, private customerService:CustomerService){
 
    
@@ -54,6 +55,8 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
 
   }
 
+
+
   getProduct(id:number){
     this.productService.getProduct(id).subscribe(
       product =>{ this.product=product;},
@@ -80,16 +83,20 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
     this.commentService.addComments(id,this.newcomment).subscribe(
        
       comments =>{ 
-      this.comments=comments,
+      this.comments=comments
+      this.newcomment=this.comments[comments.lenght-1]
+      this.showcomment=comments
        //location.reload()
-      this.router.navigate([''])
+
         },
       error => console.error(error)
     )
 
   }
 
+loadMore(){
 
+}
 
    createProduct(artist:Product){
     let url="http://localhost:4200/api/admin/newproduct";
