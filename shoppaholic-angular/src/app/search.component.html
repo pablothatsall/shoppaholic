@@ -71,30 +71,52 @@
           </div>
         </div>--> 
             
-      </div>
+   
       
 
-    
-<!--
+
+
+   </div>
+
+	
+      <div class="row">
+     	
+        <div *ngFor="let product of productmore "class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            <div>
+          <div  class="card h-100">
+            <a [routerLink]="['/product',product.id]"><img class="card-img-top" src={{product.imageUrl}} alt=""></a>
+            <div class="card-body">
+                
+              <h4 class="card-title">
+                <a [routerLink]="['/product',product.id]">{{product.name}}</a>
+              </h4>
+              <p class="card-text">{{product.description}}</p>
+              <p class="card-text">{{product.price}}€</p>
+            </div>
+          </div>
+                </div>
+        </div>
+               <div *ngIf="more">   
+        
 
       <ul class="pagination justify-content-center">
-      	{{#more}}
+    
         <li class="page-item">
-          <a class="page-link" href="/search/{{searchtext}}/loadMore/{{nextPage}}">Load More</a>
+          <a class="page-link" (click)="loadMore(searchtext)">Load More</a>
         </li>
-        {{/more}}
-        {{^more}}
+          
+
+   <div *ngIf="!more">   
+        
         <li class="page-item">
           <a class="page-link">No More Results</a>
         </li>
-        {{/more}}
+     
+       </div> 
       </ul>
- -->
+  
     </div>
-    
-
-
-
+        </div>
   
 
   <!-- ejemplo10 buscar libros en google

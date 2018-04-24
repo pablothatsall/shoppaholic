@@ -141,6 +141,14 @@ export class ProductService {
   
   }
 
+        searchMoreProducts(searchtext:string){
+       return this.http.get('http://localhost:4200/api/searchname/' + searchtext + '/2',{ withCredentials: true })
+      .map(response => response.json())
+      .catch(error => this.handleError(error));
+  
+  }
+
+
   private handleError(error: any) {
         console.error(error);
         return Observable.throw('Server error (' + error.status + '): ' + error.text);
