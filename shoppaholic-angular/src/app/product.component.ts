@@ -82,7 +82,7 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
         },
       error => console.error(error)
     )
-     this.router.navigate(['/product',id])
+     window.location.reload();
   }
 
 

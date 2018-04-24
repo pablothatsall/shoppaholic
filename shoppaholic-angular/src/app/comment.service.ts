@@ -21,7 +21,11 @@ export class CommentService {
 
 
       addComments(id:number|string, comment:Comment){
-      return this.http.post('/api/newcomment/' + id,comment)
+
+
+
+        const options = new RequestOptions({ withCredentials: true});
+      return this.http.post('/api/newcomment/' + id,comment,options)
       .map(response => response.json())
       .catch(error => this.handleError(error));
   }
