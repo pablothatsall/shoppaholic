@@ -14,12 +14,12 @@ import { Product} from './product.model';
   more:boolean;
    constructor(private router: Router, activatedRoute: ActivatedRoute,  private productService: ProductService){
        let id = activatedRoute.params.subscribe(params => {
-              
+              this.productmore=null;
       this.productService. searchProducts(params['searchtext']).subscribe(
       products =>{
         this.products=products;
       
-        if (this.products.length>7){this.more=true;} 
+        if (this.products.length>7 && this.products.length<16){this.more=true;} 
         this.searchtext=params['searchtext'];
       },
 
@@ -50,7 +50,7 @@ import { Product} from './product.model';
        this.productmore=productmore
 ;		
       	
-      	
+      	 if (this.productmore.length==this.products.length){this.productmore=null, this.more=false}
       	if (this.productmore.length<8){this.more=false;}},
       error => console.error(error)
     )
