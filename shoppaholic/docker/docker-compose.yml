@@ -16,7 +16,7 @@ services:
     container_name: springbackendShoppaholic
     ports:
     # - 8443:8443
-      - 8080:8443
+      - 8443:8443
     links:
       - mysql:mysql
     environment:
