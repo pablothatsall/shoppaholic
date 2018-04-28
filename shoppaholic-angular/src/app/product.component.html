@@ -2,11 +2,7 @@
 <navigation></navigation>
 <body>
                         
- <div *ngIf="showcomment">
-         <h6>Comment by {{showcomment.customer.firstName}}</h6>
-              <p>{{showcomment.date}}</p>
-              <p>{{showcomment.comment}}</p>
-                 </div>
+
     <br>
     <div class="container">
              
@@ -65,7 +61,11 @@
        
                 
               
-
+ <div *ngIf="showcomment">
+         <h6>Comment by {{showcomment.customer.firstName}}</h6>
+              <p>{{showcomment.date}}</p>
+              <p>{{showcomment.comment}}</p>
+                 </div>
            
             </div>
 

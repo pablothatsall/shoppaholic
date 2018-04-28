@@ -83,8 +83,7 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
     this.commentService.addComments(id,this.newcomment).subscribe(
        
       comments =>{ 
-      this.comments=comments
-      this.newcomment=this.comments[comments.lenght-1]
+      
       this.showcomment=comments
        //location.reload()
 
