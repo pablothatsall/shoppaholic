@@ -32,9 +32,9 @@
                 
                 <div class="col-md-1" style="text-align: right">
                    
-                    
+                      <div *ngIf="customer">
                     <button class="btn btn-primary" type="button" (click)="AddToCart(product.id)"><img id="icon" src="./assets/img/carrito.png"></button>
-                
+                    </div>
 </div>
 
             </div>
@@ -71,10 +71,10 @@
 
           </div>
        
-	 
+	  <div *ngIf="customer">
  Add your comment: <input #commentinfo type="text" name="commentinfo">
      <button class="btn btn-primary" type="submit" (click)="AddComment(product.id,commentinfo.value)" >Add Comment</button>
-
+            </div>
 
 
           </div>

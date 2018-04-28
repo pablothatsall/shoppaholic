@@ -109,6 +109,7 @@ public class Pedido {
     
     public void deleteProduct(Product product) {
     	this.productsofPedido.remove(product);
+    	this.totalPrice-=product.getPrice();
     }
     
 	public List<Product> getProductsofPedido() {

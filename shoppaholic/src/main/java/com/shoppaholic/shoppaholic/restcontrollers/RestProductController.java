@@ -161,6 +161,7 @@ public class RestProductController {
 		Customer uLogged=customerService.findOne(customerComponent.getIdLoggedUser());
 		uLogged.getMyCart().deleteProduct((productService.findOne(id)));
 		customerService.save(uLogged);
+		pedidoService.save(uLogged.getMyCart());
 		return new ResponseEntity<>(uLogged.getMyCart(),HttpStatus.OK);
 
 	}

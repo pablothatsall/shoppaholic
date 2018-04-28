@@ -19,6 +19,8 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
   comments:Comment[];
   newcomment:Comment;
   showcomment:Comment;
+  customer:boolean;
+
    constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: Http,  private productService: ProductService, private commentService: CommentService, private customerService:CustomerService){
 
    
@@ -35,7 +37,7 @@ const COMMENTS_URL = 'http://localhost:4200/api/comments/1';
       error =>  console.error(error)
       );
      
-
+       if(this.customerService.isLogged){this.customer=true;}
      
       this.newcomment={id:5, customer:customerService.customer, comment:"", date:"", product:this.product,idLogged:null};
 
