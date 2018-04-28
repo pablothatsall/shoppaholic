@@ -17,7 +17,7 @@ isAdmin:boolean;
        let id = activatedRoute.params.subscribe(params => {
        	 this.customerService.getCustomer(params['id']).subscribe(
       customer =>{
-        this.customer=customerService.customer;
+        this.customer=customer;
 
       
       },

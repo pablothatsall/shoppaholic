@@ -34,12 +34,12 @@ import { CustomerService } from './customer.service';
     this.customerService.deleteUser(id).subscribe(
        
       customers =>{ 
-        customers
+        this.customers=customers;
        
         },
       error => console.error(error)
     )
-    this.router.navigate(['/admin'])
+    
   }
 
 }

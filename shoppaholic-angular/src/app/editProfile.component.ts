@@ -31,22 +31,33 @@ customer:Customer;
 
   editProfile(userfirstname: string, userlastname: string, usermail: string, usertelephone: number, useraddress: string){
 
-	this.customer.idCustomer=this.customer.idCustomer;
+	  
+  
+
+    if (userfirstname!=null)
+    {
     this.customer.firstName=userfirstname;
+    }
+
+    if (userlastname!=null){
     this.customer.lastName=userlastname;
-    this.customer.mail=usermail;
-    this.customer.password=this.customer.password;
+    }
+
+    if (usermail!=null){
+    this.customer.mail=usermail;}
+    
+    if (useraddress!=null){
     this.customer.address=useraddress;
-    this.customer.imageUrl= this.customer.imageUrl;
-    this.customer.telephone=usertelephone;
-    this.customer.myOrders=  this.customer.myOrders;
-    this.customer.myCart= this.customer.myCart;
-    this.customer.roles=   this.customer.roles;
-    this.customer.idLogged=this.customer.idLogged;
+    }
+    
+    
+    if (usertelephone!=null){
+    this.customer.telephone=usertelephone;}
+    
 
 
 this.customerService.editCustomer(this.customer).subscribe(
-      customer =>{ this.customer=customer;},
+      customerx =>{ this.customer=customerx;},
       error => console.error(error)
     )
 
