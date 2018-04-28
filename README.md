@@ -212,4 +212,4 @@ https://github.com/pablothatsall/shoppaholic/blob/master/API.md
 
 ![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/diagramaF5.png)
 
-Video: <iframe width="560" height="315" src="https://www.youtube.com/embed/KZmGlXDbi5o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+Video: https://www.youtube.com/embed/KZmGlXDbi5o" 
