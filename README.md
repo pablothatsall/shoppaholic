@@ -183,6 +183,18 @@ https://github.com/pablothatsall/shoppaholic/blob/master/API.md
 
 -------------------------------------------------------------------------------
 
+
+### DOCKER
+
+- Partímos de la imagen del back end; 
+
+Para ejecutar angular te situas en la carpeta donde este situado docker, y se ejecuta el "docker build shoppaholic-angular", con esto se crea la imagen.
+En el Dockerfile están todos los pasos que ejecuta docker, en este paso se crea un contenedor con nginx donde se ejecutará el front, y a ese nginx le pasamos un archivo de configuración para poder conectar los puertos (back con front). Y ya una vez se crea todo, con el "docker-compose up" se ejecutan los contenedores de back y front.
+En el Dockerfile es necesario abrir utilizar nginx para meter angular en él, después se le pasa un archivo de configuración para que se puedan conectar los puertos, ya que en producción no se puede usar el proxy.conf.json
+
+
+-------------------------------------------------------------------------------
+
 ### Diagrama API
 
 ![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/DiagramaAPI.png)
@@ -192,7 +204,7 @@ https://github.com/pablothatsall/shoppaholic/blob/master/API.md
 
 ### Preparación del Entorno de Desarrollo
 
--Prerequisito: Descargar e instalar node.js
+- Prerequisito: Descargar e instalar node.js
 
 - Primero es necesario descargar e instalar la herramienta angular-cli, para ello introducimos el comando ***npm install -g angular/cli*** y automaticamente se ocupara de todo. Podemos usar el comando ***ng -v*** para comprobar la versión descargada y asi comprobar que el resultado ha sido correcto.
 
