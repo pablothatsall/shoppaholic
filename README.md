@@ -222,6 +222,43 @@ En el Dockerfile es necesario abrir utilizar nginx para meter angular en él, de
 
 ### Diagrama de Clases y Templates
 
-![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/diagramaF5.png)
+- Lo primero, decir que los componentes: administration, app.component, app.component.spec, app.module, app.routing, error, footer y loginerror no se han añadido a los diagramas ya que describen acciones genericas y por lo tanto no importan niguna de nuestras entidades. 
+
+No hace falta decir que cada componente *xxx.component.ts* tiene asignado su template *xxx.component.html*; es decir, llevan exactamente el mismo nombre.
+
+Separaremos las diferentes partes de la aplicación para que sea más ameno y entendible:
+
+- **Leyenda** 
+    - Amarillo -> Service
+    - Verde -> Component
+    - Morado -> Model
+
+- Los primero que presentaremos sera la relación entre modelos y más abajo las clases que importa cada servicio. Todo relacionado con las entidades de nuestras aplicación:
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/Models.PNG)
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/Services.PNG)
+
+- Abajo se muestran la parte de componentes que no requieren logueo y tiene que ver con las busquedas. En el componente de abajo englobamos los siguientes componentes: home, search, topLabelProducts y topProducts
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/ProductImporters.PNG)
+
+- A continuación están las relaciones entre componentes modelos y servicios relacionados con la parte de gestion del usuario:
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/customerSection.PNG)
+
+- Y debajo de estas encontramos los componentes dedicados a la parte de los pedidos:
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/Orders.PNG)
+
+- Para ir terminando mostraremos la parte de admin y sus componentes con sus respectivas relaciones:
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/adminSection.PNG)
+
+- Y por último encontramos el componente de Producto que era algo más complejo que los demás y decidimos separarlo:
+
+![alt text](https://github.com/pablothatsall/shoppaholic/blob/master/capturas/Product.PNG)
+
+- Y para cerrar el README.md dejamos el video de demostración de la aplicación:
 
 Video: https://www.youtube.com/embed/KZmGlXDbi5o" 
