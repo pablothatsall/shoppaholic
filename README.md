@@ -224,9 +224,9 @@ En el Dockerfile es necesario abrir utilizar nginx para meter angular en él, de
 
 - Lo primero, decir que los componentes: administration, app.component, app.component.spec, app.module, app.routing, error, footer y loginerror no se han añadido a los diagramas ya que describen acciones genericas y por lo tanto no importan niguna de nuestras entidades. 
 
-No hace falta decir que cada componente *xxx.component.ts* tiene asignado su template *xxx.component.html*; es decir, llevan exactamente el mismo nombre.
+- No hace falta decir que cada componente *xxx.component.ts* tiene asignado su template *xxx.component.html*; es decir, llevan exactamente el mismo nombre.
 
-Separaremos las diferentes partes de la aplicación para que sea más ameno y entendible:
+- Separaremos las diferentes partes de la aplicación para que sea más ameno y entendible:
 
 - **Leyenda** 
     - Amarillo -> Service
